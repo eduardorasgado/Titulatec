@@ -120,7 +120,7 @@
     </div>
 </div>
 <footer class="footty">
-    <p>Desarrollado por: <a href="https://lalodigitaliza.me">Eduardo Rasgado</a></p>
+    <p>Desarrollado por: <a href="https://lalodigitaliza.me">José Antonio, Josefina, Brenda</a></p>
 </footer>
 </body>
 </html>

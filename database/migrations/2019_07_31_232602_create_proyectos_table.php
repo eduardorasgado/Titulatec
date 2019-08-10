@@ -22,10 +22,10 @@ class CreateProyectosTable extends Migration
             // incrementandose
             $table->integer('conteo_registrados');
             $table->string('codigo_compartido');
-            $table->integer('id_Creador');
+            $table->integer('id_creador');
             // una vez que todos los integrantes del proyecto han cuminado su proceso de titulacion
             // este valor cambia a true
-            $table->binary('isClosed');
+            $table->binary('is_closed');
             $table->timestamps();
         });
     }

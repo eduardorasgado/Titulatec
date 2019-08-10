@@ -14,7 +14,7 @@ class CreatePlanEstudiosTable extends Migration
     public function up()
     {
         Schema::create('plan_estudios', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id');
             $table->string('clave')->unique();
             // es de utilidad para mostrar formato actual o pasado
             $table->binary('is_actual');

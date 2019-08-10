@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateAlumnoCarrerasTable extends Migration
+class CreatePlanEstudioEspecialidadsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,25 +13,17 @@ class CreateAlumnoCarrerasTable extends Migration
      */
     public function up()
     {
-        Schema::create('alumno_carreras', function (Blueprint $table) {
+        Schema::create('plan_estudio_especialidads', function (Blueprint $table) {
+            // tabla con doble llave foranea, muchos a muchos
             $table->increments('id');
-
-            // llaves foraneas de
-            // alumnos
-            // especialidad
-            // plan de estudios
-            $table->foreign('id_alumno')
-                ->references('id')
-                ->on('alumnos');
-
-            $table->foreign('id_especialidad')
-                ->references('id')
-                ->on('especialidades');
 
             $table->foreign('id_plan_estudios')
                 ->references('id')
                 ->on('plan_estudios');
 
+            $table->foreign('id_especialidad')
+                ->references('id')
+                ->on('especialidades');
             $table->timestamps();
         });
     }
@@ -43,6 +35,6 @@ class CreateAlumnoCarrerasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('alumno_carreras');
+        Schema::dropIfExists('plan_estudio_especialidads');
     }
 }

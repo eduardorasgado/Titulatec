@@ -24,6 +24,7 @@ class CreateActasTable extends Migration
             $table->time('hora_fin');
             $table->string('lugar_protocolo');
 
+            $table->foreign('id_proceso_titulacion')->references('id')->on('proceso_titulaciones');
             $table->foreign('id_libro')->references('id')->on('libros');
             $table->timestamps();
         });

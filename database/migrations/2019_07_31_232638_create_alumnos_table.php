@@ -24,8 +24,9 @@ class CreateAlumnosTable extends Migration
             $table->string('puesto_trabajo')->nullable();
             $table->string('generacion');
             $table->text('anexo');
+
+            // llaves foraneas
             $table->foreign('id_user')->references('id')->on('users');
-            $table->foreign('id_proceso_titulacion')->references('id')->on('proceso_titulaciones');
             $table->foreign('id_proyecto')->references('id')->on('proyectos');
             $table->timestamps();
         });

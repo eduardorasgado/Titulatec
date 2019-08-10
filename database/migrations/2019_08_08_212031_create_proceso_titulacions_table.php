@@ -14,7 +14,7 @@ class CreateProcesoTitulacionsTable extends Migration
     public function up()
     {
         Schema::create('proceso_titulaciones', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id');
             // representan el estado del proceso de la titulacion
             $table->binary('datos_generales');
             $table->binary('solicitud_titulacion');
@@ -23,9 +23,11 @@ class CreateProcesoTitulacionsTable extends Migration
             $table->binary('avisos');
             $table->binary('is_proceso_finished');
             // foraneas:
-            // acta
             // opcion titulacion
             // asesores
+            // acta
+            $table->foreign('id_opcion_titulacion')->references('id')->on('opcion_titulaciones');
+            $table->foreign('id_acta')->references('id')->on('actas');
 
             $table->timestamps();
         });

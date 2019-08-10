@@ -14,7 +14,7 @@ class CreateAlumnosTable extends Migration
     public function up()
     {
         Schema::create('alumnos', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id');
             $table->string('direccion');
             $table->string('telefono');
             $table->string('otherTECNM')->nullable();
@@ -25,7 +25,7 @@ class CreateAlumnosTable extends Migration
             $table->string('generacion');
             $table->text('anexo');
             $table->foreign('id_user')->references('id')->on('users');
-            $table->foreign('id_proyecto')->references('id')->on('proceso_titulaciones');
+            $table->foreign('id_proceso_titulacion')->references('id')->on('proceso_titulaciones');
             $table->foreign('id_proyecto')->references('id')->on('proyectos');
             $table->timestamps();
         });

@@ -33,6 +33,6 @@ class CreateEspecialidadsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('especialidads');
+        Schema::dropIfExists('especialidades');
     }
 }

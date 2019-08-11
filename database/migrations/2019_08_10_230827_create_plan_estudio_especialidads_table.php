@@ -42,6 +42,6 @@ class CreatePlanEstudioEspecialidadsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('plan_estudio_especialidads');
+        Schema::dropIfExists('plan_estudio_especialidades');
     }
 }

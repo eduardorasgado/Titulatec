@@ -47,6 +47,6 @@ class CreateProcesoTitulacionsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('proceso_titulacions');
+        Schema::dropIfExists('proceso_titulaciones');
     }
 }

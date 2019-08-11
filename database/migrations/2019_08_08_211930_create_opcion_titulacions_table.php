@@ -28,6 +28,6 @@ class CreateOpcionTitulacionsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('opcion_titulacions');
+        Schema::dropIfExists('opcion_titulaciones');
     }
 }

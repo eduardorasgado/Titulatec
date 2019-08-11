@@ -32,6 +32,6 @@ class CreateVocalsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('vocals');
+        Schema::dropIfExists('vocales');
     }
 }

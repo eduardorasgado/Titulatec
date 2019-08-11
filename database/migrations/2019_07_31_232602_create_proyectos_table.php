@@ -25,7 +25,7 @@ class CreateProyectosTable extends Migration
             $table->integer('id_creador');
             // una vez que todos los integrantes del proyecto han cuminado su proceso de titulacion
             // este valor cambia a true
-            $table->binary('is_closed');
+            $table->boolean('is_closed');
             $table->timestamps();
         });
     }

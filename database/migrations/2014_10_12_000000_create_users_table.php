@@ -20,13 +20,13 @@ class CreateUsersTable extends Migration
             $table->string('apellidos');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->binary('isEnable');
+            $table->boolean('is_enable');
             $table->rememberToken();
             $table->timestamps();
 
-            $table->integer('id_roles')->unsigned();
+            $table->integer('id_role')->unsigned();
 
-            $table->foreign('id_roles')->references('id')->on('roles');
+            $table->foreign('id_role')->references('id')->on('roles');
         });
     }
 

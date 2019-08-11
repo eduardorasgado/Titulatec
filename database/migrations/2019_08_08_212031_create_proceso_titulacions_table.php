@@ -16,12 +16,12 @@ class CreateProcesoTitulacionsTable extends Migration
         Schema::create('proceso_titulaciones', function (Blueprint $table) {
             $table->increments('id');
             // representan el estado del proceso de la titulacion
-            $table->binary('datos_generales');
-            $table->binary('solicitud_titulacion');
-            $table->binary('memorandum');
-            $table->binary('registro_proyecto');
-            $table->binary('avisos');
-            $table->binary('is_proceso_finished');
+            $table->boolean('datos_generales');
+            $table->boolean('solicitud_titulacion');
+            $table->boolean('memorandum');
+            $table->boolean('registro_proyecto');
+            $table->boolean('avisos');
+            $table->boolean('is_proceso_finished');
             // foraneas:
             // opcion titulacion
             // asesores

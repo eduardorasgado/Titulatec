@@ -16,7 +16,7 @@ class CreateActasTable extends Migration
         Schema::create('actas', function (Blueprint $table) {
             $table->increments('id');
             // si el pdf se ha generado
-            $table->binary('is_generated');
+            $table->boolean('is_generated');
             $table->date('fecha_examen_aviso');
             // fecha en que se genera el acta
             $table->date('fecha_generacion');

@@ -28,6 +28,9 @@ class CreateProcesoTitulacionsTable extends Migration
             // acta
             $table->foreign('id_alumno')->references('id')->on('alumnos');
             $table->foreign('id_opcion_titulacion')->references('id')->on('opcion_titulaciones');
+            $table->foreign('id_asesores')
+                ->references('id')
+                ->on('asesores');
 
             $table->timestamps();
         });

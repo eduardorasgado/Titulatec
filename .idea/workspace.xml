@@ -3,11 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="38466543-71e6-47b8-907d-daf5ac2d8132" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_08_08_215647_create_proyectos_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_07_31_232602_create_proyectos_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_08_10_212424_create_opcion_titulacions_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_08_08_211930_create_opcion_titulacions_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_08_10_220445_create_maestros_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_08_10_220942_create_maestros_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_08_10_224547_create_plan_estudios_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_08_10_224547_create_plan_estudios_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_08_10_225054_create_alumno_carreras_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_08_10_225054_create_alumno_carreras_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_08_08_212031_create_proceso_titulacions_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_08_08_212031_create_proceso_titulacions_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_08_10_220940_create_academias_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_08_08_212020_create_academias_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_08_10_220942_create_maestros_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_08_08_212025_create_maestros_table.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -68,7 +66,7 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="false">
+          <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/database/migrations/2019_08_10_225054_create_alumno_carreras_table.php">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="164">
@@ -77,11 +75,11 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/database/migrations/2019_07_31_232602_create_proyectos_table.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="400">
-                  <caret line="31" lean-forward="true" selection-start-line="31" selection-end-line="31" />
+                <state relative-caret-position="352">
+                  <caret line="28" column="7" lean-forward="true" selection-start-line="28" selection-start-column="7" selection-end-line="28" selection-end-column="7" />
                 </state>
               </provider>
             </entry>
@@ -96,10 +94,19 @@
             </entry>
           </file>
           <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/database/migrations/2019_08_10_220942_create_maestros_table.php">
+            <entry file="file://$PROJECT_DIR$/database/migrations/2019_08_08_212025_create_maestros_table.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="368">
-                  <caret line="25" column="42" selection-start-line="25" selection-start-column="42" selection-end-line="25" selection-end-column="42" />
+                <state relative-caret-position="336">
+                  <caret line="23" column="23" selection-start-line="23" selection-start-column="23" selection-end-line="23" selection-end-column="23" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/database/migrations/2019_08_08_212030_create_asesores_table.php">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="384">
+                  <caret line="26" column="33" selection-start-line="26" selection-start-column="33" selection-end-line="26" selection-end-column="33" />
                 </state>
               </provider>
             </entry>
@@ -114,7 +121,7 @@
             </entry>
           </file>
           <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/database/migrations/2019_08_10_220940_create_academias_table.php">
+            <entry file="file://$PROJECT_DIR$/database/migrations/2019_08_08_212020_create_academias_table.php">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="240">
                   <caret line="17" selection-start-line="17" selection-end-line="17" />
@@ -127,29 +134,51 @@
       <split-second>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php">
+            <entry file="file://$PROJECT_DIR$/database/migrations/2019_07_31_232638_create_alumnos_table.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="195">
-                  <caret line="17" column="22" selection-start-line="17" selection-start-column="22" selection-end-line="17" selection-end-column="22" />
+                <state relative-caret-position="324">
+                  <caret line="31" column="11" lean-forward="true" selection-start-line="31" selection-start-column="11" selection-end-line="31" selection-end-column="11" />
                 </state>
               </provider>
             </entry>
           </file>
           <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/database/migrations/2014_10_12_100000_create_password_resets_table.php">
-              <provider selected="true" editor-type-id="text-editor" />
+            <entry file="file://$PROJECT_DIR$/database/migrations/2019_08_08_212026_create_secretarios_table.php">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="288">
+                  <caret line="20" column="33" selection-start-line="20" selection-start-column="33" selection-end-line="20" selection-end-column="33" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/database/migrations/2019_08_08_212027_create_vocals_table.php">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="208">
+                  <caret line="15" column="30" selection-start-line="15" selection-start-column="30" selection-end-line="15" selection-end-column="30" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/database/migrations/2019_08_08_212028_create_presidentes_table.php">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="288">
+                  <caret line="20" column="33" selection-start-line="20" selection-start-column="33" selection-end-line="20" selection-end-column="33" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/database/migrations/2019_08_08_212029_create_vocal_suplentes_table.php">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="304">
+                  <caret line="21" column="33" selection-start-line="21" selection-start-column="33" selection-end-line="21" selection-end-column="33" />
+                </state>
+              </provider>
             </entry>
           </file>
           <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/database/migrations/2019_07_31_232638_create_alumnos_table.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="292">
-                  <caret line="29" column="12" selection-start-line="29" selection-start-column="12" selection-end-line="29" selection-end-column="12" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/database/migrations/2019_08_10_230827_create_plan_estudio_especialidads_table.php">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="368">
@@ -170,8 +199,8 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/database/migrations/2019_08_08_212031_create_proceso_titulacions_table.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="432">
-                  <caret line="29" column="12" selection-start-line="29" selection-start-column="12" selection-end-line="29" selection-end-column="12" />
+                <state relative-caret-position="336">
+                  <caret line="30" column="31" selection-start-line="30" selection-start-column="31" selection-end-line="30" selection-end-column="31" />
                 </state>
               </provider>
             </entry>
@@ -192,11 +221,6 @@
                   <caret line="16" column="21" selection-start-line="16" selection-start-column="21" selection-end-line="16" selection-end-column="21" />
                 </state>
               </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/app/User.php">
-              <provider selected="true" editor-type-id="text-editor" />
             </entry>
           </file>
         </leaf>
@@ -223,13 +247,18 @@
         <option value="$PROJECT_DIR$/database/migrations/2019_08_10_220445_create_maestros_table.php" />
         <option value="$PROJECT_DIR$/database/migrations/2019_08_10_221216_create_especialidads_table.php" />
         <option value="$PROJECT_DIR$/database/migrations/2019_08_10_214511_create_actas_table.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2019_08_08_212031_create_proceso_titulacions_table.php" />
         <option value="$PROJECT_DIR$/database/migrations/2019_08_10_225054_create_alumno_carreras_table.php" />
         <option value="$PROJECT_DIR$/database/migrations/2019_08_10_224547_create_plan_estudios_table.php" />
         <option value="$PROJECT_DIR$/database/migrations/2019_08_10_230827_create_plan_estudio_especialidads_table.php" />
         <option value="$PROJECT_DIR$/database/migrations/2019_08_08_215647_create_proyectos_table.php" />
         <option value="$PROJECT_DIR$/database/migrations/2019_08_10_232153_create_alumno_proyectos_table.php" />
         <option value="$PROJECT_DIR$/database/migrations/2019_07_31_232638_create_alumnos_table.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2019_08_10_234148_create_secretarios_table.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2019_08_10_234207_create_vocals_table.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2019_08_10_234247_create_presidentes_table.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2019_08_10_234330_create_vocal_suplentes_table.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2019_08_10_234749_create_asesores_table.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2019_08_08_212031_create_proceso_titulacions_table.php" />
       </list>
     </option>
   </component>
@@ -454,12 +483,12 @@
       <workItem from="1564522686517" duration="66000" />
       <workItem from="1564607302059" duration="5251000" />
       <workItem from="1565295175225" duration="4649000" />
-      <workItem from="1565470798898" duration="9026000" />
+      <workItem from="1565470798898" duration="11047000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="19925000" />
+    <option name="totallyTimeSpent" value="21946000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
@@ -604,8 +633,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="17" column="22" selection-start-line="17" selection-start-column="22" selection-end-line="17" selection-end-column="22" />
+        <state relative-caret-position="246">
+          <caret line="26" column="53" selection-start-line="26" selection-start-column="53" selection-end-line="26" selection-end-column="53" />
         </state>
       </provider>
     </entry>
@@ -616,62 +645,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="224">
           <caret line="16" column="21" selection-start-line="16" selection-start-column="21" selection-end-line="16" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2019_08_10_214022_create_libros_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
-          <caret line="16" column="21" selection-start-line="16" selection-start-column="21" selection-end-line="16" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2019_08_10_220940_create_academias_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="17" selection-start-line="17" selection-end-line="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2019_08_10_214511_create_actas_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="384">
-          <caret line="26" column="99" lean-forward="true" selection-start-line="26" selection-start-column="99" selection-end-line="26" selection-end-column="99" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2019_08_08_212031_create_proceso_titulacions_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="29" column="12" selection-start-line="29" selection-start-column="12" selection-end-line="29" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2019_08_10_225054_create_alumno_carreras_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="164">
-          <caret line="16" column="21" selection-start-line="16" selection-start-column="21" selection-end-line="16" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2019_08_10_224547_create_plan_estudios_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
-          <caret line="16" column="21" selection-start-line="16" selection-start-column="21" selection-end-line="16" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2019_08_10_220942_create_maestros_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="368">
-          <caret line="25" column="42" selection-start-line="25" selection-start-column="42" selection-end-line="25" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2019_08_10_221216_create_especialidads_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="256">
-          <caret line="18" column="9" selection-start-line="18" selection-start-column="9" selection-end-line="18" selection-end-column="9" />
         </state>
       </provider>
     </entry>
@@ -692,10 +665,101 @@
     <entry file="file://$PROJECT_DIR$/app/AlumnoProyecto.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2019_07_31_232638_create_alumnos_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="31" column="11" lean-forward="true" selection-start-line="31" selection-start-column="11" selection-end-line="31" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/database/migrations/2019_07_31_232602_create_proyectos_table.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="31" lean-forward="true" selection-start-line="31" selection-end-line="31" />
+        <state relative-caret-position="352">
+          <caret line="28" column="7" lean-forward="true" selection-start-line="28" selection-start-column="7" selection-end-line="28" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2019_08_08_212027_create_vocals_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="208">
+          <caret line="15" column="30" selection-start-line="15" selection-start-column="30" selection-end-line="15" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2019_08_08_212029_create_vocal_suplentes_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="21" column="33" selection-start-line="21" selection-start-column="33" selection-end-line="21" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2019_08_08_212030_create_asesores_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="384">
+          <caret line="26" column="33" selection-start-line="26" selection-start-column="33" selection-end-line="26" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2019_08_08_212028_create_presidentes_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="20" column="33" selection-start-line="20" selection-start-column="33" selection-end-line="20" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2019_08_08_212020_create_academias_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="17" selection-start-line="17" selection-end-line="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2019_08_08_212026_create_secretarios_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="20" column="33" selection-start-line="20" selection-start-column="33" selection-end-line="20" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2019_08_08_212031_create_proceso_titulacions_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="30" column="31" selection-start-line="30" selection-start-column="31" selection-end-line="30" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2019_08_10_214022_create_libros_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="224">
+          <caret line="16" column="21" selection-start-line="16" selection-start-column="21" selection-end-line="16" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2019_08_08_212025_create_maestros_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="23" column="23" selection-start-line="23" selection-start-column="23" selection-end-line="23" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2019_08_10_221216_create_especialidads_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="256">
+          <caret line="18" column="9" selection-start-line="18" selection-start-column="9" selection-end-line="18" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2019_08_10_224547_create_plan_estudios_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="224">
+          <caret line="16" column="21" selection-start-line="16" selection-start-column="21" selection-end-line="16" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2019_08_10_214511_create_actas_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="384">
+          <caret line="26" column="99" lean-forward="true" selection-start-line="26" selection-start-column="99" selection-end-line="26" selection-end-column="99" />
         </state>
       </provider>
     </entry>
@@ -706,10 +770,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2019_07_31_232638_create_alumnos_table.php">
+    <entry file="file://$PROJECT_DIR$/database/migrations/2019_08_10_225054_create_alumno_carreras_table.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="292">
-          <caret line="29" column="12" selection-start-line="29" selection-start-column="12" selection-end-line="29" selection-end-column="12" />
+        <state relative-caret-position="164">
+          <caret line="16" column="21" selection-start-line="16" selection-start-column="21" selection-end-line="16" selection-end-column="21" />
         </state>
       </provider>
     </entry>

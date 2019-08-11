@@ -22,6 +22,9 @@ class CreateMaestrosTable extends Migration
             // llaves foraneas
             // users
             // academia
+            $table->integer('id_user')->unsigned();
+            $table->integer('id_academia')->unsigned();
+
             $table->foreign('id_user')->references('id')->on('users');
             $table->foreign('id_academia')->references('id')->on('academias');
             $table->timestamps();

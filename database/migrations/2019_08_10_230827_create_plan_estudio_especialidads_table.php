@@ -14,8 +14,15 @@ class CreatePlanEstudioEspecialidadsTable extends Migration
     public function up()
     {
         Schema::create('plan_estudio_especialidads', function (Blueprint $table) {
+            // tabla que representa la relacion de los planes de estudio con la carrera o especialidad
+            // y no directamente con alumnos
+
             // tabla con doble llave foranea, muchos a muchos
             $table->increments('id');
+
+            // llaves foraneas
+            $table->integer('id_plan_estudios')->unsigned();
+            $table->integer('id_especialidad')->unsigned();
 
             $table->foreign('id_plan_estudios')
                 ->references('id')

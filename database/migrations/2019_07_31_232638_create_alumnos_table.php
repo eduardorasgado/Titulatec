@@ -26,6 +26,9 @@ class CreateAlumnosTable extends Migration
             $table->text('anexo');
 
             // llaves foraneas
+            $table->integer('id_user')->unsigned();
+            $table->integer('id_proyecto')->unsigned();
+
             $table->foreign('id_user')->references('id')->on('users');
             $table->foreign('id_proyecto')->references('id')->on('proyectos');
             $table->timestamps();

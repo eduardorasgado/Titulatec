@@ -14,12 +14,18 @@ class CreateAlumnoCarrerasTable extends Migration
     public function up()
     {
         Schema::create('alumno_carreras', function (Blueprint $table) {
+            // tabla que representa los campos de especialidad y plan de estudio de un alumno dado
             $table->increments('id');
 
             // llaves foraneas de
             // alumnos
             // especialidad
             // plan de estudios
+
+            $table->integer('id_alumno')->unsigned();
+            $table->integer('id_especialidad')->unsigned();
+            $table->integer('id_plan_estudios')->unsigned();
+
             $table->foreign('id_alumno')
                 ->references('id')
                 ->on('alumnos');

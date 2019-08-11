@@ -18,6 +18,9 @@ class CreateEspecialidadsTable extends Migration
             $table->increments('id');
             $table->string('nombre');
 
+            // llaves foraneas
+            $table->integer('id_academia')->unsigned();
+
             $table->foreign('id_academia')->references('id')->on('academias');
             $table->timestamps();
         });

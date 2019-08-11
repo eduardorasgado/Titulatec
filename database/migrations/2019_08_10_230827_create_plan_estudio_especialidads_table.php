@@ -13,7 +13,7 @@ class CreatePlanEstudioEspecialidadsTable extends Migration
      */
     public function up()
     {
-        Schema::create('plan_estudio_especialidads', function (Blueprint $table) {
+        Schema::create('plan_estudio_especialidades', function (Blueprint $table) {
             // tabla que representa la relacion de los planes de estudio con la carrera o especialidad
             // y no directamente con alumnos
 

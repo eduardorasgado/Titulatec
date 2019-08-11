@@ -14,7 +14,9 @@ class CreateVocalsTable extends Migration
     public function up()
     {
         Schema::create('vocales', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id');
+
+            $table->integer('id_maestro')->unsigned();
 
             $table->foreign('id_maestro')
                 ->references('id')

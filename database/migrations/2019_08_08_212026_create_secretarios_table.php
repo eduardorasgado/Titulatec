@@ -14,7 +14,10 @@ class CreateSecretariosTable extends Migration
     public function up()
     {
         Schema::create('secretarios', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id');
+
+            // llaves foraneas
+            $table->integer('id_maestro')->unsigned();
 
             $table->foreign('id_maestro')
                 ->references('id')

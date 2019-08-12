@@ -19,6 +19,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
     <style type="text/css">
         .navbar-brand {
             font-size: 2vw;

@@ -15,6 +15,7 @@ class OpcionTitulacionController extends Controller
     public function index()
     {
         //
+        return dd("index de opcion de titulacion");
     }
 
     /**
@@ -25,6 +26,7 @@ class OpcionTitulacionController extends Controller
     public function create()
     {
         //
+        return dd('Creando opcion de titulacion');
     }
 
     /**

@@ -22,4 +22,14 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(['middleware' => ['IsAdmin']], function() {
     // aqui van las peticiones que se relacionan con las acciones del administrador
+    // rutas para opcion de titulacion
+    Route::resource('OpcionTitulacion', 'OpcionTitulacionController',
+        ['except' => ['index']]);
+});
+
+Route::group(['middleware' => ['auth']], function() {
+    // rutas que todos pueden acceder
+    // usualmente los get
+    Route::resource('OpcionTitulacion', 'OpcionTitulacionController',
+        ['only' => ['index']]);
 });

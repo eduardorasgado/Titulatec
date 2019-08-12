@@ -30,8 +30,14 @@ class CreateProcesoTitulacionsTable extends Migration
             $table->integer('id_opcion_titulacion')->unsigned();
             $table->integer('id_asesores')->unsigned();
 
-            $table->foreign('id_alumno')->references('id')->on('alumnos');
-            $table->foreign('id_opcion_titulacion')->references('id')->on('opcion_titulaciones');
+            $table->foreign('id_alumno')
+                ->references('id')
+                ->on('alumnos');
+
+            $table->foreign('id_opcion_titulacion')
+                ->references('id')
+                ->on('opcion_titulaciones');
+
             $table->foreign('id_asesores')
                 ->references('id')
                 ->on('asesores');

@@ -7,5 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 class OpcionTitulacion extends Model
 {
     //
-    protected $fillable = [];
+    protected $fillable = [
+        'clave',
+        'nombre'
+    ];
 }

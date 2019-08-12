@@ -7,4 +7,17 @@ use Illuminate\Database\Eloquent\Model;
 class Alumno extends Model
 {
     //
+    protected $fillable = [
+        'direccion',
+        'telefono',
+        'otherTECNM',
+        'estado',
+        'ciudad',
+        'lugar_trabajo',
+        'puesto_trabajo',
+        'generacion',
+        'anexo',
+        'id_user',
+        'id_proyecto'
+    ];
 }

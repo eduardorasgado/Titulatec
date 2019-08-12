@@ -29,7 +29,7 @@
                             <a class="dropdown-item" href="{{ route('Roles.index') }}">Ver roles disponibles</a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="">Agregar Academia</a>
-                            <a class="dropdown-item" href="">Ver Academias</a>
+                            <a class="dropdown-item" href="{{ route('Academia.index') }}">Ver Academias</a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="">Agregar Especialidad(Carreras)</a>
                             <a class="dropdown-item" href="">Ver Especialidades(Carreras)</a>

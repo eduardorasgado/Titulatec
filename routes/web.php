@@ -27,6 +27,10 @@ Route::group(['middleware' => ['IsAdmin']], function() {
         ['except' => ['index']]);
     // rutas para modificacion o visualizacion de roles
     Route::resource('Roles', 'RoleController');
+    // rutas para academias
+    Route::resource('Academia', 'AcademiaController',
+        ['except' => ['index', 'show']]);
+
 });
 
 Route::group(['middleware' => ['auth']], function() {
@@ -34,4 +38,8 @@ Route::group(['middleware' => ['auth']], function() {
     // usualmente los get
     Route::resource('OpcionTitulacion', 'OpcionTitulacionController',
         ['only' => ['index']]);
+
+    // rutas para academias
+    Route::resource('Academia', 'AcademiaController',
+        ['only' => ['index', 'show']]);
 });

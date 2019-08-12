@@ -15,6 +15,8 @@ class AcademiaController extends Controller
     public function index()
     {
         //
+        $academias = Academia::all();
+        dd('Academias disponibles: '.$academias);
     }
 
     /**

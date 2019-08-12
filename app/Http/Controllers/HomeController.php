@@ -31,23 +31,26 @@ class HomeController extends Controller
             // devuelve el dashboard del administrador
             //return dd(Auth::user()->role->id);
 
-            return view('home');
+            return view('dashboards.administrador.home');
         }
 
-        else if(Auth::user()->id_role == 2) {
+        else if(Auth::user()->id_role == 2 || Auth::user()->id_role == 5) {
             // dashboard de jefe de academia
+            // dashboard de maestro
+            return view('dashboards.jefeAcademia.home');
         }
-        else if(Auth::user()->id_role == 3) {
+        else if(Auth::user()->id_role == 3 || Auth::user()->id_role == 7) {
             // dashboard de secretaria de division de estudios
+            // dashboard de jefe de division de estudios
+            return view('dashboards.secretariaDivision.home');
         }
         else if(Auth::user()->id_role == 4) {
             // dashboard de servicios escolares
-        }
-        else if(Auth::user()->id_role == 5) {
-            // dashboard de maestro
+            return view('dashboards.serviciosEscolares.home');
         }
         else if(Auth::user()->id_role == 6) {
             // dashboard de alumno
+            return view('dashboards.alumno.home');
         }
         /*
         else {

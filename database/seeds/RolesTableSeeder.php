@@ -29,7 +29,7 @@ class RolesTableSeeder extends Seeder
 
         // 3
         DB::table('roles')->insert([
-            'nombre' => 'Secretaria de División de estudios',
+            'nombre' => 'Secretaria de División de Estudios Profesionales',
             'descripcion' => '2do nivel de control del sistema',
             'created_at' => date("Y-m-d H:i:s")
         ]);
@@ -52,6 +52,13 @@ class RolesTableSeeder extends Seeder
         DB::table('roles')->insert([
             'nombre' => 'Alumno',
             'descripcion' => '4to nivel de control del sistema',
+            'created_at' => date("Y-m-d H:i:s")
+        ]);
+
+        // 7
+        DB::table('roles')->insert([
+            'nombre' => 'Jefe de División de Estudios Profesionales',
+            'descripcion' => '2do nivel de control del sistema',
             'created_at' => date("Y-m-d H:i:s")
         ]);
     }

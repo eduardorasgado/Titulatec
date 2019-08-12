@@ -15,6 +15,7 @@ class RoleController extends Controller
     public function index()
     {
         //
+        dd('Esta es una lista de todos los roles del sistema');
     }
 
     /**

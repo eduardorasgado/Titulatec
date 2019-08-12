@@ -17,7 +17,7 @@ class UsersTableSeeder extends Seeder
             'nombre' => 'Eduardo',
             'apellidos' => 'Rasgado Ruiz',
             'email' => 'eduardo.rasgado@hotmail.com',
-            'password' => bcrypt('gabagabahey'),
+            'password' => bcrypt(env('ADMIN_PASS', 'password')),
             'is_enable' => true,
             'id_role' => 1
         ]);

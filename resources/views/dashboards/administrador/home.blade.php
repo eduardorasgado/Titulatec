@@ -26,7 +26,7 @@
                             <a class="dropdown-item" href="{{ route('OpcionTitulacion.create') }}">Agregar opcion de titulación</a>
                             <a class="dropdown-item" href="{{ route('OpcionTitulacion.index') }}">Ver opciones de titulación</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="">Ver roles disponibles</a>
+                            <a class="dropdown-item" href="{{ route('Roles.index') }}">Ver roles disponibles</a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="">Agregar Academia</a>
                             <a class="dropdown-item" href="">Ver Academias</a>

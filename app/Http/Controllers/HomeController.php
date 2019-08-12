@@ -26,6 +26,7 @@ class HomeController extends Controller
      */
     public function index()
     {
+        //  REDIRECCIONAMIENTO A DASHBOARD DADO EL TIPO DE USUARIO LOGUEADO
 
         if(Auth::user()->id_role == 1) {
             // devuelve el dashboard del administrador

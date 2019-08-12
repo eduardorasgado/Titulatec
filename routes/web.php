@@ -25,6 +25,8 @@ Route::group(['middleware' => ['IsAdmin']], function() {
     // rutas para opcion de titulacion
     Route::resource('OpcionTitulacion', 'OpcionTitulacionController',
         ['except' => ['index']]);
+    // rutas para modificacion o visualizacion de roles
+    Route::resource('Roles', 'RoleController');
 });
 
 Route::group(['middleware' => ['auth']], function() {

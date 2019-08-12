@@ -16,10 +16,15 @@ class CreateAsesoresTable extends Migration
         Schema::create('asesores', function (Blueprint $table) {
             $table->increments('id');
 
+            $table->integer('id_proceso_titulacion')->unsigned();
             $table->integer('id_presidente')->unsigned();
             $table->integer('id_secretario')->unsigned();
             $table->integer('id_vocal')->unsigned();
             $table->integer('id_vocal_suplente')->unsigned();
+
+            $table->foreign('id_proceso_titulacion')
+                ->references('id')
+                ->on('proceso_titulaciones');
 
             $table->foreign('id_presidente')
                 ->references('id')

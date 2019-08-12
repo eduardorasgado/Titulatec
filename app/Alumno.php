@@ -17,6 +17,7 @@ class Alumno extends Model
         'puesto_trabajo',
         'generacion',
         'anexo',
+        // llaves foraneas
         'id_user',
         'id_proyecto'
     ];

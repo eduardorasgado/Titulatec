@@ -15,7 +15,6 @@ class ProcesoTitulacion extends Model
         'avisos',
         'is_proceso_finished',
         'id_alumno',
-        'id_opcion_titulacion',
-        'id_asesores'
+        'id_opcion_titulacion'
     ];
 }

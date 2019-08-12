@@ -38,10 +38,6 @@ class CreateProcesoTitulacionsTable extends Migration
                 ->references('id')
                 ->on('opcion_titulaciones');
 
-            $table->foreign('id_asesores')
-                ->references('id')
-                ->on('asesores');
-
             $table->timestamps();
         });
     }

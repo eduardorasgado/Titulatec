@@ -14,6 +14,7 @@ class Acta extends Model
         'hora_inicio',
         'hora_fin',
         'lugar_protocolo',
+        // llaves foraneas
         'id_proceso_titulacion',
         'id_libro'
     ];

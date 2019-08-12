@@ -11,6 +11,6 @@ class MaestroTableSeeder extends Seeder
      */
     public function run()
     {
-        //
+
     }
 }

@@ -12,5 +12,13 @@ class ServiciosEscolaresTableSeeder extends Seeder
     public function run()
     {
         //
+        DB::table('users')->insert([
+            'nombre' => 'Rosario',
+            'apellidos' => 'Cuevas Gonzales',
+            'email' => 'rosario.cuevas@hotmail.com',
+            'password' => bcrypt('rosariorosario1'),
+            'is_enable' => true,
+            'id_role' => 4
+        ]);
     }
 }

@@ -68,7 +68,7 @@
             <img class="logo" src="{{asset('images/logo.png')}}" alt="Portada">
             <a class="navbar-brand" href="{{ url('/') }}">
                 <span class="nameApp">{{ config('app.name', 'Laravel') }}</span>
-                <span class="nameApp2">Sinodalías Eléctrica ITI</span>
+                <span class="nameApp2">Sistema de Seguimiento de Titulaciones</span>
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                 <span class="navbar-toggler-icon"></span>

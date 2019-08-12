@@ -15,7 +15,8 @@ class OpcionTitulacionController extends Controller
     public function index()
     {
         //
-        return dd("index de opcion de titulacion");
+        $opciones = OpcionTitulacion::all();
+        return dd("index de opcion de titulacion: ".$opciones);
     }
 
     /**

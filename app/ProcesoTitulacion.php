@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 class ProcesoTitulacion extends Model
 {
     //
+    protected $table = 'proceso_titulaciones';
+
     protected $fillable = [
         'datos_generales',
         'solicitud_titulacion',

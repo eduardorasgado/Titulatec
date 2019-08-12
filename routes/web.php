@@ -20,3 +20,6 @@ Auth::routes();
 // HTTP
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::group(['middleware' => ['IsAdmin']], function() {
+    // aqui van las peticiones que se relacionan con las acciones del administrador
+});

@@ -12,8 +12,8 @@ class Role extends Model
         'descripcion'
     ];
 
-    // relacion uno a uno, role pertenece a user
-    public function role() {
-        return $this->belongsTo(User::class, 'id_role');
+    // relacion uno a muchos, role pertenece a user
+    public function users() {
+        return $this->hasMany(User::class, 'id_role');
     }
 }

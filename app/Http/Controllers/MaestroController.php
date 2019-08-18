@@ -15,6 +15,7 @@ class MaestroController extends Controller
     public function index()
     {
         //
+        return dd('mostrando lista de maestros');
     }
 
     /**
@@ -25,6 +26,7 @@ class MaestroController extends Controller
     public function create()
     {
         //
+        return view('dashboards.administrador.cuentas.creacion.maestro');
     }
 
     /**
@@ -36,6 +38,7 @@ class MaestroController extends Controller
     public function store(Request $request)
     {
         //
+        return dd("Se ha creado el maestro: ".$request);
     }
 
     /**
@@ -55,9 +58,10 @@ class MaestroController extends Controller
      * @param  \App\Maestro  $maestro
      * @return \Illuminate\Http\Response
      */
-    public function edit(Maestro $maestro)
+    public function edit($id)
     {
         //
+        return dd('mostrando form para editar maestro existente con id: '.$id);
     }
 
     /**

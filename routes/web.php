@@ -20,11 +20,13 @@ Auth::routes();
 // HTTP
 Route::get('/home', 'HomeController@index')->name('home');
 
+
+// https://laravel.com/docs/5.2/controllers#restful-naming-resource-routes
 Route::group(['middleware' => ['IsAdmin']], function() {
     // aqui van las peticiones que se relacionan con las acciones del administrador
     // rutas para opcion de titulacion
     Route::resource('OpcionTitulacion', 'OpcionTitulacionController',
-        ['except' => ['index']]);
+        ['except' => ['index', 'show']]);
     // rutas para modificacion o visualizacion de roles
     Route::resource('Role', 'RoleController');
     // rutas para academias
@@ -36,13 +38,16 @@ Route::group(['middleware' => ['IsAdmin']], function() {
 
     Route::resource('PlanEstudio', 'PlanEstudiosController',
         ['except' => ['index', 'show']]);
+
+    Route::resource('Maestro', 'MaestroController',
+        ['only' => ['create', 'store', 'destroy']]);
 });
 
 Route::group(['middleware' => ['auth']], function() {
     // rutas que todos pueden acceder
     // usualmente los get
     Route::resource('OpcionTitulacion', 'OpcionTitulacionController',
-        ['only' => ['index']]);
+        ['only' => ['index', 'show']]);
 
     // rutas para academias
     Route::resource('Academia', 'AcademiaController',
@@ -54,4 +59,17 @@ Route::group(['middleware' => ['auth']], function() {
 
     Route::resource('PlanEstudio', 'PlanEstudiosController',
         ['only' => ['index', 'show']]);
+
+    Route::resource('Maestro', 'MaestroController',
+        ['only' => ['index', 'show']]);
+});
+
+
+Route::group(['middleware' => ['IsMaestro']], function() {
+    Route::resource('Maestro', 'MaestroController',
+        ['only' => ['edit', 'update']]);
+
+    Route::get('/mostrar', function() {
+        dd("esta mostrando el maestro");
+    });
 });

@@ -48,8 +48,8 @@
                             Administrar departamentos
                         </button>
                         <div class="dropdown-menu">
-                            <a class="dropdown-item" href="">Agregar maestro</a>
-                            <a class="dropdown-item" href="">Ver maestro</a>
+                            <a class="dropdown-item" href="{{ route('Maestro.create') }}">Agregar maestro</a>
+                            <a class="dropdown-item" href="{{ route('Maestro.index') }}">Ver maestros</a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="">Jefes de academia</a>
                             <div class="dropdown-divider"></div>
@@ -65,6 +65,7 @@
                     </div>
                 </div>
             </div>
+
 
 
 @endsection

@@ -9,6 +9,7 @@ class PlanEstudios extends Model
     //
     protected $fillable = [
         'clave',
-        'is_actual'
+        'is_actual',
+        'estado'
     ];
 }

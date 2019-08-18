@@ -16,7 +16,8 @@ class OpcionTitulacionController extends Controller
     {
         //
         $opciones = OpcionTitulacion::all();
-        return dd("index de opcion de titulacion: ".$opciones);
+        return view('dashboards.administrador.opcionTitulacion.visualizar',
+            compact('opciones'));
     }
 
     /**

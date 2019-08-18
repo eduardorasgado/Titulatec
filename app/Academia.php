@@ -9,5 +9,6 @@ class Academia extends Model
     //
     protected $fillable = [
         'nombre',
+        'estado'
     ];
 }

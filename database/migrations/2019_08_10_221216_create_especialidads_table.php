@@ -17,6 +17,7 @@ class CreateEspecialidadsTable extends Migration
             // la especialidad se refiere al nombre de la carrera, no al plan de est, etc
             $table->increments('id');
             $table->string('nombre');
+            $table->boolean('estado');
 
             // llaves foraneas
             $table->integer('id_academia')->unsigned();

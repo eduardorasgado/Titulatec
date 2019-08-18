@@ -17,6 +17,7 @@ class CreateOpcionTitulacionsTable extends Migration
             $table->increments('id');
             $table->string('clave')->unique();
             $table->string('nombre');
+            $table->boolean('estado');
             $table->timestamps();
         });
     }

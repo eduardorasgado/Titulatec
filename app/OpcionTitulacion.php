@@ -11,6 +11,7 @@ class OpcionTitulacion extends Model
 
     protected $fillable = [
         'clave',
-        'nombre'
+        'nombre',
+        'estado'
     ];
 }

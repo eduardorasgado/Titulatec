@@ -17,6 +17,7 @@ class CreateLibrosTable extends Migration
             $table->increments('id');
             $table->date('fecha_autorizacion');
             $table->integer('numero_libro');
+            $table->boolean('estado');
             $table->timestamps();
         });
     }

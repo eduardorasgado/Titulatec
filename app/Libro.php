@@ -9,6 +9,7 @@ class Libro extends Model
     //
     protected $fillable = [
         'fecha_autorizacion',
-        'numero_libro'
+        'numero_libro',
+        'estado'
     ];
 }

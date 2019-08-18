@@ -16,6 +16,7 @@ class CreateAcademiasTable extends Migration
         Schema::create('academias', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nombre');
+            $table->boolean('estado');
             $table->timestamps();
         });
     }

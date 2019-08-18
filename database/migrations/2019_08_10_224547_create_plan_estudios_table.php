@@ -18,6 +18,7 @@ class CreatePlanEstudiosTable extends Migration
             $table->string('clave')->unique();
             // es de utilidad para mostrar formato actual o pasado
             $table->boolean('is_actual');
+            $table->boolean('estado');
             $table->timestamps();
         });
     }

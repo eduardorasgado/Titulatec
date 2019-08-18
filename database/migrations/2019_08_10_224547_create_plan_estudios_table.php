@@ -19,7 +19,14 @@ class CreatePlanEstudiosTable extends Migration
             // es de utilidad para mostrar formato actual o pasado
             $table->boolean('is_actual');
             $table->boolean('estado');
+            $table->integer('id_especialidad')->unsigned();;
+
+            // llaves foraneas
+            $table->foreign('id_especialidad')
+                ->references('id')
+                ->on('especialidades');
             $table->timestamps();
+
         });
     }
 

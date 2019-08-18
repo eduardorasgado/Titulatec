@@ -108,35 +108,35 @@
         .jumbo-1 {
             background-image: url("/images/tecoriginal.jpg");
             background-repeat: no-repeat;
-            background-size: 100%;
+            background-size: 80%;
             background-position: -10px -10px;
         }
 
         .jumbo-2 {
             background-image: url("/images/tecoriginal.jpg");
             background-repeat: no-repeat;
-            background-size: 100%;
+            background-size: 80%;
             background-position: -10px -10px;
         }
 
         .jumbo-3 {
             background-image: url("/images/tecoriginal.jpg");
             background-repeat: no-repeat;
-            background-size: 100%;
+            background-size: 80%;
             background-position: -10px -10px;
         }
 
         .jumbo-4 {
             background-image: url("/images/tecoriginal.jpg");
             background-repeat: no-repeat;
-            background-size: 100%;
+            background-size: 80%;
             background-position: -5px -90px;
         }
 
         .jumbo-5 {
             background-image: url("/images/tecoriginal.jpg");
             background-repeat: no-repeat;
-            background-size: 100%;
+            background-size: 80%;
             background-position: -5px -90px;
         }
 

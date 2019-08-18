@@ -10,6 +10,12 @@ class PlanEstudios extends Model
     protected $fillable = [
         'clave',
         'is_actual',
-        'estado'
+        'estado',
+        'id_especialidad'
     ];
+
+    public function especialidad() {
+        return $this->belongsTo(Especialidad::class,
+            'id_especialidad');
+    }
 }

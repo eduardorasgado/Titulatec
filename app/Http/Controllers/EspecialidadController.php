@@ -61,10 +61,11 @@ class EspecialidadController extends Controller
      */
     public function edit($id)
     {
-        //
+        // se muestran todas las academmias
+        // junto con la especialidad en cuestion
         $especialidad = Especialidad::findOrFail($id);
         return dd('Se muestra el form para editar la especialidad: '
-            .$especialidad->id);
+            .$especialidad);
     }
 
     /**
@@ -85,8 +86,10 @@ class EspecialidadController extends Controller
      * @param  \App\Especialidad  $especialidad
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Especialidad $especialidad)
+    public function destroy($id)
     {
         //
+        $especialidad = Especialidad::findOrFail($id);
+        return dd('Se desactivó la especialidad: '.$especialidad->nombre);
     }
 }

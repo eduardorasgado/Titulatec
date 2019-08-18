@@ -19,4 +19,11 @@ class Especialidad extends Model
         return $this->belongsTo(Academia::class,
             'id_academia');
     }
+
+    public function planEstudios() {
+        return $this->hasMany(
+            PlanEstudios::class,
+            'id_especialidad'
+        );
+    }
 }

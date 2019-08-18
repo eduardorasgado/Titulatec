@@ -59,9 +59,11 @@ class OpcionTitulacionController extends Controller
      * @param  \App\OpcionTitulacion  $opcionTitulacion
      * @return \Illuminate\Http\Response
      */
-    public function edit(OpcionTitulacion $opcionTitulacion)
+    public function edit($id)
     {
         //
+        $opcion = OpcionTitulacion::find($id);
+        return dd('modificando una opcion de titulacion: '.$opcion->id);
     }
 
     /**
@@ -82,8 +84,9 @@ class OpcionTitulacionController extends Controller
      * @param  \App\OpcionTitulacion  $opcionTitulacion
      * @return \Illuminate\Http\Response
      */
-    public function destroy(OpcionTitulacion $opcionTitulacion)
+    public function destroy($id)
     {
         //
+        return dd('eliminando la opcion de titulacion con id: '.$id);
     }
 }

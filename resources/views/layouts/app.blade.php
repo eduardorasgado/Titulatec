@@ -59,7 +59,99 @@
             color: #FFF;
         }
 
-    </style>
+        .jumboColorBlue {
+            background-color: #98e1b7;
+            margin: 10px;
+            padding: 20px;
+        }
+        .jumboColorBlue p {
+            margin: 0;
+        }
+
+        .jumboColorDark {
+            margin: 0px;
+            padding: 12px;
+            border-radius: 0px;
+            opacity: 0.8;
+        }
+
+        .jumboColorDark p {
+            color: white;
+            margin: 0;
+        }
+
+        .jumboBox {
+            margin: 10px;
+            padding: 20px;
+            background-color: #1b4b72;
+            color: white;
+            border-radius: 0px;
+
+        }
+
+        .left {
+            margin-right: 20px;
+            margin-left: 20px;
+        }
+        .right {
+            margin-right: 20px;
+            margin-left: 20px;
+        }
+
+        .blue {
+            color: #227dc7;
+        }
+        .orange {
+            color: #f6993f;
+        }
+
+        .jumbo-1 {
+            background-image: url("/images/tecoriginal.jpg");
+            background-repeat: no-repeat;
+            background-size: 100%;
+            background-position: -10px -10px;
+        }
+
+        .jumbo-2 {
+            background-image: url("/images/tecoriginal.jpg");
+            background-repeat: no-repeat;
+            background-size: 100%;
+            background-position: -10px -10px;
+        }
+
+        .jumbo-3 {
+            background-image: url("/images/tecoriginal.jpg");
+            background-repeat: no-repeat;
+            background-size: 100%;
+            background-position: -10px -10px;
+        }
+
+        .jumbo-4 {
+            background-image: url("/images/tecoriginal.jpg");
+            background-repeat: no-repeat;
+            background-size: 100%;
+            background-position: -5px -90px;
+        }
+
+        .jumbo-5 {
+            background-image: url("/images/tecoriginal.jpg");
+            background-repeat: no-repeat;
+            background-size: 100%;
+            background-position: -5px -90px;
+        }
+
+        .div-listado {
+            float:left;
+
+            overflow-y: auto;
+            height: 800px;
+        }
+        .form-button {
+            display: inline;
+            margin: 0;
+        }
+        </style>
+
 </head>
 <body>
 <div id="app">

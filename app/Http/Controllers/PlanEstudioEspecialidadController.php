@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\PlanEstudioEspecialidad;
+use App\PlanEstudios;
 use Illuminate\Http\Request;
 
 class PlanEstudioEspecialidadController extends Controller
@@ -14,7 +15,7 @@ class PlanEstudioEspecialidadController extends Controller
      */
     public function index()
     {
-        //
+
     }
 
     /**

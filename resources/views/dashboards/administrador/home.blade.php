@@ -34,8 +34,8 @@
                             <a class="dropdown-item" href="{{ route('Especialidad.create') }}">Agregar Especialidad(Carreras)</a>
                             <a class="dropdown-item" href="{{ route('Especialidad.index') }}">Ver Especialidades(Carreras)</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="">Agregar Plan de estudio</a>
-                            <a class="dropdown-item" href="">Ver Planes de estudio</a>
+                            <a class="dropdown-item" href="{{ route('PlanEstudio.create') }}">Agregar Plan de estudio</a>
+                            <a class="dropdown-item" href="{{ route('PlanEstudio.index') }}">Ver Planes de estudio</a>
                         </div>
                     </div>
                 </div>

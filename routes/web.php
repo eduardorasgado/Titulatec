@@ -33,6 +33,9 @@ Route::group(['middleware' => ['IsAdmin']], function() {
     // rutas para las especialidades, que dependen de las academias
     Route::resource('Especialidad', 'EspecialidadController',
         ['except' => ['index', 'show']]);
+
+    Route::resource('PlanEstudio', 'PlanEstudiosController',
+        ['except' => ['index', 'show']]);
 });
 
 Route::group(['middleware' => ['auth']], function() {
@@ -47,5 +50,8 @@ Route::group(['middleware' => ['auth']], function() {
 
     // rutas para especialidades
     Route::resource('Especialidad', 'EspecialidadController',
+        ['only' => ['index', 'show']]);
+
+    Route::resource('PlanEstudio', 'PlanEstudiosController',
         ['only' => ['index', 'show']]);
 });

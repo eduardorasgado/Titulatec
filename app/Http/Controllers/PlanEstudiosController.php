@@ -15,6 +15,10 @@ class PlanEstudiosController extends Controller
     public function index()
     {
         //
+        //
+        $planes = PlanEstudios::all();
+        return view('dashboards.administrador.planEstudios.visualizar',
+            compact('planes'));
     }
 
     /**
@@ -24,7 +28,8 @@ class PlanEstudiosController extends Controller
      */
     public function create()
     {
-        //
+        // devolvemos las especialidades
+        return dd('form para crear un plan de estudio');
     }
 
     /**
@@ -55,9 +60,11 @@ class PlanEstudiosController extends Controller
      * @param  \App\PlanEstudios  $planEstudios
      * @return \Illuminate\Http\Response
      */
-    public function edit(PlanEstudios $planEstudios)
+    public function edit($id)
     {
         //
+        $plan = PlanEstudios::findOrFail($id);
+        return dd('El plan de estudios a modificar es: '.$plan->clave);
     }
 
     /**
@@ -78,8 +85,9 @@ class PlanEstudiosController extends Controller
      * @param  \App\PlanEstudios  $planEstudios
      * @return \Illuminate\Http\Response
      */
-    public function destroy(PlanEstudios $planEstudios)
+    public function destroy($id)
     {
-        //
+        $plan = PlanEstudios::findOrFail($id);
+        return dd('Se desactivó un plan de estudios permanentemente: '.$plan->clave);
     }
 }

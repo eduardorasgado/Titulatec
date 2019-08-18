@@ -16,7 +16,8 @@ class RoleController extends Controller
     {
         //
         $roles = Role::all();
-        dd('Esta es una lista de todos los roles del sistema: '.$roles);
+        return view('dashboards.administrador.roles.visualizar',
+            compact('roles'));
     }
 
     /**
@@ -57,9 +58,11 @@ class RoleController extends Controller
      * @param  \App\Role  $role
      * @return \Illuminate\Http\Response
      */
-    public function edit(Role $role)
+    public function edit($id)
     {
         //
+        $role = Role::find($id);
+        return dd('role a editar: '.$role->id);
     }
 
     /**

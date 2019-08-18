@@ -26,11 +26,10 @@ Route::group(['middleware' => ['IsAdmin']], function() {
     Route::resource('OpcionTitulacion', 'OpcionTitulacionController',
         ['except' => ['index']]);
     // rutas para modificacion o visualizacion de roles
-    Route::resource('Roles', 'RoleController');
+    Route::resource('Role', 'RoleController');
     // rutas para academias
     Route::resource('Academia', 'AcademiaController',
         ['except' => ['index', 'show']]);
-
 });
 
 Route::group(['middleware' => ['auth']], function() {

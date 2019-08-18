@@ -1,5 +1,5 @@
 @extends('layouts.app')
 
 @section('content')
-    Dashboard de la Division de Estudios Profesionales
+    Dashboard de {{$role->nombre}}
 @endsection

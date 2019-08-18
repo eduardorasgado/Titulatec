@@ -4,7 +4,7 @@
 
     <div class="container">
         <div>
-            <h1>Administrador</h1>
+            <h1>{{$role->nombre}}</h1>
             <div>
                 <p>Bienvenido a tu dashboard. Esta es tu mesa de trabajo, ya puedes comenzar a
                     utilizarla. Excelente día</p>
@@ -26,7 +26,7 @@
                             <a class="dropdown-item" href="{{ route('OpcionTitulacion.create') }}">Agregar opcion de titulación</a>
                             <a class="dropdown-item" href="{{ route('OpcionTitulacion.index') }}">Ver opciones de titulación</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="{{ route('Roles.index') }}">Ver roles disponibles</a>
+                            <a class="dropdown-item" href="{{ route('Role.index') }}">Ver roles disponibles</a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="">Agregar Academia</a>
                             <a class="dropdown-item" href="{{ route('Academia.index') }}">Ver Academias</a>

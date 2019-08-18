@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    Dashboard del Jefe de Academia
+    Dashboard del {{$role->nombre}}
     tambien del maestro, en este caso, será desactivadas las funciones avanzadas
 
 @endsection

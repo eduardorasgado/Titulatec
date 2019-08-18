@@ -1,5 +1,5 @@
 @extends('layouts.app')
 
 @section('content')
-    Dashboard del Alumno
+    Dashboard del {{$role->nombre}}
 @endsection

@@ -34,7 +34,7 @@ class AcademiaTableSeeder extends Seeder
             'created_at' => date("Y-m-d H:i:s")
         ]);
         DB::table('academias')->insert([
-            'nombre' => 'Departamento de Electrica y Elecctronica',
+            'nombre' => 'Departamento de Eléctrica y Electrónica',
             'estado' => true,
             'created_at' => date("Y-m-d H:i:s")
         ]);

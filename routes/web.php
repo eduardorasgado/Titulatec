@@ -30,6 +30,9 @@ Route::group(['middleware' => ['IsAdmin']], function() {
     // rutas para academias
     Route::resource('Academia', 'AcademiaController',
         ['except' => ['index', 'show']]);
+    // rutas para las especialidades, que dependen de las academias
+    Route::resource('Especialidad', 'EspecialidadController',
+        ['except' => ['index', 'show']]);
 });
 
 Route::group(['middleware' => ['auth']], function() {
@@ -40,5 +43,9 @@ Route::group(['middleware' => ['auth']], function() {
 
     // rutas para academias
     Route::resource('Academia', 'AcademiaController',
+        ['only' => ['index', 'show']]);
+
+    // rutas para especialidades
+    Route::resource('Especialidad', 'EspecialidadController',
         ['only' => ['index', 'show']]);
 });

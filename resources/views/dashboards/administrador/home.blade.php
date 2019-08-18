@@ -28,11 +28,11 @@
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="{{ route('Role.index') }}">Ver roles disponibles</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="">Agregar Academia</a>
+                            <a class="dropdown-item" href="{{ route('Academia.create') }}">Agregar Academia</a>
                             <a class="dropdown-item" href="{{ route('Academia.index') }}">Ver Academias</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="">Agregar Especialidad(Carreras)</a>
-                            <a class="dropdown-item" href="">Ver Especialidades(Carreras)</a>
+                            <a class="dropdown-item" href="{{ route('Especialidad.create') }}">Agregar Especialidad(Carreras)</a>
+                            <a class="dropdown-item" href="{{ route('Especialidad.index') }}">Ver Especialidades(Carreras)</a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="">Agregar Plan de estudio</a>
                             <a class="dropdown-item" href="">Ver Planes de estudio</a>

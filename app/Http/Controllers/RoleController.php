@@ -61,7 +61,7 @@ class RoleController extends Controller
     public function edit($id)
     {
         //
-        $role = Role::find($id);
+        $role = Role::findOrFail($id);
         return dd('role a editar: '.$role->id);
     }
 

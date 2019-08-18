@@ -11,7 +11,12 @@ class Especialidad extends Model
 
     protected $fillable = [
         'nombre',
-        'id_academia',
-        'estado'
+        'estado',
+        'id_academia'
     ];
+
+    public function academia() {
+        return $this->belongsTo(Academia::class,
+            'id_academia');
+    }
 }

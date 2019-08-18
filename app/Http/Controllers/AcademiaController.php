@@ -28,6 +28,7 @@ class AcademiaController extends Controller
     public function create()
     {
         //
+        dd('creando una nueva academia');
     }
 
     /**
@@ -61,7 +62,7 @@ class AcademiaController extends Controller
     public function edit($id)
     {
         //
-        $academia = Academia::find($id);
+        $academia = Academia::findOrFail($id);
         return dd('mostrando form para editar la academia: '.$academia->id);
     }
 
@@ -85,7 +86,7 @@ class AcademiaController extends Controller
      */
     public function destroy($id)
     {
-        $academia = Academia::find($id);
+        $academia = Academia::findOrFail($id);
         return dd('La academia ha sido desactivada permanentemente: '.$academia->id);
     }
 }

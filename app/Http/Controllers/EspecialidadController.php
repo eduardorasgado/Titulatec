@@ -15,6 +15,9 @@ class EspecialidadController extends Controller
     public function index()
     {
         //
+        $especialidades = Especialidad::all();
+        return view('dashboards.administrador.especialidades.visualizar',
+            compact('especialidades'));
     }
 
     /**
@@ -24,7 +27,8 @@ class EspecialidadController extends Controller
      */
     public function create()
     {
-        //
+        // mandamos las academias
+        return dd('Creando una nueva especialidad');
     }
 
     /**
@@ -55,9 +59,12 @@ class EspecialidadController extends Controller
      * @param  \App\Especialidad  $especialidad
      * @return \Illuminate\Http\Response
      */
-    public function edit(Especialidad $especialidad)
+    public function edit($id)
     {
         //
+        $especialidad = Especialidad::findOrFail($id);
+        return dd('Se muestra el form para editar la especialidad: '
+            .$especialidad->id);
     }
 
     /**

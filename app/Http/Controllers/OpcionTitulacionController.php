@@ -62,7 +62,7 @@ class OpcionTitulacionController extends Controller
     public function edit($id)
     {
         //
-        $opcion = OpcionTitulacion::find($id);
+        $opcion = OpcionTitulacion::findOrFail($id);
         return dd('modificando una opcion de titulacion: '.$opcion->id);
     }
 
@@ -87,6 +87,7 @@ class OpcionTitulacionController extends Controller
     public function destroy($id)
     {
         //
-        return dd('eliminando la opcion de titulacion con id: '.$id);
+        $opcion = OpcionTitulacion::findOrFail($id);
+        return dd('eliminando la opcion de titulacion con id: '.$opcion->id);
     }
 }

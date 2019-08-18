@@ -11,4 +11,9 @@ class Academia extends Model
         'nombre',
         'estado'
     ];
+
+    public function especialidades() {
+        return $this->hasMany(Especialidad::class,
+            'id_academia');
+    }
 }

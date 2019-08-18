@@ -16,7 +16,8 @@ class AcademiaController extends Controller
     {
         //
         $academias = Academia::all();
-        dd('Academias disponibles: '.$academias);
+        return view('dashboards.administrador.academias.visualizar',
+            compact('academias'));
     }
 
     /**
@@ -57,9 +58,11 @@ class AcademiaController extends Controller
      * @param  \App\Academia  $academia
      * @return \Illuminate\Http\Response
      */
-    public function edit(Academia $academia)
+    public function edit($id)
     {
         //
+        $academia = Academia::find($id);
+        return dd('mostrando form para editar la academia: '.$academia->id);
     }
 
     /**
@@ -80,8 +83,9 @@ class AcademiaController extends Controller
      * @param  \App\Academia  $academia
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Academia $academia)
+    public function destroy($id)
     {
-        //
+        $academia = Academia::find($id);
+        return dd('La academia ha sido desactivada permanentemente: '.$academia->id);
     }
 }

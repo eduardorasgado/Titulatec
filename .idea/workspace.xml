@@ -2,11 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="38466543-71e6-47b8-907d-daf5ac2d8132" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ServiciosEscolaresController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ServiciosEscolaresController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Kernel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/dashboards/administrador/cuentas/creacion/serviciosEscolares.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboards/administrador/cuentas/creacion/serviciosEscolares.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/dashboards/administrador/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboards/administrador/home.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/dashboards/administrador/cuentas/listado/divisionEstudios.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/dashboards/administrador/cuentas/listado/maestro.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/DivisionEstudiosController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/DivisionEstudiosController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/MaestroController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/MaestroController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Role.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Role.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -23,19 +24,10 @@
         <state>
           <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
             <file pinned="false" current-in-tab="false">
-              <entry file="file://$PROJECT_DIR$/resources/views/dashboards/jefeAcademia/home.blade.php">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="64">
-                    <caret line="4" column="80" selection-start-line="4" selection-start-column="80" selection-end-line="4" selection-end-column="80" />
-                  </state>
-                </provider>
-              </entry>
-            </file>
-            <file pinned="false" current-in-tab="false">
               <entry file="file://$PROJECT_DIR$/resources/views/dashboards/administrador/home.blade.php">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="490">
-                    <caret line="62" lean-forward="true" selection-start-line="62" selection-end-line="62" />
+                  <state relative-caret-position="394">
+                    <caret line="50" column="101" selection-start-line="50" selection-start-column="101" selection-end-line="50" selection-end-column="101" />
                   </state>
                 </provider>
               </entry>
@@ -62,20 +54,11 @@
                 </provider>
               </entry>
             </file>
-            <file pinned="false" current-in-tab="true">
+            <file pinned="false" current-in-tab="false">
               <entry file="file://$PROJECT_DIR$/resources/views/dashboards/administrador/cuentas/creacion/serviciosEscolares.blade.php">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="80">
-                    <caret line="5" column="41" lean-forward="true" selection-start-line="5" selection-start-column="41" selection-end-line="5" selection-end-column="41" />
-                  </state>
-                </provider>
-              </entry>
-            </file>
-            <file pinned="false" current-in-tab="false">
-              <entry file="file://$PROJECT_DIR$/resources/views/dashboards/administrador/opcionTitulacion/visualizar.blade.php">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="336">
-                    <caret line="21" column="14" selection-start-line="21" selection-start-column="14" selection-end-line="21" selection-end-column="14" />
+                  <state relative-caret-position="352">
+                    <caret line="22" column="22" lean-forward="true" selection-start-line="22" selection-start-column="22" selection-end-line="22" selection-end-column="22" />
                   </state>
                 </provider>
               </entry>
@@ -92,8 +75,26 @@
             <file pinned="false" current-in-tab="false">
               <entry file="file://$PROJECT_DIR$/resources/views/dashboards/administrador/especialidades/visualizar.blade.php">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="1024">
-                    <caret line="64" column="11" selection-start-line="64" selection-start-column="11" selection-end-line="64" selection-end-column="11" />
+                  <state relative-caret-position="522">
+                    <caret line="58" column="26" lean-forward="true" selection-start-line="58" selection-start-column="26" selection-end-line="58" selection-end-column="26" />
+                  </state>
+                </provider>
+              </entry>
+            </file>
+            <file pinned="false" current-in-tab="false">
+              <entry file="file://$PROJECT_DIR$/resources/views/dashboards/administrador/cuentas/listado/maestro.blade.php">
+                <provider selected="true" editor-type-id="text-editor">
+                  <state relative-caret-position="240">
+                    <caret line="15" column="18" lean-forward="true" selection-start-line="15" selection-start-column="18" selection-end-line="15" selection-end-column="18" />
+                  </state>
+                </provider>
+              </entry>
+            </file>
+            <file pinned="false" current-in-tab="true">
+              <entry file="file://$PROJECT_DIR$/resources/views/dashboards/administrador/cuentas/listado/divisionEstudios.blade.php">
+                <provider selected="true" editor-type-id="text-editor">
+                  <state relative-caret-position="256">
+                    <caret line="22" column="35" selection-start-line="22" selection-start-column="35" selection-end-line="22" selection-end-column="35" />
                   </state>
                 </provider>
               </entry>
@@ -128,8 +129,8 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/app/Http/Controllers/MaestroController.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="448">
-                  <caret line="56" column="90" lean-forward="true" selection-start-line="56" selection-start-column="90" selection-end-line="56" selection-end-column="90" />
+                <state relative-caret-position="384">
+                  <caret line="28" lean-forward="true" selection-start-line="28" selection-end-line="28" />
                   <folding>
                     <element signature="e#40#77#0#PHP" expanded="true" />
                   </folding>
@@ -137,28 +138,7 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/app/Http/Middleware/IsMaestro.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="432">
-                  <caret line="27" column="9" lean-forward="true" selection-start-line="27" selection-start-column="9" selection-end-line="27" selection-end-column="9" />
-                  <folding>
-                    <element signature="e#39#51#0#PHP" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/app/Http/Middleware/IsServiciosEscolares.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="400">
-                  <caret line="25" column="13" lean-forward="true" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
+          <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/routes/web.php">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="211">
@@ -170,11 +150,11 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ServiciosEscolaresController.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="400">
-                  <caret line="48" column="29" lean-forward="true" selection-start-line="48" selection-start-column="29" selection-end-line="48" selection-end-column="29" />
+                <state relative-caret-position="320">
+                  <caret line="23" column="7" lean-forward="true" selection-start-line="23" selection-start-column="7" selection-end-line="23" selection-end-column="7" />
                   <folding>
                     <element signature="e#40#53#0#PHP" expanded="true" />
                   </folding>
@@ -221,11 +201,20 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/app/Http/Controllers/DivisionEstudiosController.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="323">
-                  <caret line="55" column="97" lean-forward="true" selection-start-line="55" selection-start-column="97" selection-end-line="55" selection-end-column="97" />
+                <state relative-caret-position="371">
+                  <caret line="29" column="7" lean-forward="true" selection-start-line="29" selection-start-column="7" selection-end-line="29" selection-end-column="7" />
                   <folding>
                     <element signature="e#40#90#0#PHP" expanded="true" />
                   </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/app/Role.php">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="144">
+                  <caret line="9" column="6" lean-forward="true" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
                 </state>
               </provider>
             </entry>
@@ -237,7 +226,7 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/database/seeds/RolesTableSeeder.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="473">
+                <state relative-caret-position="569">
                   <caret line="44" column="36" lean-forward="true" selection-start-line="44" selection-start-column="36" selection-end-line="44" selection-end-column="36" />
                   <folding>
                     <element signature="e#7#38#0#PHP" expanded="true" />
@@ -342,9 +331,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/database/migrations/2019_08_10_221216_create_especialidads_table.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2019_08_08_212025_create_maestros_table.php" />
         <option value="$PROJECT_DIR$/app/OpcionTitulacion.php" />
         <option value="$PROJECT_DIR$/app/Libro.php" />
         <option value="$PROJECT_DIR$/database/seeds/OpcionTitulacionTableSeeder.php" />
@@ -382,17 +368,20 @@
         <option value="$PROJECT_DIR$/app/Http/Requests/ChangePassRequest.php" />
         <option value="$PROJECT_DIR$/app/Http/Requests/MaestroRequest.php" />
         <option value="$PROJECT_DIR$/resources/views/dashboards/administrador/cuentas/creacion/maestro.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/MaestroController.php" />
         <option value="$PROJECT_DIR$/app/Http/Requests/PersonalDepartamentoRequest.php" />
         <option value="$PROJECT_DIR$/app/Http/Middleware/IsDivisionEstudios.php" />
         <option value="$PROJECT_DIR$/app/Http/Middleware/IsServiciosEscolares.php" />
         <option value="$PROJECT_DIR$/resources/views/dashboards/administrador/cuentas/creacion/divisionEstudios.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/DivisionEstudiosController.php" />
         <option value="$PROJECT_DIR$/routes/web.php" />
         <option value="$PROJECT_DIR$/app/Http/Kernel.php" />
         <option value="$PROJECT_DIR$/resources/views/dashboards/administrador/home.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/dashboards/administrador/cuentas/creacion/serviciosEscolares.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/ServiciosEscolaresController.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/MaestroController.php" />
+        <option value="$PROJECT_DIR$/resources/views/dashboards/administrador/cuentas/listado/maestro.blade.php" />
+        <option value="$PROJECT_DIR$/app/Role.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/DivisionEstudiosController.php" />
+        <option value="$PROJECT_DIR$/resources/views/dashboards/administrador/cuentas/listado/divisionEstudios.blade.php" />
       </list>
     </option>
   </component>
@@ -637,6 +626,25 @@
               <item name="titulatec" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="dashboards" type="462c0819:PsiDirectoryNode" />
+              <item name="administrador" type="462c0819:PsiDirectoryNode" />
+              <item name="cuentas" type="462c0819:PsiDirectoryNode" />
+              <item name="listado" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="titulatec" type="b2602c69:ProjectViewProjectNode" />
+              <item name="titulatec" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="dashboards" type="462c0819:PsiDirectoryNode" />
+              <item name="administrador" type="462c0819:PsiDirectoryNode" />
+              <item name="especialidades" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="titulatec" type="b2602c69:ProjectViewProjectNode" />
+              <item name="titulatec" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
               <item name="layouts" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -695,12 +703,12 @@
       <workItem from="1565555779388" duration="29993000" />
       <workItem from="1565645593279" duration="5469000" />
       <workItem from="1566110838832" duration="27323000" />
-      <workItem from="1566172224157" duration="9761000" />
+      <workItem from="1566172224157" duration="10904000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="96731000" />
+    <option name="totallyTimeSpent" value="97874000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="2062" height="878" extended-state="6" />
@@ -754,36 +762,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/PlanEstudios.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="10" column="16" lean-forward="true" selection-start-line="10" selection-start-column="16" selection-end-line="10" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/seeds/OpcionTitulacionTableSeeder.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="67" column="33" lean-forward="true" selection-start-line="67" selection-start-column="33" selection-end-line="67" selection-end-column="33" />
-          <folding>
-            <element signature="e#7#38#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/seeds/LibroTableSeeder.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="532">
-          <caret line="73" lean-forward="true" selection-start-line="73" selection-end-line="73" />
-          <folding>
-            <element signature="e#7#38#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/seeds/DivisionDeEstudiosTableSeeder.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/database/seeds/AlumnosTableSeeder.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="336">
@@ -944,13 +922,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/dashboards/administrador/especialidades/visualizar.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1024">
-          <caret line="64" column="11" selection-start-line="64" selection-start-column="11" selection-end-line="64" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/dashboards/administrador/planEstudios/visualizar.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="608">
@@ -1041,16 +1012,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/MaestroController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="448">
-          <caret line="56" column="90" lean-forward="true" selection-start-line="56" selection-start-column="90" selection-end-line="56" selection-end-column="90" />
-          <folding>
-            <element signature="e#40#77#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Kernel.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="292">
@@ -1086,17 +1047,81 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/dashboards/administrador/home.blade.php">
+    <entry file="file://$PROJECT_DIR$/database/seeds/RolesTableSeeder.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="490">
-          <caret line="62" lean-forward="true" selection-start-line="62" selection-end-line="62" />
+        <state relative-caret-position="569">
+          <caret line="44" column="36" lean-forward="true" selection-start-line="44" selection-start-column="36" selection-end-line="44" selection-end-column="36" />
+          <folding>
+            <element signature="e#7#38#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ServiciosEscolaresController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="23" column="7" lean-forward="true" selection-start-line="23" selection-start-column="7" selection-end-line="23" selection-end-column="7" />
+          <folding>
+            <element signature="e#40#53#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/dashboards/administrador/cuentas/creacion/serviciosEscolares.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="5" column="41" lean-forward="true" selection-start-line="5" selection-start-column="41" selection-end-line="5" selection-end-column="41" />
+        <state relative-caret-position="352">
+          <caret line="22" column="22" lean-forward="true" selection-start-line="22" selection-start-column="22" selection-end-line="22" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/dashboards/administrador/home.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="394">
+          <caret line="50" column="101" selection-start-line="50" selection-start-column="101" selection-end-line="50" selection-end-column="101" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/dashboards/administrador/especialidades/visualizar.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="522">
+          <caret line="58" column="26" lean-forward="true" selection-start-line="58" selection-start-column="26" selection-end-line="58" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/SecretarioController.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/MaestroController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="384">
+          <caret line="28" lean-forward="true" selection-start-line="28" selection-end-line="28" />
+          <folding>
+            <element signature="e#40#77#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Role.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="9" column="6" lean-forward="true" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/dashboards/administrador/cuentas/listado/maestro.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="15" column="18" lean-forward="true" selection-start-line="15" selection-start-column="18" selection-end-line="15" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/DivisionEstudiosController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="371">
+          <caret line="29" column="7" lean-forward="true" selection-start-line="29" selection-start-column="7" selection-end-line="29" selection-end-column="7" />
+          <folding>
+            <element signature="e#40#90#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1110,33 +1135,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/DivisionEstudiosController.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/dashboards/administrador/cuentas/listado/divisionEstudios.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="55" column="97" lean-forward="true" selection-start-line="55" selection-start-column="97" selection-end-line="55" selection-end-column="97" />
-          <folding>
-            <element signature="e#40#90#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/seeds/RolesTableSeeder.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="473">
-          <caret line="44" column="36" lean-forward="true" selection-start-line="44" selection-start-column="36" selection-end-line="44" selection-end-column="36" />
-          <folding>
-            <element signature="e#7#38#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ServiciosEscolaresController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="48" column="29" lean-forward="true" selection-start-line="48" selection-start-column="29" selection-end-line="48" selection-end-column="29" />
-          <folding>
-            <element signature="e#40#53#0#PHP" expanded="true" />
-          </folding>
+        <state relative-caret-position="256">
+          <caret line="22" column="35" selection-start-line="22" selection-start-column="35" selection-end-line="22" selection-end-column="35" />
         </state>
       </provider>
     </entry>

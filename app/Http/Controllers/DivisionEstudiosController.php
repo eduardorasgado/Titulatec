@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\PersonalDepartamentoRequest;
+use App\Role;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -19,7 +20,11 @@ class DivisionEstudiosController extends Controller
     public function index()
     {
         //
-        return dd('listando todos los de division de estudios');
+        //
+        $divisionEstudios = User::all()->where('id_role', '=', Role::$ROLE_SECRETARIA_DIVISION);
+
+        return view('dashboards.administrador.cuentas.listado.divisionEstudios',
+            compact('divisionEstudios'));
     }
 
     /**

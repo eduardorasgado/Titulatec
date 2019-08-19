@@ -21,7 +21,10 @@ class MaestroController extends Controller
     public function index()
     {
         //
-        return dd('mostrando lista de maestros');
+        $maestros = User::all()->where('id_role', '=', 5);
+
+        return view('dashboards.administrador.cuentas.listado.maestro',
+            compact('maestros'));
     }
 
     /**

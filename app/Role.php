@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Role extends Model
 {
+    public static $ROLE_SECRETARIA_DIVISION = 3;
     //
     protected $fillable = [
         'nombre',

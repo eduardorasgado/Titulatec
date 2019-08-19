@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Role;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -18,7 +19,10 @@ class ServiciosEscolaresController extends Controller
     public function index()
     {
         //
-        dd('mostrando personal de servicios escolares');
+        $serviciosEscolares = User::all()->where('id_role', '=',
+            Role::$ROLE_SERVICIOS_ESCOLARES);
+        return view('dashboards.administrador.cuentas.listado.serviciosEscolares',
+                compact('serviciosEscolares'));
     }
 
     /**

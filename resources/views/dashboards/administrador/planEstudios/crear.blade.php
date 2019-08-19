@@ -15,18 +15,18 @@
                     </div>
 
                 @endif
-                    @if(session('error'))
-                        <div class="alert alert-danger" role="alert" style="margin-top: 5px">
-                            <span class="text-success">{{ session('error') }}</span>
-                        </div>
+                @if(session('error'))
+                    <div class="alert alert-danger" role="alert" style="margin-top: 5px">
+                        <span class="text-success">{{ session('error') }}</span>
+                    </div>
 
-                    @endif
+                @endif
 
                 <div class="card">
-                    <div class="card-header">{{ __('Registro de maestro') }}</div>
+                    <div class="card-header">{{ __('Registro de Opcion de titulación') }}</div>
 
                     <div class="card-body">
-                        <form method="POST" action="{{ route('Maestro.store') }}">
+                        <form method="POST" action="{{ route('OpcionTitulacion.store') }}">
                             @csrf
 
                             <div class="form-group row">

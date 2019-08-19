@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\OpcionTitulacionRequest;
 use App\OpcionTitulacion;
 use Illuminate\Http\Request;
 
@@ -28,7 +29,7 @@ class OpcionTitulacionController extends Controller
     public function create()
     {
         //
-        return dd('Creando opcion de titulacion');
+        return view('dashboards.administrador.opcionTitulacion.crear');
     }
 
     /**
@@ -37,9 +38,17 @@ class OpcionTitulacionController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(OpcionTitulacionRequest $request)
     {
         //
+        $opcion = OpcionTitulacion::create([
+            'clave' => $request->input('clave'),
+            'nombre' => $request->input('nombre'),
+            'estado' => true
+
+        ]);
+        return redirect('/OpcionTitulacion/create')
+            ->with('success', 'Se ha creado la opción');
     }
 
     /**

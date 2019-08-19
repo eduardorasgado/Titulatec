@@ -2,13 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="38466543-71e6-47b8-907d-daf5ac2d8132" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/dashboards/administrador/academias/crear.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/dashboards/administrador/especialidades/crear.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AcademiaController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AcademiaController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/IsAdmin.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/IsAdmin.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/IsDivisionEstudios.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/IsDivisionEstudios.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/IsMaestro.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/IsMaestro.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/IsServiciosEscolares.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/IsServiciosEscolares.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/EspecialidadController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/EspecialidadController.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -165,7 +161,7 @@
       <workItem from="1566110838832" duration="27323000" />
       <workItem from="1566172224157" duration="11765000" />
       <workItem from="1566243355756" duration="172000" />
-      <workItem from="1566245212833" duration="5066000" />
+      <workItem from="1566245212833" duration="6233000" />
     </task>
     <servers />
   </component>

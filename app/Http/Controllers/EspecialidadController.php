@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Academia;
 use App\Especialidad;
+use App\Http\Requests\EspecialidadRequest;
 use Illuminate\Http\Request;
 
 class EspecialidadController extends Controller
@@ -28,7 +30,9 @@ class EspecialidadController extends Controller
     public function create()
     {
         // mandamos las academias
-        return dd('Creando una nueva especialidad');
+        $academias = Academia::all();
+        return view('dashboards.administrador.especialidades.crear',
+                compact('academias'));
     }
 
     /**
@@ -37,9 +41,17 @@ class EspecialidadController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(EspecialidadRequest $request)
     {
         //
+        $especialidad = Especialidad::create([
+            'nombre' => $request->input('nombre'),
+            'id_academia' => $request->input('academia'),
+            'estado' => true,
+        ]);
+
+        return redirect('/Especialidad/create')
+            ->with('success', 'Se ha creado una especialidad con éxito');
     }
 
     /**

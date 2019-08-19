@@ -23,10 +23,10 @@
                 @endif
 
                 <div class="card">
-                    <div class="card-header">{{ __('Registro de maestro') }}</div>
+                    <div class="card-header">{{ __('Registro de Personal de Departamento de Servicios Escolares') }}</div>
 
                     <div class="card-body">
-                        <form method="POST" action="{{ route('Maestro.store') }}">
+                        <form method="POST" action="{{ route('ServiciosEscolares.store') }}">
                             @csrf
 
                             <div class="form-group row">
@@ -74,7 +74,7 @@
                             <div class="form-group row mb-0">
                                 <div class="col-md-6 offset-md-4">
                                     <button type="submit" class="btn btn-primary">
-                                        {{ __('Registrar maestro') }}
+                                        {{ __('Registrar personal') }}
                                     </button>
                                 </div>
                             </div>

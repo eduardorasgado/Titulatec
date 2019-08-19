@@ -2,10 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class ServiciosEscolaresController extends Controller
 {
+    private $serviciosCreateSuccessMessage = 'Se ha creado con éxito el personal de servicios escolares, la contraseña '.
+                        'de este es: *password*, debe ser cambiada en el primer acceso a la cuenta';
     /**
      * Display a listing of the resource.
      *
@@ -14,6 +18,7 @@ class ServiciosEscolaresController extends Controller
     public function index()
     {
         //
+        dd('mostrando personal de servicios escolares');
     }
 
     /**
@@ -24,6 +29,7 @@ class ServiciosEscolaresController extends Controller
     public function create()
     {
         //
+        return view('dashboards.administrador.cuentas.creacion.serviciosEscolares');
     }
 
     /**
@@ -35,6 +41,18 @@ class ServiciosEscolaresController extends Controller
     public function store(Request $request)
     {
         //
+        $serviciosEscolaresUser = User::create([
+            'nombre' => $request->input('nombre'),
+            'apellidos' => $request->input('apellidos'),
+            'email' => $request->input('email'),
+            'password' => Hash::make('password'),
+            // activado: true
+            'is_enable' => 1,
+            // secretaria de division de estudios role
+            'id_role' => 4
+        ]);
+
+        return redirect('/Maestro/create')->with('success', $this->serviciosCreateSuccessMessage);
     }
 
     /**

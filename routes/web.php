@@ -44,6 +44,9 @@ Route::group(['middleware' => ['IsAdmin']], function() {
 
     Route::resource('DivisionEstudios', 'DivisionEstudiosController',
         ['only' => ['create', 'store', 'destroy']]);
+
+    Route::resource('ServiciosEscolares', 'ServiciosEscolaresController',
+        ['only' => ['create', 'store', 'destroy']]);
 });
 
 Route::group(['middleware' => ['auth']], function() {
@@ -68,6 +71,9 @@ Route::group(['middleware' => ['auth']], function() {
 
     Route::resource('DivisionEstudios', 'DivisionEstudiosController',
         ['only' => ['index', 'show']]);
+
+    Route::resource('ServiciosEscolares', 'ServiciosEscolaresController',
+        ['only' => ['index', 'show']]);
 });
 
 
@@ -79,5 +85,10 @@ Route::group(['middleware' => ['IsMaestro']], function() {
 
 Route::group(['middleware' => ['IsDivisionEstudios']], function() {
     Route::resource('DivisionEstudios', 'DivisionEstudiosController',
+        ['only' => ['edit', 'update']]);
+});
+
+Route::group(['middleware' => ['IsServiciosEscolares']], function() {
+    Route::resource('ServiciosEscolares', 'ServiciosEscolaresController',
         ['only' => ['edit', 'update']]);
 });

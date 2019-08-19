@@ -8,6 +8,20 @@
         </div>
         <div class="row justify-content-center">
             <div class="col-md-8">
+
+                @if(session('success'))
+                    <div class="alert alert-success" role="alert" style="margin-top: 5px">
+                        <span class="text-success">{{ session('success') }}</span>
+                    </div>
+
+                @endif
+                    @if(session('error'))
+                        <div class="alert alert-danger" role="alert" style="margin-top: 5px">
+                            <span class="text-success">{{ session('error') }}</span>
+                        </div>
+
+                    @endif
+
                 <div class="card">
                     <div class="card-header">{{ __('Registro de maestro') }}</div>
 
@@ -54,28 +68,6 @@
                                         <strong>{{ $message }}</strong>
                                     </span>
                                     @enderror
-                                </div>
-                            </div>
-
-                            <div class="form-group row">
-                                <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Contraseña') }}</label>
-
-                                <div class="col-md-6">
-                                    <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
-
-                                    @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                    @enderror
-                                </div>
-                            </div>
-
-                            <div class="form-group row">
-                                <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirmar Contraseña') }}</label>
-
-                                <div class="col-md-6">
-                                    <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
                                 </div>
                             </div>
 

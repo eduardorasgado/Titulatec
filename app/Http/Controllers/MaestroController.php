@@ -2,11 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\MaestroRequest;
 use App\Maestro;
+use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class MaestroController extends Controller
 {
+
+    private $maestroSuccessMessage = 'Se ha creado la cuenta de maestro, con éxito, la contraseña por defecto es '.
+                            '*password*, el usuario deberá de cambiar esta contraseña la primera vez que entre al sistema';
     /**
      * Display a listing of the resource.
      *
@@ -35,10 +41,20 @@ class MaestroController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(MaestroRequest $request)
     {
         //
-        return dd("Se ha creado el maestro: ".$request);
+        $maestroUser = User::create([
+            'nombre' => $request->input('nombre'),
+            'apellidos' => $request->input('apellidos'),
+            'email' => $request->input('email'),
+            'password' => Hash::make('password'),
+            // activado: true
+            'is_enable' => 1,
+            'id_role' => 5
+        ]);
+
+        return redirect('/Maestro/create')->with('success', $this->maestroSuccessMessage);
     }
 
     /**

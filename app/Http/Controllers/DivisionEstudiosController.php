@@ -2,10 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\PersonalDepartamentoRequest;
+use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class DivisionEstudiosController extends Controller
 {
+    private $divisionCreateSuccessMessage = 'Se ha creado correctamente el personal de division de estudios, puede'.
+                ' ya accesar al sistema con la contraseña *password* que debe cambiar en su primera sesión';
     /**
      * Display a listing of the resource.
      *
@@ -34,10 +39,21 @@ class DivisionEstudiosController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(PersonalDepartamentoRequest $request)
     {
         //
-        dd('guardando los datos de la gente de division de estudios');
+        $divisionEstudiosUser = User::create([
+            'nombre' => $request->input('nombre'),
+            'apellidos' => $request->input('apellidos'),
+            'email' => $request->input('email'),
+            'password' => Hash::make('password'),
+            // activado: true
+            'is_enable' => 1,
+            // secretaria de division de estudios role
+            'id_role' => 3
+        ]);
+
+        return redirect('/Maestro/create')->with('success', $this->divisionCreateSuccessMessage);
     }
 
     /**

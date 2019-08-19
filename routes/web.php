@@ -41,6 +41,9 @@ Route::group(['middleware' => ['IsAdmin']], function() {
 
     Route::resource('Maestro', 'MaestroController',
         ['only' => ['create', 'store', 'destroy']]);
+
+    Route::resource('DivisionEstudios', 'DivisionEstudiosController',
+        ['only' => ['create', 'store', 'destroy']]);
 });
 
 Route::group(['middleware' => ['auth']], function() {
@@ -62,6 +65,9 @@ Route::group(['middleware' => ['auth']], function() {
 
     Route::resource('Maestro', 'MaestroController',
         ['only' => ['index', 'show']]);
+
+    Route::resource('DivisionEstudios', 'DivisionEstudiosController',
+        ['only' => ['index', 'show']]);
 });
 
 
@@ -69,7 +75,9 @@ Route::group(['middleware' => ['IsMaestro']], function() {
     Route::resource('Maestro', 'MaestroController',
         ['only' => ['edit', 'update']]);
 
-    Route::get('/mostrar', function() {
-        dd("esta mostrando el maestro");
-    });
+});
+
+Route::group(['middleware' => ['IsDivisionEstudios']], function() {
+    Route::resource('DivisionEstudios', 'DivisionEstudiosController',
+        ['only' => ['edit', 'update']]);
 });

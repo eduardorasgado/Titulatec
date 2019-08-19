@@ -2,6 +2,7 @@
 
 namespace App\Http\Middleware;
 
+use App\Role;
 use Closure;
 
 class IsDivisionEstudios
@@ -19,7 +20,8 @@ class IsDivisionEstudios
         else {
             if(Auth::check()) {
                 // si es secretaria o jefe de division entonces puede acceder
-                if(Auth::user()->id_role == 3 || Auth::user()->id_role == 7){
+                if(Auth::user()->id_role == Role::$ROLE_SECRETARIA_DIVISION
+                    || Auth::user()->id_role == Role::$ROLE_JEFE_DIVISION){
                     return $next($request);
                 } else {
                     return redirect('/');

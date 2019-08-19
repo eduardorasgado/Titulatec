@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Academia;
+use App\Http\Requests\NameRequest;
 use Illuminate\Http\Request;
 
 class AcademiaController extends Controller
@@ -28,7 +29,7 @@ class AcademiaController extends Controller
     public function create()
     {
         //
-        dd('creando una nueva academia');
+        return view('dashboards.administrador.academias.crear');
     }
 
     /**
@@ -37,9 +38,15 @@ class AcademiaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(NameRequest $request)
     {
-        //
+        $academia = Academia::create([
+            'nombre' => $request->input('nombre'),
+            'estado' => true
+        ]);
+
+        return redirect('/Academia/create')
+            ->with('success', 'Se ha creado una academia con éxito');
     }
 
     /**

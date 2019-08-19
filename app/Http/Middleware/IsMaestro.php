@@ -2,6 +2,7 @@
 
 namespace App\Http\Middleware;
 
+use App\Role;
 use Closure;
 use Illuminate\Support\Facades\Auth;
 
@@ -19,7 +20,7 @@ class IsMaestro
         if(Auth::guest()) { return redirect('/'); }
         else {
             if(Auth::check()) {
-                if(Auth::user()->id_role == 5){
+                if(Auth::user()->id_role == Role::$ROLE_MAESTRO){
                     return $next($request);
                 } else {
                     return redirect('/');

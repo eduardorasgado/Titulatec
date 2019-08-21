@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Academia;
 use App\Http\Requests\MaestroRequest;
 use App\Maestro;
+use App\Role;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -21,10 +22,14 @@ class MaestroController extends Controller
      */
     public function index()
     {
-        // todos los maestros con sus entidades de maestro y estas a la vez con sus entidades de academia
-        $maestros = User::with('maestro.academia')
-            ->get()->where('id_role', '=', 5);
+        // todos los maestros y jefes de academia con sus entidades de maestro y estas a la vez con sus entidades de academia
+        $maestros = User::with('maestro.academia')->get()->where('id_role', '=', Role::$ROLE_MAESTRO);
+        $maestros2 = User::with('maestro.academia')->get()->where('id_role', '=', Role::$ROLE_JEFE_ACADEMIA);
+
+        $maestros = $maestros->merge($maestros2);
+
         $academias = Academia::all();
+
         return view('dashboards.administrador.cuentas.listado.maestro',
             compact('maestros', 'academias'));
     }

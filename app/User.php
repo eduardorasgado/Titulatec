@@ -44,4 +44,8 @@ class User extends Authenticatable
     public function alumno() {
         return $this->hasOne(Alumno::class, 'id_user');
     }
+
+    public function maestro() {
+        return $this->hasOne(Maestro::class, 'id_user');
+    }
 }

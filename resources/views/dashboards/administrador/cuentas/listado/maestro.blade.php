@@ -37,7 +37,11 @@
                         <div class="jumbotron jumboColorBlue">
                             <p>Nombre: <span class="blue">{{ $maestro->nombre }} {{ $maestro->apellidos }}</span></p>
                             <p>Correo Electrónico: <span class="blue">{{ $maestro->email }}</span></p>
-                            <p><span class="badge badge-secondary">Departamento</span></p>
+                            <p><span class="badge badge-secondary">{{ $maestro->maestro['academia']['nombre'] }}</span></p>
+                            <p>Cedula Profesional: <span class="blue">{{ $maestro->maestro['cedula_profesional'] }}</span></p>
+                            <p>Especialidad: <span class="blue">{{ $maestro->maestro['especialidad_estudiada'] }}</span></p>
+                            <p>Asesorando a: <span class="blue">{{ $maestro->maestro['asesor_count'] }} alumnos</span></p>
+                            <p>Fecha de ingreso al sistema: <span class="blue">{{ $maestro->maestro['created_at'] }}</span></p>
                             <p>Estado: <span class="blue">@if($maestro->is_enable) Activo @else Desactivado @endif</span></p>
                             <br><br>
                             <div class="row">

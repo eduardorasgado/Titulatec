@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Academia;
 use App\Http\Requests\MaestroRequest;
 use App\Maestro;
 use App\User;
@@ -20,8 +21,9 @@ class MaestroController extends Controller
      */
     public function index()
     {
-        //
-        $maestros = User::all()->where('id_role', '=', 5);
+        // todos los maestros con sus entidades de maestro y estas a la vez con sus entidades de academia
+        $maestros = User::with('maestro.academia')
+            ->get()->where('id_role', '=', 5);
 
         return view('dashboards.administrador.cuentas.listado.maestro',
             compact('maestros'));
@@ -35,7 +37,9 @@ class MaestroController extends Controller
     public function create()
     {
         //
-        return view('dashboards.administrador.cuentas.creacion.maestro');
+        $academias = Academia::all();
+        return view('dashboards.administrador.cuentas.creacion.maestro',
+            compact('academias'));
     }
 
     /**
@@ -55,6 +59,14 @@ class MaestroController extends Controller
             // activado: true
             'is_enable' => 1,
             'id_role' => 5
+        ]);
+
+        $maestro = Maestro::create([
+            'id_user' => $maestroUser->id,
+            'cedula_profesional' => $request->input('cedula_profesional'),
+            'especialidad_estudiada' => $request->input('especialidad_estudiada'),
+            'id_academia' => $request->input('academia'),
+            'asesor_count' => 0,
         ]);
 
         return redirect('/Maestro/create')->with('success', $this->maestroSuccessMessage);

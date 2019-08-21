@@ -71,6 +71,50 @@
                                 </div>
                             </div>
 
+                            <div class="form-group row">
+                                <label for="cedula_profesional" class="col-md-4 col-form-label text-md-right">{{ __('Cedula Profesional') }}</label>
+
+                                <div class="col-md-6">
+                                    <input id="cedula_profesional" type="text" class="form-control @error('cedula_profesional') is-invalid @enderror" name="cedula_profesional" value="{{ old('cedula_profesional') }}" required autocomplete="cedula_profesional" autofocus>
+
+                                    @error('cedula_profesional')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="especialidad_estudiada" class="col-md-4 col-form-label text-md-right">{{ __('Especialidad Estudiada') }}</label>
+
+                                <div class="col-md-6">
+                                    <input id="especialidad_estudiada" type="text" class="form-control @error('especialidad_estudiada') is-invalid @enderror" name="especialidad_estudiada" value="{{ old('especialidad_estudiada') }}" required autocomplete="especialidad_estudiada" autofocus>
+
+                                    @error('especialidad_estudiada')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="col-md-4 col-form-label text-md-right" for="academia">Academia: </label>
+                                <div class="col-md-6">
+                                    <select class="form-control" id="academia" name="academia">
+                                        @if(count($academias) > 0)
+                                            <option value="{{ $academias[0]->id }}">{{ $academias[0]->nombre }}</option>
+                                            @foreach ($academias as $academia)
+                                                @if($academia->id != $academias[0]->id)
+                                                    <option value="{{ $academia->id }}">{{ $academia->nombre }}</option>
+                                                @endif
+                                            @endforeach
+                                        @endif
+                                    </select>
+                                </div>
+                            </div>
+
                             <div class="form-group row mb-0">
                                 <div class="col-md-6 offset-md-4">
                                     <button type="submit" class="btn btn-primary">

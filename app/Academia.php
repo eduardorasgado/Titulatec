@@ -16,4 +16,8 @@ class Academia extends Model
         return $this->hasMany(Especialidad::class,
             'id_academia');
     }
+
+    public function maestros() {
+        return $this->hasMany(Maestro::class, 'id_academia');
+    }
 }

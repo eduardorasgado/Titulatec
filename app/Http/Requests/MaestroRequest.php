@@ -26,7 +26,10 @@ class MaestroRequest extends FormRequest
         return [
             'nombre' => ['required', 'string', 'max:255'],
             'apellidos' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users']
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'cedula_profesional' => ['required', 'string', 'max:255'],
+            'especialidad_estudiada' => ['required', 'string', 'max:300'],
+            'academia' => ['required', 'numeric']
         ];
     }
 }

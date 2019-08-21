@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Especialidad;
+use App\Http\Requests\PlanEstudioRequest;
 use App\PlanEstudios;
 use Illuminate\Http\Request;
 
@@ -29,7 +31,9 @@ class PlanEstudiosController extends Controller
     public function create()
     {
         // devolvemos las especialidades
-        return dd('form para crear un plan de estudio');
+        $especialidades = Especialidad::all();
+        return view('dashboards.administrador.planEstudios.crear',
+            compact('especialidades'));
     }
 
     /**
@@ -38,9 +42,19 @@ class PlanEstudiosController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(PlanEstudioRequest $request)
     {
-        //
+        $planEstudio = PlanEstudios::create([
+            'clave' => $request->input('clave'),
+            'is_actual' => $request->input('is_actual'),
+            'estado' => true,
+            'id_especialidad' => $request->input('especialidad')
+        ]);
+        if($planEstudio != null) {
+            return redirect()->back()->with('success', 'Se ha agregado un plan de estudio');
+        } else {
+            redirect()->back()->with('error', 'No pudo ser agregado un plan de estudio');
+        }
     }
 
     /**

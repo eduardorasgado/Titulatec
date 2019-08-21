@@ -23,58 +23,65 @@
                 @endif
 
                 <div class="card">
-                    <div class="card-header">{{ __('Registro de Opcion de titulación') }}</div>
+                    <div class="card-header">{{ __('Registro de Plan de Estudio') }}</div>
 
                     <div class="card-body">
-                        <form method="POST" action="{{ route('OpcionTitulacion.store') }}">
+                        <form method="POST" action="{{ route('PlanEstudio.store') }}">
                             @csrf
 
                             <div class="form-group row">
-                                <label for="nombre" class="col-md-4 col-form-label text-md-right">{{ __('Nombre') }}</label>
+                                <label for="nombre" class="col-md-4 col-form-label text-md-right">{{ __('Clave') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="nombre" type="text" class="form-control @error('nombre') is-invalid @enderror" name="nombre" value="{{ old('nombre') }}" required autocomplete="nombre" autofocus>
+                                    <input id="clave" type="text" class="form-control @error('clave') is-invalid @enderror" name="clave" value="{{ old('clave') }}" required autocomplete="clave" autofocus>
 
-                                    @error('nombre')
+                                    @error('clave')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                     @enderror
+                                </div>
+                            </div>
+
+                            <!--radiobutton -->
+                            <div id="" class="form-group row">
+                                <label for="gender" class="col-md-4 control-form-label text-md-right">Relevancia</label>
+                                <div class="col-md-6">
+                                    <div class="radio">
+                                        <label><input id="" type="radio" name="is_actual" value="1" {{ (old('is_actual') == '1') ? 'checked' : '' }} checked>Actual</label>
+                                    </div>
+                                    <div class="radio">
+                                        <label><input id="" type="radio" name="is_actual" value="0" {{ (old('is_actual') == '0') ? 'checked' : '' }} >Antiguo</label>
+                                    </div>
+                                @if ($errors->has('is_actual'))
+                                    <span class="help-block">
+                                     <strong>{{ $errors->first('is_actual') }}</strong>
+                                     </span>
+                                @endif
                                 </div>
                             </div>
 
                             <div class="form-group row">
-                                <label for="apellidos" class="col-md-4 col-form-label text-md-right">{{ __('Apellidos') }}</label>
-
+                                <label class="col-md-4 col-form-label text-md-right" for="academia">Especialidad: </label>
                                 <div class="col-md-6">
-                                    <input id="apellidos" type="text" class="form-control @error('apellidos') is-invalid @enderror" name="apellidos" value="{{ old('apellidos') }}" required autocomplete="apellidos" autofocus>
-
-                                    @error('apellidos')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                    @enderror
+                                    <select class="form-control" id="especialidad" name="especialidad">
+                                        @if(count($especialidades) > 0)
+                                            <option value="{{ $especialidades[0]->id }}">{{ $especialidades[0]->nombre }}</option>
+                                            @foreach ($especialidades as $especialidad)
+                                                @if($especialidad->id != $especialidades[0]->id)
+                                                    <option value="{{ $especialidad->id }}">{{ $especialidad->nombre }}</option>
+                                                @endif
+                                            @endforeach
+                                        @endif
+                                    </select>
                                 </div>
                             </div>
 
-                            <div class="form-group row">
-                                <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('Correo Electrónico') }}</label>
-
-                                <div class="col-md-6">
-                                    <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
-
-                                    @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                    @enderror
-                                </div>
-                            </div>
 
                             <div class="form-group row mb-0">
                                 <div class="col-md-6 offset-md-4">
                                     <button type="submit" class="btn btn-primary">
-                                        {{ __('Registrar maestro') }}
+                                        {{ __('Registrar Especialidad') }}
                                     </button>
                                 </div>
                             </div>

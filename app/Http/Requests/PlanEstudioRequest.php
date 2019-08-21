@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class EspecialidadRequest extends FormRequest
+class PlanEstudioRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,9 +24,9 @@ class EspecialidadRequest extends FormRequest
     public function rules()
     {
         return [
-            //
-            'nombre' => 'required|string|max:150',
-            'academia' => 'required|numeric'
+            'clave' => 'required|string|max:150',
+            'is_actual' => 'required|numeric|digits_between:0,1',
+            'especialidad' => 'required|numeric',
         ];
     }
 }

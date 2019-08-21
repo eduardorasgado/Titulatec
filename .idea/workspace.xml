@@ -2,9 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="38466543-71e6-47b8-907d-daf5ac2d8132" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/dashboards/administrador/especialidades/crear.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/EspecialidadController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/EspecialidadController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PlanEstudiosController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PlanEstudiosController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Requests/EspecialidadRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/EspecialidadRequest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/dashboards/administrador/planEstudios/crear.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboards/administrador/planEstudios/crear.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -121,7 +122,7 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="yarn" />
-    <property name="settings.editor.selected.configurable" value="preferences.editor" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -161,7 +162,8 @@
       <workItem from="1566110838832" duration="27323000" />
       <workItem from="1566172224157" duration="11765000" />
       <workItem from="1566243355756" duration="172000" />
-      <workItem from="1566245212833" duration="6233000" />
+      <workItem from="1566245212833" duration="6375000" />
+      <workItem from="1566359303943" duration="4726000" />
     </task>
     <servers />
   </component>

@@ -15,19 +15,19 @@ class CreateAlumnosTable extends Migration
     {
         Schema::create('alumnos', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('direccion');
-            $table->string('telefono');
+            $table->string('direccion')->nullable();
+            $table->string('telefono')->nullable();
             $table->string('otherTECNM')->nullable();
-            $table->string('estado');
-            $table->string('ciudad');
+            $table->string('estado')->nullable();
+            $table->string('ciudad')->nullable();
             $table->string('lugar_trabajo')->nullable();
             $table->string('puesto_trabajo')->nullable();
-            $table->string('generacion');
-            $table->text('anexo');
+            $table->string('generacion')->nullable();;
+            $table->text('anexo')->nullable();
 
             // llaves foraneas
             $table->integer('id_user')->unsigned();
-            $table->integer('id_proyecto')->unsigned();
+            $table->integer('id_proyecto')->unsigned()->nullable();
 
             $table->foreign('id_user')->references('id')->on('users');
             $table->foreign('id_proyecto')->references('id')->on('proyectos');

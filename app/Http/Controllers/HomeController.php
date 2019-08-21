@@ -56,8 +56,10 @@ class HomeController extends Controller
         }
         else if(Auth::user()->id_role == 6) {
             // dashboard de alumno
+            $alumno = User::find(Auth::user()->id)->alumno;
+            //return dd($alumno);
             return view('dashboards.alumno.home',
-                compact('role'));
+                compact('role', 'alumno'));
         }
         /*
         else {

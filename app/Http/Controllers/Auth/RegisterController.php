@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Alumno;
 use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
@@ -64,7 +65,7 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        $userAlumno = User::create([
             'nombre' => $data['nombre'],
             'apellidos' => $data['apellidos'],
             'email' => $data['email'],
@@ -73,5 +74,12 @@ class RegisterController extends Controller
             'is_enable' => 1,
             'id_role' => 6
         ]);
+
+        $alumno = Alumno::create([
+            'id_user' => $userAlumno->id
+        ]);
+
+        //$userAlumno = User::find($userAlumno->id)->getRelation('alumno');
+        return $userAlumno;
     }
 }

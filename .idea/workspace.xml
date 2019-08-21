@@ -3,9 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="38466543-71e6-47b8-907d-daf5ac2d8132" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PlanEstudiosController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PlanEstudiosController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Requests/EspecialidadRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/EspecialidadRequest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/dashboards/administrador/planEstudios/crear.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboards/administrador/planEstudios/crear.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Alumno.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Alumno.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_07_31_232638_create_alumnos_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_07_31_232638_create_alumnos_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/dashboards/alumno/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboards/alumno/home.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -163,7 +166,7 @@
       <workItem from="1566172224157" duration="11765000" />
       <workItem from="1566243355756" duration="172000" />
       <workItem from="1566245212833" duration="6375000" />
-      <workItem from="1566359303943" duration="4726000" />
+      <workItem from="1566359303943" duration="10705000" />
     </task>
     <servers />
   </component>

@@ -21,4 +21,8 @@ class Alumno extends Model
         'id_user',
         'id_proyecto'
     ];
+
+    public function user() {
+        return $this->belongsTo(User::class, 'id_user');
+    }
 }

@@ -24,9 +24,9 @@ class MaestroController extends Controller
         // todos los maestros con sus entidades de maestro y estas a la vez con sus entidades de academia
         $maestros = User::with('maestro.academia')
             ->get()->where('id_role', '=', 5);
-
+        $academias = Academia::all();
         return view('dashboards.administrador.cuentas.listado.maestro',
-            compact('maestros'));
+            compact('maestros', 'academias'));
     }
 
     /**

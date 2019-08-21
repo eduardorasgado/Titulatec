@@ -3,13 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="38466543-71e6-47b8-907d-daf5ac2d8132" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Academia.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Academia.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/MaestroController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/MaestroController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Requests/MaestroRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/MaestroRequest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Maestro.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Maestro.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/dashboards/administrador/cuentas/creacion/maestro.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboards/administrador/cuentas/creacion/maestro.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/dashboards/administrador/cuentas/listado/maestro.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboards/administrador/cuentas/listado/maestro.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/factories/UserFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/UserFactory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/AlumnosTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/AlumnosTableSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/MaestroTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/MaestroTableSeeder.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -167,7 +164,7 @@
       <workItem from="1566172224157" duration="11765000" />
       <workItem from="1566243355756" duration="172000" />
       <workItem from="1566245212833" duration="6375000" />
-      <workItem from="1566359303943" duration="15239000" />
+      <workItem from="1566359303943" duration="19623000" />
     </task>
     <servers />
   </component>

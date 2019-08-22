@@ -35,15 +35,24 @@
                                         <div class="card-body">
                                             <form method="POST" action="{{ route('JefesAcademia.update', $academia->id) }}">
                                                 @csrf
+                                                @foreach($jefes as $jefe)
+                                                    @if($jefe->maestro["academia"]["id"] == $academia->id)
+                                                        <input type="hidden" name="jefeActual" value="{{ $jefe->id }}">
+                                                    @endif
+                                                @endforeach
                                                 <div class="form-group row">
                                                     <label class="col-md-4 col-form-label text-md-right" for="academia">Asignado: </label>
                                                     <div class="col-md-6">
                                                         <select class="form-control" id="academia" name="academia">
-                                                            @if(count($academias) > 0)
-                                                                <option value="{{ $academias[0]->id }}">{{ $academias[0]->nombre }}</option>
-                                                                @foreach ($academias as $academia)
-                                                                    @if($academia->id != $academias[0]->id)
-                                                                        <option value="{{ $academia->id }}">{{ $academia->nombre }}</option>
+                                                            @if(count($maestros) > 0)
+                                                                @foreach($jefes as $jefe)
+                                                                    @if($jefe->maestro["academia"]["id"] == $academia->id)
+                                                                        <option value="{{ $jefe->id }}">{{ $jefe->nombre }} {{ $jefe->apellidos }}</option>
+                                                                    @endif
+                                                                @endforeach
+                                                                @foreach ($maestros as $maestro)
+                                                                    @if($maestro->maestro["academia"]["id"] == $academia->id)
+                                                                        <option value="{{ $maestro->id }}">{{ $maestro->nombre }} {{ $maestro->apellidos }}</option>
                                                                     @endif
                                                                 @endforeach
                                                             @endif

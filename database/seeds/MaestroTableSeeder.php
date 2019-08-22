@@ -20,7 +20,7 @@ class MaestroTableSeeder extends Seeder
             'email' => $mail,
             'password' => bcrypt('hypatiahypatia1'),
             'is_enable' => true,
-            'id_role' => 5,
+            'id_role' => \App\Role::$ROLE_MAESTRO,
             'created_at' => date("Y-m-d H:i:s")
         ]);
 

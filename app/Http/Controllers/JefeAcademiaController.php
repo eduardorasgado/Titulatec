@@ -13,14 +13,23 @@ class JefeAcademiaController extends Controller
         // devolvemos a todos los jefes y a todos los maestros
         $jefes = User::with('maestro.academia')
             ->get()->where('id_role', Role::$ROLE_JEFE_ACADEMIA);
+
         $maestros = User::with('maestro.academia')
             ->get()->where('id_role', Role::$ROLE_MAESTRO);
+
         $academias = Academia::all();
         return view('dashboards.administrador.cuentas.asignacion.jefeAcademia',
             compact('jefes', 'maestros', 'academias'));
     }
     //
     public function update(Request $request, $academia) {
+
+        if($request->input('jefeActual')) {
+            // si existe lo buscamos y le cambiamos el rol a maestro de nuevo
+        }
+
+        // asignamos el nuevo jefe
+
         dd("asignando al jefe de academia: ".$academia);
     }
 }

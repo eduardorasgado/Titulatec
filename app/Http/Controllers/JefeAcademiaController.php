@@ -23,33 +23,36 @@ class JefeAcademiaController extends Controller
     //
     public function update(Request $request, $academia) {
 
-        // asignamos el nuevo jefe
-        if($request->input('jefe')) {
-            if(!empty($request->input('jefe'))) {
-                $newJefe = User::find($request->input('jefe'));
-                if($newJefe) {
-                    $academiaDelJefe = $newJefe->maestro->academia;
-                    if($academiaDelJefe->id == $academia) {
-                        $newJefe->id_role = Role::$ROLE_JEFE_ACADEMIA;
-                        $newJefe->save();
+        if($request->input('jefe') != $request->input('jefeActual')) {
+            // asignamos el nuevo jefe
+            if($request->input('jefe')) {
+                if(!empty($request->input('jefe'))) {
+                    $newJefe = User::find($request->input('jefe'));
+                    if($newJefe) {
+                        $academiaDelJefe = $newJefe->maestro->academia;
+                        if($academiaDelJefe->id == $academia) {
+                            $newJefe->id_role = Role::$ROLE_JEFE_ACADEMIA;
+                            $newJefe->save();
 
-                        // ahora se actualiza el jefe antiguo a maestro
-                        if($request->input('jefeActual')) {
-                            // si existe lo buscamos y le cambiamos el rol a maestro de nuevo
-                            $jefeActual = User::find($request->input('jefeActual'));
-                            if($jefeActual) {
-                                $jefeActual->id_role = Role::$ROLE_MAESTRO;
-                                $jefeActual->save();
+                            // ahora se actualiza el jefe antiguo a maestro
+                            if($request->input('jefeActual')) {
+                                // si existe lo buscamos y le cambiamos el rol a maestro de nuevo
+                                $jefeActual = User::find($request->input('jefeActual'));
+                                if($jefeActual) {
+                                    $jefeActual->id_role = Role::$ROLE_MAESTRO;
+                                    $jefeActual->save();
+                                }
                             }
+                            return redirect()->back()->with("success",
+                                "Se ha actualizado el jefe con éxito: ".$academiaDelJefe->nombre);
                         }
-                        return redirect()->back()->with("success",
-                            "Se ha actualizado el jefe con éxito: ".$academiaDelJefe->nombre);
                     }
+                    return redirect()->back()->with("error",
+                        $this->genericErrorMessage);
                 }
-                return redirect()->back()->with("error",
-                    $this->genericErrorMessage);
             }
+            return redirect()->back()->with("error", "Selecciona un elemento antes de guardar");
         }
-        return redirect()->back()->with("error", "Selecciona un elemento antes de guardar");
+        return redirect()->back();
     }
 }

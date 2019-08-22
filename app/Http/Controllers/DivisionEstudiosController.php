@@ -123,30 +123,32 @@ class DivisionEstudiosController extends Controller
 
     public function asignarJefeUpdate(Request $request) {
         // asignamos el nuevo jefe
-        if($request->input('jefe')) {
-            if(!empty($request->input('jefe'))) {
-                $newJefe = User::find($request->input('jefe'));
-                if($newJefe) {
-                    $newJefe->id_role = Role::$ROLE_JEFE_DIVISION;
-                    $newJefe->save();
-                    // ahora se actualiza el jefe antiguo a maestro
-                    if($request->input('jefeActual')) {
-                        // si existe lo buscamos y le cambiamos el rol a maestro de nuevo
-                        $jefeActual = User::find($request->input('jefeActual'));
-                        if($jefeActual) {
-                            $jefeActual->id_role = Role::$ROLE_SECRETARIA_DIVISION;
-                            $jefeActual->save();
+        if($request->input('jefe') != $request->input('jefeActual')) {
+            if($request->input('jefe')) {
+                if(!empty($request->input('jefe'))) {
+                    $newJefe = User::find($request->input('jefe'));
+                    if($newJefe) {
+                        $newJefe->id_role = Role::$ROLE_JEFE_DIVISION;
+                        $newJefe->save();
+                        // ahora se actualiza el jefe antiguo a maestro
+                        if($request->input('jefeActual')) {
+                            // si existe lo buscamos y le cambiamos el rol a maestro de nuevo
+                            $jefeActual = User::find($request->input('jefeActual'));
+                            if($jefeActual) {
+                                $jefeActual->id_role = Role::$ROLE_SECRETARIA_DIVISION;
+                                $jefeActual->save();
+                            }
                         }
+                        return redirect()->back()->with("success",
+                            "Se ha actualizado el jefe con éxito: ");
+
                     }
-                    return redirect()->back()->with("success",
-                        "Se ha actualizado el jefe con éxito: ");
-
+                    return redirect()->back()->with("error",
+                        $this->genericErrorMessage);
                 }
-                return redirect()->back()->with("error",
-                    $this->genericErrorMessage);
             }
+            return redirect()->back()->with("error", "Selecciona un elemento antes de guardar");
         }
-        return redirect()->back()->with("error", "Selecciona un elemento antes de guardar");
-
+        return redirect()->back();
     }
 }

@@ -37,7 +37,7 @@
                 <h3>Profesorado por departamento o academia</h3>
                 <br>
                 <span class="alert alert-info">Seleccione el botón correspondiente a su elección.
-                Presione el mismo botón para cerrar la academia en la que se encuentra.</span>
+                Presione el mismo botón para cerrar la academia en la que se encuentra antes de abrir otra</span>
                 <br><br><br>
                 @if(Session::has('success'))
                     <div class="alert alert-success" role="alert" style="margin-top: 5px">
@@ -68,6 +68,7 @@
                 </div>
             </div>
 
+            <br/>
             @foreach($academias as $academia)
 
                 <div class="row">
@@ -85,6 +86,9 @@
                                                     <p>Nombre: <span class="blue">{{ $maestro->nombre }} {{ $maestro->apellidos }}</span></p>
                                                     <p>Correo Electrónico: <span class="blue">{{ $maestro->email }}</span></p>
                                                     <p><span class="badge badge-secondary">{{ $maestro->maestro['academia']['nombre'] }}</span></p>
+                                                    @if($maestro->id_role == $roleJefe)
+                                                        <p><span class="badge badge-danger">Jefe</span></p>
+                                                    @endif
                                                     <p>Cedula Profesional: <span class="blue">{{ $maestro->maestro['cedula_profesional'] }}</span></p>
                                                     <p>Especialidad: <span class="blue">{{ $maestro->maestro['especialidad_estudiada'] }}</span></p>
                                                     <p>Asesorando a: <span class="blue">{{ $maestro->maestro['asesor_count'] }} alumnos</span></p>

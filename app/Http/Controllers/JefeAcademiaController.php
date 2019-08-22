@@ -30,7 +30,8 @@ class JefeAcademiaController extends Controller
             if(!empty($request->input('jefe'))) {
                 $newJefe = User::find($request->input('jefe'));
                 if($newJefe) {
-                    if($newJefe->maestro->academia->id == $academia) {
+                    $academiaDelJefe = $newJefe->maestro->academia;
+                    if($academiaDelJefe->id == $academia) {
                         $newJefe->id_role = Role::$ROLE_JEFE_ACADEMIA;
                         $newJefe->save();
 
@@ -44,13 +45,13 @@ class JefeAcademiaController extends Controller
                             }
                         }
                         return redirect()->back()->with("success",
-                            "Se ha actualizado el jefe con éxito");
+                            "Se ha actualizado el jefe con éxito: ".$academiaDelJefe->nombre);
                     }
                 }
                 return redirect()->back()->with("error",
                     $this->genericErrorMessage);
             }
         }
-        return redirect()->back();
+        return redirect()->back()->with("error", "Selecciona un elemento antes de guardar");
     }
 }

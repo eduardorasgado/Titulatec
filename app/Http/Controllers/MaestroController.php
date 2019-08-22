@@ -23,15 +23,16 @@ class MaestroController extends Controller
     public function index()
     {
         // todos los maestros y jefes de academia con sus entidades de maestro y estas a la vez con sus entidades de academia
-        $maestros = User::with('maestro.academia')->get()->where('id_role', '=', Role::$ROLE_MAESTRO);
-        $maestros2 = User::with('maestro.academia')->get()->where('id_role', '=', Role::$ROLE_JEFE_ACADEMIA);
+        $maestros2 = User::with('maestro.academia')->get()->where('id_role', '=', Role::$ROLE_MAESTRO);
+        $maestros = User::with('maestro.academia')->get()->where('id_role', '=', Role::$ROLE_JEFE_ACADEMIA);
 
         $maestros = $maestros->merge($maestros2);
 
         $academias = Academia::all();
+        $roleJefe = Role::$ROLE_JEFE_ACADEMIA;
 
         return view('dashboards.administrador.cuentas.listado.maestro',
-            compact('maestros', 'academias'));
+            compact('maestros', 'academias', 'roleJefe'));
     }
 
     /**

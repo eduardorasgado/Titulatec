@@ -87,7 +87,7 @@
                                                     <p>Correo Electrónico: <span class="blue">{{ $maestro->email }}</span></p>
                                                     <p><span class="badge badge-secondary">{{ $maestro->maestro['academia']['nombre'] }}</span></p>
                                                     @if($maestro->id_role == $roleJefe)
-                                                        <p><span class="badge badge-danger">Jefe</span></p>
+                                                        <p><span class="badge badge-danger">Jefe de academia</span></p>
                                                     @endif
                                                     <p>Cedula Profesional: <span class="blue">{{ $maestro->maestro['cedula_profesional'] }}</span></p>
                                                     <p>Especialidad: <span class="blue">{{ $maestro->maestro['especialidad_estudiada'] }}</span></p>

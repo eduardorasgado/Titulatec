@@ -72,7 +72,8 @@ class User extends Authenticatable
     public function scopeJefesAndMaestrosWithAcademia($query) {
         $query->with('maestro.academia')
             ->where('id_role', Role::$ROLE_JEFE_ACADEMIA)
-            ->orWhere('id_role', Role::$ROLE_MAESTRO);
+            ->orWhere('id_role', Role::$ROLE_MAESTRO)
+            ->orderBy('id_role');
         return $query;
     }
 }

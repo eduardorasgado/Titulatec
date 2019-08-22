@@ -51,7 +51,7 @@
                             <a class="dropdown-item" href="{{ route('Maestro.create') }}">Agregar maestro</a>
                             <a class="dropdown-item" href="{{ route('Maestro.index') }}">Ver maestros</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="">Jefes de academia</a>
+                            <a class="dropdown-item" href="{{ route('JefesAcademia.index') }}">Jefes de academia</a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="{{ route('DivisionEstudios.create') }}">Agregar Secretaria de División de Estudios</a>
                             <a class="dropdown-item" href="{{ route('DivisionEstudios.index') }}">Ver Secretarias de División de Estudios</a>

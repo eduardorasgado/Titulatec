@@ -47,6 +47,16 @@ Route::group(['middleware' => ['IsAdmin']], function() {
 
     Route::resource('ServiciosEscolares', 'ServiciosEscolaresController',
         ['only' => ['create', 'store', 'destroy']]);
+
+    Route::get('/JefesAcademia', 'JefeAcademiaController@index')
+        ->name('JefesAcademia.index');
+
+    Route::post('/JefesAcademia/{academia}', 'JefeAcademiaController@update')
+        ->name('JefesAcademia.update');
+
+    Route::get('/JefesAcademia/{academia}', function(){
+        return redirect("/");
+    });
 });
 
 Route::group(['middleware' => ['auth']], function() {

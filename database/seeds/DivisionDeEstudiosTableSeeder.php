@@ -21,6 +21,10 @@ class DivisionDeEstudiosTableSeeder extends Seeder
             'id_role' => 3
         ]);
 
+        factory(\App\User::class, 4)->create([
+            'id_role' => 3
+        ]);
+
         // jefe
 
         DB::table('users')->insert([

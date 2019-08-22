@@ -48,4 +48,14 @@ class User extends Authenticatable
     public function maestro() {
         return $this->hasOne(Maestro::class, 'id_user');
     }
+
+    //scopes
+
+    public function scopeDivisionEstudios($query) {
+        //
+        $users = $query->where('id_role', Role::$ROLE_JEFE_DIVISION)
+            ->orWhere('id_role', Role::$ROLE_SECRETARIA_DIVISION)
+            ->orderBy("id_role", "desc");
+        return $users;
+    }
 }

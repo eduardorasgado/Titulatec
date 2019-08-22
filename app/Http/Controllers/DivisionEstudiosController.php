@@ -21,10 +21,11 @@ class DivisionEstudiosController extends Controller
     {
         //
         //
-        $divisionEstudios = User::all()->where('id_role', '=', Role::$ROLE_SECRETARIA_DIVISION);
+        $divisionEstudios = User::divisionEstudios()->get();
+        $roleJefe = Role::$ROLE_JEFE_DIVISION;
 
         return view('dashboards.administrador.cuentas.listado.divisionEstudios',
-            compact('divisionEstudios'));
+            compact('divisionEstudios', 'roleJefe'));
     }
 
     /**

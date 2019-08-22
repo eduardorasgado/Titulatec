@@ -12,13 +12,11 @@ class JefeAcademiaController extends Controller
     private $genericErrorMessage = "Ha existido un error al intentar agregar un nuevo jefe de academia";
     public function index() {
         // devolvemos a todos los jefes y a todos los maestros
-        $jefes = User::with('maestro.academia')
-            ->get()->where('id_role', Role::$ROLE_JEFE_ACADEMIA);
-
-        $maestros = User::with('maestro.academia')
-            ->get()->where('id_role', Role::$ROLE_MAESTRO);
+        $jefes = User::jefesWithMaestroAndAcademia()->get();
+        $maestros = User::maestrosWithMaestroAndAcademia()->get();
 
         $academias = Academia::all();
+
         return view('dashboards.administrador.cuentas.asignacion.jefeAcademia',
             compact('jefes', 'maestros', 'academias'));
     }

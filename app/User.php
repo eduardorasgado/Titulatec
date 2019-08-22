@@ -58,4 +58,21 @@ class User extends Authenticatable
             ->orderBy("id_role", "desc");
         return $users;
     }
+
+    public function scopeJefesWithMaestroAndAcademia($query) {
+        return $query->with('maestro.academia')
+            ->where('id_role', Role::$ROLE_JEFE_ACADEMIA);
+    }
+
+    public function scopeMaestrosWithMaestroAndAcademia($query) {
+        return $query->with('maestro.academia')
+            ->where('id_role', Role::$ROLE_MAESTRO);
+    }
+
+    public function scopeJefesAndMaestrosWithAcademia($query) {
+        $query->with('maestro.academia')
+            ->where('id_role', Role::$ROLE_JEFE_ACADEMIA)
+            ->orWhere('id_role', Role::$ROLE_MAESTRO);
+        return $query;
+    }
 }

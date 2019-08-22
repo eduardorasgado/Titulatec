@@ -36,7 +36,7 @@
                                             <form method="POST" action="{{ route('JefesAcademia.update', $academia->id) }}">
                                                 @csrf
                                                 @foreach($jefes as $jefe)
-                                                    @if($jefe->maestro["academia"]["id"] == $academia->id)
+                                                    @if($jefe->maestro->academia->id == $academia->id)
                                                         <input type="hidden" name="jefeActual" value="{{ $jefe->id }}">
                                                     @endif
                                                 @endforeach
@@ -47,12 +47,12 @@
                                                             <option value=""  selected>Seleccione jefe antes de guardar</option>
                                                             @if(count($maestros) > 0)
                                                                 @foreach($jefes as $jefe)
-                                                                    @if($jefe->maestro["academia"]["id"] == $academia->id)
+                                                                    @if($jefe->maestro->academia->id == $academia->id)
                                                                         <option value="{{ $jefe->id }}" selected>{{ $jefe->nombre }} {{ $jefe->apellidos }}</option>
                                                                     @endif
                                                                 @endforeach
                                                                 @foreach ($maestros as $maestro)
-                                                                    @if($maestro->maestro["academia"]["id"] == $academia->id)
+                                                                    @if($maestro->maestro->academia->id == $academia->id)
                                                                         <option value="{{ $maestro->id }}">{{ $maestro->nombre }} {{ $maestro->apellidos }}</option>
                                                                     @endif
                                                                 @endforeach

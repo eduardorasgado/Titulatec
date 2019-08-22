@@ -43,11 +43,12 @@
                                                 <div class="form-group row">
                                                     <label class="col-md-4 col-form-label text-md-right" for="academia">Asignado: </label>
                                                     <div class="col-md-6">
-                                                        <select class="form-control" id="academia" name="academia">
+                                                        <select class="form-control" id="jefe" name="jefe">
+                                                            <option value=""  selected>Seleccione jefe antes de guardar</option>
                                                             @if(count($maestros) > 0)
                                                                 @foreach($jefes as $jefe)
                                                                     @if($jefe->maestro["academia"]["id"] == $academia->id)
-                                                                        <option value="{{ $jefe->id }}">{{ $jefe->nombre }} {{ $jefe->apellidos }}</option>
+                                                                        <option value="{{ $jefe->id }}" selected>{{ $jefe->nombre }} {{ $jefe->apellidos }}</option>
                                                                     @endif
                                                                 @endforeach
                                                                 @foreach ($maestros as $maestro)

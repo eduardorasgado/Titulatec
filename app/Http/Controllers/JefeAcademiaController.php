@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 
 class JefeAcademiaController extends Controller
 {
+    private $genericErrorMessage = "Ha existido un error al intentar agregar un nuevo jefe de academia";
     public function index() {
         // devolvemos a todos los jefes y a todos los maestros
         $jefes = User::with('maestro.academia')
@@ -24,12 +25,32 @@ class JefeAcademiaController extends Controller
     //
     public function update(Request $request, $academia) {
 
-        if($request->input('jefeActual')) {
-            // si existe lo buscamos y le cambiamos el rol a maestro de nuevo
-        }
-
         // asignamos el nuevo jefe
+        if($request->input('jefe')) {
+            if(!empty($request->input('jefe'))) {
+                $newJefe = User::find($request->input('jefe'));
+                if($newJefe) {
+                    if($newJefe->maestro->academia->id == $academia) {
+                        $newJefe->id_role = Role::$ROLE_JEFE_ACADEMIA;
+                        $newJefe->save();
 
-        dd("asignando al jefe de academia: ".$academia);
+                        // ahora se actualiza el jefe antiguo a maestro
+                        if($request->input('jefeActual')) {
+                            // si existe lo buscamos y le cambiamos el rol a maestro de nuevo
+                            $jefeActual = User::find($request->input('jefeActual'));
+                            if($jefeActual) {
+                                $jefeActual->id_role = Role::$ROLE_MAESTRO;
+                                $jefeActual->save();
+                            }
+                        }
+                        return redirect()->back()->with("success",
+                            "Se ha actualizado el jefe con éxito");
+                    }
+                }
+                return redirect()->back()->with("error",
+                    $this->genericErrorMessage);
+            }
+        }
+        return redirect()->back();
     }
 }

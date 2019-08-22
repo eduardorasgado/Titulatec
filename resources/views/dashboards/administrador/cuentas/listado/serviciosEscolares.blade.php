@@ -37,7 +37,6 @@
                         <div class="jumbotron jumboColorBlue">
                             <p>Nombre: <span class="blue">{{ $personal->nombre }} {{ $personal->apellidos }}</span></p>
                             <p>Correo Electrónico: <span class="blue">{{ $personal->email }}</span></p>
-                            <p><span class="badge badge-secondary">Departamento</span></p>
                             <p>Estado: <span class="blue">@if($personal->is_enable) Activo @else Desactivado @endif</span></p>
                             <br><br>
                             <div class="row">

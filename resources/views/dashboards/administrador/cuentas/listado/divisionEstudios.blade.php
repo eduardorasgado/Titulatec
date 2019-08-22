@@ -38,7 +38,7 @@
                             <p>Nombre: <span class="blue">{{ $personal->nombre }} {{ $personal->apellidos }}</span></p>
                             <p>Correo Electrónico: <span class="blue">{{ $personal->email }}</span></p>
                             @if($personal->id_role == $roleJefe)
-                                <p><span class="badge badge-danger">Jefe</span></p>
+                                <p><span class="badge badge-danger">{{ $personal->role->nombre }}</span></p>
                             @endif
                             <p>Estado: <span class="blue">@if($personal->is_enable) Activo @else Desactivado @endif</span></p>
                             <br><br>

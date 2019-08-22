@@ -19,8 +19,8 @@ class ServiciosEscolaresController extends Controller
     public function index()
     {
         //
-        $serviciosEscolares = User::all()->where('id_role', '=',
-            Role::$ROLE_SERVICIOS_ESCOLARES);
+        $serviciosEscolares = User::serviciosEscolares()->get();
+
         return view('dashboards.administrador.cuentas.listado.serviciosEscolares',
                 compact('serviciosEscolares'));
     }
@@ -56,7 +56,7 @@ class ServiciosEscolaresController extends Controller
             'id_role' => 4
         ]);
 
-        return redirect('/Maestro/create')->with('success', $this->serviciosCreateSuccessMessage);
+        return redirect()->back()->with('success', $this->serviciosCreateSuccessMessage);
     }
 
     /**

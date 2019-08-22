@@ -59,7 +59,7 @@ class DivisionEstudiosController extends Controller
             'id_role' => 3
         ]);
 
-        return redirect('/Maestro/create')->with('success', $this->divisionCreateSuccessMessage);
+        return redirect()->back()->with('success', $this->divisionCreateSuccessMessage);
     }
 
     /**

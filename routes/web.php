@@ -45,6 +45,18 @@ Route::group(['middleware' => ['IsAdmin']], function() {
     Route::resource('DivisionEstudios', 'DivisionEstudiosController',
         ['only' => ['create', 'store', 'destroy']]);
 
+    Route::get('/DivisionEstudios/Jefe/edit',
+        'DivisionEstudiosController@asignarJefeEdit')
+        ->name('DivisionEstudios.jefe.edit');
+
+    Route::post('/DivisionEstudios/Jefe/update',
+        'DivisionEstudiosController@asignarJefeUpdate')
+        ->name('DivisionEstudios.jefe.update');
+
+    Route::get('/DivisionEstudios/Jefe/update', function() {
+        return redirect('/');
+    })->name('DivisionEstudios.jefe.update');
+
     Route::resource('ServiciosEscolares', 'ServiciosEscolaresController',
         ['only' => ['create', 'store', 'destroy']]);
 

@@ -12,6 +12,8 @@ class DivisionEstudiosController extends Controller
 {
     private $divisionCreateSuccessMessage = 'Se ha creado correctamente el personal de division de estudios, puede'.
                 ' ya accesar al sistema con la contraseña *password* que debe cambiar en su primera sesión';
+
+    private $genericErrorMessage = 'Ocurrió un error al intentar actualizar el jefe, intente más tarde';
     /**
      * Display a listing of the resource.
      *
@@ -105,5 +107,46 @@ class DivisionEstudiosController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    // custom funtions
+
+    /**
+     * Muestra el formulario para asignar al jefe
+     */
+    public function asignarJefeEdit() {
+        $divisionEstudios = User::divisionEstudios()->get();
+        $divisionRole = Role::find(Role::$ROLE_JEFE_DIVISION);
+        return view('dashboards.administrador.cuentas.asignacion.jefeDivisionEstudios',
+                compact('divisionEstudios', 'divisionRole'));
+    }
+
+    public function asignarJefeUpdate(Request $request) {
+        // asignamos el nuevo jefe
+        if($request->input('jefe')) {
+            if(!empty($request->input('jefe'))) {
+                $newJefe = User::find($request->input('jefe'));
+                if($newJefe) {
+                    $newJefe->id_role = Role::$ROLE_JEFE_DIVISION;
+                    $newJefe->save();
+                    // ahora se actualiza el jefe antiguo a maestro
+                    if($request->input('jefeActual')) {
+                        // si existe lo buscamos y le cambiamos el rol a maestro de nuevo
+                        $jefeActual = User::find($request->input('jefeActual'));
+                        if($jefeActual) {
+                            $jefeActual->id_role = Role::$ROLE_SECRETARIA_DIVISION;
+                            $jefeActual->save();
+                        }
+                    }
+                    return redirect()->back()->with("success",
+                        "Se ha actualizado el jefe con éxito: ");
+
+                }
+                return redirect()->back()->with("error",
+                    $this->genericErrorMessage);
+            }
+        }
+        return redirect()->back()->with("error", "Selecciona un elemento antes de guardar");
+
     }
 }

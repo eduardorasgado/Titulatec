@@ -56,7 +56,7 @@
                             <a class="dropdown-item" href="{{ route('DivisionEstudios.create') }}">Agregar Personal de División de Estudios</a>
                             <a class="dropdown-item" href="{{ route('DivisionEstudios.index') }}">Ver Personal de División de Estudios</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="">Ver Jefe de División de Estudios</a>
+                            <a class="dropdown-item" href="{{ route('DivisionEstudios.jefe.edit') }}">Ver Jefe de División de Estudios</a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="{{ route('ServiciosEscolares.create') }}">Agregar Personal de Servicios Escolares</a>
                             <a class="dropdown-item" href="{{ route('ServiciosEscolares.index') }}">Ver Personal de Servicios Escolares</a>

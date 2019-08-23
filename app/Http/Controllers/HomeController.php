@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\DefaultPassRequest;
 use App\Role;
 use App\User;
 use Illuminate\Http\Request;
@@ -9,6 +10,7 @@ use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
+    private $defaultPass = '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi';
     /**
      * Create a new controller instance.
      *
@@ -29,6 +31,10 @@ class HomeController extends Controller
         //  REDIRECCIONAMIENTO A DASHBOARD DADO EL TIPO DE USUARIO LOGUEADO
 
         $role = Auth::user()->role;
+
+        if($this->checkDefaultPassword()){
+            return view('auth.passwords.firstSession');
+        }
 
         if(Auth::user()->id_role == 1) {
             // devuelve el dashboard del administrador
@@ -61,27 +67,26 @@ class HomeController extends Controller
             return view('dashboards.alumno.home',
                 compact('role', 'alumno'));
         }
-        /*
-        else {
-            $role1 = Role::find(1);
-
-            $users = $role1->users;
-            $us = '';
-
-            foreach ($users as $user) {
-                $us = $user->nombre.", ";
-            }
-
-            return view('home');
-            return dd($us);
-        }
-        */
         else {
             return redirect('/');
         }
     }
 
-    public function admin() {
-        return var_dump('es un administrador');
+    public function passwordUpdate(DefaultPassRequest $request) {
+
+        $userLogged = User::find(Auth::user()->id);
+        $userLogged->password = bcrypt($request->input('password'));
+        $userLogged->save();
+        return redirect('/home');
+
+
+    }
+
+    // UTILIDADES DEL CONTROLLER
+    /**
+     * Este metodo comprueba que la contrasena de el usuario sea distinta de default
+     */
+    private function checkDefaultPassword() {
+        return ($this->defaultPass == Auth::user()->getAuthPassword());
     }
 }

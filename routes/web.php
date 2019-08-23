@@ -74,6 +74,13 @@ Route::group(['middleware' => ['IsAdmin']], function() {
 Route::group(['middleware' => ['auth']], function() {
     // rutas que todos pueden acceder
     // usualmente los get
+
+    // Reubicar este tema
+    Route::post(
+        '/password/change/default',
+        'HomeController@passwordUpdate'
+    )->name('Auth.password.default.change');
+
     Route::resource('OpcionTitulacion', 'OpcionTitulacionController',
         ['only' => ['index', 'show']]);
 

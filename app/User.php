@@ -81,4 +81,8 @@ class User extends Authenticatable
             ->orderBy('id_role');
         return $query;
     }
+
+    public function getPassword($query, $id) {
+        $query->find($id)->password;
+    }
 }

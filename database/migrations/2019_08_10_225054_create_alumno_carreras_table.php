@@ -23,8 +23,8 @@ class CreateAlumnoCarrerasTable extends Migration
             // plan de estudios
 
             $table->integer('id_alumno')->unsigned();
-            $table->integer('id_especialidad')->unsigned();
-            $table->integer('id_plan_estudios')->unsigned();
+            $table->integer('id_especialidad')->unsigned()->nullable();
+            $table->integer('id_plan_estudios')->unsigned()->nullable();
 
             $table->foreign('id_alumno')
                 ->references('id')

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\AlumnoCarrera;
+use App\Http\Requests\CarreraRequest;
 use Illuminate\Http\Request;
 
 class AlumnoCarreraController extends Controller
@@ -67,9 +68,8 @@ class AlumnoCarreraController extends Controller
      * @param  \App\AlumnoCarrera  $alumnoCarrera
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $idAlumno)
+    public function update(CarreraRequest $request, $idAlumno)
     {
-
         dd("se esta seteando con exito");
     }
 

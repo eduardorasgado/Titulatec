@@ -36,10 +36,10 @@
                             </div>
                         </div>
                         <div class="form-group row" >
-                            <label class="col-md-4 col-form-label text-md-right" for="planes">Plan de estudios: </label>
+                            <label class="col-md-4 col-form-label text-md-right" for="plan">Plan de estudios: </label>
                             <div class="col-md-6">
 
-                                <select class="form-control" id="planes" name="planes">
+                                <select class="form-control" id="plan" name="plan">
                                     <!-- render a traves de ajax abajo del file-->
                                 </select>
                             </div>
@@ -98,7 +98,7 @@
                     data.planes.map((plan) => {
                         newData+= '<option value="'+plan.id+'">'+plan.clave+'</option>';
                     });
-                    $('#planes').html(newData);
+                    $('#plan').html(newData);
                     $('#waiting').html("");
                 },
                 error: function(error) {

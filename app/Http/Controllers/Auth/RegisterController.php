@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Alumno;
+use App\AlumnoCarrera;
 use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
@@ -77,6 +78,11 @@ class RegisterController extends Controller
 
         $alumno = Alumno::create([
             'id_user' => $userAlumno->id
+        ]);
+
+        // registramos el id del alumno, no del usuario en si
+        $alumnoCarrera = AlumnoCarrera::create([
+            'id_alumno' => $alumno->id
         ]);
 
         //$userAlumno = User::find($userAlumno->id)->getRelation('alumno');

@@ -29,5 +29,11 @@ class AlumnosTableSeeder extends Seeder
         DB::table("alumnos")->insert([
             'id_user' => $alumno->id,
         ]);
+
+        DB::table('alumno_carreras')->insert([
+            'id_alumno' => 1,
+            'id_especialidad' => null,
+            'id_plan_estudios' => null,
+        ]);
     }
 }

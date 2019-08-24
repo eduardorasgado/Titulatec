@@ -3,13 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="38466543-71e6-47b8-907d-daf5ac2d8132" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Alumno.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Alumno.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/AlumnoCarrera.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/AlumnoCarrera.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/EspecialidadController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/EspecialidadController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PlanEstudiosController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PlanEstudiosController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/PlanEstudios.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/PlanEstudios.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AlumnoCarreraController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AlumnoCarreraController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Kernel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/IsMaestro.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/IsMaestro.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/dashboards/alumno/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboards/alumno/home.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
@@ -172,7 +168,7 @@
       <workItem from="1566359303943" duration="24615000" />
       <workItem from="1566442190816" duration="24380000" />
       <workItem from="1566512674736" duration="6613000" />
-      <workItem from="1566620918256" duration="11462000" />
+      <workItem from="1566620918256" duration="17186000" />
     </task>
     <servers />
   </component>

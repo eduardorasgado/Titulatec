@@ -12,9 +12,14 @@
                     Registro de datos del solicitante
                 </div>
                 <div class="card-body">
-                    <form method="POST" action="{{ route('DivisionEstudios.jefe.update') }}">
+                    <div class="row mx-auto">
+                        <span class="alert alert-info">Atención: una vez iniciado el proceso de papeleo, ya no es posible cambiar la carrera</span>
+                    </div>
+                    <form method="POST" action="{{ route('AlumnoCarrera.update', ['AlumnoCarrera' => $alumno->id]) }}">
+                        {{ method_field('PUT') }}
                         @csrf
                         <div class="form-group row">
+                            <input type="hidden" id="planActual" value="{{ $alumno["alumno"]["academia"]["id_plan_estudios"] }}">
                             <label class="col-md-4 col-form-label text-md-right" for="especialidad">Especialidad: </label>
                             <div class="col-md-6">
                                 <select class="form-control" id="especialidad" name="especialidad" onchange="cargarPlanesDeEstudio(this.value);">
@@ -26,16 +31,16 @@
                                     @endif
                                 </select>
                             </div>
-                        </div>
+                            <div id="waiting" class="col-md-1">
 
+                            </div>
+                        </div>
                         <div class="form-group row" >
                             <label class="col-md-4 col-form-label text-md-right" for="planes">Plan de estudios: </label>
                             <div class="col-md-6">
-                                <div id="waiting">
-                                </div>
+
                                 <select class="form-control" id="planes" name="planes">
-
-
+                                    <!-- render a traves de ajax abajo del file-->
                                 </select>
                             </div>
                         </div>
@@ -59,15 +64,16 @@
 
     <script >
         window.onload = function() {
-            console.log("Cargando plan de estudio si ya fue seleccionado, en este caso traemos solamente el id de la" +
-                "especialidad del alumno si esta existe");
+            //Cargando plan de estudio si ya fue seleccionado, en este caso traemos solamente el id de la especialidad del alumno si esta existe
             // cargando plan de estudio si el valor de select de especialidad no viene vacio
             var selectedEspecialidad = $("#especialidad").children('option:selected').val();
+            var planActualSelected = $("#planActual").val();
+            console.log(planActualSelected);
 
             if(selectedEspecialidad !== "") {
                 console.log("selected especialidad es: "+ selectedEspecialidad);
+                cargarPlanesDeEstudio(selectedEspecialidad);
             }
-
         }
 
 
@@ -80,7 +86,7 @@
                 }
             });
 
-            $('#waiting').html("<span class='alert alert-info'>Espere en lo que se procesa</span>");
+            $('#waiting').html('<img align="right" width="30" src="{{ asset("images/45.gif") }}"></img>');
 
             $.ajax({
                 type:'GET',
@@ -90,7 +96,7 @@
                     let newData= '<option value=""  selected>Seleccione plan de estudio</option>';
 
                     data.planes.map((plan) => {
-                        newData+= '<option value="'+plan.id+'"  selected>'+plan.clave+'</option>';
+                        newData+= '<option value="'+plan.id+'">'+plan.clave+'</option>';
                     });
                     $('#planes').html(newData);
                     $('#waiting').html("");

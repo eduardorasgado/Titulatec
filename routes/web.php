@@ -95,6 +95,10 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('PlanEstudio', 'PlanEstudiosController',
         ['only' => ['index', 'show']]);
 
+    // ruta para conseguir todos los planes de estudio por especialidad
+    Route::get('/Especialidad/{id}/PlanesEstudio',
+        'PlanEstudiosController@getAllByEspecialidad');
+
     Route::resource('Maestro', 'MaestroController',
         ['only' => ['index', 'show']]);
 
@@ -104,9 +108,8 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('ServiciosEscolares', 'ServiciosEscolaresController',
         ['only' => ['index', 'show']]);
 
-    // ruta para conseguir todos los planes de estudio por especialidad
-    Route::get('/Especialidad/{id}/PlanesEstudio',
-                'PlanEstudiosController@getAllByEspecialidad');
+    Route::resource('AlumnoCarrera', 'AlumnoCarreraController',
+        ['only' => ['index', 'show']]);
 });
 
 
@@ -124,4 +127,9 @@ Route::group(['middleware' => ['IsDivisionEstudios']], function() {
 Route::group(['middleware' => ['IsServiciosEscolares']], function() {
     Route::resource('ServiciosEscolares', 'ServiciosEscolaresController',
         ['only' => ['edit', 'update']]);
+});
+
+Route::group(['middleware' => ['IsAlumno']], function() {
+    Route::resource('AlumnoCarrera', 'AlumnoCarreraController',
+        ['only' => ['edit', 'update', 'create', 'destroy']]);
 });

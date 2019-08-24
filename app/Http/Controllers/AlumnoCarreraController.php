@@ -67,9 +67,10 @@ class AlumnoCarreraController extends Controller
      * @param  \App\AlumnoCarrera  $alumnoCarrera
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, AlumnoCarrera $alumnoCarrera)
+    public function update(Request $request, $idAlumno)
     {
-        //
+
+        dd("se esta seteando con exito");
     }
 
     /**

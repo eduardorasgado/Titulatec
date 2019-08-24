@@ -3,6 +3,7 @@
 namespace App\Http;
 
 use App\Http\Middleware\IsAdmin;
+use App\Http\Middleware\IsAlumno;
 use App\Http\Middleware\IsDivisionEstudios;
 use App\Http\Middleware\IsMaestro;
 use App\Http\Middleware\IsServiciosEscolares;
@@ -58,6 +59,7 @@ class Kernel extends HttpKernel
         'auth' => \App\Http\Middleware\Authenticate::class,
         'IsAdmin' => IsAdmin::class,
         'IsMaestro' => IsMaestro::class,
+        'IsAlumno' => IsAlumno::class,
         'IsDivisionEstudios' => IsDivisionEstudios::class,
         'IsServiciosEscolares' => IsServiciosEscolares::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,

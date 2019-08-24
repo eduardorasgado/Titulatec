@@ -6,7 +6,7 @@ use App\Role;
 use Closure;
 use Illuminate\Support\Facades\Auth;
 
-class IsMaestro
+class IsAlumno
 {
     /**
      * Handle an incoming request.
@@ -20,7 +20,7 @@ class IsMaestro
         if(Auth::guest()) { return redirect('/'); }
         else {
             if(Auth::check()) {
-                if(Auth::user()->id_role == Role::$ROLE_MAESTRO || Auth::user()->id_role == Role::$ROLE_JEFE_ACADEMIA){
+                if(Auth::user()->id_role == Role::$ROLE_ALUMNO){
                     return $next($request);
                 } else {
                     return redirect('/');

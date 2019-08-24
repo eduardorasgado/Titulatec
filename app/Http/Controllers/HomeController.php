@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Especialidad;
 use App\Http\Requests\DefaultPassRequest;
 use App\Role;
 use App\User;
@@ -63,9 +64,10 @@ class HomeController extends Controller
         else if(Auth::user()->id_role == 6) {
             // dashboard de alumno
             $alumno = User::find(Auth::user()->id)->alumno;
+            $especialidades = Especialidad::all();
             //return dd($alumno);
             return view('dashboards.alumno.home',
-                compact('role', 'alumno'));
+                compact('role', 'alumno', 'especialidades'));
         }
         else {
             return redirect('/');

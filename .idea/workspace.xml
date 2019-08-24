@@ -3,10 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="38466543-71e6-47b8-907d-daf5ac2d8132" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/AlumnoCarrera.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/AlumnoCarrera.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AlumnoCarreraController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AlumnoCarreraController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_08_10_225054_create_alumno_carreras_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_08_10_225054_create_alumno_carreras_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/AlumnosTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/AlumnosTableSeeder.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/dashboards/alumno/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboards/alumno/home.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -168,7 +166,7 @@
       <workItem from="1566359303943" duration="24615000" />
       <workItem from="1566442190816" duration="24380000" />
       <workItem from="1566512674736" duration="6613000" />
-      <workItem from="1566620918256" duration="18733000" />
+      <workItem from="1566620918256" duration="25612000" />
     </task>
     <servers />
   </component>

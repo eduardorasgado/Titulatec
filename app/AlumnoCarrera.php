@@ -18,4 +18,9 @@ class AlumnoCarrera extends Model
     public function alumno() {
         return $this->belongsTo(Alumno::class, 'id_alumno');
     }
+
+
+    public function scopeGetByIdAlumno($query, $idAlumno) {
+        return $query->where('id', $idAlumno)->first();
+    }
 }

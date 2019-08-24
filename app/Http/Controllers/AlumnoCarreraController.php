@@ -70,7 +70,11 @@ class AlumnoCarreraController extends Controller
      */
     public function update(CarreraRequest $request, $idAlumno)
     {
-        dd("se esta seteando con exito");
+        $alumnoCarrera = AlumnoCarrera::getByIdAlumno($idAlumno);
+        $alumnoCarrera->id_especialidad = $request->input('especialidad');
+        $alumnoCarrera->id_plan_estudios = $request->input('plan');
+        $alumnoCarrera->save();
+        return redirect()->back()->with('success-especialidad', 'Actualización exitosa');
     }
 
     /**

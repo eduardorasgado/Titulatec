@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Academia;
 use App\Especialidad;
 use App\Http\Requests\EspecialidadRequest;
+use App\PlanEstudios;
 use Illuminate\Http\Request;
 
 class EspecialidadController extends Controller
@@ -60,7 +61,7 @@ class EspecialidadController extends Controller
      * @param  \App\Especialidad  $especialidad
      * @return \Illuminate\Http\Response
      */
-    public function show(Especialidad $especialidad)
+    public function show($id)
     {
         //
     }

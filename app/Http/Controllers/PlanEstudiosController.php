@@ -104,4 +104,14 @@ class PlanEstudiosController extends Controller
         $plan = PlanEstudios::findOrFail($id);
         return dd('Se desactivó un plan de estudios permanentemente: '.$plan->clave);
     }
+
+    public function getAllByEspecialidad($idEspecialidad) {
+        // checamos que exista la especialidad
+        $planes = [];
+        if(Especialidad::find($idEspecialidad)) {
+             $planes = PlanEstudios::getAllByEspecialidad($idEspecialidad)->get();
+        }
+        return response()
+            ->json(['planes' => $planes]);
+    }
 }

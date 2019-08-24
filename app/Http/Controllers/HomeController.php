@@ -62,8 +62,8 @@ class HomeController extends Controller
                 compact('role'));
         }
         else if(Auth::user()->id_role == 6) {
-            // dashboard de alumno
-            $alumno = User::find(Auth::user()->id)->alumno;
+            // dashboard de alumno, si existe alumno traelo, si existe carrera, traerlo
+            $alumno = User::alumnoWithCarrera(Auth::user()->id)->first();
             $especialidades = Especialidad::all();
             //return dd($alumno);
             return view('dashboards.alumno.home',

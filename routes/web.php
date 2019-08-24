@@ -103,6 +103,10 @@ Route::group(['middleware' => ['auth']], function() {
 
     Route::resource('ServiciosEscolares', 'ServiciosEscolaresController',
         ['only' => ['index', 'show']]);
+
+    // ruta para conseguir todos los planes de estudio por especialidad
+    Route::get('/Especialidad/{id}/PlanesEstudio',
+                'PlanEstudiosController@getAllByEspecialidad');
 });
 
 

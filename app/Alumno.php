@@ -25,4 +25,8 @@ class Alumno extends Model
     public function user() {
         return $this->belongsTo(User::class, 'id_user');
     }
+
+    public function carrera() {
+        return $this->hasOne(AlumnoCarrera::class, 'id_alumno');
+    }
 }

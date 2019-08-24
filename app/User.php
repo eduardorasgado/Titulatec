@@ -81,4 +81,8 @@ class User extends Authenticatable
             ->orderBy('id_role');
         return $query;
     }
+
+    public function scopeAlumnoWithCarrera($query, $id) {
+        return $query->with('alumno.carrera')->where("id", $id);
+    }
 }

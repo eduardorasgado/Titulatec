@@ -18,4 +18,8 @@ class PlanEstudios extends Model
         return $this->belongsTo(Especialidad::class,
             'id_especialidad');
     }
+
+    public function scopeGetAllByEspecialidad($query, $idEspecialidad) {
+        return $query->where('id_especialidad', $idEspecialidad);
+    }
 }

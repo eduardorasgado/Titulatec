@@ -13,4 +13,9 @@ class AlumnoCarrera extends Model
         'id_especialidad',
         'id_plan_estudios'
     ];
+
+
+    public function alumno() {
+        return $this->belongsTo(Alumno::class, 'id_alumno');
+    }
 }

@@ -98,7 +98,7 @@
                     </div>
 
                     <div class="jumbotron">
-                        <form method="POST" action="{{ route('AlumnoCarrera.update', ['AlumnoCarrera' => $alumno["alumno"]["id"]]) }}">
+                        <form method="POST" action="{{ route('Alumno.update', ['AlumnoCarrera' => $alumno["alumno"]["id"]]) }}">
                             {{ method_field('PUT') }}
                             @csrf
                             <div class="form-group row">
@@ -136,6 +136,153 @@
                                     <input id="otherTECNM" type="text" class="form-control @error('otherTECNM') is-invalid @enderror" name="otherTECNM" value="{{ $alumno["alumno"]["otherTECNM"] }}" required autocomplete="otherTECNM" autofocus>
 
                                     @error('otherTECNM')
+                                    <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                    @enderror
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="col-md-4 col-form-label text-md-right" for="especialidad">Estado: </label>
+                                <div class="col-md-6">
+                                    <select class="form-control" id="estado" name="estado">
+                                        <option value=""  selected>Seleccione estado</option>
+                                        @if($alumno["alumno"]["estado"])
+                                            <option value="{{ $alumno["alumno"]["estado"] }}"  selected>{{ $alumno["alumno"]["estado"] }}</option>
+                                        @endif
+
+                                        <option value="Aguascalientes">Aguascalientes</option>
+
+                                        <option value="Baja California">Baja California</option>
+
+                                        <option value="Baja California Sur">Baja California Sur</option>
+
+                                        <option value="Campeche">Campeche</option>
+
+                                        <option value="Coahuila de Zaragoza">Coahuila de Zaragoza</option>
+
+                                        <option value="Colima">Colima</option>
+
+                                        <option value="Chiapas">Chiapas</option>
+
+                                        <option value="Chihuahua">Chihuahua</option>
+
+                                        <option value="Distrito Federal">Distrito Federal</option>
+
+                                        <option value="Durango">Durango</option>
+
+                                        <option value="Guanajuato">Guanajuato</option>
+
+                                        <option value="Guerrero">Guerrero</option>
+
+                                        <option value="Hidalgo">Hidalgo</option>
+
+                                        <option value="Jalisco">Jalisco</option>
+
+                                        <option value="México">México</option>
+
+                                        <option value="Michoacán de Ocampo">Michoacán de Ocampo</option>
+
+                                        <option value="Morelos">Morelos</option>
+
+                                        <option value="Nayarit">Nayarit</option>
+
+                                        <option value="Nuevo León">Nuevo León</option>
+
+                                        <option value="Oaxaca">Oaxaca</option>
+
+                                        <option value="Puebla">Puebla</option>
+
+                                        <option value="Querétaro">Querétaro</option>
+
+                                        <option value="Quintana Roo">Quintana Roo</option>
+
+                                        <option value="San Luis Potosí">San Luis Potosí</option>
+
+                                        <option value="Sinaloa">Sinaloa</option>
+
+                                        <option value="Sonora">Sonora</option>
+
+                                        <option value="Tabasco">Tabasco</option>
+
+                                        <option value="Tamaulipas">Tamaulipas</option>
+
+                                        <option value="Tlaxcala">Tlaxcala</option>
+
+                                        <option value="Veracruz de Ignacio de la Llave">Veracruz de Ignacio de la Llave</option>
+
+                                        <option value="Yucatán">Yucatán</option>
+
+                                        <option value="Zacatecas">Zacatecas</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="ciudad" class="col-md-4 col-form-label text-md-right">{{ __('Ciudad') }}</label>
+
+                                <div class="col-md-6">
+                                    <input id="ciudad" type="text" class="form-control @error('ciudad') is-invalid @enderror" name="ciudad" value="{{ $alumno["alumno"]["ciudad"] }}" required autocomplete="ciudad" autofocus>
+
+                                    @error('ciudad')
+                                    <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                    @enderror
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="lugar_trabajo" class="col-md-4 col-form-label text-md-right">{{ __('Lugar de trabajo') }}</label>
+
+                                <div class="col-md-6">
+                                    <input id="lugar_trabajo" type="text" class="form-control @error('lugar_trabajo') is-invalid @enderror" name="lugar_trabajo" value="{{ $alumno["alumno"]["lugar_trabajo"] }}" required autocomplete="lugar_trabajo" autofocus>
+
+                                    @error('lugar_trabajo')
+                                    <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                    @enderror
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="puesto_trabajo" class="col-md-4 col-form-label text-md-right">{{ __('Puesto de trabajo') }}</label>
+
+                                <div class="col-md-6">
+                                    <input id="puesto_trabajo" type="text" class="form-control @error('puesto_trabajo') is-invalid @enderror" name="puesto_trabajo" value="{{ $alumno["alumno"]["puesto_trabajo"] }}" required autocomplete="puesto_trabajo" autofocus>
+
+                                    @error('puesto_trabajo')
+                                    <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                    @enderror
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="generacion" class="col-md-4 col-form-label text-md-right">{{ __('Generación') }}</label>
+
+                                <div class="col-md-6">
+                                    <input id="generacion" type="text" class="form-control @error('generacion') is-invalid @enderror" name="generacion" value="{{ $alumno["alumno"]["generacion"] }}" required autocomplete="generacion" autofocus>
+
+                                    @error('generacion')
+                                    <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                    @enderror
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="anexo" class="col-md-4 col-form-label text-md-right">{{ __('Anexo') }}</label>
+
+                                <div class="col-md-6">
+                                    <textarea id="anexo" type="text" class="form-control @error('anexo') is-invalid @enderror" name="anexo" value="{{ $alumno["alumno"]["anexo"] }}" required autocomplete="anexo" autofocus>
+                                    </textarea>
+
+                                    @error('anexo')
                                     <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
                                             </span>

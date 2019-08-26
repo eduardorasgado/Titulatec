@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Alumno;
+use App\Http\Requests\AlumnoRequest;
 use Illuminate\Http\Request;
 
 class AlumnoController extends Controller
@@ -67,9 +68,9 @@ class AlumnoController extends Controller
      * @param  \App\Alumno  $alumno
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Alumno $alumno)
+    public function update(AlumnoRequest $request, $id)
     {
-        //
+
     }
 
     /**

@@ -132,4 +132,6 @@ Route::group(['middleware' => ['IsServiciosEscolares']], function() {
 Route::group(['middleware' => ['IsAlumno']], function() {
     Route::resource('AlumnoCarrera', 'AlumnoCarreraController',
         ['only' => ['edit', 'update', 'create', 'destroy']]);
+
+    Route::resource('Alumno', 'AlumnoController');
 });

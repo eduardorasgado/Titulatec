@@ -133,7 +133,7 @@
                                 <label for="otherTECNM" class="col-md-4 col-form-label text-md-right">{{ __('En caso de venir de otro TECNM, nombre:') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="otherTECNM" type="text" class="form-control @error('otherTECNM') is-invalid @enderror" name="otherTECNM" value="{{ $alumno["alumno"]["otherTECNM"] }}" required autocomplete="otherTECNM" autofocus>
+                                    <input id="otherTECNM" type="text" class="form-control @error('otherTECNM') is-invalid @enderror" name="otherTECNM" value="{{ $alumno["alumno"]["otherTECNM"] }}" autocomplete="otherTECNM" autofocus>
 
                                     @error('otherTECNM')
                                     <span class="invalid-feedback" role="alert">
@@ -237,7 +237,7 @@
                                 <label for="lugar_trabajo" class="col-md-4 col-form-label text-md-right">{{ __('Lugar de trabajo') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="lugar_trabajo" type="text" class="form-control @error('lugar_trabajo') is-invalid @enderror" name="lugar_trabajo" value="{{ $alumno["alumno"]["lugar_trabajo"] }}" required autocomplete="lugar_trabajo" autofocus>
+                                    <input id="lugar_trabajo" type="text" class="form-control @error('lugar_trabajo') is-invalid @enderror" name="lugar_trabajo" value="{{ $alumno["alumno"]["lugar_trabajo"] }}" autocomplete="lugar_trabajo" autofocus>
 
                                     @error('lugar_trabajo')
                                     <span class="invalid-feedback" role="alert">
@@ -251,7 +251,7 @@
                                 <label for="puesto_trabajo" class="col-md-4 col-form-label text-md-right">{{ __('Puesto de trabajo') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="puesto_trabajo" type="text" class="form-control @error('puesto_trabajo') is-invalid @enderror" name="puesto_trabajo" value="{{ $alumno["alumno"]["puesto_trabajo"] }}" required autocomplete="puesto_trabajo" autofocus>
+                                    <input id="puesto_trabajo" type="text" class="form-control @error('puesto_trabajo') is-invalid @enderror" name="puesto_trabajo" value="{{ $alumno["alumno"]["puesto_trabajo"] }}" autocomplete="puesto_trabajo" autofocus>
 
                                     @error('puesto_trabajo')
                                     <span class="invalid-feedback" role="alert">
@@ -279,7 +279,7 @@
                                 <label for="anexo" class="col-md-4 col-form-label text-md-right">{{ __('Anexo') }}</label>
 
                                 <div class="col-md-6">
-                                    <textarea id="anexo" type="text" class="form-control @error('anexo') is-invalid @enderror" name="anexo" value="{{ $alumno["alumno"]["anexo"] }}" required autocomplete="anexo" autofocus>
+                                    <textarea id="anexo" type="text" class="form-control @error('anexo') is-invalid @enderror" name="anexo" value="{{ $alumno["alumno"]["anexo"] }}" autocomplete="anexo" autofocus>
                                     </textarea>
 
                                     @error('anexo')

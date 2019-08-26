@@ -26,13 +26,13 @@ class AlumnoRequest extends FormRequest
         return [
             'direccion' => 'required|string|max:250',
             'telefono' => 'required|string|max:20',
-            'otherTECNM' => 'required|string|max:50',
+            'otherTECNM' => 'nullable|string|max:50',
             'estado' => 'required|string|max:80',
             'ciudad' => 'required|string|max:80',
-            'lugar_trabajo' => 'string|max:20',
-            'puesto_trabajo' => 'string|max:20',
+            'lugar_trabajo' => 'nullable|string|max:20',
+            'puesto_trabajo' => 'nullable|string|max:20',
             'generacion' => 'required|string|max:30',
-            'anexo' => 'string|max:400',
+            'anexo' => 'nullable|string|max:400',
         ];
     }
 }

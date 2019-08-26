@@ -70,7 +70,26 @@ class AlumnoController extends Controller
      */
     public function update(AlumnoRequest $request, $id)
     {
+        $alumno = Alumno::find($id);
+        if($alumno) {
+            $alumno->direccion = $request->input('direccion');
+            $alumno->telefono = $request->input('telefono');
+            $alumno->otherTECNM = $request->input('otherTECNM');
+            $alumno->estado = $request->input('estado');
+            $alumno->ciudad = $request->input('ciudad');
+            $alumno->lugar_trabajo = $request->input('lugar_trabajo');
+            $alumno->puesto_trabajo = $request->input('puesto_trabajo');
+            $alumno->generacion = $request->input('generacion');
+            $alumno->anexo = $request->input('anexo');
+            $alumno->save();
 
+            return redirect()->back()
+                    ->with('success-alumno', 'Los datos han sido actualizados con éxito');
+        }
+        else {
+            return redirect()->back()
+                ->with('error-alumno', 'No existe el alumno');
+        }
     }
 
     /**

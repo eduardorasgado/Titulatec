@@ -74,6 +74,53 @@
 
                 </div>
             </div>
+            <br>
+            <div class="card">
+                <div class="card-header">
+                    Proyecto de alumno
+                </div>
+                <div class="card-body">
+                    <div id="init-proyect" class="row">
+                        <div class="col-md-4">
+                            <span class="" style="font-size: 9px; padding:0; margin:0">
+                                Para crear un nuevo proyecto, ten en cuenta que si el proyecto es entre varios integrantes, vas a ser el responsable de rellenar correctamente todos los datos del proyecto.
+                            </span>
+                            <a href=""><button class="btn btn-outline-primary">Crear Proyecto</button></a>
+                        </div>
+                        <div class="col-md-8">
+                            <span class="" style="font-size: 9px; padding:0; margin:0">
+                                En caso de tener un equipo, el primero en haber creado el proyecto en el sistema, debe de proporcionarte el siguiente código.
+                            </span>
+                            <form method="POST" action="">
+                                <div class="form-group row">
+                                    <label for="direccion" class="col-md-4 col-form-label text-md-right">{{ __('Código de proyecto') }}</label>
+
+                                    <div class="col-md-6">
+                                        <input id="codigo" type="text" class="form-control @error('codigo') is-invalid @enderror" name="codigo" value="{{ old('codigo') }}" required autocomplete="codigo" autofocus>
+
+                                        @error('codigo')
+                                        <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                    </div>
+                                </div>
+
+                                <div class="form-group row mb-0">
+                                    <div class="col-md-6 offset-md-4">
+                                        <button type="submit" class="btn btn-primary">
+                                            {{ __('Cargar proyecto') }}
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div id="existing-project">
+                        <input type="hidden" value="{{ $alumno["proyecto"]["id"] }}">
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="col-md-6">
             <div class="card">

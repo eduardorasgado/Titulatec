@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Alumno;
 use App\Proyecto;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -46,15 +47,24 @@ class ProyectoController extends Controller
             }
         }
 
+        $alumnoId = Auth::user()->alumno->id;
+
         $proyecto = Proyecto::create([
             'nombre' => $request->input('nombre'),
             'producto' => $request->input('producto'),
             'num_total_integrantes' => $request->input('num_total_integrantes'),
             'conteo_registrados' => 1,
             'codigo_compartido' => $code,
-            'id_creador' => Auth::user()->id,
+            'id_creador' => $alumnoId,
             'is_closed' => false
         ]);
+
+        // guardando el id del proyecto dentro del alumno
+        $alumno = Alumno::find($alumnoId);
+        if($alumno) {
+            $alumno->id_proyecto = $proyecto->id;
+            $alumno->save();
+        }
 
         return redirect()->back()->with('success', 'Proyecto creado, regrese a su dashboard para verificar');
     }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Especialidad;
 use App\Http\Requests\DefaultPassRequest;
+use App\Proyecto;
 use App\Role;
 use App\User;
 use Illuminate\Http\Request;
@@ -66,9 +67,11 @@ class HomeController extends Controller
             // dashboard de alumno, si existe alumno traelo, si existe carrera, traerlo
             $alumno = User::alumnoWithCarrera(Auth::user()->id)->first();
             $especialidades = Especialidad::all();
+            $proyecto = Proyecto::find($alumno["alumno"]["id_proyecto"]);
             //return dd($alumno);
             return view('dashboards.alumno.home',
-                compact('role', 'alumno', 'especialidades'));
+                compact('role', 'alumno', 'especialidades',
+                        'proyecto'));
         }
         else {
             return redirect('/');

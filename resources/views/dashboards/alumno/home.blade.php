@@ -82,16 +82,16 @@
 
                 @if($proyecto != null)
                     <div class="card-body">
-                        <p>Nombre: {{ $proyecto["nombre"] }}</p>
-                        <p>Producto: {{ $proyecto["producto"] }}</p>
-                        <p>Número de integrantes: {{ $proyecto["num_total_integrantes"] }}</p>
+                        <p>Nombre: <span class="blue">{{ $proyecto["nombre"] }}</span></p>
+                        <p>Producto: <span class="blue">{{ $proyecto["producto"] }}</span></p>
+                        <p>Número de integrantes: <span class="blue">{{ $proyecto["num_total_integrantes"] }}</span></p>
                         @if($proyecto["num_total_integrantes"] > 1)
-                            <p>Código para compartir: {{ $proyecto["codigo_compartido"] }}</p>
+                            <span class="alert alert-info">Código para compartir: <span class="blue">{{ $proyecto["codigo_compartido"] }}</span></span>
                         @endif
                         <div class="row">
                             <div class="col-md-8"></div>
                             <div class="col-md-4">
-                                <a href=""><button class="btn btn-outline-danger">Editar Proyecto</button></a>
+                                <a href="{{ Route('Proyecto.edit', ['Proyecto' => $proyecto->id]) }}"><button class="btn btn-outline-danger">Editar Proyecto</button></a>
                             </div>
                         </div>
                     </div>

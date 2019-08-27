@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Alumno;
+use App\Http\Requests\ProyectoRequest;
 use App\Proyecto;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -36,7 +37,7 @@ class ProyectoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ProyectoRequest $request)
     {
         // generando codigo
         $passed = false;
@@ -86,9 +87,12 @@ class ProyectoController extends Controller
      * @param  \App\Proyecto  $proyecto
      * @return \Illuminate\Http\Response
      */
-    public function edit(Proyecto $proyecto)
+    public function edit($id)
     {
         //
+        $proyecto = Proyecto::find($id);
+        return view('proyecto.editar',
+                compact('proyecto'));
     }
 
     /**
@@ -98,9 +102,17 @@ class ProyectoController extends Controller
      * @param  \App\Proyecto  $proyecto
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Proyecto $proyecto)
+    public function update(ProyectoRequest $request, $id)
     {
-        //
+        $proyecto = Proyecto::find($id);
+
+        $proyecto->nombre = $request->input('nombre');
+        $proyecto->producto = $request->input('producto');
+        $proyecto->num_total_integrantes = $request->input('num_total_integrantes');
+
+        $proyecto->save();
+
+        return redirect()->back()->with('success', 'Se ha actualizado con éxito el proyecto');
     }
 
     /**

@@ -85,7 +85,7 @@
                             <span class="" style="font-size: 9px; padding:0; margin:0">
                                 Para crear un nuevo proyecto, ten en cuenta que si el proyecto es entre varios integrantes, vas a ser el responsable de rellenar correctamente todos los datos del proyecto.
                             </span>
-                            <a href=""><button class="btn btn-outline-primary">Crear Proyecto</button></a>
+                            <a href="{{ route('Proyecto.create') }}"><button class="btn btn-outline-primary">Crear Proyecto</button></a>
                         </div>
                         <div class="col-md-8">
                             <span class="" style="font-size: 9px; padding:0; margin:0">
@@ -399,7 +399,7 @@
                     },
                     error: function(error) {
                         console.log(error);
-                        $('#waiting').html("<span class='alert alert-danger'>Error al obtener los planes de estudio</span>");
+                        $('#waiting').html("<span class='alert alert-danger' style='display: block;'>Error al obtener los planes de estudio</span>");
                     }
                 });
             } else {

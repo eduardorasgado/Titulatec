@@ -134,4 +134,11 @@ Route::group(['middleware' => ['IsAlumno']], function() {
         ['only' => ['edit', 'update', 'create', 'destroy']]);
 
     Route::resource('Alumno', 'AlumnoController');
+
+    Route::resource('Proyecto', 'ProyectoController',
+        ['only' => ['edit', 'update', 'create', 'store']]);
+
+    Route::get('/generateToken',
+                'ProyectoController@generateCode')
+        ->name('Code.generate');
 });

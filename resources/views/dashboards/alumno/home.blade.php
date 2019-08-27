@@ -85,6 +85,9 @@
                         <p>Nombre: {{ $proyecto["nombre"] }}</p>
                         <p>Producto: {{ $proyecto["producto"] }}</p>
                         <p>Número de integrantes: {{ $proyecto["num_total_integrantes"] }}</p>
+                        @if($proyecto["num_total_integrantes"] > 1)
+                            <p>Código para compartir: {{ $proyecto["codigo_compartido"] }}</p>
+                        @endif
                         <div class="row">
                             <div class="col-md-8"></div>
                             <div class="col-md-4">

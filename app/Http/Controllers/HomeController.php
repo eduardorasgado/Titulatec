@@ -68,10 +68,11 @@ class HomeController extends Controller
             $alumno = User::alumnoWithCarrera(Auth::user()->id)->first();
             $especialidades = Especialidad::all();
             $proyecto = Proyecto::find($alumno["alumno"]["id_proyecto"]);
+            $registroCompletado = false;
             //return dd($alumno);
             return view('dashboards.alumno.home',
                 compact('role', 'alumno', 'especialidades',
-                        'proyecto'));
+                        'proyecto', 'registroCompletado'));
         }
         else {
             return redirect('/');

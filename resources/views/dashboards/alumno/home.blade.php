@@ -5,7 +5,35 @@
     <hr>
     <div class="jumbotron align-content-center">
         <div>
-            <h2>Tu proceso actual:</h2>
+            <div class="row">
+                <h2>Tu proceso actual:</h2>
+            </div>
+
+            <div class="row">
+                <span class="alert alert-info">
+                    En caso de haber completado el registro de tus datos y del proyecto, genere su solicitud de titulación y presente ante División de Estudios Profesionales.
+                </span>
+            </div>
+            <div class="row">
+                <div class="col-md-8"></div>
+                <div class="col-md-4">
+                    <a href=""><button type="button"
+                                       class="btn
+                                           @if(!$registroCompletado)
+                                           btn-danger
+                                           @else
+                                           btn-success
+                                           @endif
+                            "
+                        @if(!$registroCompletado)
+                            disabled
+                        @endif
+                        >
+                            Generar solicitud de titulación.
+                        </button>
+                    </a>
+                </div>
+            </div>
         </div>
     </div>
     <div class="row">

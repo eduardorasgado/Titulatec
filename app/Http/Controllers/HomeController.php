@@ -73,7 +73,8 @@ class HomeController extends Controller
             $procesoTitulacion = $alumno->alumno->procesoTitulacion;
             $registroCompletado = false;
 
-            if($proyecto != null && $alumno["alumno"]->completed && $alumno["alumno"]["carrera"]["id_plan_estudios"] != null) {
+            if($proyecto != null && $alumno["alumno"]->completed && $alumno["alumno"]["carrera"]["id_plan_estudios"] != null &&
+                $procesoTitulacion != null) {
                 $registroCompletado = true;
             }
             //return dd($alumno);

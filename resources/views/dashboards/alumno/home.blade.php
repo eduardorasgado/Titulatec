@@ -116,8 +116,9 @@
                         <form method="POST" action="{{ route('ProcesoTitulacion.store') }}">
                             @csrf
 
-                            <input type="hidden"value="{{ $alumno->id }}" name="idAlumno" id="idAlumno">
+                            <input type="hidden"value="{{ $alumno->alumno->id }}" name="idAlumno" id="idAlumno">
                             <div class="form-group row">
+
 
                                 <label class="col-md-4 col-form-label text-md-right" for="opcion">Opción de titulación: </label>
                                 <div class="col-md-6">
@@ -125,7 +126,7 @@
                                         <option value=""  selected>Seleccione opción de titulación</option>
                                         @if(count($opcionesTitulacion) > 0)
                                             @foreach($opcionesTitulacion as $opcion)
-                                                <option value="{{ $opcion->id }}" {{ ($alumno["alumno"]["proceso_titulacion"]["id_opcion_titulacion"] == $opcion->id) ? 'selected' : '' }}>{{ $opcion->nombre }}</option>
+                                                <option value="{{ $opcion->id }}" {{ ($procesoTitulacion["id"] == $opcion->id) ? 'selected' : '' }}>{{ $opcion->nombre }}</option>
                                             @endforeach
                                         @endif
                                     </select>

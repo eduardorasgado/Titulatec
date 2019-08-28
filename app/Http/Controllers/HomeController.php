@@ -70,6 +70,7 @@ class HomeController extends Controller
             $especialidades = Especialidad::all();
             $proyecto = Proyecto::find($alumno["alumno"]["id_proyecto"]);
             $opcionesTitulacion = OpcionTitulacion::all();
+            $procesoTitulacion = $alumno->alumno->procesoTitulacion;
             $registroCompletado = false;
 
             if($proyecto != null && $alumno["alumno"]->completed && $alumno["alumno"]["carrera"]["id_plan_estudios"] != null) {
@@ -78,7 +79,8 @@ class HomeController extends Controller
             //return dd($alumno);
             return view('dashboards.alumno.home',
                 compact('role', 'alumno', 'especialidades',
-                        'proyecto', 'registroCompletado', 'opcionesTitulacion'));
+                        'proyecto', 'registroCompletado', 'opcionesTitulacion',
+                        'procesoTitulacion'));
         }
         else {
             return redirect('/');

@@ -69,6 +69,10 @@ class HomeController extends Controller
             $especialidades = Especialidad::all();
             $proyecto = Proyecto::find($alumno["alumno"]["id_proyecto"]);
             $registroCompletado = false;
+
+            if($proyecto != null && $alumno["alumno"]->completed && $alumno["alumno"]["carrera"] != null) {
+                $registroCompletado = true;
+            }
             //return dd($alumno);
             return view('dashboards.alumno.home',
                 compact('role', 'alumno', 'especialidades',

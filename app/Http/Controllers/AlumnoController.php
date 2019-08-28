@@ -81,6 +81,7 @@ class AlumnoController extends Controller
             $alumno->puesto_trabajo = $request->input('puesto_trabajo');
             $alumno->generacion = $request->input('generacion');
             $alumno->anexo = $request->input('anexo');
+            $alumno->completed = true;
             $alumno->save();
 
             return redirect()->back()

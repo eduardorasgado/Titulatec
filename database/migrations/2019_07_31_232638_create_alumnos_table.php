@@ -22,8 +22,9 @@ class CreateAlumnosTable extends Migration
             $table->string('ciudad')->nullable();
             $table->string('lugar_trabajo')->nullable();
             $table->string('puesto_trabajo')->nullable();
-            $table->string('generacion')->nullable();;
+            $table->string('generacion')->nullable();
             $table->text('anexo')->nullable();
+            $table->boolean('completed')->default(false);
 
             // llaves foraneas
             $table->integer('id_user')->unsigned();

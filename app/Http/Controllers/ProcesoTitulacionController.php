@@ -36,6 +36,17 @@ class ProcesoTitulacionController extends Controller
     public function store(Request $request)
     {
         //
+        ProcesoTitulacion::create([
+            'datos_generales' => false,
+            'solicitud_titulacion' => false,
+            'memorandum' => false,
+            'registro_proyecto' => false,
+            'avisos' => false,
+            'is_proceso_finished' => false,
+            'id_alumno' => $request->input('idAlumno'),
+            'id_opcion_titulacion' => $request->input('opcion')
+        ]);
+        return redirect()->back()->with('success-opcion', 'Se ha guardado la opción de titulación');
     }
 
     /**

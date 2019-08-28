@@ -29,4 +29,8 @@ class Alumno extends Model
     public function carrera() {
         return $this->hasOne(AlumnoCarrera::class, 'id_alumno');
     }
+
+    public function procesoTitulacion() {
+        return $this->hasOne(ProcesoTitulacion::class, 'id_alumno');
+    }
 }

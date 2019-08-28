@@ -17,6 +17,11 @@ class ProcesoTitulacion extends Model
         'avisos',
         'is_proceso_finished',
         'id_alumno',
-        'id_opcion_titulacion'
+        'id_opcion_titulacion',
+        'id_asesores'
     ];
+
+    public function alumno() {
+        return $this->belongsTo(Alumno::class, 'id_alumno');
+    }
 }

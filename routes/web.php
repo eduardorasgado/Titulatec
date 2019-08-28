@@ -141,4 +141,6 @@ Route::group(['middleware' => ['IsAlumno']], function() {
     Route::get('/generateToken',
                 'ProyectoController@generateCode')
         ->name('Code.generate');
+
+    Route::resource('ProcesoTitulacion', 'ProcesoTitulacionController');
 });

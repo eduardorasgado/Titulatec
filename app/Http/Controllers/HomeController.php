@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Especialidad;
 use App\Http\Requests\DefaultPassRequest;
+use App\OpcionTitulacion;
 use App\Proyecto;
 use App\Role;
 use App\User;
@@ -68,15 +69,16 @@ class HomeController extends Controller
             $alumno = User::alumnoWithCarrera(Auth::user()->id)->first();
             $especialidades = Especialidad::all();
             $proyecto = Proyecto::find($alumno["alumno"]["id_proyecto"]);
+            $opcionesTitulacion = OpcionTitulacion::all();
             $registroCompletado = false;
 
-            if($proyecto != null && $alumno["alumno"]->completed && $alumno["alumno"]["carrera"] != null) {
+            if($proyecto != null && $alumno["alumno"]->completed && $alumno["alumno"]["carrera"]["id_plan_estudios"] != null) {
                 $registroCompletado = true;
             }
             //return dd($alumno);
             return view('dashboards.alumno.home',
                 compact('role', 'alumno', 'especialidades',
-                        'proyecto', 'registroCompletado'));
+                        'proyecto', 'registroCompletado', 'opcionesTitulacion'));
         }
         else {
             return redirect('/');

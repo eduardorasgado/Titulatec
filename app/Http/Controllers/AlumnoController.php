@@ -103,4 +103,10 @@ class AlumnoController extends Controller
     {
         //
     }
+
+    public function generateSolicitudTitulacion() {
+        // creando proceso en base de dato
+
+        dd("generando la solicitud de titulación");
+    }
 }

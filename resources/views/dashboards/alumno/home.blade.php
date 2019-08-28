@@ -98,6 +98,48 @@
                                 </div>
                             </div>
                         </form>
+
+                        <div class="row mx-auto m-md-2">
+                            @if(session('success-opcion'))
+                                <div class="alert alert-success" role="alert" style="margin-top: 5px">
+                                    <span class="text-success">{{ session('success-opcion') }}</span>
+                                </div>
+
+                            @endif
+                            @if(session('error-opcion'))
+                                <div class="alert alert-danger" role="alert" style="margin-top: 5px">
+                                    <span class="text-success">{{ session('error-opcion') }}</span>
+                                </div>
+
+                            @endif
+                        </div>
+                        <form method="POST" action="{{ route('ProcesoTitulacion.store') }}">
+                            @csrf
+
+                            <input type="hidden"value="{{ $alumno->id }}" name="idAlumno" id="idAlumno">
+                            <div class="form-group row">
+
+                                <label class="col-md-4 col-form-label text-md-right" for="opcion">Opción de titulación: </label>
+                                <div class="col-md-6">
+                                    <select class="form-control" id="opcion" name="opcion">
+                                        <option value=""  selected>Seleccione opción de titulación</option>
+                                        @if(count($opcionesTitulacion) > 0)
+                                            @foreach($opcionesTitulacion as $opcion)
+                                                <option value="{{ $opcion->id }}" {{ ($alumno["alumno"]["proceso_titulacion"]["id_opcion_titulacion"] == $opcion->id) ? 'selected' : '' }}>{{ $opcion->nombre }}</option>
+                                            @endforeach
+                                        @endif
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group row mb-0">
+                                <div class="col-md-6 offset-md-4">
+                                    <button type="submit" class="btn btn-primary">
+                                        {{ __('Guardar') }}
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
                     </div>
 
                 </div>

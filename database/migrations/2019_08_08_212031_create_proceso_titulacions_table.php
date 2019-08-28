@@ -28,7 +28,7 @@ class CreateProcesoTitulacionsTable extends Migration
             // acta
             $table->integer('id_alumno')->unsigned();
             $table->integer('id_opcion_titulacion')->unsigned();
-            $table->integer('id_asesores')->unsigned();
+            $table->integer('id_asesores')->unsigned()->nullable();
 
             $table->foreign('id_alumno')
                 ->references('id')

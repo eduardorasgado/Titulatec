@@ -26,4 +26,9 @@ class Especialidad extends Model
             'id_especialidad'
         );
     }
+
+    public function alumnoCarreras() {
+        return $this
+            ->hasMany(AlumnoCarrera::class, 'id_especialidad');
+    }
 }

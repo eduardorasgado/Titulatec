@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Alumno;
 use App\Role;
 use App\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class DocumentacionController extends Controller
@@ -68,6 +69,15 @@ class DocumentacionController extends Controller
 
     private function generateSolicitudTitulacionAntiguoPDF($alumno) {
         //
-        return view('documentos.solicitudTitulacion.antiguo');
+        $fecha = Carbon::now();
+        $userAlumno = $alumno->user;
+        $proyecto = $alumno->proyecto;
+        $especialidad = $alumno->carrera->especialidad;
+        $planEstudio = $alumno->carrera->planEstudio;
+        $procesoTitulacion = $alumno->procesoTitulacion;
+
+        return view('documentos.solicitudTitulacion.antiguo',
+            compact('fecha', 'userAlumno', 'alumno', 'especialidad',
+                    'planEstudio', 'procesoTitulacion'));
     }
 }

@@ -13,6 +13,12 @@
     <div class="jumbotron">
         <p>{{ $jefeNombre }}: {{ $jefeDivision->nombre }} {{ $jefeDivision->apellidos }}</p>
         <p>{{ $coordinadorNombre }}: {{ $coordinador->nombre }} {{ $coordinador->apellidos }}</p>
+        <p>Numero de control: </p>
+        <p>Proyecto: {{ $proyecto->nombre }}</p>
+        <p>Producto: {{ $proyecto->producto }}</p>
+        <p>Direccion: {{ $alumno->direccion }}</p>
+        <p>Telefono particular o de contacto: {{ $alumno->telefono }}</p>
+        <p>Correo Electrónico del estudiante: {{ $userAlumno->email }}</p>
     </div>
 </body>
 </html>

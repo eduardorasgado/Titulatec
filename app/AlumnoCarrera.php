@@ -24,6 +24,11 @@ class AlumnoCarrera extends Model
             ->belongsTo(PlanEstudios::class, 'id_plan_estudios');
     }
 
+    public function especialidad() {
+        return $this
+            ->belongsTo(Especialidad::class, 'id_especialidad');
+    }
+
 
     public function scopeGetByIdAlumno($query, $idAlumno) {
         return $query->where('id', $idAlumno)->first();

@@ -31,7 +31,7 @@
         <p>Generación: {{ $alumno->generacion }}</p>
 
         <h4>Datos de Servicios Estudiantiles</h4>
-
+        <p>Opcion de titulacion elegida: {{ $procesoTitulacion["opcionTitulacion"]["nombre"] }}</p>
 
     </div>
 </body>

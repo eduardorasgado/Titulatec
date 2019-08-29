@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Alumno;
+use App\ProcesoTitulacion;
 use App\Role;
 use App\User;
 use Carbon\Carbon;
@@ -74,10 +75,10 @@ class DocumentacionController extends Controller
         $proyecto = $alumno->proyecto;
         $especialidad = $alumno->carrera->especialidad;
         $planEstudio = $alumno->carrera->planEstudio;
-        $procesoTitulacion = $alumno->procesoTitulacion;
+        $procesoTitulacion = ProcesoTitulacion::withOpcionTitulacion($alumno->id)->first();
 
         return view('documentos.solicitudTitulacion.antiguo',
             compact('fecha', 'userAlumno', 'alumno', 'especialidad',
-                    'planEstudio', 'procesoTitulacion'));
+                    'planEstudio', 'procesoTitulacion', 'proyecto'));
     }
 }

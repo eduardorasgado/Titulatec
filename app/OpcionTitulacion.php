@@ -14,4 +14,9 @@ class OpcionTitulacion extends Model
         'nombre',
         'estado'
     ];
+
+    public function procesoTitulaciones() {
+        return $this
+            ->hasMany(ProcesoTitulacion::class, 'id_opcion_titulacion');
+    }
 }

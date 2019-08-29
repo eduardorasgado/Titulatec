@@ -24,4 +24,14 @@ class ProcesoTitulacion extends Model
     public function alumno() {
         return $this->belongsTo(Alumno::class, 'id_alumno');
     }
+
+    public function opcionTitulacion() {
+        return $this
+            ->belongsTo(OpcionTitulacion::class, 'id_opcion_titulacion');
+    }
+
+    public function scopeWithOpcionTitulacion($query, $idAlumno) {
+        return $query->with('opcionTitulacion')
+            ->where('id_alumno', $idAlumno);
+    }
 }

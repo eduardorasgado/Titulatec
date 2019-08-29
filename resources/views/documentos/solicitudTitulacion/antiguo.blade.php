@@ -32,6 +32,8 @@
 
         <h4>Datos de Servicios Estudiantiles</h4>
         <p>Opcion de titulacion elegida: {{ $procesoTitulacion["opcionTitulacion"]["nombre"] }}</p>
+        <p>Tema: {{ $proyecto->nombre }}</p>
+        <p>Anexo: {{ $alumno->anexo }}</p>
 
     </div>
 </body>

@@ -135,6 +135,10 @@ Route::group(['middleware' => ['IsMaestro']], function() {
 Route::group(['middleware' => ['IsDivisionEstudios']], function() {
     Route::resource('DivisionEstudios', 'DivisionEstudiosController',
         ['only' => ['edit', 'update']]);
+
+    Route::get('/Alumno/{id}/solicitud/memorandum/generatePDF',
+            'DocumentacionController@memorandum')
+            ->name('Alumno.memorandum.generate');
 });
 
 Route::group(['middleware' => ['IsServiciosEscolares']], function() {

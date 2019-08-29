@@ -48,6 +48,19 @@ class DocumentacionController extends Controller
         }
     }
 
+    public function memorandum($idAlumno) {
+        try {
+            $alumno = Alumno::findOrFail($idAlumno);
+            $proceso = $alumno->procesoTitulacion;
+            $proceso->memorandum = true;
+            $proceso->save();
+
+            return dd('alumno id: '.$idAlumno);
+        } catch(\Exception $e) {
+            return redirect()->back()->with('error', 'El alumno no existe');
+        }
+    }
+
     private function generateSolicitudTitulacionActualPDF($alumno) {
         //
         $jefeDivision = User::JefeDivision()->first();

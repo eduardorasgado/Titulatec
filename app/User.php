@@ -96,4 +96,12 @@ class User extends Authenticatable
     public function scopeAlumnoWithCarrera($query, $id) {
         return $query->with('alumno.carrera')->where("id", $id);
     }
+
+    public function scopeWithFullDEData($query) {
+        return $query
+            ->with([
+                'alumno.proyecto',
+                'alumno.procesoTitulacion',
+                'alumno.carrera.especialidad']);
+    }
 }

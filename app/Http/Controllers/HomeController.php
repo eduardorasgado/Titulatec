@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Alumno;
 use App\Especialidad;
 use App\Http\Requests\DefaultPassRequest;
 use App\OpcionTitulacion;
@@ -59,8 +60,7 @@ class HomeController extends Controller
             || Auth::user()->id_role == Role::$ROLE_COORDINADORA_APOYO_TITULACION) {
             // dashboard de secretaria de division de estudios
             // dashboard de jefe de division de estudios
-            return view('dashboards.secretariaDivision.home',
-                compact('role'));
+            return $this->divisionEstudiosHome($role);
         }
         else if(Auth::user()->id_role == Role::$ROLE_SERVICIOS_ESCOLARES) {
             // dashboard de servicios escolares
@@ -97,6 +97,25 @@ class HomeController extends Controller
             compact('role', 'alumno', 'especialidades',
                 'proyecto', 'registroCompletado', 'opcionesTitulacion',
                 'procesoTitulacion'));
+    }
+
+    public function divisionEstudiosHome($role) {
+        $alumnos = User::withFullDEData()->get();
+        $alumnosConMemorandum = [];
+        $alumnosSinMemorandum = [];
+
+        foreach ($alumnos as $alumno) {
+            if($alumno["alumno"]["procesoTitulacion"]["solicitud_titulacion"] &&
+                !$alumno["alumno"]["procesoTitulacion"]["memorandum"]) {
+                array_push($alumnosSinMemorandum, $alumno);
+            }
+            if($alumno["alumno"]["procesoTitulacion"]["solicitud_titulacion"] &&
+                $alumno["alumno"]["procesoTitulacion"]["memorandum"]) {
+                array_push($alumnosConMemorandum, $alumno);
+            }
+        }
+        return view('dashboards.secretariaDivision.home',
+            compact('role', 'alumnosConMemorandum', 'alumnosSinMemorandum'));
     }
 
     public function passwordUpdate(DefaultPassRequest $request) {

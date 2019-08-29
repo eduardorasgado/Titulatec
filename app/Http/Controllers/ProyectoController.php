@@ -138,7 +138,7 @@ class ProyectoController extends Controller
         $count = $proyecto->count();
         $proyecto = $proyecto->first();
         if($count > 0) {
-            if($proyecto->conteo_registrados <= $proyecto->num_total_integrantes) {
+            if(($proyecto->conteo_registrados + 1) <= $proyecto->num_total_integrantes) {
                 $alumno = Alumno::find($idAlumno);
                 if($alumno) {
                     $alumno->id_proyecto = $proyecto->id;

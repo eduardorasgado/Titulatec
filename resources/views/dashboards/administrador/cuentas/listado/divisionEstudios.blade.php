@@ -40,6 +40,9 @@
                             @if($personal->id_role == $roleJefe)
                                 <p><span class="badge badge-danger">{{ $personal->role->nombre }}</span></p>
                             @endif
+                            @if($personal->id_role == $roleCoordinador)
+                                <p><span class="badge badge-dark">{{ $personal->role->nombre }}</span></p>
+                            @endif
                             <p>Estado: <span class="blue">@if($personal->is_enable) Activo @else Desactivado @endif</span></p>
                             <br><br>
                             <div class="row">

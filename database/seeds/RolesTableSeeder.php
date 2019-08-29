@@ -61,5 +61,12 @@ class RolesTableSeeder extends Seeder
             'descripcion' => '2do nivel de control del sistema',
             'created_at' => date("Y-m-d H:i:s")
         ]);
+
+        // 8
+        DB::table('roles')->insert([
+            'nombre' => 'Coordinador(a) de Apoyo a Titulación',
+            'descripcion' => '2do nivel de control del sistema',
+            'created_at' => date("Y-m-d H:i:s")
+        ]);
     }
 }

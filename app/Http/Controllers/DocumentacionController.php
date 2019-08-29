@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Alumno;
+use App\Role;
+use App\User;
 use Illuminate\Http\Request;
 
 class DocumentacionController extends Controller
@@ -24,10 +26,14 @@ class DocumentacionController extends Controller
                         //generando pdf
                         if($tipoPlan) {
                             // tipo actual
-                            return dd('solicitud titulacion actual');
+                            return $this->generateSolicitudTitulacionActualPDF(
+                                $alumno
+                            );
                         } else {
                             // tipo antiguo
-                            return dd('solicitud titulacion antigua');
+                            return $this->generateSolicitudTitulacionAntiguoPDF(
+                                $alumno
+                            );
                         }
                     }
                 } else {
@@ -38,5 +44,30 @@ class DocumentacionController extends Controller
             return redirect()->back()->with('error',
                 "No se encuentra el alumno");
         }
+    }
+
+    private function generateSolicitudTitulacionActualPDF($alumno) {
+        //
+        $jefeDivision = User::JefeDivision()->first();
+        $coordinador = User::coordinadorApoyoTitulacionDivision()->first();
+
+        $jefeNombre = Role::find(Role::$ROLE_JEFE_DIVISION)
+            ->nombre;
+        $coordinadorNombre = Role::find(Role::$ROLE_COORDINADORA_APOYO_TITULACION)
+            ->nombre;
+
+        $userAlumno = $alumno->user;
+
+        $proyecto = $alumno->proyecto;
+
+        return view('documentos.solicitudTitulacion.actual',
+                    compact('jefeDivision', 'coordinador',
+                    'jefeNombre', 'coordinadorNombre', 'userAlumno', 'alumno',
+                    'proyecto'));
+    }
+
+    private function generateSolicitudTitulacionAntiguoPDF($alumno) {
+        //
+        return view('documentos.solicitudTitulacion.antiguo');
     }
 }

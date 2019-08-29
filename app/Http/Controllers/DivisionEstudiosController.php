@@ -25,9 +25,10 @@ class DivisionEstudiosController extends Controller
         //
         $divisionEstudios = User::divisionEstudios()->get();
         $roleJefe = Role::$ROLE_JEFE_DIVISION;
+        $roleCoordinador = Role::$ROLE_COORDINADORA_APOYO_TITULACION;
 
         return view('dashboards.administrador.cuentas.listado.divisionEstudios',
-            compact('divisionEstudios', 'roleJefe'));
+            compact('divisionEstudios', 'roleJefe', 'roleCoordinador'));
     }
 
     /**
@@ -150,5 +151,43 @@ class DivisionEstudiosController extends Controller
             return redirect()->back()->with("error", "Selecciona un elemento antes de guardar");
         }
         return redirect()->back();
+    }
+
+    public function asignarCoordinadoraApoyoTitulacionUpdate(Request $request) {
+        // asignamos el nuevo jefe
+        if($request->input('coordinador') != $request->input('coordinadorActual')) {
+            if($request->input('coordinador')) {
+                if(!empty($request->input('coordinador'))) {
+                    $newCoordinador = User::find($request->input('coordinador'));
+                    if($newCoordinador) {
+                        $newCoordinador->id_role = Role::$ROLE_COORDINADORA_APOYO_TITULACION;
+                        $newCoordinador->save();
+                        // ahora se actualiza el jefe antiguo a maestro
+                        if($request->input('coordinadorActual')) {
+                            // si existe lo buscamos y le cambiamos el rol a maestro de nuevo
+                            $coordinadorActual = User::find($request->input('coordinadorActual'));
+                            if($coordinadorActual) {
+                                $coordinadorActual->id_role = Role::$ROLE_SECRETARIA_DIVISION;
+                                $coordinadorActual->save();
+                            }
+                        }
+                        return redirect()->back()->with("success",
+                            "Se ha actualizado la/el coordinador(a) con éxito: ");
+
+                    }
+                    return redirect()->back()->with("error",
+                        $this->genericErrorMessage);
+                }
+            }
+            return redirect()->back()->with("error", "Selecciona un elemento antes de guardar");
+        }
+        return redirect()->back();
+    }
+
+    public function asignarCoordinadoraApoyoTitulacionEdit() {
+        $divisionEstudios = User::divisionEstudios()->get();
+        $divisionRole = Role::find(Role::$ROLE_COORDINADORA_APOYO_TITULACION);
+        return view('dashboards.administrador.cuentas.asignacion.coordinadorDivisionEstudios',
+            compact('divisionEstudios', 'divisionRole'));
     }
 }

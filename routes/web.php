@@ -57,6 +57,19 @@ Route::group(['middleware' => ['IsAdmin']], function() {
         return redirect('/');
     })->name('DivisionEstudios.jefe.update');
 
+    // coordinadora de apoyo a la titulacion
+    Route::get('/DivisionEstudios/Coordinadora-apoyo-titulacion/edit',
+        'DivisionEstudiosController@asignarCoordinadoraApoyoTitulacionEdit')
+        ->name('DivisionEstudios.coordinador.edit');
+
+    Route::post('/DivisionEstudios/Coordinadora-apoyo-titulacion/update',
+        'DivisionEstudiosController@asignarCoordinadoraApoyoTitulacionUpdate')
+        ->name('DivisionEstudios.coordinador.update');
+
+    Route::get('/DivisionEstudios/Coordinadora-apoyo-titulacion/update', function() {
+        return redirect('/');
+    })->name('DivisionEstudios.coordinador.update');
+
     Route::resource('ServiciosEscolares', 'ServiciosEscolaresController',
         ['only' => ['create', 'store', 'destroy']]);
 

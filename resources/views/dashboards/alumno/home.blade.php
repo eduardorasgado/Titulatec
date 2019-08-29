@@ -521,7 +521,7 @@
                                 <label for="anexo" class="col-md-4 col-form-label text-md-right">{{ __('Anexo') }}</label>
 
                                 <div class="col-md-6">
-                                    <textarea id="anexo" type="text" class="form-control @error('anexo') is-invalid @enderror" name="anexo" value="{{ $alumno["alumno"]["anexo"] }}" autocomplete="anexo" autofocus>
+                                    <textarea id="anexo" type="text" class="form-control @error('anexo') is-invalid @enderror" name="anexo" autocomplete="anexo" autofocus>{{ $alumno["alumno"]["anexo"] }}
                                     </textarea>
 
                                     @error('anexo')

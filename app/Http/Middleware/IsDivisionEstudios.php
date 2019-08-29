@@ -21,7 +21,8 @@ class IsDivisionEstudios
             if(Auth::check()) {
                 // si es secretaria o jefe de division entonces puede acceder
                 if(Auth::user()->id_role == Role::$ROLE_SECRETARIA_DIVISION
-                    || Auth::user()->id_role == Role::$ROLE_JEFE_DIVISION){
+                    || Auth::user()->id_role == Role::$ROLE_JEFE_DIVISION
+                    || Auth::user()->id_role == Role::$ROLE_COORDINADORA_APOYO_TITULACION){
                     return $next($request);
                 } else {
                     return redirect('/');

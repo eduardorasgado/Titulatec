@@ -13,6 +13,7 @@ class Role extends Model
     public static $ROLE_MAESTRO = 5;
     public static $ROLE_ALUMNO = 6;
     public static $ROLE_JEFE_DIVISION = 7;
+    public static $ROLE_COORDINADORA_APOYO_TITULACION = 8;
 
     //
     protected $fillable = [

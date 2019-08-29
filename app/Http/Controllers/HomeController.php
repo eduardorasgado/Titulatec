@@ -40,31 +40,34 @@ class HomeController extends Controller
             return view('auth.passwords.firstSession');
         }
 
-        if(Auth::user()->id_role == 1) {
+        if(Auth::user()->id_role == Role::$ROLE_ADMIN) {
             // devuelve el dashboard del administrador
             //return dd(Auth::user()->role->id);
             return view('dashboards.administrador.home',
                 compact('role'));
         }
 
-        else if(Auth::user()->id_role == 2 || Auth::user()->id_role == 5) {
+        else if(Auth::user()->id_role == Role::$ROLE_JEFE_ACADEMIA
+            || Auth::user()->id_role == Role::$ROLE_MAESTRO) {
             // dashboard de jefe de academia
             // dashboard de maestro
             return view('dashboards.jefeAcademia.home',
                 compact('role'));
         }
-        else if(Auth::user()->id_role == 3 || Auth::user()->id_role == 7) {
+        else if(Auth::user()->id_role == Role::$ROLE_SECRETARIA_DIVISION
+            || Auth::user()->id_role == Role::$ROLE_JEFE_DIVISION
+            || Auth::user()->id_role == Role::$ROLE_COORDINADORA_APOYO_TITULACION) {
             // dashboard de secretaria de division de estudios
             // dashboard de jefe de division de estudios
             return view('dashboards.secretariaDivision.home',
                 compact('role'));
         }
-        else if(Auth::user()->id_role == 4) {
+        else if(Auth::user()->id_role == Role::$ROLE_SERVICIOS_ESCOLARES) {
             // dashboard de servicios escolares
             return view('dashboards.serviciosEscolares.home',
                 compact('role'));
         }
-        else if(Auth::user()->id_role == 6) {
+        else if(Auth::user()->id_role == Role::$ROLE_ALUMNO) {
             // dashboard de alumno, si existe alumno traelo, si existe carrera, traerlo
             return $this->alumnoHome($role);
         }

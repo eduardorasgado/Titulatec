@@ -51,11 +51,22 @@ class User extends Authenticatable
 
     //scopes
 
+    public function scopeJefeDivision($query) {
+        $jefe = $query->where('id_role', Role::$ROLE_JEFE_DIVISION);
+        return $jefe;
+    }
+
+    public function scopeCoordinadorApoyoTitulacionDivision($query) {
+        $coordinador = $query->where('id_role', Role::$ROLE_COORDINADORA_APOYO_TITULACION);
+        return $coordinador;
+    }
+
     public function scopeDivisionEstudios($query) {
         //
         $users = $query->with('role')
             ->where('id_role', Role::$ROLE_JEFE_DIVISION)
             ->orWhere('id_role', Role::$ROLE_SECRETARIA_DIVISION)
+            ->orWhere('id_role', Role::$ROLE_COORDINADORA_APOYO_TITULACION)
             ->orderBy("id_role", "desc");
         return $users;
     }

@@ -147,4 +147,8 @@ Route::group(['middleware' => ['IsAlumno']], function() {
         ->name('Code.generate');
 
     Route::resource('ProcesoTitulacion', 'ProcesoTitulacionController');
+
+    Route::get('Alumno/{id}/Solicitud/Titulacion/generatePDF',
+            'DocumentacionController@solicitudTitulacion'
+        )->name('SolicitudTitulacion.generate');
 });

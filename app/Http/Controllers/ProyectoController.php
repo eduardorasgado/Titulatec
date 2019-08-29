@@ -141,6 +141,8 @@ class ProyectoController extends Controller
             if(($proyecto->conteo_registrados + 1) <= $proyecto->num_total_integrantes) {
                 $alumno = Alumno::find($idAlumno);
                 if($alumno) {
+                    // TODO: Verificar que el alumno sea de la misma carrera que el creador
+                    // para ello tambien debemos verificar la carrera en el home del alumno
                     $alumno->id_proyecto = $proyecto->id;
                     $alumno->save();
 

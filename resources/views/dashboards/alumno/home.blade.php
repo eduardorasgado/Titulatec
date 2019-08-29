@@ -5,8 +5,84 @@
     <hr>
     <div class="jumbotron align-content-center">
         <div>
-            <div class="row">
-                <h2>Tu proceso actual:</h2>
+            <h2>Tu proceso actual:</h2>
+            <div class="row m-md-4">
+
+                <div class="col-md-2"></div>
+                <div class="col-md-10">
+                    <span class="badge
+                        @if($procesoTitulacion)
+                            @if($procesoTitulacion["datos_generales"])
+                                badge-success
+                            @else
+                                badge-secondary
+                            @endif
+                        @else
+                            badge-secondary
+                        @endif
+                    ">Cargar información</span>
+                    ->
+                    <span class="badge
+                        @if($procesoTitulacion)
+                            @if($procesoTitulacion["solicitud_titulacion"])
+                                badge-success
+                            @else
+                                badge-secondary
+                            @endif
+                        @else
+                            badge-secondary
+                        @endif
+                    ">Solicitud de titulación</span>
+                    ->
+                    <span class="badge
+                        @if($procesoTitulacion)
+                            @if($procesoTitulacion["memorandum"])
+                                badge-success
+                            @else
+                                badge-secondary
+                            @endif
+                        @else
+                            badge-secondary
+                        @endif
+                    ">Memorandum</span>
+                    ->
+                    <span class="badge badge-secondary
+                        @if($procesoTitulacion)
+                            @if($procesoTitulacion["registro_proyecto"])
+                                badge-success
+                            @else
+                                badge-secondary
+                            @endif
+                        @else
+                            badge-secondary
+                        @endif
+                    ">Registro de proyecto</span>
+                    ->
+                    <span class="badge badge-secondary
+                        @if($procesoTitulacion)
+                            @if($procesoTitulacion["avisos"])
+                                badge-success
+                            @else
+                                badge-secondary
+                            @endif
+                        @else
+                            badge-secondary
+                        @endif
+                    ">Avisos</span>
+                    ->
+                    <span class="badge badge-secondary
+                        @if($procesoTitulacion)
+                            @if($procesoTitulacion["is_proceso_finished"])
+                                badge-success
+                            @else
+                                badge-secondary
+                            @endif
+                        @else
+                            badge-secondary
+                        @endif
+                    ">Acta</span>
+
+                </div>
             </div>
 
             <div class="row">
@@ -17,7 +93,7 @@
             <div class="row">
                 <div class="col-md-8"></div>
                 <div class="col-md-4">
-                    <a href=""><button type="button"
+                    <a href="{{ route('SolicitudTitulacion.generate', $alumno["alumno"]["id"]) }}"><button type="button"
                                        class="btn
                                            @if(!$registroCompletado)
                                            btn-danger
@@ -40,7 +116,7 @@
         <div class="col-md-6">
             <div class="card">
                 <div class="card-header">
-                    Registro de datos de carrera
+                    1. Registro de datos de carrera
                 </div>
                 <div class="card-body">
                     <div class="row mx-auto">
@@ -148,7 +224,7 @@
             <br>
             <div class="card">
                 <div class="card-header">
-                    Proyecto de alumno
+                    3. Proyecto de alumno
                 </div>
 
                 @if($proyecto != null)
@@ -244,7 +320,7 @@
         <div class="col-md-6">
             <div class="card">
                 <div class="card-header">
-                    Registro de datos del alumno
+                    2. Registro de datos del alumno
                 </div>
                 <div class="card-body">
                     <div class="row mx-auto">

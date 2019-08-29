@@ -66,26 +66,34 @@ class HomeController extends Controller
         }
         else if(Auth::user()->id_role == 6) {
             // dashboard de alumno, si existe alumno traelo, si existe carrera, traerlo
-            $alumno = User::alumnoWithCarrera(Auth::user()->id)->first();
-            $especialidades = Especialidad::all();
-            $proyecto = Proyecto::find($alumno["alumno"]["id_proyecto"]);
-            $opcionesTitulacion = OpcionTitulacion::all();
-            $procesoTitulacion = $alumno->alumno->procesoTitulacion;
-            $registroCompletado = false;
-
-            if($proyecto != null && $alumno["alumno"]->completed && $alumno["alumno"]["carrera"]["id_plan_estudios"] != null &&
-                $procesoTitulacion != null) {
-                $registroCompletado = true;
-            }
-            //return dd($alumno);
-            return view('dashboards.alumno.home',
-                compact('role', 'alumno', 'especialidades',
-                        'proyecto', 'registroCompletado', 'opcionesTitulacion',
-                        'procesoTitulacion'));
+            return $this->alumnoHome($role);
         }
         else {
             return redirect('/');
         }
+    }
+
+    private function alumnoHome($role) {
+        $alumno = User::alumnoWithCarrera(Auth::user()->id)->first();
+        $especialidades = Especialidad::all();
+        $proyecto = Proyecto::find($alumno["alumno"]["id_proyecto"]);
+        $opcionesTitulacion = OpcionTitulacion::all();
+        $procesoTitulacion = $alumno["alumno"]->procesoTitulacion;
+        $registroCompletado = false;
+
+        if($proyecto != null && $alumno["alumno"]->completed && $alumno["alumno"]["carrera"]["id_plan_estudios"] != null &&
+            $procesoTitulacion != null) {
+            $registroCompletado = true;
+            if(!$procesoTitulacion->datos_generales) {
+                $procesoTitulacion->datos_generales = true;
+                $procesoTitulacion->save();
+            }
+        }
+        //return dd($alumno);
+        return view('dashboards.alumno.home',
+            compact('role', 'alumno', 'especialidades',
+                'proyecto', 'registroCompletado', 'opcionesTitulacion',
+                'procesoTitulacion'));
     }
 
     public function passwordUpdate(DefaultPassRequest $request) {
@@ -94,8 +102,6 @@ class HomeController extends Controller
         $userLogged->password = bcrypt($request->input('password'));
         $userLogged->save();
         return redirect('/home');
-
-
     }
 
     // UTILIDADES DEL CONTROLLER

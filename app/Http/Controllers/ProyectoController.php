@@ -108,13 +108,11 @@ class ProyectoController extends Controller
 
         $proyecto->nombre = $request->input('nombre');
         $proyecto->producto = $request->input('producto');
-        $proyecto->num_total_integrantes = $request->input('num_total_integrantes');
-        $alumnos = $proyecto->alumnos;
+        //$alumnos = $proyecto->alumnos;
 
-        if($alumnos){
-            return dd($alumnos);
+        if($request->input('num_total_integrantes') >= $proyecto->conteo_registrados){
+            $proyecto->num_total_integrantes = $request->input('num_total_integrantes');
         }
-
         $proyecto->save();
 
         return redirect()->back()->with('success', 'Se ha actualizado con éxito el proyecto');

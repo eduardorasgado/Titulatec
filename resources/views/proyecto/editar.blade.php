@@ -23,8 +23,8 @@
                 @endif
 
                 <div class="card">
-                    <div class="card-header">{{ __('Registro de proyecto') }}</div>
-
+                    <div class="card-header">{{ __('Actualización de proyecto') }}</div>
+                    <span class="badge badge-danger" style="font-size: 10px;">Si numero total de integrantes supera al numero de los ya registrados con código de verificación, no se guardará este campo</span>
                     <div class="card-body">
                         <form method="POST" action="{{ route('Proyecto.update', ['Proyecto' => $proyecto->id]) }}">
                             {{ method_field('PUT') }}

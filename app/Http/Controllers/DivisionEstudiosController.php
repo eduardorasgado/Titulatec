@@ -112,6 +112,25 @@ class DivisionEstudiosController extends Controller
 
     // custom funtions
 
+    public function memorandumDashboard() {
+        $alumnos = User::withFullDEData()->get();
+        $alumnosConMemorandum = [];
+        $alumnosSinMemorandum = [];
+
+        foreach ($alumnos as $alumno) {
+            if($alumno["alumno"]["procesoTitulacion"]["solicitud_titulacion"] &&
+                !$alumno["alumno"]["procesoTitulacion"]["memorandum"]) {
+                array_push($alumnosSinMemorandum, $alumno);
+            }
+            if($alumno["alumno"]["procesoTitulacion"]["solicitud_titulacion"] &&
+                $alumno["alumno"]["procesoTitulacion"]["memorandum"]) {
+                array_push($alumnosConMemorandum, $alumno);
+            }
+        }
+        return view('dashboards.secretariaDivision.secciones.memorandumList',
+            compact('alumnosConMemorandum', 'alumnosSinMemorandum'));
+    }
+
     /**
      * Muestra el formulario para asignar al jefe
      */

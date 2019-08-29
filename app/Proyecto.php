@@ -16,4 +16,8 @@ class Proyecto extends Model
         'id_creador',
         'is_closed'
     ];
+
+    public function alumnos() {
+        return $this->hasMany(Alumno::class, 'id_proyecto');
+    }
 }

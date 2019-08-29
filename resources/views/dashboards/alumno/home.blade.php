@@ -152,6 +152,20 @@
                 </div>
 
                 @if($proyecto != null)
+                    <div class="row mx-auto m-md-2">
+                        @if(session('success-verification'))
+                            <div class="alert alert-success" role="alert" style="margin-top: 5px">
+                                <span class="text-success">{{ session('success-verification') }}</span>
+                            </div>
+
+                        @endif
+                        @if(session('error-verification'))
+                            <div class="alert alert-danger" role="alert" style="margin-top: 5px">
+                                <span class="text-success">{{ session('error-verification') }}</span>
+                            </div>
+
+                        @endif
+                    </div>
                     <div class="card-body">
                         <p>Nombre: <span class="blue">{{ $proyecto["nombre"] }}</span></p>
                         <p>Producto: <span class="blue">{{ $proyecto["producto"] }}</span></p>
@@ -179,7 +193,16 @@
                             <span class="" style="font-size: 9px; padding:0; margin:0">
                                 En caso de tener un equipo, el primero en haber creado el proyecto en el sistema, debe de proporcionarte el siguiente código.
                             </span>
-                                <form method="POST" action="">
+                                <div class="row mx-auto">
+                                    @if(session('error-verification'))
+                                        <div class="alert alert-danger" role="alert" style="margin-top: 5px">
+                                            <span class="text-success">{{ session('error-verification') }}</span>
+                                        </div>
+
+                                    @endif
+                                </div>
+                                <form method="POST" action="{{ route('Alumno.verificar.codigo', $alumno["alumno"]["id"]) }}">
+                                    @csrf
                                     <div class="form-group row">
                                         <label for="direccion" class="col-md-4 col-form-label text-md-right">{{ __('Código de proyecto') }}</label>
 

@@ -138,6 +138,10 @@ Route::group(['middleware' => ['IsAlumno']], function() {
     Route::resource('Proyecto', 'ProyectoController',
         ['only' => ['edit', 'update', 'create', 'store']]);
 
+    Route::post('/Alumno/{idAlumno}/verificacion-codigo',
+                'ProyectoController@exchangeProyectoCode')
+                ->name('Alumno.verificar.codigo');
+
     Route::get('/generateToken',
                 'ProyectoController@generateCode')
         ->name('Code.generate');

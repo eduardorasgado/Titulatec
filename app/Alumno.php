@@ -33,4 +33,8 @@ class Alumno extends Model
     public function procesoTitulacion() {
         return $this->hasOne(ProcesoTitulacion::class, 'id_alumno');
     }
+
+    public function proyecto() {
+        return $this->belongsTo(Proyecto::class, 'id_proyecto');
+    }
 }

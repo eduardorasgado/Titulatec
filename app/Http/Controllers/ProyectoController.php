@@ -109,6 +109,11 @@ class ProyectoController extends Controller
         $proyecto->nombre = $request->input('nombre');
         $proyecto->producto = $request->input('producto');
         $proyecto->num_total_integrantes = $request->input('num_total_integrantes');
+        $alumnos = $proyecto->alumnos;
+
+        if($alumnos){
+            return dd($alumnos);
+        }
 
         $proyecto->save();
 
@@ -123,7 +128,35 @@ class ProyectoController extends Controller
      */
     public function destroy(Proyecto $proyecto)
     {
-        //
+
+    }
+
+    /**
+     * Funcion que permite procesar el codigo de proyecto
+     * @param Request $request
+     */
+    public function exchangeProyectoCode(Request $request, $idAlumno) {
+        $proyecto = Proyecto::where('codigo_compartido', '=', $request->input('codigo'));
+        $count = $proyecto->count();
+        $proyecto = $proyecto->first();
+        if($count > 0) {
+            if($proyecto->conteo_registrados <= $proyecto->num_total_integrantes) {
+                $alumno = Alumno::find($idAlumno);
+                if($alumno) {
+                    $alumno->id_proyecto = $proyecto->id;
+                    $alumno->save();
+
+                    $proyecto->conteo_registrados = $proyecto->conteo_registrados + 1;
+                } else {
+                    return redirect()->back()->with('error-verification', 'El alumno no existe');
+                }
+            } else {
+                return redirect()->back()->with('error-verification', 'Los integrantes de este proyecto ya están completos');
+            }
+            return redirect()->back()->with('success-verification', 'Codigo verificado con éxito');
+        } else {
+            return redirect()->back()->with('error-verification', 'Codigo verificado con éxito');
+        }
     }
 
     public function generateCode() {

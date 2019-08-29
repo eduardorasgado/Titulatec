@@ -2,7 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="38466543-71e6-47b8-907d-daf5ac2d8132" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Alumno.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Alumno.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ProyectoController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProyectoController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Proyecto.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Proyecto.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/dashboards/alumno/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboards/alumno/home.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -170,7 +175,9 @@
       <workItem from="1566917424726" duration="2215000" />
       <workItem from="1566920420616" duration="1732000" />
       <workItem from="1566929936873" duration="5057000" />
-      <workItem from="1566993874074" duration="6063000" />
+      <workItem from="1566993874074" duration="10552000" />
+      <workItem from="1567088845077" duration="366000" />
+      <workItem from="1567091415014" duration="1457000" />
     </task>
     <servers />
   </component>

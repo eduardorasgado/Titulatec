@@ -147,6 +147,7 @@ class ProyectoController extends Controller
                     $alumno->save();
 
                     $proyecto->conteo_registrados = $proyecto->conteo_registrados + 1;
+                    $proyecto->save();
                 } else {
                     return redirect()->back()->with('error-verification', 'El alumno no existe');
                 }

@@ -170,13 +170,19 @@
                         <p>Nombre: <span class="blue">{{ $proyecto["nombre"] }}</span></p>
                         <p>Producto: <span class="blue">{{ $proyecto["producto"] }}</span></p>
                         <p>Número de integrantes: <span class="blue">{{ $proyecto["num_total_integrantes"] }}</span></p>
+
                         @if($proyecto["num_total_integrantes"] > 1)
+                            <p>Integrantes registrados: <span class="blue">{{ $proyecto["conteo_registrados"] }}</span></p>
                             <span class="alert alert-info">Código para compartir: <span class="blue">{{ $proyecto["codigo_compartido"] }}</span></span>
                         @endif
                         <div class="row">
                             <div class="col-md-8"></div>
                             <div class="col-md-4">
-                                <a href="{{ Route('Proyecto.edit', ['Proyecto' => $proyecto->id]) }}"><button class="btn btn-outline-danger">Editar Proyecto</button></a>
+                                @if($proyecto["id_creador"] == $alumno["alumno"]["id"])
+                                    <a href="{{ Route('Proyecto.edit', ['Proyecto' => $proyecto->id]) }}">
+                                        <button class="btn btn-outline-danger"
+                                        >Editar Proyecto</button></a>
+                                @endif
                             </div>
                         </div>
                     </div>

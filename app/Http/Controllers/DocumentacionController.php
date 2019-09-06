@@ -34,7 +34,7 @@ class DocumentacionController extends Controller
                         } else {
                             // tipo antiguo
                             return $this->generateSolicitudTitulacionAntiguoPDF(
-                                $alumno
+                                $alumno, 'documentos.solicitudTitulacion.antiguo'
                             );
                         }
                     }
@@ -50,14 +50,20 @@ class DocumentacionController extends Controller
 
     public function memorandum($idAlumno) {
         try {
+
+            // TODO: Tratar de optimizar esta peticion porque alumno se consulta en
+            // GenerateSolicitudTitulacionAntiguo
             $alumno = Alumno::findOrFail($idAlumno);
             $proceso = $alumno->procesoTitulacion;
             $proceso->memorandum = true;
-            $proceso->save();
+            //$proceso->save();
 
-            return dd('alumno id: '.$idAlumno);
+            // retornar el pdf
+            return $this->generateSolicitudTitulacionAntiguoPDF(
+                $alumno,'documentos.memorandum');
+
         } catch(\Exception $e) {
-            return redirect()->back()->with('error', 'El alumno no existe');
+            return redirect()->back()->with('Error', 'El alumno no existe');
         }
     }
 
@@ -81,7 +87,7 @@ class DocumentacionController extends Controller
                     'proyecto'));
     }
 
-    private function generateSolicitudTitulacionAntiguoPDF($alumno) {
+    private function generateSolicitudTitulacionAntiguoPDF($alumno, $vista) {
         //
         $fecha = Carbon::now();
         $userAlumno = $alumno->user;
@@ -89,9 +95,13 @@ class DocumentacionController extends Controller
         $especialidad = $alumno->carrera->especialidad;
         $planEstudio = $alumno->carrera->planEstudio;
         $procesoTitulacion = ProcesoTitulacion::withOpcionTitulacion($alumno->id)->first();
+        // encontrando al jefe de academia del alumno
+        $academia = $especialidad->academia;
+        $jefeDepartamento = User::findByJefeAcademia($academia->id);
 
-        return view('documentos.solicitudTitulacion.antiguo',
+        return view($vista,
             compact('fecha', 'userAlumno', 'alumno', 'especialidad',
-                    'planEstudio', 'procesoTitulacion', 'proyecto'));
+                    'planEstudio', 'procesoTitulacion', 'proyecto', 'jefeDepartamento',
+                'academia'));
     }
 }

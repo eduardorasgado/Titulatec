@@ -46,7 +46,7 @@
                 @endif
                 @if(Session::has('Error'))
                     <div class="alert alert-danger" role="alert" style="margin-top: 5px">
-                        <span class="text-success">{{ Session::get('error') }}</span>
+                        <span class="text-success">{{ Session::get('Error') }}</span>
                     </div>
                 @endif
                 <div class="row text-center">

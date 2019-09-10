@@ -78,11 +78,12 @@ class DocumentacionController extends Controller
             ->nombre;
 
         $userAlumno = $alumno->user;
+        $especialidad = $alumno->carrera->especialidad;
 
         $proyecto = $alumno->proyecto;
 
         return view('documentos.solicitudTitulacion.actual',
-                    compact('jefeDivision', 'coordinador',
+                    compact('jefeDivision', 'coordinador', 'especialidad',
                     'jefeNombre', 'coordinadorNombre', 'userAlumno', 'alumno',
                     'proyecto'));
     }

@@ -63,7 +63,7 @@ class DocumentacionController extends Controller
                 $alumno,'documentos.memorandum');
 
         } catch(\Exception $e) {
-            return redirect()->back()->with('Error', 'El alumno no existe');
+            return redirect()->back()->with('Error', $e->getMessage());
         }
     }
 
@@ -98,7 +98,7 @@ class DocumentacionController extends Controller
         $procesoTitulacion = ProcesoTitulacion::withOpcionTitulacion($alumno->id)->first();
         // encontrando al jefe de academia del alumno
         $academia = $especialidad->academia;
-        $jefeDepartamento = User::findByJefeAcademia($academia->id);
+        $jefeDepartamento = User::findByJefeAcademia($academia->id)->first();
 
         return view($vista,
             compact('fecha', 'userAlumno', 'alumno', 'especialidad',

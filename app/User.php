@@ -73,7 +73,7 @@ class User extends Authenticatable
 
     public function scopeFindByJefeAcademia($query, $idAcademia) {
         $jefe = $query->with('maestro')
-            ->where('id_role', Role::$ROLE_JEFE_ACADEMIA)
+            ->where('id_role', Role::$ROLE_JEFE_ACADEMIA)->get()
             ->where('maestro.id_academia', $idAcademia);
         return $jefe;
     }

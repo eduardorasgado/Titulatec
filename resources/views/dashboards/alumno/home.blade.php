@@ -202,7 +202,7 @@
                                         <option value=""  selected>Seleccione opción de titulación</option>
                                         @if(count($opcionesTitulacion) > 0)
                                             @foreach($opcionesTitulacion as $opcion)
-                                                <option value="{{ $opcion->id }}" {{ ($procesoTitulacion["id"] == $opcion->id) ? 'selected' : '' }}>{{ $opcion->nombre }}</option>
+                                                <option value="{{ $opcion->id }}" {{ ($procesoTitulacion["id_opcion_titulacion"] == $opcion->id) ? 'selected' : '' }}>{{ $opcion->nombre }}</option>
                                             @endforeach
                                         @endif
                                     </select>

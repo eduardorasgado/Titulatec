@@ -3,14 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="38466543-71e6-47b8-907d-daf5ac2d8132" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Alumno.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Alumno.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AlumnoController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AlumnoController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Requests/AlumnoRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/AlumnoRequest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_07_31_232638_create_alumnos_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_07_31_232638_create_alumnos_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ProcesoTitulacionController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProcesoTitulacionController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/ProcesoTitulacion.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/ProcesoTitulacion.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/dashboards/alumno/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboards/alumno/home.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/dashboards/secretariaDivision/secciones/memorandumList.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboards/secretariaDivision/secciones/memorandumList.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/documentos/solicitudTitulacion/actual.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/documentos/solicitudTitulacion/actual.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/documentos/solicitudTitulacion/antiguo.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/documentos/solicitudTitulacion/antiguo.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -185,7 +180,7 @@
       <workItem from="1567182763192" duration="609000" />
       <workItem from="1567792813191" duration="4564000" />
       <workItem from="1568084964077" duration="732000" />
-      <workItem from="1568128538273" duration="1741000" />
+      <workItem from="1568128538273" duration="3589000" />
     </task>
     <servers />
   </component>

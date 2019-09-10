@@ -34,4 +34,9 @@ class ProcesoTitulacion extends Model
         return $query->with('opcionTitulacion')
             ->where('id_alumno', $idAlumno);
     }
+
+    public function scopeFindByAlumnoId($query, $alumnoId){
+        return $query
+            ->where('id_alumno', $alumnoId);
+    }
 }

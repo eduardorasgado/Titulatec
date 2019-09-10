@@ -72,6 +72,7 @@ class AlumnoController extends Controller
     {
         $alumno = Alumno::find($id);
         if($alumno) {
+            $alumno->numero_control = $request->input('numero_control');
             $alumno->direccion = $request->input('direccion');
             $alumno->telefono = $request->input('telefono');
             $alumno->otherTECNM = $request->input('otherTECNM');

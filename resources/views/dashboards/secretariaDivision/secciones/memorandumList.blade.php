@@ -16,8 +16,8 @@
         <div class="col-md-6">
             @foreach($alumnosSinMemorandum as $alumno)
                 <div class="jumboColorBlue">
-                    <p>Alumno: {{ $alumno->nombre }}</p>
-                    <p>Alumno Num Control: {{ $alumno["alumno"]["ciudad"] }}</p>
+                    <p>Alumno: {{ $alumno->nombre }} {{ $alumno->apellidos }}</p>
+                    <p>Num. Control: {{ $alumno["alumno"]["numero_control"] }}</p>
                     <p> Proyecto: {{ $alumno["alumno"]["proyecto"]["nombre"] }}</p>
                     <p> Carrera: {{ $alumno["alumno"]["carrera"]["especialidad"]["nombre"] }}</p>
                     <p> Producto: {{ $alumno["alumno"]["proyecto"]["producto"] }}</p>

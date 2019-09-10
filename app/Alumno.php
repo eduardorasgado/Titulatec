@@ -8,6 +8,7 @@ class Alumno extends Model
 {
     //
     protected $fillable = [
+        'numero_control',
         'direccion',
         'telefono',
         'otherTECNM',

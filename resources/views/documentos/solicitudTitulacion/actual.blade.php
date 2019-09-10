@@ -13,7 +13,7 @@
     <div class="jumbotron">
         <p>{{ $jefeNombre }}: {{ $jefeDivision->nombre }} {{ $jefeDivision->apellidos }}</p>
         <p>{{ $coordinadorNombre }}: {{ $coordinador->nombre }} {{ $coordinador->apellidos }}</p>
-        <p>Numero de control: </p>
+        <p>Numero de control: {{ $alumno->numero_control }}</p>
         <p>Proyecto: {{ $proyecto->nombre }}</p>
         <p>Producto: {{ $proyecto->producto }}</p>
         <p>Direccion: {{ $alumno->direccion }}</p>

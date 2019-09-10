@@ -24,6 +24,7 @@ class AlumnoRequest extends FormRequest
     public function rules()
     {
         return [
+            'numero_control' => 'required|string|max:50',
             'direccion' => 'required|string|max:250',
             'telefono' => 'required|string|max:20',
             'otherTECNM' => 'nullable|string|max:50',

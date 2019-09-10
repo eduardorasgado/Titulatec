@@ -343,6 +343,21 @@
                         <form method="POST" action="{{ route('Alumno.update', ['AlumnoCarrera' => $alumno["alumno"]["id"]]) }}">
                             {{ method_field('PUT') }}
                             @csrf
+
+                            <div class="form-group row">
+                                <label for="numero_control" class="col-md-4 col-form-label text-md-right">{{ __('Número Control') }}</label>
+
+                                <div class="col-md-6">
+                                    <input id="numero_control" type="text" class="form-control @error('numero_control') is-invalid @enderror" name="numero_control" value="{{ $alumno["alumno"]["numero_control"] }}" required autocomplete="numero_control" autofocus>
+
+                                    @error('numero_control')
+                                    <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                    @enderror
+                                </div>
+                            </div>
+
                             <div class="form-group row">
                                 <label for="direccion" class="col-md-4 col-form-label text-md-right">{{ __('Dirección') }}</label>
 

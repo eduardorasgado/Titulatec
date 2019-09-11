@@ -11,11 +11,10 @@ use App\Role;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class HomeController extends Controller
 {
-    //password
-    private $defaultPass = '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi';
     /**
      * Create a new controller instance.
      *
@@ -52,8 +51,9 @@ class HomeController extends Controller
             || Auth::user()->id_role == Role::$ROLE_MAESTRO) {
             // dashboard de jefe de academia
             // dashboard de maestro
+            $roleJefeAcademia = Role::$ROLE_JEFE_ACADEMIA;
             return view('dashboards.jefeAcademia.home',
-                compact('role'));
+                compact('role', 'roleJefeAcademia'));
         }
         else if(Auth::user()->id_role == Role::$ROLE_SECRETARIA_DIVISION
             || Auth::user()->id_role == Role::$ROLE_JEFE_DIVISION
@@ -103,7 +103,8 @@ class HomeController extends Controller
     public function passwordUpdate(DefaultPassRequest $request) {
 
         $userLogged = User::find(Auth::user()->id);
-        $userLogged->password = bcrypt($request->input('password'));
+        // creando una nueva contrasena
+        $userLogged->password = Hash::make($request->input('password'));
         $userLogged->save();
         return redirect('/home');
     }
@@ -113,6 +114,6 @@ class HomeController extends Controller
      * Este metodo comprueba que la contrasena de el usuario sea distinta de default
      */
     private function checkDefaultPassword() {
-        return ($this->defaultPass == Auth::user()->getAuthPassword());
+        return Hash::check('password', Auth::user()->getAuthPassword());
     }
 }

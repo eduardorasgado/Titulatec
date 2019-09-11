@@ -56,7 +56,7 @@ class DocumentacionController extends Controller
             $alumno = Alumno::findOrFail($idAlumno);
             $proceso = $alumno->procesoTitulacion;
             $proceso->memorandum = true;
-            //$proceso->save();
+            $proceso->save();
 
             // retornar el pdf
             return $this->generateSolicitudTitulacionAntiguoPDF(

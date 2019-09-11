@@ -27,7 +27,7 @@
     <h4>Datos escolares</h4>
     <p>Escuela de procedencia: {{ $alumno->otherTECNM }}</p>
     <p>Carrera Cursada: {{ $especialidad->nombre }}</p>
-    <p>Numero de Control: </p>
+    <p>Numero de Control: {{ $alumno->numero_control }}</p>
     <p>Plan de Estudios: {{ $planEstudio->clave }}</p>
     <p>Generación: {{ $alumno->generacion }}</p>
 

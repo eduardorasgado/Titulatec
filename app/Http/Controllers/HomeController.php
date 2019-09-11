@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Alumno;
 use App\Especialidad;
 use App\Http\Requests\DefaultPassRequest;
+use App\Http\Requests\PassRequest;
+use App\Maestro;
 use App\OpcionTitulacion;
 use App\Proyecto;
 use App\Role;
@@ -51,9 +53,7 @@ class HomeController extends Controller
             || Auth::user()->id_role == Role::$ROLE_MAESTRO) {
             // dashboard de jefe de academia
             // dashboard de maestro
-            $roleJefeAcademia = Role::$ROLE_JEFE_ACADEMIA;
-            return view('dashboards.jefeAcademia.home',
-                compact('role', 'roleJefeAcademia'));
+            return $this->maestroAndJefeAcademiaHome($role);
         }
         else if(Auth::user()->id_role == Role::$ROLE_SECRETARIA_DIVISION
             || Auth::user()->id_role == Role::$ROLE_JEFE_DIVISION
@@ -100,11 +100,46 @@ class HomeController extends Controller
                 'procesoTitulacion'));
     }
 
+    private function maestroAndJefeAcademiaHome($role) {
+        $roleJefeAcademia = Role::$ROLE_JEFE_ACADEMIA;
+        // regresamos todoo lo necesario para un dashboard
+        $maestro = Maestro::findByUserId(Auth::user()->id)->first();
+
+        return view('dashboards.jefeAcademia.home',
+            compact('role', 'roleJefeAcademia', 'maestro'));
+    }
+
+    /*
+     * POST Cambio de contraseña la primera vez del login excepto alumno
+     * */
     public function passwordUpdate(DefaultPassRequest $request) {
 
+        $newPass = Hash::make($request->input('password'));
+
+        return $this->savingCustomPassword($newPass);
+    }
+
+    // get de cambio de pass
+    public function editPassword() {
+        return view('auth.passwords.edit');
+    }
+
+    // post de cambio de password cuando no es la primera vez del login
+    public function updatePassword(PassRequest $request) {
+        // primero comparamos si la antigua es igual a la almacenada
+        if(Hash::check($request->input('actual_password'), Auth::user()->getAuthPassword())) {
+            // ahora cambiamos la contrasena
+            $newPass = Hash::make($request->input('password'));
+            return $this->savingCustomPassword($newPass);
+        } else {
+            return redirect()->back()->with('Error', 'La contraseña actual no coincide');
+        }
+    }
+
+    private function savingCustomPassword($newPass) {
         $userLogged = User::find(Auth::user()->id);
         // creando una nueva contrasena
-        $userLogged->password = Hash::make($request->input('password'));
+        $userLogged->password = $newPass;
         $userLogged->save();
         return redirect('/home');
     }

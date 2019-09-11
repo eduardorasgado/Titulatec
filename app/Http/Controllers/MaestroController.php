@@ -95,7 +95,7 @@ class MaestroController extends Controller
     public function edit($id)
     {
         //
-        return dd('mostrando form para editar maestro existente con id: '.$id);
+        return dd('editando al maestro: '.$id);
     }
 
     /**

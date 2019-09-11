@@ -89,10 +89,22 @@ Route::group(['middleware' => ['auth']], function() {
     // usualmente los get
 
     // Reubicar este tema
+    // cambio de la pass en la primera sesion
     Route::post(
         '/password/change/default',
         'HomeController@passwordUpdate'
     )->name('Auth.password.default.change');
+
+    Route::get('/password/change',
+            'HomeController@editPassword'
+        )
+        ->name('Auth.password.change');
+
+    // para el cambio de la contrasena en la
+    Route::post(
+        '/password/change',
+        'HomeController@updatePassword'
+    )->name('Auth.password.change');
 
     Route::resource('OpcionTitulacion', 'OpcionTitulacionController',
         ['only' => ['index', 'show']]);

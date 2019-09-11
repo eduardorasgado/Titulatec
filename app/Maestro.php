@@ -22,4 +22,9 @@ class Maestro extends Model
     public function academia() {
         return $this->belongsTo(Academia::class, 'id_academia');
     }
+
+    public function scopeFindByUserId($query, $userId) {
+        return $query->with('academia')
+            ->where('id_user', $userId);
+    }
 }

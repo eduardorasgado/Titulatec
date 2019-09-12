@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Academia;
+use App\Maestro;
 use App\Role;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class JefeAcademiaController extends Controller
 {
@@ -54,5 +56,16 @@ class JefeAcademiaController extends Controller
             return redirect()->back()->with("error", "Selecciona un elemento antes de guardar");
         }
         return redirect()->back();
+    }
+
+    /**
+     * Trae el formulario de la creacion de un maestro
+     */
+    public function createMaestro() {
+        $jefeAcademia = Maestro::findByUserId(Auth::user()->id)->first()->id_academia;
+        $academias = Academia::where('id', $jefeAcademia)->get();
+
+        return view('dashboards.administrador.cuentas.creacion.maestro',
+            compact('academias'));
     }
 }

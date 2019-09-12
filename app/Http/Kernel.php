@@ -5,6 +5,7 @@ namespace App\Http;
 use App\Http\Middleware\IsAdmin;
 use App\Http\Middleware\IsAlumno;
 use App\Http\Middleware\IsDivisionEstudios;
+use App\Http\Middleware\IsJefeAcademia;
 use App\Http\Middleware\IsMaestro;
 use App\Http\Middleware\IsServiciosEscolares;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
@@ -62,6 +63,7 @@ class Kernel extends HttpKernel
         'IsAlumno' => IsAlumno::class,
         'IsDivisionEstudios' => IsDivisionEstudios::class,
         'IsServiciosEscolares' => IsServiciosEscolares::class,
+        'IsJefeAcademia' => IsJefeAcademia::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'bindings' => \Illuminate\Routing\Middleware\SubstituteBindings::class,
         'cache.headers' => \Illuminate\Http\Middleware\SetCacheHeaders::class,

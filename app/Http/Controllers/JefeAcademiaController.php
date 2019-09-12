@@ -60,6 +60,16 @@ class JefeAcademiaController extends Controller
     }
 
     /**
+     * Visualizacion de todos los maestros de la academia
+     */
+    public function indexMaestros($idAcademia) {
+        $academia = Academia::find($idAcademia);
+        $maestros = User::maestrosWithMaestroAndAcademiaByAcademia($idAcademia);
+        return view('dashboards.jefeAcademia.visualizacion.maestro',
+                compact('maestros', 'academia'));
+    }
+
+    /**
      * Trae el formulario de la creacion de un maestro
      */
     public function createMaestro() {
@@ -72,6 +82,7 @@ class JefeAcademiaController extends Controller
 
     public function storeMaestro(MaestroRequest $request) {
         try {
+            // uso de una clase mediante el contenedor de aplicaciones de la Inyeccion de dependencias de laravel
             $maestroController = app('App\Http\Controllers\MaestroController');
             $maestroController->storeNewMaestro($request);
             return redirect()->back()->with('success', $maestroController->maestroSuccessMessage);

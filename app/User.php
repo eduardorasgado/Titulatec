@@ -92,6 +92,14 @@ class User extends Authenticatable
             ->where('id_role', Role::$ROLE_MAESTRO);
     }
 
+    public function scopeMaestrosWithMaestroAndAcademiaByAcademia($query,
+            $idAcademia
+        ) {
+        return $query->with('maestro.academia')
+            ->where('id_role', Role::$ROLE_MAESTRO)->get()
+            ->where('maestro.id_academia', $idAcademia);
+    }
+
     public function scopeJefesAndMaestrosWithAcademia($query) {
         $query->with('maestro.academia')
             ->where('id_role', Role::$ROLE_JEFE_ACADEMIA)

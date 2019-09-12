@@ -147,6 +147,7 @@ Route::group(['middleware' => ['IsMaestro']], function() {
 // TODO: Desarrollar un middleware de IsJefeAcademia
 // TODO: Desarrollar rutas para guardar y editar maestros desde jefe de academia
 Route::group(['middleware' => ['IsJefeAcademia']], function() {
+    // rutas para creacion de maestros
    Route::get('/JefeAcademia/Administrar/Maestro/agregar',
             'JefeAcademiaController@createMaestro'
        )
@@ -155,6 +156,11 @@ Route::group(['middleware' => ['IsJefeAcademia']], function() {
    Route::post('/JefeAcademia/Administrar/Maestro/agregar',
             'JefeAcademiaController@storeMaestro')
        ->name('JefeAcademia.Manage.Maestro.create');
+
+   // ruta de visualizacion de maestros por jefe de academia
+    Route::get('/JefeAcademia/{academia_id}/Administrar/Maestro',
+            'JefeAcademiaController@indexMaestros')
+        ->name('JefeAcademia.Manage.Maestros.visualizar');
 });
 
 Route::group(['middleware' => ['IsDivisionEstudios']], function() {

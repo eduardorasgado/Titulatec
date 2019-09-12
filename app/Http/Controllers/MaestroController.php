@@ -107,7 +107,7 @@ class MaestroController extends Controller
      */
     public function destroy(Maestro $maestro)
     {
-        //
+        // inhabilitacion de los maestros
     }
 
     public function storeNewMaestro(MaestroRequest $request) {

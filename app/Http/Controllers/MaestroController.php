@@ -8,12 +8,13 @@ use App\Maestro;
 use App\Role;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 class MaestroController extends Controller
 {
 
-    private $maestroSuccessMessage = 'Se ha creado la cuenta de maestro, con éxito, la contraseña por defecto es '.
+    public $maestroSuccessMessage = 'Se ha creado la cuenta de maestro, con éxito, la contraseña por defecto es '.
                             '*password*, el usuario deberá de cambiar esta contraseña la primera vez que entre al sistema';
     /**
      * Display a listing of the resource.
@@ -54,25 +55,13 @@ class MaestroController extends Controller
     public function store(MaestroRequest $request)
     {
         //
-        $maestroUser = User::create([
-            'nombre' => $request->input('nombre'),
-            'apellidos' => $request->input('apellidos'),
-            'email' => $request->input('email'),
-            'password' => Hash::make('password'),
-            // activado: true
-            'is_enable' => 1,
-            'id_role' => 5
-        ]);
+         try {
+             $this->storeNewMaestro($request);
+             return redirect()->back()->with('success', $this->maestroSuccessMessage);
 
-        $maestro = Maestro::create([
-            'id_user' => $maestroUser->id,
-            'cedula_profesional' => $request->input('cedula_profesional'),
-            'especialidad_estudiada' => $request->input('especialidad_estudiada'),
-            'id_academia' => $request->input('academia'),
-            'asesor_count' => 0,
-        ]);
-
-        return redirect('/Maestro/create')->with('success', $this->maestroSuccessMessage);
+         } catch (\Exception $e) {
+             return redirect()->back()->with('Error', 'Error al intentar crear un maestro');
+         }
     }
 
     /**
@@ -119,5 +108,25 @@ class MaestroController extends Controller
     public function destroy(Maestro $maestro)
     {
         //
+    }
+
+    public function storeNewMaestro(MaestroRequest $request) {
+        $maestroUser = User::create([
+            'nombre' => $request->input('nombre'),
+            'apellidos' => $request->input('apellidos'),
+            'email' => $request->input('email'),
+            'password' => Hash::make('password'),
+            // activado: true
+            'is_enable' => 1,
+            'id_role' => 5
+        ]);
+
+        $maestro = Maestro::create([
+            'id_user' => $maestroUser->id,
+            'cedula_profesional' => $request->input('cedula_profesional'),
+            'especialidad_estudiada' => $request->input('especialidad_estudiada'),
+            'id_academia' => $request->input('academia'),
+            'asesor_count' => 0,
+        ]);
     }
 }

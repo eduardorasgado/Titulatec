@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Academia;
+use App\Http\Requests\MaestroRequest;
 use App\Maestro;
 use App\Role;
 use App\User;
@@ -65,7 +66,17 @@ class JefeAcademiaController extends Controller
         $jefeAcademia = Maestro::findByUserId(Auth::user()->id)->first()->id_academia;
         $academias = Academia::where('id', $jefeAcademia)->get();
 
-        return view('dashboards.administrador.cuentas.creacion.maestro',
+        return view('dashboards.jefeAcademia.creacion.maestro',
             compact('academias'));
+    }
+
+    public function storeMaestro(MaestroRequest $request) {
+        try {
+            $maestroController = app('App\Http\Controllers\MaestroController');
+            $maestroController->storeNewMaestro($request);
+            return redirect()->back()->with('success', $maestroController->maestroSuccessMessage);
+        } catch (\Exception $e) {
+            return redirect()->back()->with('Error', 'Error al intentar crear un maestro');
+        }
     }
 }

@@ -151,6 +151,10 @@ Route::group(['middleware' => ['IsJefeAcademia']], function() {
             'JefeAcademiaController@createMaestro'
        )
    ->name('JefeAcademia.Manage.Maestro.create');
+
+   Route::post('/JefeAcademia/Administrar/Maestro/agregar',
+            'JefeAcademiaController@storeMaestro')
+       ->name('JefeAcademia.Manage.Maestro.create');
 });
 
 Route::group(['middleware' => ['IsDivisionEstudios']], function() {

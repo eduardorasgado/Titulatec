@@ -93,7 +93,13 @@ class JefeAcademiaController extends Controller
     }
 
     // FUNCIONES PARA LAS SINODALIAS
+
+    /**
+     * Retorna al dashboard de muestra de alumnos
+     * @param $idAcademia
+     */
     public function indexSinodalia($idAcademia){
-        return dd("sinodales");
+
+        return view('dashboards.jefeAcademia.sinodales.home');
     }
 }

@@ -14,6 +14,7 @@
     </div>
     <div class="row">
         <div class="col-md-6">
+            <h3>No Procesados</h3>
             @foreach($alumnosSinMemorandum as $alumno)
                 <div class="jumboColorBlue">
                     <p>Alumno: {{ $alumno->nombre }} {{ $alumno->apellidos }}</p>
@@ -31,6 +32,7 @@
             @endforeach
         </div>
         <div class="col-md-6">
+            <h3>Procesados</h3>
             @foreach($alumnosConMemorandum as $alumno)
                 <div class="jumboColorBlue">
                     <p>Alumno: <span class="blue">{{ $alumno->nombre }} {{ $alumno->apellidos }}</span></p>
@@ -38,6 +40,12 @@
                     <p> Proyecto: {{ $alumno["alumno"]["proyecto"]["nombre"] }}</p>
                     <p> Carrera: {{ $alumno["alumno"]["carrera"]["especialidad"]["nombre"] }}</p>
                     <p> Producto: {{ $alumno["alumno"]["proyecto"]["producto"] }}</p>
+                    <div class="row">
+                        <div class="col-md-8"></div>
+                        <div class="col-md-2">
+                            <a href="{{ route('Alumno.memorandum.generate', $alumno["alumno"]["id"]) }}" target="_blank"><button class="btn btn-primary">Generar memorandum</button></a>
+                        </div>
+                    </div>
                 </div>
             @endforeach
         </div>

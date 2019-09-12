@@ -2,10 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="38466543-71e6-47b8-907d-daf5ac2d8132" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/resources/views/dashboards/jefeAcademia/sinodales/home.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/JefeAcademiaController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/JefeAcademiaController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/dashboards/jefeAcademia/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboards/jefeAcademia/home.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/dashboards/secretariaDivision/secciones/memorandumList.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboards/secretariaDivision/secciones/memorandumList.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -188,7 +188,7 @@
       <workItem from="1568262880169" duration="32000" />
       <workItem from="1568262957752" duration="125000" />
       <workItem from="1568263330815" duration="258000" />
-      <workItem from="1568263611754" duration="1108000" />
+      <workItem from="1568263611754" duration="1585000" />
     </task>
     <servers />
   </component>

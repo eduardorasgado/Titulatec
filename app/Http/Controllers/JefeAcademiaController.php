@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Auth;
 class JefeAcademiaController extends Controller
 {
     private $genericErrorMessage = "Ha existido un error al intentar agregar un nuevo jefe de academia";
+
     public function index() {
         // devolvemos a todos los jefes y a todos los maestros
         $jefes = User::jefesWithMaestroAndAcademia()->get();
@@ -89,5 +90,10 @@ class JefeAcademiaController extends Controller
         } catch (\Exception $e) {
             return redirect()->back()->with('Error', 'Error al intentar crear un maestro');
         }
+    }
+
+    // FUNCIONES PARA LAS SINODALIAS
+    public function indexSinodalia($idAcademia){
+        return dd("sinodales");
     }
 }

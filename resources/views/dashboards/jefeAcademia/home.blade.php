@@ -51,6 +51,9 @@
                         </div>
                     </div>
                 </div>
+                <div class="jumbotron jumbo-1 text-center">
+                    <a href="{{ route('JefeAcademia.Manage.Sinodalia.index', $maestro->academia->id) }}"><button class="btn btn-outline-primary">Sinodalías del área</a>
+                </div>
             </div>
         </div>
         @else

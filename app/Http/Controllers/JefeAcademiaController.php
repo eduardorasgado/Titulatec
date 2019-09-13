@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Academia;
+use App\Alumno;
 use App\Http\Requests\MaestroRequest;
 use App\Maestro;
 use App\ProcesoTitulacion;
@@ -66,7 +67,7 @@ class JefeAcademiaController extends Controller
      */
     public function indexMaestros($idAcademia) {
         $academia = Academia::find($idAcademia);
-        $maestros = User::maestrosWithMaestroAndAcademiaByAcademia($idAcademia);
+        $maestros = User::maestrosWithMaestroAndAcademiaByAcademia($idAcademia)->get();
         return view('dashboards.jefeAcademia.visualizacion.maestro',
                 compact('maestros', 'academia'));
     }
@@ -105,6 +106,19 @@ class JefeAcademiaController extends Controller
         $alumnosSinAsesores = ProcesoTitulacion::fullDataFindByRegistroProyectoAndidAcademia(
             false, $idAcademia)->get();
         return view('dashboards.jefeAcademia.sinodales.home',
-                compact('alumnosConAsesores', 'alumnosSinAsesores'));
+                compact('alumnosConAsesores', 'alumnosSinAsesores', 'idAcademia'));
+    }
+
+    /**
+     * funciones para las rutas de la sinodalia de un alumno especifico
+     */
+
+    public function showSinodalia($idAcademia, $idAlumno) {
+        // retornando al alumno
+        $alumno = User::findByIdAlumno($idAlumno)->first();
+        // retornando a todos los maestros del departamento incluido el jefe
+        $maestros = User::maestrosAndJefeAcademiaWithMaestroAndAcademiaByAcademia($idAcademia);
+        return view('dashboards.jefeAcademia.sinodales.asignacionAsesores',
+                compact('alumno', 'maestros'));
     }
 }

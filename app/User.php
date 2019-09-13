@@ -96,7 +96,18 @@ class User extends Authenticatable
             $idAcademia
         ) {
         return $query->with('maestro.academia')
-            ->where('id_role', Role::$ROLE_MAESTRO)->get()
+            ->where('id_role', Role::$ROLE_MAESTRO)
+            ->whereHas('maestro', function($query) use ($idAcademia) {
+                $query->where('id_academia', $idAcademia);
+            });
+    }
+
+    public function scopeMaestrosAndJefeAcademiaWithMaestroAndAcademiaByAcademia($query,
+                                                                                 $idAcademia
+    ) {
+        return $query->with('maestro.academia')
+            ->where('id_role', Role::$ROLE_MAESTRO)
+            ->orWhere('id_role', Role::$ROLE_JEFE_ACADEMIA)
             ->where('maestro.id_academia', $idAcademia);
     }
 
@@ -119,4 +130,11 @@ class User extends Authenticatable
                 'alumno.procesoTitulacion',
                 'alumno.carrera.especialidad']);
     }
+
+    public function scopefindByIdAlumno($query, $idAlumno) {
+        return $query->with('alumno')
+            ->whereHas('alumno', function($query) use ($idAlumno) {
+                $query->where('id', $idAlumno);
+            });
+}
 }

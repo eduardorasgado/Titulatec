@@ -17,15 +17,15 @@
             <h3>Alumnos No procesados</h3>
             @foreach($alumnosSinAsesores as $alumno)
                 <div class="jumboColorBlue">
-                    <p>Alumno: {{ $alumno["alumno"]->user["nombre"] }} {{ $alumno["alumno"]->user['apellidos'] }}</p>
-                    <p>Num. Control: {{ $alumno["alumno"]["numero_control"] }}</p>
-                    <p> Proyecto: {{ $alumno["alumno"]["proyecto"]["nombre"] }}</p>
-                    <p> Carrera: {{ $alumno["alumno"]["carrera"]["especialidad"]["nombre"] }}</p>
-                    <p> Producto: {{ $alumno["alumno"]["proyecto"]["producto"] }}</p>
+                    <p>Alumno: <span class="blue">{{ $alumno["alumno"]->user["nombre"] }} {{ $alumno["alumno"]->user['apellidos'] }}</span></p>
+                    <p>Num. Control: <span class="blue">{{ $alumno["alumno"]["numero_control"] }}</span></p>
+                    <p> Proyecto: <span class="blue">{{ $alumno["alumno"]["proyecto"]["nombre"] }}</span></p>
+                    <p> Carrera: <span class="blue">{{ $alumno["alumno"]["carrera"]["especialidad"]["nombre"] }}</span></p>
+                    <p> Producto: <span class="blue">{{ $alumno["alumno"]["proyecto"]["producto"] }}</span></p>
                     <div class="row">
                         <div class="col-md-8"></div>
                         <div class="col-md-2">
-                            <a href="{{ route('Sinodalia.show', [$idAcademia, $alumno["alumno"]["id"]]) }}"><button class="btn btn-primary">Registrar proyecto</button></a>
+                            <a href="{{ route('Sinodalia.show', [$idAcademia, $alumno["alumno"]["id"]]) }}"><button class="btn btn-success">Registrar proyecto</button></a>
                         </div>
                     </div>
                 </div>
@@ -35,16 +35,17 @@
             <h3>Alumnos Procesados</h3>
             @foreach($alumnosConAsesores as $alumno)
                 <div class="jumboColorBlue">
-                    <p>Alumno: {{ $alumno["alumno"]->user["nombre"] }} {{ $alumno["alumno"]->user['apellidos'] }}</p>
-                    <p>Num. Control: {{ $alumno["alumno"]["numero_control"] }}</p>
-                    <p> Proyecto: {{ $alumno["alumno"]["proyecto"]["nombre"] }}</p>
-                    <p> Carrera: {{ $alumno["alumno"]["carrera"]["especialidad"]["nombre"] }}</p>
-                    <p> Producto: {{ $alumno["alumno"]["proyecto"]["producto"] }}</p>
+                    p>Alumno: <span class="blue">{{ $alumno["alumno"]->user["nombre"] }} {{ $alumno["alumno"]->user['apellidos'] }}</span></p>
+                    <p>Num. Control: <span class="blue">{{ $alumno["alumno"]["numero_control"] }}</span></p>
+                    <p> Proyecto: <span class="blue">{{ $alumno["alumno"]["proyecto"]["nombre"] }}</span></p>
+                    <p> Carrera: <span class="blue">{{ $alumno["alumno"]["carrera"]["especialidad"]["nombre"] }}</span></p>
+                    <p> Producto: <span class="blue">{{ $alumno["alumno"]["proyecto"]["producto"] }}</span></p>
                     <div class="row">
                         <div class="col-md-8"></div>
                         <div class="col-md-2">
+                            <a href="" target="_blank"><button class="btn btn-success">Ver Asesores</button></a>
                             {{-- TODO: Opcional, en caso de que el procesoTitulacion.registro_proyecto == a true --}}
-                            <a href="{{ route('Alumno.memorandum.generate', $alumno["alumno"]["id"]) }}" target="_blank"><button class="btn btn-primary">Cambiar Asesores</button></a>
+                            <a href="{{ route('Alumno.memorandum.generate', $alumno["alumno"]["id"]) }}" target="_blank"><button class="btn btn-danger">Cambiar Asesores</button></a>
                         </div>
                     </div>
                 </div>

@@ -119,6 +119,6 @@ class JefeAcademiaController extends Controller
         // retornando a todos los maestros del departamento incluido el jefe
         $maestros = User::maestrosAndJefeAcademiaWithMaestroAndAcademiaByAcademia($idAcademia);
         return view('dashboards.jefeAcademia.sinodales.asignacionAsesores',
-                compact('alumno', 'maestros'));
+                compact('alumno', 'maestros', 'idAcademia'));
     }
 }

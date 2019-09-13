@@ -4,8 +4,8 @@
     <list default="true" id="38466543-71e6-47b8-907d-daf5ac2d8132" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/JefeAcademiaController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/JefeAcademiaController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/dashboards/jefeAcademia/sinodales/asignacionAsesores.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboards/jefeAcademia/sinodales/asignacionAsesores.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/dashboards/jefeAcademia/sinodales/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboards/jefeAcademia/sinodales/home.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -189,7 +189,8 @@
       <workItem from="1568262957752" duration="125000" />
       <workItem from="1568263330815" duration="258000" />
       <workItem from="1568263611754" duration="2503000" />
-      <workItem from="1568313557503" duration="17618000" />
+      <workItem from="1568313557503" duration="18291000" />
+      <workItem from="1568389928896" duration="6951000" />
     </task>
     <servers />
   </component>

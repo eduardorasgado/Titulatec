@@ -106,9 +106,14 @@ class User extends Authenticatable
                                                                                  $idAcademia
     ) {
         return $query->with('maestro.academia')
-            ->where('id_role', Role::$ROLE_MAESTRO)
-            ->orWhere('id_role', Role::$ROLE_JEFE_ACADEMIA)
-            ->where('maestro.id_academia', $idAcademia);
+            ->where(function($query) {
+                // explicacion: https://stackoverflow.com/questions/40898789/laravel-orwhere-not-working-as-expected?rq=1
+                $query->where('id_role', Role::$ROLE_MAESTRO)
+                    ->orWhere('id_role', Role::$ROLE_JEFE_ACADEMIA);
+            })
+            ->whereHas('maestro', function($query) use ($idAcademia) {
+                $query->where('id_academia', $idAcademia);
+        });
     }
 
     public function scopeJefesAndMaestrosWithAcademia($query) {

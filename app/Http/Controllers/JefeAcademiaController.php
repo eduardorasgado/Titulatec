@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Academia;
 use App\Http\Requests\MaestroRequest;
 use App\Maestro;
+use App\ProcesoTitulacion;
 use App\Role;
 use App\User;
 use Illuminate\Http\Request;
@@ -99,7 +100,11 @@ class JefeAcademiaController extends Controller
      * @param $idAcademia
      */
     public function indexSinodalia($idAcademia){
-
-        return view('dashboards.jefeAcademia.sinodales.home');
+        $alumnosConAsesores =  ProcesoTitulacion::fullDataFindByRegistroProyectoAndidAcademia(
+            true, $idAcademia)->get();
+        $alumnosSinAsesores = ProcesoTitulacion::fullDataFindByRegistroProyectoAndidAcademia(
+            false, $idAcademia)->get();
+        return view('dashboards.jefeAcademia.sinodales.home',
+                compact('alumnosConAsesores', 'alumnosSinAsesores'));
     }
 }

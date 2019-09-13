@@ -39,4 +39,28 @@ class ProcesoTitulacion extends Model
         return $query
             ->where('id_alumno', $alumnoId);
     }
+
+    /**
+     *
+     * Conseguir todos los alumnos con memorandum completo y un registro de proyecto dado
+     * por el usuario mas la academia.
+     * @param $query
+     * @param $registroProyecto
+     * @param $idAcademia
+     * @return mixed
+     */
+    public function scopeFullDataFindByRegistroProyectoAndidAcademia(
+        $query, $registroProyecto, $idAcademia
+    ) {
+        return $query->with([
+            'alumno.user',
+            'alumno.carrera'
+        ])
+            ->where('memorandum', true)
+            ->where('registro_proyecto', $registroProyecto)
+            ->whereHas('alumno.carrera.especialidad', function ($query) use ($idAcademia) {
+                //dd($query);
+                $query->where('id_academia', $idAcademia);
+            });
+    }
 }

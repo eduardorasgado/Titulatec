@@ -71,6 +71,7 @@ class User extends Authenticatable
         return $users;
     }
 
+    // TODO: Refactor
     public function scopeFindByJefeAcademia($query, $idAcademia) {
         $jefe = $query->with('maestro')
             ->where('id_role', Role::$ROLE_JEFE_ACADEMIA)->get()
@@ -102,18 +103,20 @@ class User extends Authenticatable
             });
     }
 
-    public function scopeMaestrosAndJefeAcademiaWithMaestroAndAcademiaByAcademia($query,
-                                                                                 $idAcademia
+    public function scopeMaestrosAndJefeAcademiaWithMaestroAndAcademiaByAcademia(
+        $query,
+        $idAcademia
     ) {
         return $query->with('maestro.academia')
             ->where(function($query) {
-                // explicacion: https://stackoverflow.com/questions/40898789/laravel-orwhere-not-working-as-expected?rq=1
+                // explicacion:
+                // https://stackoverflow.com/questions/40898789/laravel-orwhere-not-working-as-expected?rq=1
                 $query->where('id_role', Role::$ROLE_MAESTRO)
                     ->orWhere('id_role', Role::$ROLE_JEFE_ACADEMIA);
             })
             ->whereHas('maestro', function($query) use ($idAcademia) {
                 $query->where('id_academia', $idAcademia);
-        });
+            });
     }
 
     public function scopeJefesAndMaestrosWithAcademia($query) {
@@ -141,5 +144,15 @@ class User extends Authenticatable
             ->whereHas('alumno', function($query) use ($idAlumno) {
                 $query->where('id', $idAlumno);
             });
-}
+    }
+
+    public function scopeAlumnoWithAsesoresfindByidAlumno($query, $idAlumno) {
+        return $query->with([
+            'alumno',
+            'alumno.procesoTitulacion.asesores'
+        ])
+            ->whereHas('alumno', function($query) use ($idAlumno) {
+                $query->where('id', $idAlumno);
+            });
+    }
 }

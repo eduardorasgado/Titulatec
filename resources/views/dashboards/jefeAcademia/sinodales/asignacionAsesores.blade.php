@@ -10,15 +10,7 @@
                 <h2>Proyecto del alumn@ {{ $alumno["nombre"] }} {{ $alumno["apellidos"] }}</h2>
             </div>
         </div>
-        <div class="row">
-            <div class="col-md-10">
-                @if(Session::has('Error'))
-                    <div class="alert alert-danger" role="alert" style="margin-top: 5px">
-                        <span class="text-success">{{ Session::get('Error') }}</span>
-                    </div>
-                @endif
-            </div>
-        </div>
+
     </div>
     <div class="jumbotron container">
         <p>Alumno: <span class="blue">{{ $alumno["alumno"]->user["nombre"] }} {{ $alumno["alumno"]->user['apellidos'] }}</span></p>
@@ -32,9 +24,24 @@
             <div class="card">
                 <div class="card-header">
                     Asignación de asesores
+                    <div class="row">
+                        <div class="col-md-6">
+                            @if(Session::has('Error'))
+                                <div class="alert alert-danger" role="alert" style="margin-top: 5px">
+                                    <span class="text-success">{{ Session::get('Error') }}</span>
+                                </div>
+                            @endif
+                            @if(Session::has('success'))
+                                <div class="alert alert-success" role="alert" style="margin-top: 5px">
+                                    <span class="text-success">{{ Session::get('success') }}</span>
+                                </div>
+                            @endif
+                        </div>
+                    </div>
                 </div>
+
                 <div class="card-body">
-                    <form method="POST" action="">
+                    <form method="POST" action="{{ route('Sinodalia.new', [$idAcademia, $idAlumno]) }}">
                         @csrf
 
                         <input type="hidden"value="{{ $alumno->alumno->id }}" name="idAlumno" id="idAlumno">
@@ -46,7 +53,7 @@
                                     <option value=""  selected>Seleccione profesor</option>
                                     @if(count($maestros) > 0)
                                         @foreach($maestros as $maestro)
-                                            <option value="{{ $maestro->maestro->id }}" {{ ($maestro->maestro["asesores"]["id_presidente"] == $maestro->id) ? 'selected' : '' }}>
+                                            <option value="{{ $maestro->maestro->id }}" {{ ($alumno["alumno"]["procesoTitulacion"]["asesores"]["id_presidente"] == $maestro->maestro->id) ? 'selected' : '' }}>
                                                 {{ $maestro->nombre }} {{ $maestro->apellidos }} | asesorías: {{ $maestro->maestro->asesor_count }} | {{ $maestro->maestro->academia->nombre }}
                                             </option>
                                         @endforeach
@@ -68,7 +75,7 @@
                                     <option value=""  selected>Seleccione profesor</option>
                                     @if(count($maestros) > 0)
                                         @foreach($maestros as $maestro)
-                                            <option value="{{ $maestro->maestro->id }}" {{ ($maestro->maestro["asesores"]["id_secretario"] == $maestro->id) ? 'selected' : '' }}>
+                                            <option value="{{ $maestro->maestro->id }}" {{ ($alumno["alumno"]["procesoTitulacion"]["asesores"]["id_secretario"] == $maestro->maestro->id) ? 'selected' : '' }}>
                                                 {{ $maestro->nombre }} {{ $maestro->apellidos }} | asesorías: {{ $maestro->maestro->asesor_count }} | {{ $maestro->maestro->academia->nombre }}
                                             </option>
                                         @endforeach
@@ -90,7 +97,7 @@
                                     <option value=""  selected>Seleccione profesor</option>
                                     @if(count($maestros) > 0)
                                         @foreach($maestros as $maestro)
-                                            <option value="{{ $maestro->maestro->id }}" {{ ($maestro->maestro["asesores"]["id_vocal"] == $maestro->id) ? 'selected' : '' }}>
+                                            <option value="{{ $maestro->maestro->id }}" {{ ($alumno["alumno"]["procesoTitulacion"]["asesores"]["id_vocal"] == $maestro->maestro->id) ? 'selected' : '' }}>
                                                 {{ $maestro->nombre }} {{ $maestro->apellidos }} | asesorías: {{ $maestro->maestro->asesor_count }} | {{ $maestro->maestro->academia->nombre }}
                                             </option>
                                         @endforeach
@@ -112,7 +119,7 @@
                                     <option value=""  selected>Seleccione profesor</option>
                                     @if(count($maestros) > 0)
                                         @foreach($maestros as $maestro)
-                                            <option value="{{ $maestro->maestro->id }}" {{ ($maestro->maestro["asesores"]["id_vocal_suplente"] == $maestro->id) ? 'selected' : '' }}>
+                                            <option value="{{ $maestro->maestro->id }}" {{ ($alumno["alumno"]["procesoTitulacion"]["asesores"]["id_vocal_suplente"] == $maestro->maestro->id) ? 'selected' : '' }}>
                                                 {{ $maestro->nombre }} {{ $maestro->apellidos }} | asesorías: {{ $maestro->maestro->asesor_count }} | {{ $maestro->maestro->academia->nombre }}
                                             </option>
                                         @endforeach
@@ -138,7 +145,21 @@
             </div>
         </div>
         <div class="col-md-6">
-
+            <div class="card">
+                <div class="card-header">
+                    <h4>Disponibilidad de catedráticos</h4>
+                </div>
+                <div class="card-body">
+                    @if(count($maestros) > 0)
+                        @foreach($maestros as $maestro)
+                            <p style="margin: 2px"><span class="blue">
+                                    {{ $maestro->nombre }} {{ $maestro->apellidos }} <span class="badge badge-success" style="font-size: 1vw">
+                                 asesorías: {{ $maestro->maestro->asesor_count }}
+                            </span></p>
+                        @endforeach
+                    @endif
+                </div>
+            </div>
         </div>
     </div>
 @endsection

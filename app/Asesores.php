@@ -15,4 +15,8 @@ class Asesores extends Model
         'id_vocal',
         'id_vocal_suplente'
     ];
+
+    public function procesoTitulacion() {
+        return $this->belongsTo(ProcesoTitulacion::class, 'id_proceso_titulacion');
+    }
 }

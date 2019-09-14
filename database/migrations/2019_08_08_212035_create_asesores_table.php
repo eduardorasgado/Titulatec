@@ -28,19 +28,19 @@ class CreateAsesoresTable extends Migration
 
             $table->foreign('id_presidente')
                 ->references('id')
-                ->on('presidentes');
+                ->on('maestros');
 
             $table->foreign('id_secretario')
                 ->references('id')
-                ->on('secretarios');
+                ->on('maestros');
 
             $table->foreign('id_vocal')
                 ->references('id')
-                ->on('vocales');
+                ->on('maestros');
 
             $table->foreign('id_vocal_suplente')
                 ->references('id')
-                ->on('vocal_suplentes');
+                ->on('maestros');
 
             $table->timestamps();
         });

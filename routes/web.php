@@ -169,6 +169,10 @@ Route::group(['middleware' => ['IsJefeAcademia']], function() {
     Route::get('/JefeAcademias/{idAcademia}/Sinodalia/Alumno/{idAlumno}/Asignacion/Asesores',
                 'JefeAcademiaController@showSinodalia')
         ->name('Sinodalia.show');
+
+    Route::post('/JefeAcademias/{idAcademia}/Sinodalia/Alumno/{idAlumno}/Asignacion/Asesores',
+        'JefeAcademiaController@createSinodalia')
+        ->name('Sinodalia.new');
 });
 
 Route::group(['middleware' => ['IsDivisionEstudios']], function() {

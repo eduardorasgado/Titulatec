@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Academia;
 use App\Alumno;
+use App\Asesores;
+use App\Http\Requests\AsesoresRequest;
 use App\Http\Requests\MaestroRequest;
 use App\Maestro;
 use App\ProcesoTitulacion;
@@ -115,10 +117,87 @@ class JefeAcademiaController extends Controller
 
     public function showSinodalia($idAcademia, $idAlumno) {
         // retornando al alumno
-        $alumno = User::findByIdAlumno($idAlumno)->first();
+        $alumno = User::alumnoWithAsesoresfindByidAlumno($idAlumno)->first();
         // retornando a todos los maestros del departamento incluido el jefe
         $maestros = User::maestrosAndJefeAcademiaWithMaestroAndAcademiaByAcademia($idAcademia)->get();
+
         return view('dashboards.jefeAcademia.sinodales.asignacionAsesores',
-                compact('alumno', 'maestros', 'idAcademia'));
+                compact('alumno', 'maestros', 'idAcademia', 'idAlumno'));
+    }
+
+    public function createSinodalia(AsesoresRequest $request, $idAcademia, $idAlumno) {
+
+        // Asignacion de asesores
+        try {
+            $alumno = Alumno::findOrFail($idAlumno);
+            if($alumno) {
+                $proceso = $alumno->procesoTitulacion;
+                if($proceso){
+                    $presidente = $request->input('presidente');
+                    $secretario = $request->input('secretario');
+                    $vocal = $request->input('vocal');
+                    $vocalSuplente = $request->input('vocal_suplente');
+
+                    // lo ocupamos al sumar y restar en asesor count adelante
+                    $asesores = $proceso->asesores;
+
+                    // crea en caso de no existir una fila en asesores con el proceso determinado
+                    $newAsesores = Asesores::updateOrCreate(
+                        ['id_proceso_titulacion' => $proceso->id],
+                        [
+                        'id_presidente' => $presidente,
+                        'id_secretario' => $secretario,
+                        'id_vocal' => $vocal,
+                        'id_vocal_suplente' => $vocalSuplente,
+                    ]);
+
+                    //TODO: Actualizamos el proceso de titulacion del alumno
+
+                    // sumamos a asesor count uno a cada maestro nuevo
+                    $newPresidente = Maestro::find($newAsesores->id_presidente);
+                    $newSecretario = Maestro::find($newAsesores->id_secretario);
+                    $newVocal = Maestro::find($newAsesores->id_vocal);
+                    $newVocalSuplente = Maestro::find($newAsesores->id_vocal_suplente);
+
+                    $newPresidente->asesor_count += 1;
+                    $newSecretario->asesor_count += 1;
+                    $newVocal->asesor_count += 1;
+                    $newVocalSuplente->asesor_count += 1;
+
+                    $newPresidente->save();
+                    $newSecretario->save();
+                    $newVocal->save();
+                    $newVocalSuplente->save();
+
+                    // restamos a asesor count a cada maestro
+                    if($asesores) {
+                        $pastPresidente = Maestro::find($asesores->id_presidente);
+                        $pastSecretario = Maestro::find($asesores->id_secretario);
+                        $pastVocal = Maestro::find($asesores->id_vocal);
+                        $pastVocalSuplente = Maestro::find($asesores->id_vocal_suplente);
+
+                        $pastPresidente->asesor_count -= 1;
+                        $pastSecretario->asesor_count -= 1;
+                        $pastVocal->asesor_count -= 1;
+                        $pastVocalSuplente->asesor_count -= 1;
+
+                        $pastPresidente->save();
+                        $pastSecretario->save();
+                        $pastVocal->save();
+                        $pastVocalSuplente->save();
+
+                    }
+
+                    // actualizar los estados de cada uno de los seleccionados
+                    return redirect()->back()->with('success', 'Se han establecido asesores');
+                }else {
+                    return redirect()->back()->with('Error', 'No existe el proceso de titulación');
+                }
+
+            }
+
+        } catch (\Exception $e) {
+            return redirect()->back()->with('Error', 'No se ha encontrado al alumno');
+        }
     }
 }

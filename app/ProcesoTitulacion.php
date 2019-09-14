@@ -18,7 +18,6 @@ class ProcesoTitulacion extends Model
         'is_proceso_finished',
         'id_alumno',
         'id_opcion_titulacion',
-        'id_asesores'
     ];
 
     public function alumno() {
@@ -28,6 +27,10 @@ class ProcesoTitulacion extends Model
     public function opcionTitulacion() {
         return $this
             ->belongsTo(OpcionTitulacion::class, 'id_opcion_titulacion');
+    }
+
+    public function asesores() {
+        return $this->hasOne(Asesores::class, 'id_proceso_titulacion');
     }
 
     public function scopeWithOpcionTitulacion($query, $idAlumno) {

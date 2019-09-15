@@ -173,6 +173,11 @@ Route::group(['middleware' => ['IsJefeAcademia']], function() {
     Route::post('/JefeAcademias/{idAcademia}/Sinodalia/Alumno/{idAlumno}/Asignacion/Asesores',
         'JefeAcademiaController@createSinodalia')
         ->name('Sinodalia.new');
+
+    // generar respuesta de departamento por jefe de academia
+    Route::get('/JefeAcademia/generate/Alumno/{idAlumno}/respuesta-departamento/pdf',
+                'DocumentacionController@generateRespuestaDepartamento')
+        ->name('JefeAcademia.Generate.RespuestaDepartamento');
 });
 
 Route::group(['middleware' => ['IsDivisionEstudios']], function() {

@@ -71,11 +71,12 @@ class User extends Authenticatable
         return $users;
     }
 
-    // TODO: Refactor
     public function scopeFindByJefeAcademia($query, $idAcademia) {
         $jefe = $query->with('maestro')
-            ->where('id_role', Role::$ROLE_JEFE_ACADEMIA)->get()
-            ->where('maestro.id_academia', $idAcademia);
+            ->where('id_role', Role::$ROLE_JEFE_ACADEMIA)
+            ->whereHas('maestro', function ($query) use ($idAcademia) {
+                $query->where('id_academia', $idAcademia);
+            });
         return $jefe;
     }
 

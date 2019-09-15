@@ -43,7 +43,7 @@
                     <div class="row">
                         <div class="col-md-4"></div>
                         <div class="col-md-4">
-                            <a href="" target="_blank"><button class="btn btn-primary">Generar Respuesta Dpto</button></a>
+                            <a href="{{ route('JefeAcademia.Generate.RespuestaDepartamento', $alumno["alumno"]["id"]) }}" target="_blank"><button class="btn btn-primary">Generar Respuesta Dpto</button></a>
                         </div>
                         <div class="col-md-2">
                             {{-- TODO: eliminar boton de guardar cuando el proceso de titulacion este completado --}}

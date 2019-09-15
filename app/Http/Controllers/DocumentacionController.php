@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Alumno;
+use App\Maestro;
 use App\ProcesoTitulacion;
 use App\Role;
 use App\User;
@@ -64,6 +65,43 @@ class DocumentacionController extends Controller
 
         } catch(\Exception $e) {
             return redirect()->back()->with('Error', $e->getMessage());
+        }
+    }
+
+    public function generateRespuestaDepartamento($idAlumno){
+        try {
+            $fecha = Carbon::now();
+            $user = User::alumnoWithAsesoresfindByidAlumno($idAlumno)->first();
+            $alumno = $user->alumno;
+
+            $presidente = Maestro::findOrFail($alumno["procesoTitulacion"]["asesores"]["id_presidente"])->user;
+            $secretario = Maestro::findOrFail($alumno["procesoTitulacion"]["asesores"]["id_secretario"])->user;
+            $vocal = Maestro::findOrFail($alumno["procesoTitulacion"]["asesores"]["id_vocal"])->user;
+            $vocal_suplente = Maestro::findOrFail($alumno["procesoTitulacion"]["asesores"]["id_vocal_suplente"])->user;
+
+            $proyecto = $user->alumno->proyecto;
+            $carrera = $user->alumno->carrera;
+            $academia = $carrera->especialidad->academia;
+            $jefeAcademia = User::findByJefeAcademia($academia->id)->first();
+            $jefeDivision = User::where('id_role', Role::$ROLE_JEFE_DIVISION)->first();
+
+            return view('documentos.registroProyectoTitulacionIntegral',
+                compact('fecha',
+                    'user',
+                    'alumno',
+                    'presidente',
+                    'secretario',
+                    'vocal',
+                    'vocal_suplente',
+                    'proyecto',
+                    'carrera',
+                    'academia',
+                    'jefeAcademia',
+                    'jefeDivision'
+                ));
+
+        } catch (\Exception $e) {
+            return redirect()->back()->with('Error', 'No se ha podido generar la respuesta de departamento: '.$e);
         }
     }
 

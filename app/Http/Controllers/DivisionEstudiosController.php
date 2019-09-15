@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Acta;
 use App\Http\Requests\AvisoRequest;
 use App\Http\Requests\PersonalDepartamentoRequest;
 use App\Maestro;
+use App\ProcesoTitulacion;
 use App\Role;
 use App\User;
 use Carbon\Carbon;
@@ -275,13 +277,35 @@ class DivisionEstudiosController extends Controller
     /**
      * crear el acta para el determinado alumno
      * @param $idAlumno
+     * @param  $idProcesoTitulacion
      */
     public function storeAvisos(AvisoRequest $request, $idAlumno, $idProcesoTitulacion) {
         $fecha = $request->input('fecha_examen_aviso');
         $horaInicio = $request->input('hora_inicio');
         $lugarProtocolo = $request->input('lugar_protocolo');
 
+        $proceso = ProcesoTitulacion::find($idProcesoTitulacion);
+        if($proceso) {
+            // creamos una instancia de acta sin id_libro
+            Acta::updateOrCreate(
+                ['id_proceso_titulacion' => $idProcesoTitulacion],
+                [
+                'is_generated' => 0,
+                'fecha_examen_aviso' => $fecha,
+                // TODO: Estos tres deben de actualizarse dado la siguiente migracion
+                'fecha_generacion' => Carbon::now(),
+                'hora_inicio' => Carbon::now(),
+                // TODO: La hora fin debe de quedat nullable, y aqui null
+                'hora_fin' => Carbon::now(),
+                'lugar_protocolo' => $lugarProtocolo,
+                'id_libro' => null
+            ]);
 
-        return dd("Se guardan los datos del request: ".$fecha);
+            // actualizando el estado del proceso de titulacion
+            $proceso->avisos = true;
+            $proceso->save();
+            return redirect()->back()->with('success', 'Se ha guardado la fecha para el aviso con éxito');
+        }
+        return redirect()->back()->with('Error', 'No se guardar la fecha para el aviso');
     }
 }

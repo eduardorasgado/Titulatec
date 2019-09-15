@@ -20,8 +20,8 @@ class CreateActasTable extends Migration
             $table->string('fecha_examen_aviso');
             // fecha en que se genera el acta
             $table->string('fecha_generacion');
-            $table->time('hora_inicio');
-            $table->time('hora_fin');
+            $table->string('hora_inicio');
+            $table->string('hora_fin')->nullable();
             $table->string('lugar_protocolo');
             // llaves foraneas
             $table->integer('id_proceso_titulacion')->unsigned();

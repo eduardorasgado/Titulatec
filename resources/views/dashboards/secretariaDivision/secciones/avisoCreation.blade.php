@@ -102,7 +102,7 @@
                             </div>
                         </div>
 
-                        <input type="hidden"value="{{ $alumno->id }}" name="idAlumno" id="idAlumno">
+                        <input type="hidden" value="{{ $alumno->id }}" name="idAlumno" id="idAlumno">
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
@@ -118,8 +118,13 @@
         <div class="col-md-6">
 
                 <div class="jumbotron jumbo-2 text-center">
-                    <a href="{{ route('DivisionEstudios.Alumno.Avisos.generate.pdf',[$alumno->id, $alumno["procesoTitulacion"]["id"]]) }}">
-                        <button type="button" class="btn btn-success">
+                    <a href="{{ route('DivisionEstudios.Alumno.Avisos.generate.pdf',[$alumno->id, $alumno["procesoTitulacion"]["id"]]) }}"
+                    >
+                        <button type="button" class="btn btn-success"
+                                @if($alumno["procesoTitulacion"]["acta"]["fecha_examen_aviso"] == '')
+                                    disabled
+                                @endif
+                        >
                             Generar Aviso
                         </button>
                     </a>

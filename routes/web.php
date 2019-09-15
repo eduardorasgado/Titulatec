@@ -210,7 +210,11 @@ Route::group(['middleware' => ['IsDivisionEstudios']], function() {
         ->name('Alumno.avisos.create');
 
     // TODO: AVISOS STORE(GUARDAR LA FECHA Y HORA DEL AVISO)
-    // TODO: AVISOS GENERATE PDF
+
+    // Generacion de pdf del aviso de determinado alumno
+    Route::get('/DivisionEstudios/Alumno/{idAlumno}/Proceso-titulacion/{idProceso}/Avisos/generate/pdf',
+        'DocumentacionController@generateAvisos')
+        ->name('DivisionEstudios.Alumno.Avisos.generate.pdf');
 });
 
 Route::group(['middleware' => ['IsServiciosEscolares']], function() {

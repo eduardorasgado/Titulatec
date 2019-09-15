@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\PersonalDepartamentoRequest;
+use App\Maestro;
 use App\Role;
 use App\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
@@ -231,6 +233,31 @@ class DivisionEstudiosController extends Controller
 
     // rutas para la generacion de avisos
     public function createAvisos($idAlumno) {
-        return dd("se muestra informacion de alumno, formulario de hora y fecha y boton para generar aviso");
+        $user = User::alumnoWithAsesoresfindByidAlumno($idAlumno)->first();
+        $alumno = $user->alumno;
+
+        $acta = $alumno["procesoTitulacion"]->acta;
+        $presidente = Maestro::findOrFail($alumno["procesoTitulacion"]["asesores"]["id_presidente"])->user;
+        $secretario = Maestro::findOrFail($alumno["procesoTitulacion"]["asesores"]["id_secretario"])->user;
+        $vocal = Maestro::findOrFail($alumno["procesoTitulacion"]["asesores"]["id_vocal"])->user;
+        $vocal_suplente = Maestro::findOrFail($alumno["procesoTitulacion"]["asesores"]["id_vocal_suplente"])->user;
+
+        $proyecto = $user->alumno->proyecto;
+        $carrera = $user->alumno->carrera;
+        $academia = $carrera->especialidad->academia;
+
+        return view('dashboards.secretariaDivision.secciones.avisoCreation',
+                compact(
+                    'user',
+                    'alumno',
+                    'presidente',
+                    'secretario',
+                    'vocal',
+                    'vocal_suplente',
+                    'proyecto',
+                    'carrera',
+                    'academia',
+                    'acta'
+                ));
     }
 }

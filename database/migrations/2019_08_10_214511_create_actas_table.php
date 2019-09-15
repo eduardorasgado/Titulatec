@@ -17,15 +17,18 @@ class CreateActasTable extends Migration
             $table->increments('id');
             // si el pdf se ha generado
             $table->boolean('is_generated');
+            // TODO: STRING A FECHA EXAMEN AVISO
             $table->date('fecha_examen_aviso');
             // fecha en que se genera el acta
             $table->date('fecha_generacion');
+            // TODO STRING A HORA INICIO Y FIN
             $table->time('hora_inicio');
             $table->time('hora_fin');
             $table->string('lugar_protocolo');
 
             // llaves foraneas
             $table->integer('id_proceso_titulacion')->unsigned();
+            // TODO: nullable a id libro
             $table->integer('id_libro')->unsigned();
 
             $table->foreign('id_proceso_titulacion')->references('id')->on('proceso_titulaciones');

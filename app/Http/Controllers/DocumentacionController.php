@@ -105,6 +105,16 @@ class DocumentacionController extends Controller
         }
     }
 
+    /**
+     * genera el pdf del aviso del alumno basado en el acta del alumno
+     * @param $idAlumno
+     * @param $idProcesoTitulacion
+     */
+    public function generateAvisos($idAlumno, $idProcesoTitulacion) {
+        // funcion que devuelve un pdf
+        return dd("pdf de aviso al alumno: ".$idAlumno.", proceso: ".$idProcesoTitulacion);
+    }
+
     private function generateSolicitudTitulacionActualPDF($alumno) {
         //
         $jefeDivision = User::JefeDivision()->first();

@@ -33,6 +33,10 @@ class ProcesoTitulacion extends Model
         return $this->hasOne(Asesores::class, 'id_proceso_titulacion');
     }
 
+    public function acta() {
+        return $this->hasOne(Acta::class, 'id_proceso_titulacion');
+    }
+
     public function scopeWithOpcionTitulacion($query, $idAlumno) {
         return $query->with('opcionTitulacion')
             ->where('id_alumno', $idAlumno);

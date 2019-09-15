@@ -18,4 +18,8 @@ class Acta extends Model
         'id_proceso_titulacion',
         'id_libro'
     ];
+
+    public function procesoTitulacion() {
+        $this->belongsTo(ProcesoTitulacion::class, 'id_proceso_titulacion');
+    }
 }

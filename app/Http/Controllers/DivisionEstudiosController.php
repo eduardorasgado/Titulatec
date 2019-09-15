@@ -232,6 +232,12 @@ class DivisionEstudiosController extends Controller
     }
 
     // rutas para la generacion de avisos
+
+    /**
+     * Para el manejo del metodo get en la formulación del aviso
+     * @param $idAlumno
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function createAvisos($idAlumno) {
         $user = User::alumnoWithAsesoresfindByidAlumno($idAlumno)->first();
         $alumno = $user->alumno;
@@ -260,4 +266,7 @@ class DivisionEstudiosController extends Controller
                     'acta'
                 ));
     }
+
+    // TODO: Desarrollo del metodo store donde creamos o actualizamos los datos del aviso(en el acta)
+    // para determinado alumno
 }

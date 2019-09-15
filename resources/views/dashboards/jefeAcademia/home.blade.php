@@ -45,7 +45,6 @@
                             Maestros del área
                         </button>
                         <div class="dropdown-menu">
-                            {{-- TODO: Cambiar esta ruta por rutas definidas para crear y visualizar maestros de el area en comun--}}
                             <a class="dropdown-item" href="{{ route('JefeAcademia.Manage.Maestro.create') }}">Agregar maestro</a>
                             <a class="dropdown-item" href="{{ route('JefeAcademia.Manage.Maestros.visualizar', $maestro->academia->id) }}">Ver maestros</a>
                         </div>

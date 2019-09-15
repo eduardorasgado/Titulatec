@@ -222,6 +222,13 @@ Route::group(['middleware' => ['IsDivisionEstudios']], function() {
 Route::group(['middleware' => ['IsServiciosEscolares']], function() {
     Route::resource('ServiciosEscolares', 'ServiciosEscolaresController',
         ['only' => ['edit', 'update']]);
+
+    Route::resource('Libros', 'LibroController');
+
+    // rutas para generacion
+    Route::get('/ServiciosEscolares/Actas/Generate',
+        'ServiciosEscolaresController@dashboardActas')
+        ->name('Actas.dashboard');
 });
 
 Route::group(['middleware' => ['IsAlumno']], function() {

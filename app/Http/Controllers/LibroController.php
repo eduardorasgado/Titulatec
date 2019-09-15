@@ -14,7 +14,7 @@ class LibroController extends Controller
      */
     public function index()
     {
-        //
+        return dd('libros');
     }
 
     /**
@@ -24,7 +24,7 @@ class LibroController extends Controller
      */
     public function create()
     {
-        //
+        return dd('Creando un libro nuevo');
     }
 
     /**

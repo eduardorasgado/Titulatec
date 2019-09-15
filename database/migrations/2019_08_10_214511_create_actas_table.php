@@ -14,6 +14,7 @@ class CreateActasTable extends Migration
     public function up()
     {
         Schema::create('actas', function (Blueprint $table) {
+            // TODO: REMIGRAR
             $table->increments('id');
             // si el pdf se ha generado
             $table->boolean('is_generated');

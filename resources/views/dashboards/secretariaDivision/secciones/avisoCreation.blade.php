@@ -4,7 +4,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-2">
-                <a class="btn btn-primary" href="/home">Atrás</a>
+                <a class="btn btn-primary" href="/DivisionEstudios/home/Avisos">Atrás</a>
             </div>
             <div class="col-md-10">
                 <h2>Alumn@ {{ $user["nombre"] }} {{ $user["apellidos"] }}</h2>

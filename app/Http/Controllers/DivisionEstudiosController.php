@@ -140,10 +140,14 @@ class DivisionEstudiosController extends Controller
 
         foreach ($alumnos as $alumno) {
             if($alumno["alumno"]["procesoTitulacion"]["solicitud_titulacion"] &&
+                $alumno["alumno"]["procesoTitulacion"]["memorandum"] &&
+                $alumno["alumno"]["procesoTitulacion"]["registro_proyecto"] &&
                 !$alumno["alumno"]["procesoTitulacion"]["avisos"]) {
                 array_push($alumnosSinAvisos, $alumno);
             }
             if($alumno["alumno"]["procesoTitulacion"]["solicitud_titulacion"] &&
+                $alumno["alumno"]["procesoTitulacion"]["memorandum"] &&
+                $alumno["alumno"]["procesoTitulacion"]["registro_proyecto"] &&
                 $alumno["alumno"]["procesoTitulacion"]["avisos"]) {
                 array_push($alumnosConAvisos, $alumno);
             }

@@ -112,7 +112,33 @@ class DocumentacionController extends Controller
      */
     public function generateAvisos($idAlumno, $idProcesoTitulacion) {
         // funcion que devuelve un pdf
-        return dd("pdf de aviso al alumno: ".$idAlumno.", proceso: ".$idProcesoTitulacion);
+        $fecha = Carbon::now();
+        $user = User::alumnoWithAsesoresfindByidAlumno($idAlumno)->first();
+        $alumno = $user->alumno;
+
+        $presidente = Maestro::findOrFail($alumno["procesoTitulacion"]["asesores"]["id_presidente"])->user;
+        $secretario = Maestro::findOrFail($alumno["procesoTitulacion"]["asesores"]["id_secretario"])->user;
+        $vocal = Maestro::findOrFail($alumno["procesoTitulacion"]["asesores"]["id_vocal"])->user;
+        $vocal_suplente = Maestro::findOrFail($alumno["procesoTitulacion"]["asesores"]["id_vocal_suplente"])->user;
+
+        $proyecto = $user->alumno->proyecto;
+        $carrera = $user->alumno->carrera;
+        $especialidad = $carrera->especialidad;
+        $acta = $alumno["procesoTitulacion"]["acta"];
+
+        return view('documentos.avisos',
+                compact(
+                    'fecha',
+                    'user',
+                    'alumno',
+                    'presidente',
+                    'secretario',
+                    'vocal',
+                    'vocal_suplente',
+                    'proyecto',
+                    'especialidad',
+                    'acta'
+                ));
     }
 
     private function generateSolicitudTitulacionActualPDF($alumno) {

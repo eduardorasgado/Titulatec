@@ -202,4 +202,33 @@ class JefeAcademiaController extends Controller
             return redirect()->back()->with('Error', 'No se ha encontrado al alumno');
         }
     }
+
+    public function showSinodaliaNoUpdatable($idAcademia, $idAlumno) {
+        // retornar datos de alumno
+        // retornar los asesores
+        $user = User::alumnoWithAsesoresfindByidAlumno($idAlumno)->first();
+        $alumno = $user->alumno;
+
+        $presidente = Maestro::findOrFail($alumno["procesoTitulacion"]["asesores"]["id_presidente"])->user;
+        $secretario = Maestro::findOrFail($alumno["procesoTitulacion"]["asesores"]["id_secretario"])->user;
+        $vocal = Maestro::findOrFail($alumno["procesoTitulacion"]["asesores"]["id_vocal"])->user;
+        $vocal_suplente = Maestro::findOrFail($alumno["procesoTitulacion"]["asesores"]["id_vocal_suplente"])->user;
+
+        $proyecto = $user->alumno->proyecto;
+        $especialidad = $user->alumno->carrera->especialidad;
+
+        return view('dashboards.jefeAcademia.sinodales.visualizarAsesores',
+            compact(
+                'idAcademia',
+                'user',
+                'alumno',
+                'presidente',
+                'secretario',
+                'vocal',
+                'vocal_suplente',
+                'proyecto',
+                'especialidad'
+            )
+        );
+    }
 }

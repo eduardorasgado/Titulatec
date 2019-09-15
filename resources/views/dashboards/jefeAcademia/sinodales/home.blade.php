@@ -46,11 +46,10 @@
                             <a href="{{ route('JefeAcademia.Generate.RespuestaDepartamento', $alumno["alumno"]["id"]) }}" target="_blank"><button class="btn btn-primary">Generar Respuesta Dpto</button></a>
                         </div>
                         <div class="col-md-2">
-                            {{-- TODO: eliminar boton de guardar cuando el proceso de titulacion este completado --}}
                             @if(!$alumno["alumno"]["procesoTitulacion"]["is_proceso_finished"])
                                 <a href="{{ route('Sinodalia.show', [$idAcademia, $alumno["alumno"]["id"]]) }}" target="_blank"><button class="btn btn-danger">Cambiar/Ver Asesores</button></a>
                             @else
-                                <a href="" target="_blank"><button class="btn btn-success">Ver Asesores</button></a>
+                                <a href="{{ route('JefeAcademia.Alumno.Visualizar.Asesores',[$idAcademia, $alumno["alumno"]["id"]]) }}" target="_blank"><button class="btn btn-success">Ver Asesores</button></a>
                             @endif
                         </div>
                     </div>

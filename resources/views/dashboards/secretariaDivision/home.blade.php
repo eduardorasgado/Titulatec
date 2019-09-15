@@ -28,7 +28,7 @@
 
                 <div class="col-md-6">
                     <div class="jumbotron jumbo-2 text-center">
-                        <a href="">
+                        <a href="{{ route('DivisionEstudios.Alumno.Avisos.generate') }}">
                             <button type="button" class="btn btn-success">
                                 Avisos
                             </button>

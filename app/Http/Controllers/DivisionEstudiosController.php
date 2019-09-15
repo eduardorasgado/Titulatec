@@ -131,6 +131,25 @@ class DivisionEstudiosController extends Controller
             compact('alumnosConMemorandum', 'alumnosSinMemorandum'));
     }
 
+    public function avisosDashboard() {
+        $alumnos = User::withFullDEData()->get();
+        $alumnosConAvisos = [];
+        $alumnosSinAvisos = [];
+
+        foreach ($alumnos as $alumno) {
+            if($alumno["alumno"]["procesoTitulacion"]["solicitud_titulacion"] &&
+                !$alumno["alumno"]["procesoTitulacion"]["avisos"]) {
+                array_push($alumnosSinAvisos, $alumno);
+            }
+            if($alumno["alumno"]["procesoTitulacion"]["solicitud_titulacion"] &&
+                $alumno["alumno"]["procesoTitulacion"]["avisos"]) {
+                array_push($alumnosConAvisos, $alumno);
+            }
+        }
+        return view('dashboards.secretariaDivision.secciones.avisosList',
+                compact('alumnosConAvisos', 'alumnosSinAvisos'));
+    }
+
     /**
      * Muestra el formulario para asignar al jefe
      */
@@ -208,5 +227,10 @@ class DivisionEstudiosController extends Controller
         $divisionRole = Role::find(Role::$ROLE_COORDINADORA_APOYO_TITULACION);
         return view('dashboards.administrador.cuentas.asignacion.coordinadorDivisionEstudios',
             compact('divisionEstudios', 'divisionRole'));
+    }
+
+    // rutas para la generacion de avisos
+    public function createAvisos($idAlumno) {
+        return dd("se muestra informacion de alumno, formulario de hora y fecha y boton para generar aviso");
     }
 }

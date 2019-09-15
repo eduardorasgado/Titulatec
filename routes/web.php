@@ -189,13 +189,28 @@ Route::group(['middleware' => ['IsDivisionEstudios']], function() {
     Route::resource('DivisionEstudios', 'DivisionEstudiosController',
         ['only' => ['edit', 'update']]);
 
-    Route::get('/Alumno/{idAlumno}/solicitud/memorandum/generatePDF',
+    // Rutas para memorandum
+    Route::get('/DivisionEstudios/Alumno/{idAlumno}/solicitud/memorandum/generatePDF',
             'DocumentacionController@memorandum')
             ->name('Alumno.memorandum.generate');
 
-    Route::get('/home/Memorandum',
+    Route::get('/DivisionEstudios/home/Memorandum',
                 'DivisionEstudiosController@memorandumDashboard')
                 ->name('Memorandum.dashboard');
+
+    // Rutas para avisos
+    Route::get('/DivisionEstudios/home/Avisos',
+                'DivisionEstudiosController@avisosDashboard')
+        ->name('DivisionEstudios.Alumno.Avisos.generate');
+
+    // ruta para mostrar el formulario para definir tiempo de aviso, se muestra con el proyecto del alumno
+    // y con un boton de generacion de pdf
+    Route::get('/DivisionEstudios/Alumno/{idAlumno}/Avisos',
+        'DivisionEstudiosController@createAvisos')
+        ->name('Alumno.avisos.create');
+
+    // TODO: AVISOS STORE(GUARDAR LA FECHA Y HORA DEL AVISO)
+    // TODO: AVISOS GENERATE PDF
 });
 
 Route::group(['middleware' => ['IsServiciosEscolares']], function() {

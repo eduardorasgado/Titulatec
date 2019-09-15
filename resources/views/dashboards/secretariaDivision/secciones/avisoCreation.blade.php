@@ -55,7 +55,7 @@
                 </div>
 
                 <div class="card-body">
-                    <form method="POST" action="">
+                    <form method="POST" action="{{ route('Alumno.avisos.store', [$alumno["id"], $alumno["procesoTitulacion"]["id"]] ) }}">
                         @csrf
 
                         <div class="form-group row">

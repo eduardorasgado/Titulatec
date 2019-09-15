@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\AvisoRequest;
 use App\Http\Requests\PersonalDepartamentoRequest;
 use App\Maestro;
 use App\Role;
@@ -271,6 +272,16 @@ class DivisionEstudiosController extends Controller
                 ));
     }
 
-    // TODO: Desarrollo del metodo store donde creamos o actualizamos los datos del aviso(en el acta)
-    // para determinado alumno
+    /**
+     * crear el acta para el determinado alumno
+     * @param $idAlumno
+     */
+    public function storeAvisos(AvisoRequest $request, $idAlumno, $idProcesoTitulacion) {
+        $fecha = $request->input('fecha_examen_aviso');
+        $horaInicio = $request->input('hora_inicio');
+        $lugarProtocolo = $request->input('lugar_protocolo');
+
+
+        return dd("Se guardan los datos del request: ".$fecha);
+    }
 }

@@ -3,21 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="38466543-71e6-47b8-907d-daf5ac2d8132" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Asesores.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Asesores.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/JefeAcademiaController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/JefeAcademiaController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PresidenteController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SecretarioController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/VocalController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/VocalSuplenteController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Presidente.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ProcesoTitulacion.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/ProcesoTitulacion.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Secretario.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Vocal.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/VocalSuplente.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_08_08_212035_create_asesores_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_08_08_212035_create_asesores_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/dashboards/jefeAcademia/sinodales/asignacionAsesores.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboards/jefeAcademia/sinodales/asignacionAsesores.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/dashboards/jefeAcademia/sinodales/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboards/jefeAcademia/sinodales/home.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -203,7 +190,7 @@
       <workItem from="1568263611754" duration="2503000" />
       <workItem from="1568313557503" duration="18291000" />
       <workItem from="1568389928896" duration="8745000" />
-      <workItem from="1568472803575" duration="11433000" />
+      <workItem from="1568472803575" duration="14675000" />
     </task>
     <servers />
   </component>

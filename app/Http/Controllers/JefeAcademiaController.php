@@ -152,6 +152,8 @@ class JefeAcademiaController extends Controller
                     ]);
 
                     //TODO: Actualizamos el proceso de titulacion del alumno
+                    $proceso->registro_proyecto = true;
+                    $proceso->save();
 
                     // sumamos a asesor count uno a cada maestro nuevo
                     $newPresidente = Maestro::find($newAsesores->id_presidente);

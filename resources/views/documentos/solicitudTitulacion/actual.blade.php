@@ -11,6 +11,7 @@
     </style>
 <body>
     <div class="jumbotron">
+        <p>Lugar: Juchitán de zaragoza, Oaxaca a {{ $fecha }}</p>
         <p>{{ $jefeNombre }}: {{ $jefeDivision->nombre }} {{ $jefeDivision->apellidos }}</p>
         <p>{{ $coordinadorNombre }}: {{ $coordinador->nombre }} {{ $coordinador->apellidos }}</p>
         <p>Nombre alumno: {{ $userAlumno->nombre }} {{ $userAlumno->apellidos }}</p>

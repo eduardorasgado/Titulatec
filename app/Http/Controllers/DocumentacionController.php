@@ -70,7 +70,7 @@ class DocumentacionController extends Controller
 
     public function generateRespuestaDepartamento($idAlumno){
         try {
-            $fecha = Carbon::now();
+            $fecha = $this->formatDateHumanSpanish(Carbon::now()->timezone('America/Mexico_City'));
             $user = User::alumnoWithAsesoresfindByidAlumno($idAlumno)->first();
             $alumno = $user->alumno;
 
@@ -112,7 +112,7 @@ class DocumentacionController extends Controller
      */
     public function generateAvisos($idAlumno, $idProcesoTitulacion) {
         // funcion que devuelve un pdf
-        $fecha = Carbon::now();
+        $fecha = $this->formatDateHumanSpanish(Carbon::now()->timezone('America/Mexico_City'));
         $user = User::alumnoWithAsesoresfindByidAlumno($idAlumno)->first();
         $alumno = $user->alumno;
 
@@ -143,6 +143,7 @@ class DocumentacionController extends Controller
 
     private function generateSolicitudTitulacionActualPDF($alumno) {
         //
+        $fecha = $this->formatDateHumanSpanish(Carbon::now()->timezone('America/Mexico_City'));
         $jefeDivision = User::JefeDivision()->first();
         $coordinador = User::coordinadorApoyoTitulacionDivision()->first();
 
@@ -159,12 +160,12 @@ class DocumentacionController extends Controller
         return view('documentos.solicitudTitulacion.actual',
                     compact('jefeDivision', 'coordinador', 'especialidad',
                     'jefeNombre', 'coordinadorNombre', 'userAlumno', 'alumno',
-                    'proyecto'));
+                    'proyecto', 'fecha'));
     }
 
     private function generateSolicitudTitulacionAntiguoPDF($alumno, $vista) {
         //
-        $fecha = Carbon::now();
+        $fecha = $this->formatDateHumanSpanish(Carbon::now()->timezone('America/Mexico_City'));
         $userAlumno = $alumno->user;
         $proyecto = $alumno->proyecto;
         $especialidad = $alumno->carrera->especialidad;

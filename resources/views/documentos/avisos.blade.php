@@ -24,7 +24,7 @@
     <p> Nombre: {{ $user->nombre }} {{ $user->apellidos }}</p>
 
     <h4>Datos escolares</h4>
-    <p>Fecha de evento: {{ $acta["fecha_examen_aviso"] }} a las {{ $acta["hora_inicio"] }} en {{ $acta["lugar_protocolo"] }}</p>
+    <p>Fecha de evento: {{ $acta["fecha_examen_aviso"] }} a las {{ $acta["hora_inicio"] }} horas en {{ $acta["lugar_protocolo"] }}</p>
     <p>Carrera Cursada: {{ $especialidad->nombre }}</p>
     <p>Numero de Control: {{ $alumno->numero_control }}</p>
 

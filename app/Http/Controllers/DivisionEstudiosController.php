@@ -286,17 +286,19 @@ class DivisionEstudiosController extends Controller
 
         $proceso = ProcesoTitulacion::find($idProcesoTitulacion);
         if($proceso) {
+
+            // armando la fecha de generacion
+            $fechaGeneracion = $this->formatDateHumanSpanish(Carbon::now()->timezone('America/Mexico_City'));
+
             // creamos una instancia de acta sin id_libro
             Acta::updateOrCreate(
                 ['id_proceso_titulacion' => $idProcesoTitulacion],
                 [
                 'is_generated' => 0,
                 'fecha_examen_aviso' => $fecha,
-                // TODO: Estos tres deben de actualizarse dado la siguiente migracion
-                'fecha_generacion' => Carbon::now(),
-                'hora_inicio' => Carbon::now(),
-                // TODO: La hora fin debe de quedat nullable, y aqui null
-                'hora_fin' => Carbon::now(),
+                'fecha_generacion' => $fechaGeneracion,
+                'hora_inicio' => $horaInicio,
+                'hora_fin' => null,
                 'lugar_protocolo' => $lugarProtocolo,
                 'id_libro' => null
             ]);
@@ -308,4 +310,5 @@ class DivisionEstudiosController extends Controller
         }
         return redirect()->back()->with('Error', 'No se guardar la fecha para el aviso');
     }
+
 }

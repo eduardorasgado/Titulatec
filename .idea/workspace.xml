@@ -3,13 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="38466543-71e6-47b8-907d-daf5ac2d8132" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/LibroController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/LibroController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ServiciosEscolaresController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ServiciosEscolaresController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/IsServiciosEscolares.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/IsServiciosEscolares.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_08_10_214511_create_actas_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_08_10_214511_create_actas_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/dashboards/jefeAcademia/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboards/jefeAcademia/home.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/dashboards/serviciosEscolares/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboards/serviciosEscolares/home.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Controller.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Controller.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/DivisionEstudiosController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/DivisionEstudiosController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/DocumentacionController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/DocumentacionController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/documentos/avisos.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/documentos/avisos.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/documentos/solicitudTitulacion/actual.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/documentos/solicitudTitulacion/actual.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -195,7 +193,8 @@
       <workItem from="1568263611754" duration="2503000" />
       <workItem from="1568313557503" duration="18291000" />
       <workItem from="1568389928896" duration="8745000" />
-      <workItem from="1568472803575" duration="40468000" />
+      <workItem from="1568472803575" duration="40536000" />
+      <workItem from="1568636144292" duration="3475000" />
     </task>
     <servers />
   </component>

@@ -26,7 +26,7 @@ class LibroController extends Controller
      */
     public function create()
     {
-        return dd('Creando un libro nuevo');
+        return view('dashboards.serviciosEscolares.libros.crear');
     }
 
     /**

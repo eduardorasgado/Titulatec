@@ -14,7 +14,9 @@ class LibroController extends Controller
      */
     public function index()
     {
-        return dd('libros');
+        $libros = Libro::all();
+        return view('dashboards.serviciosEscolares.libros.visualizar',
+                compact('libros'));
     }
 
     /**

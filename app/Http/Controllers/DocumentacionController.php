@@ -142,7 +142,15 @@ class DocumentacionController extends Controller
     }
 
     public function generateActa($idAlumno) {
-        return dd('Se ha generado el acta del alumno: '.$idAlumno);
+        try {
+            $alumno = Alumno::findOrFail($idAlumno);
+            if($alumno) {
+                return dd('Se ha generado el acta del alumno: '.$idAlumno);
+            }
+        } catch (\Exception $e) {
+            return redirect()->back()->with('Error', 'No existe el alumno');
+        }
+
     }
 
     private function generateSolicitudTitulacionActualPDF($alumno) {

@@ -14,11 +14,12 @@
     </div>
     <div class="jumbotron container">
         <p>Alumno: <span class="blue">{{ $acta["procesoTitulacion"]["alumno"]["user"]["nombre"] }} {{ $acta["procesoTitulacion"]["alumno"]["user"]["apellidos"] }}</span></p>
+        <p>Hora y fecha de protocolo: {{ $acta["fecha_examen_aviso"] }} a las {{ $acta["hora_inicio"] }} horas</p>
 
         <p>Carrera:</p>
         <ul>
-            <li></li>
-            <li></li>
+            <li>{{ $acta["procesoTitulacion"]["alumno"]["carrera"]["especialidad"]["nombre"] }}</li>
+            <li>{{ $acta["procesoTitulacion"]["alumno"]["carrera"]["planEstudio"]["clave"] }}</li>
         </ul>
     </div>
     <div class="row">

@@ -146,7 +146,8 @@ class DocumentacionController extends Controller
         try {
             $alumno = Alumno::findOrFail($idAlumno);
             if($alumno) {
-                return dd('Se ha generado el acta del alumno: '.$idAlumno);
+                return $this->viewToPDF('documentos.actas',
+                        []);
             }
         } catch (\Exception $e) {
             return redirect()->back()->with('Error', 'No existe el alumno');

@@ -78,7 +78,10 @@
                             <label for="hora_inicio" class="col-md-4 col-form-label text-md-right">{{ __('Hora de Inicio') }}</label>
 
                             <div class="col-md-6">
-                                <input id="hora_inicio" type="text" class="form-control @error('hora_inicio') is-invalid @enderror" name="hora_inicio" value="{{ $acta["hora_inicio"] }}" required autocomplete="hora_inicio" autofocus>
+                                <input id="hora_inicio" type="text" class="form-control @error('hora_inicio') is-invalid @enderror" name="hora_inicio"
+                                       value="{{ $acta["hora_inicio"] }}" required autocomplete="hora_inicio" autofocus
+                                       placeholder="ejemplo: 14:00"
+                                >
 
                                 @error('hora_inicio')
                                 <span class="invalid-feedback" role="alert">

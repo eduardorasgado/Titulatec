@@ -30,7 +30,7 @@
                         <div class="col-md-6">
                             @if(Session::has('Error'))
                                 <div class="alert alert-danger" role="alert" style="margin-top: 5px">
-                                    <span class="text-success">{{ Session::get('Error') }}</span>
+                                    <span class="text-danger">{{ Session::get('Error') }}</span>
                                 </div>
                             @endif
                             @if(Session::has('success'))
@@ -53,7 +53,7 @@
                                 <input id="hora_fin" type="text" class="form-control @error('hora_fin') is-invalid @enderror" name="hora_fin"
                                        value="{{ $acta["hora_fin"] }}"
                                        required autocomplete="hora_fin" autofocus
-                                       placeholder="año-mes-dia ejemplo: 2019-12-08"
+                                       placeholder="ejemplo: 14:00"
                                 >
 
                                 @error('hora_fin')
@@ -106,7 +106,7 @@
                             disabled
                         @endif
                     >
-                        Generar Aviso
+                        Generar Acta
                     </button>
                 </a>
             </div>

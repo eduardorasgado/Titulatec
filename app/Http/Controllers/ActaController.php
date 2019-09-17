@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Acta;
+use App\Http\Requests\ActaRequest;
 use App\Libro;
 use App\User;
 use Illuminate\Http\Request;
@@ -79,9 +80,23 @@ class ActaController extends Controller
      * @param  \App\Acta  $acta
      * @return \Illuminate\Http\Response
      */
-    public function edit($idActa)
+    public function edit(ActaRequest $request, $idActa)
     {
-        return dd('Se han guardado los datos que faltaban para la entidad acta');
+        try{
+            $acta = Acta::findOrFail($idActa);
+            $acta->id_libro = $request->input('id_libro');
+            $acta->hora_fin = $request->input('hora_fin');
+            $acta->save();
+
+            // cambiando el estado del proceso para verificar que se han terminado todos los pasos y asi proceder a generar el acta
+            $proceso = $acta->procesoTitulacion;
+            $proceso->is_proceso_finished = true;
+            $proceso->save();
+
+            return redirect()->back()->with('success', 'Se han guardado los datos, puede generar el acta');
+        } catch (\Exception $e) {
+            return redirect()->back()->with('Error', 'No se ha encontrado el acta seleccionada');
+        }
     }
 
     /**

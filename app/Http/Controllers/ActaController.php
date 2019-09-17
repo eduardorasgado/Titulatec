@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Acta;
+use App\Libro;
 use App\User;
 use Illuminate\Http\Request;
 
@@ -63,8 +64,10 @@ class ActaController extends Controller
     {
         try {
             $acta = Acta::findOrFail($idActa);
+            $libros = Libro::all();
 
-            return dd("Se va a proceder a seleccionar libro y hora final");
+            return view('dashboards.serviciosEscolares.actas.show',
+                    compact('acta', 'libros'));
         } catch(\Exception $e) {
             return redirect()->back()->with('Error', 'No se ha encontrado el acta deseada');
         }
@@ -76,9 +79,9 @@ class ActaController extends Controller
      * @param  \App\Acta  $acta
      * @return \Illuminate\Http\Response
      */
-    public function edit(Acta $acta)
+    public function edit($idActa)
     {
-        //
+        return dd('Se han guardado los datos que faltaban para la entidad acta');
     }
 
     /**

@@ -20,6 +20,6 @@ class Acta extends Model
     ];
 
     public function procesoTitulacion() {
-        $this->belongsTo(ProcesoTitulacion::class, 'id_proceso_titulacion');
+        return $this->belongsTo(ProcesoTitulacion::class, 'id_proceso_titulacion');
     }
 }

@@ -7,6 +7,7 @@ use App\Maestro;
 use App\ProcesoTitulacion;
 use App\Role;
 use App\User;
+use Barryvdh\DomPDF\Facade as PDF;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
@@ -85,7 +86,7 @@ class DocumentacionController extends Controller
             $jefeAcademia = User::findByJefeAcademia($academia->id)->first();
             $jefeDivision = User::where('id_role', Role::$ROLE_JEFE_DIVISION)->first();
 
-            return view('documentos.registroProyectoTitulacionIntegral',
+            return $this->viewToPDF('documentos.registroProyectoTitulacionIntegral',
                 compact('fecha',
                     'user',
                     'alumno',
@@ -126,7 +127,7 @@ class DocumentacionController extends Controller
         $especialidad = $carrera->especialidad;
         $acta = $alumno["procesoTitulacion"]["acta"];
 
-        return view('documentos.avisos',
+        return $this->viewToPDF('documentos.avisos',
                 compact(
                     'fecha',
                     'user',
@@ -169,7 +170,7 @@ class DocumentacionController extends Controller
 
         $proyecto = $alumno->proyecto;
 
-        return view('documentos.solicitudTitulacion.actual',
+        return $this->viewToPDF('documentos.solicitudTitulacion.actual',
                     compact('jefeDivision', 'coordinador', 'especialidad',
                     'jefeNombre', 'coordinadorNombre', 'userAlumno', 'alumno',
                     'proyecto', 'fecha'));
@@ -187,9 +188,23 @@ class DocumentacionController extends Controller
         $academia = $especialidad->academia;
         $jefeDepartamento = User::findByJefeAcademia($academia->id)->first();
 
-        return view($vista,
+        return $this->viewToPDF($vista,
             compact('fecha', 'userAlumno', 'alumno', 'especialidad',
                     'planEstudio', 'procesoTitulacion', 'proyecto', 'jefeDepartamento',
                 'academia'));
+    }
+
+    private function viewToPDF($view, $data) {
+        try {
+            $time_stamp = explode(" ", Carbon::now()->toDateTimeString());
+            $pdf_name = 'documento.'.$time_stamp[0]."-"
+                .str_replace(":", ".", $time_stamp[1]).".pdf";
+
+            $pdf = PDF::loadview($view, $data);
+            return $pdf->stream();
+            //return $pdf->download($pdf_name);
+        } catch(\Exception $e) {
+            return redirect()->back()->with('Error', $e->getMessage());
+        }
     }
 }

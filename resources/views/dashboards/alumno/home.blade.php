@@ -2,6 +2,12 @@
 
 @section('content')
     Dashboard del {{$role->nombre}}
+    @if(session('Error'))
+        <div class="alert alert-danger" role="alert" style="margin-top: 5px">
+            <span class="text-success">{{ session('Error') }}</span>
+        </div>
+
+    @endif
     <hr>
     <div class="jumbotron align-content-center">
         <div>

@@ -2,9 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="38466543-71e6-47b8-907d-daf5ac2d8132" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/titulatec.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/titulatec.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/DocumentacionController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/DocumentacionController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/dashboards/serviciosEscolares/actas/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboards/serviciosEscolares/actas/show.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/dashboards/alumno/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboards/alumno/home.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -104,6 +109,11 @@
       <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-idn" />
       <path value="$PROJECT_DIR$/vendor/phar-io/version" />
       <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php72" />
+      <path value="$PROJECT_DIR$/vendor/phenx/php-font-lib" />
+      <path value="$PROJECT_DIR$/vendor/phenx/php-svg-lib" />
+      <path value="$PROJECT_DIR$/vendor/barryvdh/laravel-dompdf" />
+      <path value="$PROJECT_DIR$/vendor/dompdf/dompdf" />
+      <path value="$PROJECT_DIR$/vendor/sabberworm/php-css-parser" />
     </include_path>
   </component>
   <component name="ProjectId" id="1PenGzOx2uR0cQoAoOsJKnuYBAz" />
@@ -193,7 +203,8 @@
       <workItem from="1568472803575" duration="40536000" />
       <workItem from="1568636144292" duration="8173000" />
       <workItem from="1568694111275" duration="1225000" />
-      <workItem from="1568698396331" duration="8663000" />
+      <workItem from="1568698396331" duration="8733000" />
+      <workItem from="1568741320968" duration="2517000" />
     </task>
     <servers />
   </component>

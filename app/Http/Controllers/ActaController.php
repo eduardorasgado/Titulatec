@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Acta;
+use App\User;
 use Illuminate\Http\Request;
 
 class ActaController extends Controller
@@ -14,7 +15,21 @@ class ActaController extends Controller
      */
     public function index()
     {
-        //
+        $alumnos = User::withFullDEData()->get();
+        $alumnosConActas = [];
+        $alumnosSinActas = [];
+
+        foreach ($alumnos as $alumno) {
+            if(!$alumno["alumno"]["procesoTitulacion"]["is_proceso_finished"]) {
+                array_push($alumnosSinActas, $alumno);
+            }
+            if($alumno["alumno"]["procesoTitulacion"]["is_proceso_finished"]) {
+                array_push($alumnosConActas, $alumno);
+            }
+        }
+
+        return view('dashboards.serviciosEscolares.actas.home',
+                compact('alumnosConActas', 'alumnosSinActas'));
     }
 
     /**
@@ -44,9 +59,15 @@ class ActaController extends Controller
      * @param  \App\Acta  $acta
      * @return \Illuminate\Http\Response
      */
-    public function show(Acta $acta)
+    public function show($idActa)
     {
-        //
+        try {
+            $acta = Acta::findOrFail($idActa);
+
+            return dd("Se va a proceder a seleccionar libro y hora final");
+        } catch(\Exception $e) {
+            return redirect()->back()->with('Error', 'No se ha encontrado el acta deseada');
+        }
     }
 
     /**

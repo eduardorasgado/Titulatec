@@ -141,6 +141,10 @@ class DocumentacionController extends Controller
                 ));
     }
 
+    public function generateActa($idAlumno) {
+        return dd('Se ha generado el acta del alumno: '.$idAlumno);
+    }
+
     private function generateSolicitudTitulacionActualPDF($alumno) {
         //
         $fecha = $this->formatDateHumanSpanish(Carbon::now()->timezone('America/Mexico_City'));

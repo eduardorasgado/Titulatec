@@ -104,7 +104,4 @@ class ServiciosEscolaresController extends Controller
         //
     }
 
-    public function dashboardActas() {
-        return dd("dashboard de actas");
-    }
 }

@@ -225,10 +225,14 @@ Route::group(['middleware' => ['IsServiciosEscolares']], function() {
 
     Route::resource('Libros', 'LibroController');
 
-    // rutas para generacion
-    Route::get('/ServiciosEscolares/Actas/Generate',
-        'ServiciosEscolaresController@dashboardActas')
-        ->name('Actas.dashboard');
+    // rutas para generacion de actas
+    Route::resource('Acta', 'ActaController');
+
+    Route::get(
+        '/ServiciosEscolares/Alumno/{idAlumno}/Acta/Generate',
+        'DocumentacionController@generateActa'
+    )->name('Alumno.acta.generate');
+
 });
 
 Route::group(['middleware' => ['IsAlumno']], function() {

@@ -137,7 +137,8 @@ class User extends Authenticatable
             ->with([
                 'alumno.proyecto',
                 'alumno.procesoTitulacion',
-                'alumno.carrera.especialidad']);
+                'alumno.carrera.especialidad'])
+            ->where('id_role', Role::$ROLE_ALUMNO);
     }
 
     public function scopefindByIdAlumno($query, $idAlumno) {

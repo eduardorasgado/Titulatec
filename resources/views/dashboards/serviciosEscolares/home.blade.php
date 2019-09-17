@@ -18,7 +18,7 @@
             <div class="col-md-6">
                 <div class="jumbotron jumbo-1 text-center">
 
-                    <a href="{{ route('Actas.dashboard') }}">
+                    <a href="{{ route('Acta.index') }}">
                         <button type="button" class="btn btn-success">
                             Administración de Actas
                         </button>

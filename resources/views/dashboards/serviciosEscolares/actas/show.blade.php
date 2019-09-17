@@ -73,7 +73,7 @@
                                     <option value=""  selected>Seleccione opción de titulación</option>
                                     @if(count($libros) > 0)
                                         @foreach($libros as $libro)
-                                            <option value="{{ $libro->id }}" {{ ($acta["id_opcion_titulacion"] == $libro->id) ? 'selected' : '' }}>Libro {{ $libro->numero_libro }}</option>
+                                            <option value="{{ $libro->id }}" {{ ($acta["id_libro"] == $libro->id) ? 'selected' : '' }}>Libro {{ $libro->numero_libro }}</option>
                                         @endforeach
                                     @endif
                                 </select>
@@ -102,7 +102,7 @@
                 <a href="{{ route('Alumno.acta.generate',[$acta["id"]]) }}"
                 >
                     <button type="button" class="btn btn-success"
-                            @if($acta["procesoTitulacion"]["id_libro"] == '' || $acta["procesoTitulacion"]["id_libro"] == null)
+                            @if($acta["id_libro"] == '' || $acta["id_libro"] == null)
                             disabled
                         @endif
                     >

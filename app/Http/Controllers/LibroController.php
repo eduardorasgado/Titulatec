@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\LibroRequest;
 use App\Libro;
 use Illuminate\Http\Request;
 
@@ -35,9 +36,19 @@ class LibroController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(LibroRequest $request)
     {
-        //
+        try {
+            $libro = Libro::create([
+                'numero_libro' => $request->input('numero_libro'),
+                'fecha_autorizacion' => $request->input('fecha_autorizacion'),
+                'estado' => true
+            ]);
+
+            return redirect()->back()->with('success', 'Se ha agregado un nuevo libro');
+        } catch (\Exception $e) {
+            return redirect()->back()->with('Error', 'No se ha podido crear el libro');
+        }
     }
 
     /**

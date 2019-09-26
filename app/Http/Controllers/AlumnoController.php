@@ -3,8 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Alumno;
+use App\Especialidad;
 use App\Http\Requests\AlumnoRequest;
+use App\OpcionTitulacion;
+use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AlumnoController extends Controller
 {
@@ -72,21 +76,26 @@ class AlumnoController extends Controller
     {
         $alumno = Alumno::find($id);
         if($alumno) {
-            $alumno->numero_control = $request->input('numero_control');
             $alumno->direccion = $request->input('direccion');
             $alumno->telefono = $request->input('telefono');
-            $alumno->otherTECNM = $request->input('otherTECNM');
             $alumno->estado = $request->input('estado');
             $alumno->ciudad = $request->input('ciudad');
             $alumno->lugar_trabajo = $request->input('lugar_trabajo');
             $alumno->puesto_trabajo = $request->input('puesto_trabajo');
-            $alumno->generacion = $request->input('generacion');
-            $alumno->anexo = $request->input('anexo');
-            $alumno->completed = true;
-            $alumno->save();
 
-            return redirect()->back()
-                    ->with('success-alumno', 'Los datos han sido actualizados con éxito');
+            $alumno->completed = true;
+            // TODO: DESCOMENTAR PARA EVALUAR
+            //$alumno->save();
+
+            //return redirect()->back()
+            //        ->with('success-alumno', 'Los datos han sido actualizados con éxito');
+            $alumno = User::alumnoWithCarrera(Auth::user()->id)->first();
+            $especialidades = Especialidad::all();
+            $opcionesTitulacion = OpcionTitulacion::all();
+            $procesoTitulacion = $alumno["alumno"]->procesoTitulacion;
+            return view('dashboards.alumno.firstTimeProcess.datosEscolares',
+                compact('alumno', 'especialidades', 'opcionesTitulacion',
+                'procesoTitulacion'));
         }
         else {
             return redirect()->back()

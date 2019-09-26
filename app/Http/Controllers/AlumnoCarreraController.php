@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Alumno;
 use App\AlumnoCarrera;
 use App\Http\Requests\CarreraRequest;
+use App\ProcesoTitulacion;
 use Illuminate\Http\Request;
 
 class AlumnoCarreraController extends Controller
@@ -71,10 +73,54 @@ class AlumnoCarreraController extends Controller
     public function update(CarreraRequest $request, $idAlumno)
     {
         $alumnoCarrera = AlumnoCarrera::getByIdAlumno($idAlumno);
-        $alumnoCarrera->id_especialidad = $request->input('especialidad');
-        $alumnoCarrera->id_plan_estudios = $request->input('plan');
-        $alumnoCarrera->save();
-        return redirect()->back()->with('success-especialidad', 'Actualización exitosa');
+        // guardando numero de control en alumno
+        $alumno = Alumno::findOrFail($idAlumno);
+
+        if($alumno != null) {
+            $alumno->numero_control = $request->input('numero_control');
+            $alumno->otherTECNM = $request->input('otherTECNM');
+            $alumno->generacion = $request->input('generacion');
+            $alumno->anexo = $request->input('anexo');
+            // TODO: Quitar el comentario
+            //$alumno->save();
+            // guardando opcion de titulacion
+            $proceso = ProcesoTitulacion::findByAlumnoId($idAlumno);
+            // TODO: Cambiar a false
+            $exits = true;
+            if($proceso->count() > 0){
+                $exits = true;
+            }
+
+            if(!$exits) {
+                ProcesoTitulacion::create([
+                    'datos_generales' => false,
+                    'solicitud_titulacion' => false,
+                    'memorandum' => false,
+                    'registro_proyecto' => false,
+                    'avisos' => false,
+                    'is_proceso_finished' => false,
+                    'id_alumno' => $idAlumno,
+                    'id_opcion_titulacion' => $request->input('opcion')
+                ]);
+            } else {
+                //$proceso = $proceso->first();
+                //$proceso->id_opcion_titulacion = $request->input('opcion');
+                // TODO: Remover comentario
+                //$proceso->save();
+            }
+            // guardando datos de carrera
+            $alumnoCarrera->id_especialidad = $request->input('especialidad');
+            $alumnoCarrera->id_plan_estudios = $request->input('plan');
+            //TODO: Cambiar cuando quede todo el proceso
+            //$alumnoCarrera->save();
+            //return redirect()->back()->with('success-especialidad', 'Actualización exitosa');
+            // redireccionando hacia la importacion o creacion del proceso
+            return view('dashboards.alumno.firstTimeProcess.proyecto',
+                compact('idAlumno'));
+
+        } else {
+            return redirect()->back()->with('error-especialidad', 'Error, intente más tarde');
+        }
     }
 
     /**

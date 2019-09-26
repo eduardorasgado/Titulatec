@@ -2,9 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="38466543-71e6-47b8-907d-daf5ac2d8132" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/documentos/actas.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Middleware/RevalidateBackHistory.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/sass/stepper.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/dashboards/alumno/firstTimeProcess/datosEscolares.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/dashboards/alumno/firstTimeProcess/datosPersonales.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/dashboards/alumno/firstTimeProcess/proyecto.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/DocumentacionController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/DocumentacionController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AlumnoCarreraController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AlumnoCarreraController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AlumnoController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AlumnoController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Kernel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Requests/AlumnoRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/AlumnoRequest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Requests/CarreraRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/CarreraRequest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/jquery.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/jquery.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/dashboards/alumno/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboards/alumno/home.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -128,6 +142,11 @@
     <property name="nodejs_package_manager_path" value="yarn" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\Developer\Projects\TitulacionTECGuide\titulatec\resources\js" />
+    </key>
+  </component>
   <component name="RunDashboard">
     <option name="ruleStates">
       <list>
@@ -199,7 +218,9 @@
       <workItem from="1568636144292" duration="8173000" />
       <workItem from="1568694111275" duration="1225000" />
       <workItem from="1568698396331" duration="8733000" />
-      <workItem from="1568741320968" duration="3138000" />
+      <workItem from="1568741320968" duration="4659000" />
+      <workItem from="1569427590994" duration="8663000" />
+      <workItem from="1569532590416" duration="8140000" />
     </task>
     <servers />
   </component>

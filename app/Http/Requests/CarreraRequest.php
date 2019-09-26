@@ -25,6 +25,11 @@ class CarreraRequest extends FormRequest
     public function rules()
     {
         return [
+            'numero_control' => 'required|string|max:50',
+            'otherTECNM' => 'nullable|string|max:50',
+            'generacion' => 'required|string|max:30',
+            'anexo' => 'nullable|string|max:400',
+            'opcion' => 'required|numeric',
             'especialidad' => 'required|numeric',
             'plan' => 'required|numeric',
         ];

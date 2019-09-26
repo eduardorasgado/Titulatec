@@ -24,6 +24,8 @@ class HomeController extends Controller
      */
     public function __construct()
     {
+        // middleware que previene que el sistema entre a home cuando se ha deslogueado
+        $this->middleware('preventBackHistory');
         $this->middleware('auth');
     }
 
@@ -93,11 +95,20 @@ class HomeController extends Controller
                 $procesoTitulacion->save();
             }
         }
-        //return dd($alumno);
-        return view('dashboards.alumno.home',
-            compact('role', 'alumno', 'especialidades',
-                'proyecto', 'registroCompletado', 'opcionesTitulacion',
-                'procesoTitulacion'));
+
+        if($proyecto == null) {
+            // en caso de ser la primera vez que entra al sistema
+            return view('dashboards.alumno.firstTimeProcess.datosPersonales',
+                compact('role', 'alumno', 'especialidades',
+                    'proyecto', 'registroCompletado', 'opcionesTitulacion',
+                    'procesoTitulacion'));
+        } else {
+            //return dd($alumno);
+            return view('dashboards.alumno.home',
+                compact('role', 'alumno', 'especialidades',
+                    'proyecto', 'registroCompletado', 'opcionesTitulacion',
+                    'procesoTitulacion'));
+        }
     }
 
     private function maestroAndJefeAcademiaHome($role) {

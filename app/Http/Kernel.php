@@ -64,6 +64,7 @@ class Kernel extends HttpKernel
         'IsDivisionEstudios' => IsDivisionEstudios::class,
         'IsServiciosEscolares' => IsServiciosEscolares::class,
         'IsJefeAcademia' => IsJefeAcademia::class,
+        'preventBackHistory' => \App\Http\Middleware\RevalidateBackHistory::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'bindings' => \Illuminate\Routing\Middleware\SubstituteBindings::class,
         'cache.headers' => \Illuminate\Http\Middleware\SetCacheHeaders::class,

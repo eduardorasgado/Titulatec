@@ -567,7 +567,9 @@
         </div>
     </div>
 
-    <script >
+
+    <script type="text/javascript">
+
         window.onload = function() {
             //Cargando plan de estudio si ya fue seleccionado, en este caso traemos solamente el id de la especialidad del alumno si esta existe
             // cargando plan de estudio si el valor de select de especialidad no viene vacio
@@ -582,6 +584,12 @@
             }
         }
 
+        $("#example-basic").steps({
+            headerTag: "h3",
+            bodyTag: "section",
+            transitionEffect: "slideLeft",
+            autoFocus: true
+        });
 
         function cargarPlanesDeEstudio(idEspecialidad, idPlanActual = 0) {
             //Especialidad.planes -> /Especialidad/planes-de-estudio

@@ -149,14 +149,18 @@ class ProyectoController extends Controller
                     $proyecto->conteo_registrados = $proyecto->conteo_registrados + 1;
                     $proyecto->save();
                 } else {
-                    return redirect()->back()->with('error-verification', 'El alumno no existe');
+                    //return redirect()->back()->with('error-verification', 'El alumno no existe');
+                    return redirect('Alumno/'.$idAlumno.'/proyecto/select')->with('error-verification', 'El alumno no existe');
                 }
             } else {
-                return redirect()->back()->with('error-verification', 'Los integrantes de este proyecto ya están completos');
+                //return redirect()->back()->with('error-verification', 'Los integrantes de este proyecto ya están completos');
+                return redirect('Alumno/'.$idAlumno.'/proyecto/select')->with('error-verification',
+                    'Los integrantes de este proyecto ya están completos');
             }
-            return redirect()->back()->with('success-verification', 'Codigo verificado con éxito');
+            return redirect('/home');
         } else {
-            return redirect()->back()->with('error-verification', 'Codigo verificado con éxito');
+            //return redirect()->back()->with('error-verification', 'Codigo verificado con éxito');
+            return redirect('Alumno/'.$idAlumno.'/proyecto/select')->with('error-verification', 'No fue posible verificar el codigo');
         }
     }
 
@@ -178,5 +182,11 @@ class ProyectoController extends Controller
         }
 
         return $token;
+    }
+
+    public function accessProyectSelector($idAlumno) {
+        //
+        return view('dashboards.alumno.firstTimeProcess.proyecto',
+            compact('idAlumno'));
     }
 }

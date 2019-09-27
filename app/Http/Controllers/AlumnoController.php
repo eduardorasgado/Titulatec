@@ -84,8 +84,7 @@ class AlumnoController extends Controller
             $alumno->puesto_trabajo = $request->input('puesto_trabajo');
 
             $alumno->completed = true;
-            // TODO: DESCOMENTAR PARA EVALUAR
-            //$alumno->save();
+            $alumno->save();
 
             //return redirect()->back()
             //        ->with('success-alumno', 'Los datos han sido actualizados con éxito');

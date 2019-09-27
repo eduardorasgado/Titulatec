@@ -81,12 +81,10 @@ class AlumnoCarreraController extends Controller
             $alumno->otherTECNM = $request->input('otherTECNM');
             $alumno->generacion = $request->input('generacion');
             $alumno->anexo = $request->input('anexo');
-            // TODO: Quitar el comentario
-            //$alumno->save();
+            $alumno->save();
             // guardando opcion de titulacion
             $proceso = ProcesoTitulacion::findByAlumnoId($idAlumno);
-            // TODO: Cambiar a false
-            $exits = true;
+            $exits = false;
             if($proceso->count() > 0){
                 $exits = true;
             }
@@ -105,14 +103,14 @@ class AlumnoCarreraController extends Controller
             } else {
                 //$proceso = $proceso->first();
                 //$proceso->id_opcion_titulacion = $request->input('opcion');
-                // TODO: Remover comentario
-                //$proceso->save();
+
+                $proceso->save();
             }
             // guardando datos de carrera
             $alumnoCarrera->id_especialidad = $request->input('especialidad');
             $alumnoCarrera->id_plan_estudios = $request->input('plan');
-            //TODO: Cambiar cuando quede todo el proceso
-            //$alumnoCarrera->save();
+
+            $alumnoCarrera->save();
             //return redirect()->back()->with('success-especialidad', 'Actualización exitosa');
             // redireccionando hacia la importacion o creacion del proceso
             return view('dashboards.alumno.firstTimeProcess.proyecto',

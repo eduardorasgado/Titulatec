@@ -11,6 +11,8 @@
 |
 */
 
+use App\Http\Controllers\ProyectoController;
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -257,4 +259,8 @@ Route::group(['middleware' => ['IsAlumno']], function() {
     Route::get('Alumno/{id}/Solicitud/Titulacion/generatePDF',
             'DocumentacionController@solicitudTitulacion'
         )->name('SolicitudTitulacion.generate');
+
+    Route::get('Alumno/{id}/proyecto/select',
+        'ProyectoController@accessProyectSelector'
+    )->name('SolicitudTitulacion.generate');
 });

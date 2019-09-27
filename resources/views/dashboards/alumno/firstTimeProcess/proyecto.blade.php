@@ -10,16 +10,16 @@
                 </div>
                 <div class="card-body">
                     <div class="row mx-auto">
-                        <span class="alert alert-info">Atención: una vez iniciado el proceso de papeleo, ya no es posible cambiar la carrera</span>
+
                         @if(session('success-especialidad'))
                             <div class="alert alert-success" role="alert" style="margin-top: 5px">
-                                <span class="text-success">{{ session('success-especialidad') }}</span>
+                                <span class="text-success">{{ session('success-verification') }}</span>
                             </div>
 
                         @endif
                         @if(session('error-especialidad'))
                             <div class="alert alert-danger" role="alert" style="margin-top: 5px">
-                                <span class="text-success">{{ session('error-especialidad') }}</span>
+                                <span class="text-success">{{ session('error-verification') }}</span>
                             </div>
 
                         @endif

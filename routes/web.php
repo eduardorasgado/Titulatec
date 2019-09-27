@@ -262,5 +262,5 @@ Route::group(['middleware' => ['IsAlumno']], function() {
 
     Route::get('Alumno/{id}/proyecto/select',
         'ProyectoController@accessProyectSelector'
-    )->name('SolicitudTitulacion.generate');
+    )->name('Proyecto.Selector');
 });

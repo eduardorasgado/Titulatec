@@ -99,7 +99,7 @@
             <div class="row">
                 <div class="col-md-8"></div>
                 <div class="col-md-4">
-                    <a href="{{ route('SolicitudTitulacion.generate', $alumno["alumno"]["id"]) }}"><button type="button"
+                    <a href="{{ route('SolicitudTitulacion.generate', $alumno["alumno"]["id"]) }}" target="_blank"><button type="button"
                                        class="btn
                                            @if(!$registroCompletado)
                                            btn-danger
@@ -122,11 +122,10 @@
         <div class="col-md-6">
             <div class="card">
                 <div class="card-header">
-                    1. Registro de datos de carrera
+                    1. Datos de carrera
                 </div>
                 <div class="card-body">
                     <div class="row mx-auto">
-                        <span class="alert alert-info">Atención: una vez iniciado el proceso de papeleo, ya no es posible cambiar la carrera</span>
                         @if(session('success-especialidad'))
                             <div class="alert alert-success" role="alert" style="margin-top: 5px">
                                 <span class="text-success">{{ session('success-especialidad') }}</span>
@@ -148,7 +147,7 @@
                                 <input type="hidden" id="planActual" value="{{ $alumno["alumno"]["carrera"]["id_plan_estudios"] }}">
                                 <label class="col-md-4 col-form-label text-md-right" for="especialidad">Especialidad: </label>
                                 <div class="col-md-6">
-                                    <select class="form-control" id="especialidad" name="especialidad" onchange="cargarPlanesDeEstudio(this.value);">
+                                    <select class="form-control" id="especialidad" name="especialidad" onchange="cargarPlanesDeEstudio(this.value);" disabled>
                                         <option value=""  selected>Seleccione especialidad</option>
                                         @if(count($especialidades) > 0)
                                             @foreach($especialidades as $especialidad)
@@ -165,20 +164,14 @@
                                 <label class="col-md-4 col-form-label text-md-right" for="plan">Plan de estudios: </label>
                                 <div class="col-md-6">
 
-                                    <select class="form-control" id="plan" name="plan">
+                                    <select class="form-control" id="plan" name="plan" disabled>
                                         <!-- render a traves de ajax abajo del file-->
                                     </select>
                                 </div>
                             </div>
 
 
-                            <div class="form-group row mb-0">
-                                <div class="col-md-6 offset-md-4">
-                                    <button type="submit" class="btn btn-primary">
-                                        {{ __('Guardar') }}
-                                    </button>
-                                </div>
-                            </div>
+
                         </form>
 
                         <div class="row mx-auto m-md-2">
@@ -204,7 +197,7 @@
 
                                 <label class="col-md-4 col-form-label text-md-right" for="opcion">Opción de titulación: </label>
                                 <div class="col-md-6">
-                                    <select class="form-control" id="opcion" name="opcion">
+                                    <select class="form-control" id="opcion" name="opcion" disabled>
                                         <option value=""  selected>Seleccione opción de titulación</option>
                                         @if(count($opcionesTitulacion) > 0)
                                             @foreach($opcionesTitulacion as $opcion)
@@ -215,13 +208,6 @@
                                 </div>
                             </div>
 
-                            <div class="form-group row mb-0">
-                                <div class="col-md-6 offset-md-4">
-                                    <button type="submit" class="btn btn-primary">
-                                        {{ __('Guardar') }}
-                                    </button>
-                                </div>
-                            </div>
                         </form>
                     </div>
 
@@ -254,12 +240,12 @@
                         <p>Número de integrantes: <span class="blue">{{ $proyecto["num_total_integrantes"] }}</span></p>
 
                         @if($proyecto["num_total_integrantes"] > 1)
-                            <p>Integrantes registrados: <span class="blue">{{ $proyecto["conteo_registrados"] }}</span></p>
-                            <span class="alert alert-info">Código para compartir: <span class="blue">{{ $proyecto["codigo_compartido"] }}</span></span>
+                            <p hidden>Integrantes registrados: <span class="blue">{{ $proyecto["conteo_registrados"] }}</span></p>
+                            <span hidden class="alert alert-info">Código para compartir: <span class="blue">{{ $proyecto["codigo_compartido"] }}</span></span>
                         @endif
                         <div class="row">
                             <div class="col-md-8"></div>
-                            <div class="col-md-4">
+                            <div class="col-md-4" hidden>
                                 @if($proyecto["id_creador"] == $alumno["alumno"]["id"])
                                     <a href="{{ Route('Proyecto.edit', ['Proyecto' => $proyecto->id]) }}">
                                         <button class="btn btn-outline-danger"
@@ -289,13 +275,14 @@
 
                                     @endif
                                 </div>
-                                <form method="POST" action="{{ route('Alumno.verificar.codigo', $alumno["alumno"]["id"]) }}">
+                                <form hidden method="POST" action="{{ route('Alumno.verificar.codigo', $alumno["alumno"]["id"]) }}">
                                     @csrf
                                     <div class="form-group row">
                                         <label for="direccion" class="col-md-4 col-form-label text-md-right">{{ __('Código de proyecto') }}</label>
 
                                         <div class="col-md-6">
-                                            <input id="codigo" type="text" class="form-control @error('codigo') is-invalid @enderror" name="codigo" value="{{ old('codigo') }}" required autocomplete="codigo" autofocus>
+                                            <input id="codigo" type="text" class="form-control @error('codigo') is-invalid @enderror" name="codigo" value="{{ old('codigo') }}" required autocomplete="codigo" autofocus
+                                            >
 
                                             @error('codigo')
                                             <span class="invalid-feedback" role="alert">
@@ -326,11 +313,11 @@
         <div class="col-md-6">
             <div class="card">
                 <div class="card-header">
-                    2. Registro de datos del alumno
+                    Datos del alumno
                 </div>
                 <div class="card-body">
                     <div class="row mx-auto">
-                        <span class="alert alert-info">El lugar y puesto de trabajo son los actuales, en caso de no tener, dejar vacío, al igual anexo y otro TECNM son opcionales. </span>
+
                         @if(session('success-alumno'))
                             <div class="alert alert-success" role="alert" style="margin-top: 5px">
                                 <span class="text-success">{{ session('success-alumno') }}</span>
@@ -354,7 +341,8 @@
                                 <label for="numero_control" class="col-md-4 col-form-label text-md-right">{{ __('Número Control') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="numero_control" type="text" class="form-control @error('numero_control') is-invalid @enderror" name="numero_control" value="{{ $alumno["alumno"]["numero_control"] }}" required autocomplete="numero_control" autofocus>
+                                    <input id="numero_control" type="text" class="form-control @error('numero_control') is-invalid @enderror" name="numero_control" value="{{ $alumno["alumno"]["numero_control"] }}" required autocomplete="numero_control" autofocus
+                                           disabled>
 
                                     @error('numero_control')
                                     <span class="invalid-feedback" role="alert">
@@ -368,7 +356,8 @@
                                 <label for="direccion" class="col-md-4 col-form-label text-md-right">{{ __('Dirección') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="direccion" type="text" class="form-control @error('direccion') is-invalid @enderror" name="direccion" value="{{ $alumno["alumno"]["direccion"] }}" required autocomplete="direccion" autofocus>
+                                    <input id="direccion" type="text" class="form-control @error('direccion') is-invalid @enderror" name="direccion" value="{{ $alumno["alumno"]["direccion"] }}" required autocomplete="direccion" autofocus
+                                           disabled>
 
                                     @error('direccion')
                                     <span class="invalid-feedback" role="alert">
@@ -382,7 +371,8 @@
                                 <label for="telefono" class="col-md-4 col-form-label text-md-right">{{ __('Telefono') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="telefono" type="text" class="form-control @error('telefono') is-invalid @enderror" name="telefono" value="{{ $alumno["alumno"]["telefono"] }}" required autocomplete="telefono" autofocus>
+                                    <input id="telefono" type="text" class="form-control @error('telefono') is-invalid @enderror" name="telefono" value="{{ $alumno["alumno"]["telefono"] }}" required autocomplete="telefono" autofocus
+                                           disabled>
 
                                     @error('telefono')
                                     <span class="invalid-feedback" role="alert">
@@ -396,7 +386,8 @@
                                 <label for="otherTECNM" class="col-md-4 col-form-label text-md-right">{{ __('En caso de venir de otro TECNM, nombre:') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="otherTECNM" type="text" class="form-control @error('otherTECNM') is-invalid @enderror" name="otherTECNM" value="{{ $alumno["alumno"]["otherTECNM"] }}" autocomplete="otherTECNM" autofocus>
+                                    <input id="otherTECNM" type="text" class="form-control @error('otherTECNM') is-invalid @enderror" name="otherTECNM" value="{{ $alumno["alumno"]["otherTECNM"] }}" autocomplete="otherTECNM" autofocus
+                                           disabled>
 
                                     @error('otherTECNM')
                                     <span class="invalid-feedback" role="alert">
@@ -409,7 +400,7 @@
                             <div class="form-group row">
                                 <label class="col-md-4 col-form-label text-md-right" for="especialidad">Estado: </label>
                                 <div class="col-md-6">
-                                    <select class="form-control" id="estado" name="estado">
+                                    <select class="form-control" id="estado" name="estado" disabled>
                                         <option value=""  selected>Seleccione estado</option>
                                         @if($alumno["alumno"]["estado"])
                                             <option value="{{ $alumno["alumno"]["estado"] }}"  selected>{{ $alumno["alumno"]["estado"] }}</option>
@@ -486,7 +477,8 @@
                                 <label for="ciudad" class="col-md-4 col-form-label text-md-right">{{ __('Ciudad') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="ciudad" type="text" class="form-control @error('ciudad') is-invalid @enderror" name="ciudad" value="{{ $alumno["alumno"]["ciudad"] }}" required autocomplete="ciudad" autofocus>
+                                    <input id="ciudad" type="text" class="form-control @error('ciudad') is-invalid @enderror" name="ciudad" value="{{ $alumno["alumno"]["ciudad"] }}" required autocomplete="ciudad" autofocus
+                                           disabled>
 
                                     @error('ciudad')
                                     <span class="invalid-feedback" role="alert">
@@ -500,7 +492,8 @@
                                 <label for="lugar_trabajo" class="col-md-4 col-form-label text-md-right">{{ __('Lugar de trabajo') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="lugar_trabajo" type="text" class="form-control @error('lugar_trabajo') is-invalid @enderror" name="lugar_trabajo" value="{{ $alumno["alumno"]["lugar_trabajo"] }}" autocomplete="lugar_trabajo" autofocus>
+                                    <input id="lugar_trabajo" type="text" class="form-control @error('lugar_trabajo') is-invalid @enderror" name="lugar_trabajo" value="{{ $alumno["alumno"]["lugar_trabajo"] }}" autocomplete="lugar_trabajo" autofocus
+                                           disabled>
 
                                     @error('lugar_trabajo')
                                     <span class="invalid-feedback" role="alert">
@@ -514,7 +507,8 @@
                                 <label for="puesto_trabajo" class="col-md-4 col-form-label text-md-right">{{ __('Puesto de trabajo') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="puesto_trabajo" type="text" class="form-control @error('puesto_trabajo') is-invalid @enderror" name="puesto_trabajo" value="{{ $alumno["alumno"]["puesto_trabajo"] }}" autocomplete="puesto_trabajo" autofocus>
+                                    <input id="puesto_trabajo" type="text" class="form-control @error('puesto_trabajo') is-invalid @enderror" name="puesto_trabajo" value="{{ $alumno["alumno"]["puesto_trabajo"] }}" autocomplete="puesto_trabajo" autofocus
+                                           disabled>
 
                                     @error('puesto_trabajo')
                                     <span class="invalid-feedback" role="alert">
@@ -528,7 +522,8 @@
                                 <label for="generacion" class="col-md-4 col-form-label text-md-right">{{ __('Generación') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="generacion" type="text" class="form-control @error('generacion') is-invalid @enderror" name="generacion" value="{{ $alumno["alumno"]["generacion"] }}" required autocomplete="generacion" autofocus>
+                                    <input id="generacion" type="text" class="form-control @error('generacion') is-invalid @enderror" name="generacion" value="{{ $alumno["alumno"]["generacion"] }}" required autocomplete="generacion" autofocus
+                                           disabled>
 
                                     @error('generacion')
                                     <span class="invalid-feedback" role="alert">
@@ -542,7 +537,7 @@
                                 <label for="anexo" class="col-md-4 col-form-label text-md-right">{{ __('Anexo') }}</label>
 
                                 <div class="col-md-6">
-                                    <textarea id="anexo" type="text" class="form-control @error('anexo') is-invalid @enderror" name="anexo" autocomplete="anexo" autofocus>{{ $alumno["alumno"]["anexo"] }}
+                                    <textarea id="anexo" type="text" class="form-control @error('anexo') is-invalid @enderror" name="anexo" autocomplete="anexo" autofocus disabled>{{ $alumno["alumno"]["anexo"] }}
                                     </textarea>
 
                                     @error('anexo')
@@ -553,13 +548,6 @@
                                 </div>
                             </div>
 
-                            <div class="form-group row mb-0">
-                                <div class="col-md-6 offset-md-4">
-                                    <button type="submit" class="btn btn-primary">
-                                        {{ __('Guardar') }}
-                                    </button>
-                                </div>
-                            </div>
                         </form>
                     </div>
                 </div>

@@ -101,8 +101,8 @@ class AlumnoCarreraController extends Controller
                     'id_opcion_titulacion' => $request->input('opcion')
                 ]);
             } else {
-                //$proceso = $proceso->first();
-                //$proceso->id_opcion_titulacion = $request->input('opcion');
+                $proceso = $proceso->first();
+                $proceso->id_opcion_titulacion = $request->input('opcion');
 
                 $proceso->save();
             }
@@ -113,8 +113,8 @@ class AlumnoCarreraController extends Controller
             $alumnoCarrera->save();
             //return redirect()->back()->with('success-especialidad', 'Actualización exitosa');
             // redireccionando hacia la importacion o creacion del proceso
-            return view('dashboards.alumno.firstTimeProcess.proyecto',
-                compact('idAlumno'));
+            return view('dashboards.alumno.firstTimeProcess.datosProfesionales',
+                compact('idAlumno', 'alumno'));
 
         } else {
             return redirect()->back()->with('error-especialidad', 'Error, intente más tarde');

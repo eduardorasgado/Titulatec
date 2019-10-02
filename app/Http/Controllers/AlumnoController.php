@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Alumno;
 use App\Especialidad;
 use App\Http\Requests\AlumnoRequest;
+use App\Http\Requests\datosProfesionalesRequest;
 use App\OpcionTitulacion;
 use App\User;
 use Illuminate\Http\Request;
@@ -80,8 +81,6 @@ class AlumnoController extends Controller
             $alumno->telefono = $request->input('telefono');
             $alumno->estado = $request->input('estado');
             $alumno->ciudad = $request->input('ciudad');
-            $alumno->lugar_trabajo = $request->input('lugar_trabajo');
-            $alumno->puesto_trabajo = $request->input('puesto_trabajo');
 
             $alumno->completed = true;
             $alumno->save();
@@ -117,5 +116,22 @@ class AlumnoController extends Controller
         // creando proceso en base de dato
 
         dd("generando la solicitud de titulación");
+    }
+
+    public function saveDatosProfesionales(datosProfesionalesRequest $request, $idAlumno) {
+        $alumno = Alumno::find($idAlumno);
+        if($alumno) {
+            $alumno->lugar_trabajo = $request->input('lugar_trabajo');
+            $alumno->puesto_trabajo = $request->input('puesto_trabajo');
+
+            $alumno->save();
+
+            return view('dashboards.alumno.firstTimeProcess.proyecto',
+                compact('idAlumno'));
+        }
+        else {
+            return redirect()->back()
+                ->with('error-alumno', 'No existe el alumno');
+        }
     }
 }

@@ -263,4 +263,14 @@ Route::group(['middleware' => ['IsAlumno']], function() {
     Route::get('Alumno/{id}/proyecto/select',
         'ProyectoController@accessProyectSelector'
     )->name('Proyecto.Selector');
+
+    Route::put('Alumno/{id}/datosProfesionales',
+        'AlumnoController@saveDatosProfesionales')
+        ->name('Alumno.datosProfesionales');
+
+    Route::get('Alumno/{id}/datosProfesionales',function () {
+        return redirect('/');
+    })
+        ->name('Alumno.datosProfesionales.showForm');
+
 });

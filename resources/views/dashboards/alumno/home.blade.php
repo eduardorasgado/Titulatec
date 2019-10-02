@@ -122,7 +122,7 @@
         <div class="col-md-6">
             <div class="card">
                 <div class="card-header">
-                    1. Datos de carrera
+                    Datos Escolares
                 </div>
                 <div class="card-body">
                     <div class="row mx-auto">
@@ -143,6 +143,67 @@
                         <form method="POST" action="{{ route('AlumnoCarrera.update', ['AlumnoCarrera' => $alumno["alumno"]["id"]]) }}">
                             {{ method_field('PUT') }}
                             @csrf
+
+                            <div class="form-group row">
+                                <label for="numero_control" class="col-md-4 col-form-label text-md-right">{{ __('Número Control') }}</label>
+
+                                <div class="col-md-6">
+                                    <input id="numero_control" type="text" class="form-control @error('numero_control') is-invalid @enderror" name="numero_control" value="{{ $alumno["alumno"]["numero_control"] }}" required autocomplete="numero_control" autofocus
+                                           disabled>
+
+                                    @error('numero_control')
+                                    <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                    @enderror
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="otherTECNM" class="col-md-4 col-form-label text-md-right">{{ __('En caso de venir de otro TECNM, nombre:') }}</label>
+
+                                <div class="col-md-6">
+                                    <input id="otherTECNM" type="text" class="form-control @error('otherTECNM') is-invalid @enderror" name="otherTECNM" value="{{ $alumno["alumno"]["otherTECNM"] }}" autocomplete="otherTECNM" autofocus
+                                           disabled>
+
+                                    @error('otherTECNM')
+                                    <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                    @enderror
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="generacion" class="col-md-4 col-form-label text-md-right">{{ __('Generación') }}</label>
+
+                                <div class="col-md-6">
+                                    <input id="generacion" type="text" class="form-control @error('generacion') is-invalid @enderror" name="generacion" value="{{ $alumno["alumno"]["generacion"] }}" required autocomplete="generacion" autofocus
+                                           disabled>
+
+                                    @error('generacion')
+                                    <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                    @enderror
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="anexo" class="col-md-4 col-form-label text-md-right">{{ __('Anexo') }}</label>
+
+                                <div class="col-md-6">
+                                    <textarea id="anexo" type="text" class="form-control @error('anexo') is-invalid @enderror" name="anexo" autocomplete="anexo" autofocus disabled>{{ $alumno["alumno"]["anexo"] }}
+                                    </textarea>
+
+                                    @error('anexo')
+                                    <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                    @enderror
+                                </div>
+                            </div>
+
                             <div class="form-group row">
                                 <input type="hidden" id="planActual" value="{{ $alumno["alumno"]["carrera"]["id_plan_estudios"] }}">
                                 <label class="col-md-4 col-form-label text-md-right" for="especialidad">Especialidad: </label>
@@ -216,7 +277,7 @@
             <br>
             <div class="card">
                 <div class="card-header">
-                    3. Proyecto de alumno
+                    Proyecto de alumno
                 </div>
 
                 @if($proyecto != null)
@@ -313,7 +374,7 @@
         <div class="col-md-6">
             <div class="card">
                 <div class="card-header">
-                    Datos del alumno
+                    Datos Personales
                 </div>
                 <div class="card-body">
                     <div class="row mx-auto">
@@ -338,21 +399,6 @@
                             @csrf
 
                             <div class="form-group row">
-                                <label for="numero_control" class="col-md-4 col-form-label text-md-right">{{ __('Número Control') }}</label>
-
-                                <div class="col-md-6">
-                                    <input id="numero_control" type="text" class="form-control @error('numero_control') is-invalid @enderror" name="numero_control" value="{{ $alumno["alumno"]["numero_control"] }}" required autocomplete="numero_control" autofocus
-                                           disabled>
-
-                                    @error('numero_control')
-                                    <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                    @enderror
-                                </div>
-                            </div>
-
-                            <div class="form-group row">
                                 <label for="direccion" class="col-md-4 col-form-label text-md-right">{{ __('Dirección') }}</label>
 
                                 <div class="col-md-6">
@@ -375,21 +421,6 @@
                                            disabled>
 
                                     @error('telefono')
-                                    <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                    @enderror
-                                </div>
-                            </div>
-
-                            <div class="form-group row">
-                                <label for="otherTECNM" class="col-md-4 col-form-label text-md-right">{{ __('En caso de venir de otro TECNM, nombre:') }}</label>
-
-                                <div class="col-md-6">
-                                    <input id="otherTECNM" type="text" class="form-control @error('otherTECNM') is-invalid @enderror" name="otherTECNM" value="{{ $alumno["alumno"]["otherTECNM"] }}" autocomplete="otherTECNM" autofocus
-                                           disabled>
-
-                                    @error('otherTECNM')
                                     <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
                                             </span>
@@ -488,6 +519,38 @@
                                 </div>
                             </div>
 
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    Datos Profesionales
+                </div>
+                <div class="card-body">
+                    <div class="row mx-auto">
+
+                        @if(session('success-alumno'))
+                            <div class="alert alert-success" role="alert" style="margin-top: 5px">
+                                <span class="text-success">{{ session('success-alumno') }}</span>
+                            </div>
+
+                        @endif
+                        @if(session('error-alumno'))
+                            <div class="alert alert-danger" role="alert" style="margin-top: 5px">
+                                <span class="text-success">{{ session('error-alumno') }}</span>
+                            </div>
+
+                        @endif
+                    </div>
+
+                    <div class="jumbotron">
+                        <form method="POST" action="{{ route('Alumno.update', ['AlumnoCarrera' => $alumno["alumno"]["id"]]) }}">
+                            {{ method_field('PUT') }}
+                            @csrf
+
                             <div class="form-group row">
                                 <label for="lugar_trabajo" class="col-md-4 col-form-label text-md-right">{{ __('Lugar de trabajo') }}</label>
 
@@ -517,43 +580,13 @@
                                     @enderror
                                 </div>
                             </div>
-
-                            <div class="form-group row">
-                                <label for="generacion" class="col-md-4 col-form-label text-md-right">{{ __('Generación') }}</label>
-
-                                <div class="col-md-6">
-                                    <input id="generacion" type="text" class="form-control @error('generacion') is-invalid @enderror" name="generacion" value="{{ $alumno["alumno"]["generacion"] }}" required autocomplete="generacion" autofocus
-                                           disabled>
-
-                                    @error('generacion')
-                                    <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                    @enderror
-                                </div>
-                            </div>
-
-                            <div class="form-group row">
-                                <label for="anexo" class="col-md-4 col-form-label text-md-right">{{ __('Anexo') }}</label>
-
-                                <div class="col-md-6">
-                                    <textarea id="anexo" type="text" class="form-control @error('anexo') is-invalid @enderror" name="anexo" autocomplete="anexo" autofocus disabled>{{ $alumno["alumno"]["anexo"] }}
-                                    </textarea>
-
-                                    @error('anexo')
-                                    <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                    @enderror
-                                </div>
-                            </div>
-
                         </form>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
 
 
     <script type="text/javascript">

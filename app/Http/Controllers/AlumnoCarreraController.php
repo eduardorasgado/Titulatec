@@ -6,7 +6,9 @@ use App\Alumno;
 use App\AlumnoCarrera;
 use App\Http\Requests\CarreraRequest;
 use App\ProcesoTitulacion;
+use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AlumnoCarreraController extends Controller
 {
@@ -113,6 +115,9 @@ class AlumnoCarreraController extends Controller
             $alumnoCarrera->save();
             //return redirect()->back()->with('success-especialidad', 'Actualización exitosa');
             // redireccionando hacia la importacion o creacion del proceso
+
+            $alumno = User::alumnoWithCarrera(Auth::user()->id)->first();
+
             return view('dashboards.alumno.firstTimeProcess.datosProfesionales',
                 compact('idAlumno', 'alumno'));
 

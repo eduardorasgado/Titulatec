@@ -6,7 +6,7 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">
-                    1. Registro de datos de carrera
+                    Creación de proyecto
                 </div>
                 <div class="card-body">
                     <div class="row mx-auto">
@@ -27,14 +27,14 @@
 
                     <div class="card-body">
                         <div id="init-proyect" class="row">
-                            <div class="col-md-4">
+                            <div class="col-md-6">
                             <span class="" style="font-size: 9px; padding:0; margin:0">
                                 Para crear un nuevo proyecto, ten en cuenta que si el proyecto es entre varios integrantes, vas a ser el responsable de rellenar correctamente todos los datos del proyecto.
                             </span>
                                 <a href="{{ route('Proyecto.create') }}"><button class="btn btn-outline-primary">Crear Proyecto</button></a>
                             </div>
-                            <div class="col-md-8">
-                            <span class="" style="font-size: 9px; padding:0; margin:0">
+                            <div class="col-md-2">
+                            <span hidden class="" style="font-size: 9px; padding:0; margin:0">
                                 En caso de tener un equipo, el primero en haber creado el proyecto en el sistema, debe de proporcionarte el siguiente código.
                             </span>
                                 <div class="row mx-auto">
@@ -45,7 +45,7 @@
 
                                     @endif
                                 </div>
-                                <form method="POST" action="{{ route('Alumno.verificar.codigo', $idAlumno) }}">
+                                <form hidden method="POST" action="{{ route('Alumno.verificar.codigo', $idAlumno) }}">
                                     @csrf
                                     <div class="form-group row">
                                         <label for="direccion" class="col-md-4 col-form-label text-md-right">{{ __('Código de proyecto') }}</label>

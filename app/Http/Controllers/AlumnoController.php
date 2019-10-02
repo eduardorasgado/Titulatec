@@ -7,6 +7,8 @@ use App\Especialidad;
 use App\Http\Requests\AlumnoRequest;
 use App\Http\Requests\datosProfesionalesRequest;
 use App\OpcionTitulacion;
+use App\Proyecto;
+use App\Role;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -126,12 +128,34 @@ class AlumnoController extends Controller
 
             $alumno->save();
 
-            return view('dashboards.alumno.firstTimeProcess.proyecto',
-                compact('idAlumno'));
+            $proyecto = Proyecto::find($alumno["id_proyecto"]);
+
+            if($proyecto == null) {
+                //return view('dashboards.alumno.firstTimeProcess.proyecto',
+                //    compact('idAlumno'));
+                return redirect('/Proyecto/create');
+            } else {
+                return redirect('Proyecto/'.$alumno["id_proyecto"]."/edit");
+            }
         }
         else {
             return redirect()->back()
                 ->with('error-alumno', 'No existe el alumno');
         }
+    }
+
+    public function editAgainAlumnoDato($id) {
+        $role = Role::$ROLE_ALUMNO;
+        $alumno = User::alumnoWithCarrera(Auth::user()->id)->first();
+        $especialidades = Especialidad::all();
+        $proyecto = Proyecto::find($alumno["alumno"]["id_proyecto"]);
+        $opcionesTitulacion = OpcionTitulacion::all();
+        $procesoTitulacion = $alumno["alumno"]->procesoTitulacion;
+        $registroCompletado = false;
+
+        return view('dashboards.alumno.firstTimeProcess.datosPersonales',
+            compact('role', 'alumno', 'especialidades',
+                'proyecto', 'registroCompletado', 'opcionesTitulacion',
+                'procesoTitulacion'));
     }
 }

@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container">
-        <div class="row">
+        <div hidden class="row">
             <div class="col-md-10"></div>
             <a class="btn btn-primary" href="/home">Atrás</a>
         </div>

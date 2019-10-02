@@ -118,6 +118,15 @@
             </div>
         </div>
     </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="jumbotron jumbo-1 text-center">
+                <a href="{{ route('Alumno.Datos.Modificar', $alumno["alumno"]["id"]) }}" class="btn btn-outline-primary">Modificar datos</a>
+            </div>
+        </div>
+    </div>
+
     <div class="row">
         <div class="col-md-6">
             <div class="card">

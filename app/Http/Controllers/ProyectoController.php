@@ -67,7 +67,7 @@ class ProyectoController extends Controller
             $alumno->save();
         }
 
-        return redirect()->back()->with('success', 'Proyecto creado, regrese a su dashboard para verificar');
+        return redirect('/home')->with('success', 'Proyecto creado, regrese a su dashboard para verificar');
     }
 
     /**
@@ -115,7 +115,7 @@ class ProyectoController extends Controller
         }
         $proyecto->save();
 
-        return redirect()->back()->with('success', 'Se ha actualizado con éxito el proyecto');
+        return redirect('/home')->with('success', 'Se ha actualizado con éxito el proyecto');
     }
 
     /**

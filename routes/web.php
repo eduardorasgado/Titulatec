@@ -273,4 +273,8 @@ Route::group(['middleware' => ['IsAlumno']], function() {
     })
         ->name('Alumno.datosProfesionales.showForm');
 
+    Route::get('Alumno/{id}/update',
+        'AlumnoController@editAgainAlumnoDato')
+        ->name('Alumno.Datos.Modificar');
+
 });

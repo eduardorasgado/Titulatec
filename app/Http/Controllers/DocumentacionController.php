@@ -50,15 +50,17 @@ class DocumentacionController extends Controller
         }
     }
 
-    public function memorandum($idAlumno) {
+    public function memorandum($idAlumno, $vistaPrevia) {
         try {
 
             // TODO: Tratar de optimizar esta peticion porque alumno se consulta en
             // GenerateSolicitudTitulacionAntiguo
             $alumno = Alumno::findOrFail($idAlumno);
-            $proceso = $alumno->procesoTitulacion;
-            $proceso->memorandum = true;
-            $proceso->save();
+            if(!$vistaPrevia) {
+                $proceso = $alumno->procesoTitulacion;
+                $proceso->memorandum = true;
+                $proceso->save();
+            }
 
             // retornar el pdf
             return $this->generateSolicitudTitulacionAntiguoPDF(

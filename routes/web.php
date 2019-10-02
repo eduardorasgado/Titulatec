@@ -192,7 +192,7 @@ Route::group(['middleware' => ['IsDivisionEstudios']], function() {
         ['only' => ['edit', 'update']]);
 
     // Rutas para memorandum
-    Route::get('/DivisionEstudios/Alumno/{idAlumno}/solicitud/memorandum/generatePDF',
+    Route::get('/DivisionEstudios/Alumno/{idAlumno}/solicitud/memorandum/generatePDF/{vistaPrevia}/pdf',
             'DocumentacionController@memorandum')
             ->name('Alumno.memorandum.generate');
 

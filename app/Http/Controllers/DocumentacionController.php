@@ -62,9 +62,30 @@ class DocumentacionController extends Controller
                 $proceso->save();
             }
 
-            // retornar el pdf
-            return $this->generateSolicitudTitulacionAntiguoPDF(
-                $alumno,'documentos.memorandum');
+            if($alumno){
+                // verificar que los datos generales esten llenos
+                $proceso = $alumno->procesoTitulacion;
+                if($proceso){
+                    if($proceso->datos_generales) {
+                        // verificar tipo de plan de estudio de alumno
+                        $tipoPlan = $alumno->carrera->planEstudio->is_actual;
+                        //generando pdf
+                        if($tipoPlan) {
+
+                            // retornar el pdf  actual
+                            return $this->generateSolicitudTitulacionAntiguoPDF(
+                                $alumno,'documentos.memorandum');
+                        } else {
+                            // tipo antiguo
+                            // retornar el pdf  actual
+                            return $this->generateMemorandumAntiguoPDF(
+                                $alumno);
+                        }
+                    }
+                } else {
+                    return redirect()->back();
+                }
+            }
 
         } catch(\Exception $e) {
             return redirect()->back()->with('Error', $e->getMessage());
@@ -195,6 +216,48 @@ class DocumentacionController extends Controller
             compact('fecha', 'userAlumno', 'alumno', 'especialidad',
                     'planEstudio', 'procesoTitulacion', 'proyecto', 'jefeDepartamento',
                 'academia'));
+    }
+
+    private function generateMemorandumAntiguoPDF($alumno) {
+        try {
+            $vista = 'documentos.memorandumViejo';
+
+            //
+            $idAlumno = $alumno->id;
+            $fecha = $this->formatDateHumanSpanish(Carbon::now()->timezone('America/Mexico_City'));
+            $userAlumno = $alumno->user;
+            $proyecto = $alumno->proyecto;
+            $especialidad = $alumno->carrera->especialidad;
+            $planEstudio = $alumno->carrera->planEstudio;
+            $procesoTitulacion = ProcesoTitulacion::withOpcionTitulacion($alumno->id)->first();
+            // encontrando al jefe de academia del alumno
+            $academia = $especialidad->academia;
+            $jefeDepartamento = User::findByJefeAcademia($academia->id)->first();
+            $jefeDivision = User::jefeDivision()->first();
+
+
+            $user = User::alumnoWithAsesoresfindByidAlumno($idAlumno)->first();
+            $alumno = $user->alumno;
+
+            /**
+             *
+            $presidente = Maestro::findOrFail($alumno["procesoTitulacion"]["asesores"]["id_presidente"])->user;
+            $secretario = Maestro::findOrFail($alumno["procesoTitulacion"]["asesores"]["id_secretario"])->user;
+            $vocal = Maestro::findOrFail($alumno["procesoTitulacion"]["asesores"]["id_vocal"])->user;
+            $vocal_suplente = Maestro::findOrFail($alumno["procesoTitulacion"]["asesores"]["id_vocal_suplente"])->user;
+
+             */
+
+
+            return $this->viewToPDF($vista,
+                compact('fecha', 'userAlumno', 'alumno', 'especialidad',
+                    'planEstudio', 'procesoTitulacion', 'proyecto', 'jefeDepartamento',
+                    'academia', 'jefeDivision', 'idAlumno'));
+            //'presidente', 'secretario', 'vocal',
+            //                    'vocal_suplente'
+        } catch(\Exception $e) {
+            return redirect()->back()->with('Error', 'Error: '.$e->getMessage());
+        }
     }
 
     private function viewToPDF($view, $data) {

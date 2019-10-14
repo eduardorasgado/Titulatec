@@ -100,6 +100,7 @@
                 <div class="col-md-8"></div>
                 <div class="col-md-4">
                     <a href="{{ route('SolicitudTitulacion.generate', $alumno["alumno"]["id"]) }}" target="_blank"><button type="button"
+                                        onclick="messaging()"
                                        class="btn
                                            @if(!$registroCompletado)
                                            btn-danger
@@ -612,6 +613,10 @@
                 }
                 cargarPlanesDeEstudio(selectedEspecialidad, parseInt(planActualSelected));
             }
+        };
+
+        function messaging() {
+            alert("Listo! Se va a generar una solicitud de titulación. El siguiente paso es acudir con este documento al departamento de división de estudios profesionales. Junto a los demás documentos necesarios.");
         }
 
         $("#example-basic").steps({

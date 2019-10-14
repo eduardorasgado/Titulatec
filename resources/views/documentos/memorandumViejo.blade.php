@@ -12,24 +12,44 @@
 </head>
 <body>
 <div class="jumbotron">
-    <p>Fecha: {{ $fecha }}</p>
 
-    <ul>
-        <li>{{ $presidente->nombre }} {{ $presidente->apellidos }}</li>
-        <li>{{ $secretario->nombre }} {{ $secretario->apellidos }}</li>
-        <li>{{ $vocal->nombre }} {{ $vocal->apellidos }}</li>
-            <li>{{ $vocal_suplente->nombre }} {{ $vocal_suplente->apellidos }}</li>
-    </ul>
+    Heroica Cd. De Juchitán de Zaragoza, Oaxaca. {{ $fecha }}
+    {{ $academia->nombre }}
 
-    <p> Nombre: {{ $user->nombre }} {{ $user->apellidos }}</p>
+    M E M O R A N D U M
 
-    <h4>Datos escolares</h4>
-    <p>Fecha de evento: {{ $acta["fecha_examen_aviso"] }} a las {{ $acta["hora_inicio"] }} horas en {{ $acta["lugar_protocolo"] }}</p>
-    <p>Carrera Cursada: {{ $especialidad->nombre }}</p>
-    <p>Numero de Control: {{ $alumno->numero_control }}</p>
 
-    <p>Opcion de titulacion elegida: {{ $alumno["procesoTitulacion"]["opcionTitulacion"]["nombre"] }}</p>
-    <p>Tema: {{ $proyecto->nombre }}</p>
+
+    LIC. {{ $jefeDivision->nombre }} {{ $jefeDivision->apellidos }}
+    JEFE DEPTO. DE DIVISION DE ESTUDIOS
+    PROFESIONALES.
+    PRESENTE
+
+    Por medio del presente, se le comunica que el trabajo que presenta el (la) C. {{ $userAlumno->nombre }} {{ $userAlumno->apellidos }} ({{ $alumno->numero_control }}) pasante de la carrera de: {{ $especialidad->nombre }}, Clave: {{ $planEstudio->clave }}, es Aceptado en la Opción {{ $procesoTitulacion["opcionTitulacion"]["nombre"] }}, nombre del tema: {{ $proyecto->nombre }}. así mismo se le comunica que se le asigna como:
+
+
+    {{--
+    PRESIDENTE	{{ $presidente->nombre }} {{ $presidente->apellidos }} ($presidente->maestro->cedula)
+    SECRETARIO	{{ $secretario->nombre }} {{ $secretario->apellidos }} ($secretario->maestro->cedula)
+    VOCAL	{{ $vocal->nombre }} {{ $vocal->apellidos }} ($vocal->maestro->cedula)
+    SUPLENTE	{{ $vocal_suplente->nombre }} {{ $vocal_suplente->apellidos }} ($vocal_suplente->maestro->cedula)
+    --}}
+
+
+    Agradeciendo la atención al presente, quedo de usted.
+
+
+
+    ATENTAMENTE
+
+
+    ING. {{ $jefeDepartamento->nombre }} {{ $jefeDepartamento->apellidos }}
+    JEFE DE {{ $academia->nombre }}
+
+
+
+
+    IRS.
 
 </div>
 </body>

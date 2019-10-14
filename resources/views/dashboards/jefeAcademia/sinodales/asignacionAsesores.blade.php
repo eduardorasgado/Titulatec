@@ -41,7 +41,9 @@
                 </div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('Sinodalia.new', [$idAcademia, $idAlumno]) }}">
+                    <form method="POST" action="{{ route('Sinodalia.new', [$idAcademia, $idAlumno]) }}"
+                        onsubmit="return preGuardar()"
+                    >
                         @csrf
 
                         <input type="hidden"value="{{ $alumno->alumno->id }}" name="idAlumno" id="idAlumno">
@@ -49,7 +51,8 @@
 
                             <label class="col-md-4 col-form-label text-md-right" for="opcion">Presidente: </label>
                             <div class="col-md-6">
-                                <select class="form-control" id="presidente" name="presidente">
+                                <select class="form-control" id="presidente" name="presidente"
+                                >
                                     <option value=""  selected>Seleccione profesor</option>
                                     @if(count($maestros) > 0)
                                         @foreach($maestros as $maestro)
@@ -71,7 +74,8 @@
 
                             <label class="col-md-4 col-form-label text-md-right" for="opcion">Secretario: </label>
                             <div class="col-md-6">
-                                <select class="form-control" id="secretario" name="secretario">
+                                <select class="form-control" id="secretario" name="secretario"
+                                >
                                     <option value=""  selected>Seleccione profesor</option>
                                     @if(count($maestros) > 0)
                                         @foreach($maestros as $maestro)
@@ -93,7 +97,8 @@
 
                             <label class="col-md-4 col-form-label text-md-right" for="opcion">Vocal: </label>
                             <div class="col-md-6">
-                                <select class="form-control" id="vocal" name="vocal">
+                                <select class="form-control" id="vocal" name="vocal"
+                                >
                                     <option value=""  selected>Seleccione profesor</option>
                                     @if(count($maestros) > 0)
                                         @foreach($maestros as $maestro)
@@ -115,7 +120,8 @@
 
                             <label class="col-md-4 col-form-label text-md-right" for="opcion">Vocal Suplente: </label>
                             <div class="col-md-6">
-                                <select class="form-control" id="vocal_suplente" name="vocal_suplente">
+                                <select class="form-control" id="vocal_suplente" name="vocal_suplente"
+                                >
                                     <option value=""  selected>Seleccione profesor</option>
                                     @if(count($maestros) > 0)
                                         @foreach($maestros as $maestro)
@@ -135,7 +141,7 @@
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button id="guardar" type="submit" class="btn btn-primary">
                                     {{ __('Guardar') }}
                                 </button>
                             </div>
@@ -162,4 +168,26 @@
             </div>
         </div>
     </div>
+
+    <script>
+
+        function preGuardar() {
+            let presidente = document.getElementById('presidente').value;
+            let secretario = document.getElementById('secretario').value;
+            let vocal = document.getElementById('vocal').value;
+            let vocalSuplente = document.getElementById('vocal_suplente').value;
+
+            if( presidente != "" && secretario != "" && vocal != "" && vocalSuplente != "") {
+                if(presidente === secretario || presidente === vocal || presidente === vocalSuplente
+                    || secretario === vocal || secretario === vocalSuplente
+                    || vocal === vocalSuplente) {
+                    alert("Ningun profesor puede ser elegido dos veces como asesor del mismo alumno");
+                    return false;
+                }
+                return true
+            }
+            alert("No se han seleccionado todos los asesores");
+            return false;
+        }
+    </script>
 @endsection

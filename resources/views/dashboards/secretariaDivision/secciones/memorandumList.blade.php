@@ -28,7 +28,8 @@
                             <a href="{{ route('Alumno.memorandum.generate', [$alumno["alumno"]["id"], 1]) }}" target="_blank"><button class="btn btn-secondary">Generar vista previa</button></a>
                         </div>
                         <div class="col-md-4">
-                            <a href="{{ route('Alumno.memorandum.generate', [$alumno["alumno"]["id"], 0]) }}" target="_blank"><button class="btn btn-primary">Generar memorandum</button></a>
+                            <a href="{{ route('Alumno.memorandum.generate', [$alumno["alumno"]["id"], 0]) }}" target="_blank"><button class="btn btn-primary"
+                                onclick="messaging()">Generar memorandum</button></a>
                         </div>
                     </div>
                 </div>
@@ -53,4 +54,11 @@
             @endforeach
         </div>
     </div>
+    <script>
+        function messaging() {
+            setTimeout(function () {
+                location.reload();
+            }, 5000);
+        }
+    </script>
 @endsection

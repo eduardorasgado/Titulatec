@@ -617,6 +617,9 @@
 
         function messaging() {
             alert("Listo! Se va a generar una solicitud de titulación. El siguiente paso es acudir con este documento al departamento de división de estudios profesionales. Junto a los demás documentos necesarios.");
+            setTimeout(function () {
+                location.reload();
+            }, 5000);
         }
 
         $("#example-basic").steps({

@@ -11,42 +11,68 @@
     </style>
 </head>
 <body>
-<div class="jumbotron">
+<div class="">
 
     Heroica Cd. De Juchitán de Zaragoza, Oaxaca. {{ $fecha }}
     {{ $academia->nombre }}
+    <br>
+    REGISTRO DE PROYECTO
+    <br>
 
-    M E M O R A N D U M
 
-
-
+    <br>
     LIC. {{ $jefeDivision->nombre }} {{ $jefeDivision->apellidos }}
+    <br>
     JEFE DEPTO. DE DIVISION DE ESTUDIOS
+    <br>
     PROFESIONALES.
+    <br>
     PRESENTE
+    <br>
+    <br>
+    Por medio del presente, se le comunica que el trabajo que presenta el (la) C. {{ $user->nombre }} {{ $user->apellidos }} ({{ $alumno->numero_control }}) pasante de la carrera de: {{ $especialidad->nombre }}, Clave: {{ $planEstudio->clave }}, es Aceptado en la Opción {{ $procesoTitulacion["opcionTitulacion"]["nombre"] }}, nombre del tema: {{ $proyecto->nombre }}. así mismo se le comunica que se le asigna como:
 
-    Por medio del presente, se le comunica que el trabajo que presenta el (la) C. {{ $userAlumno->nombre }} {{ $userAlumno->apellidos }} ({{ $alumno->numero_control }}) pasante de la carrera de: {{ $especialidad->nombre }}, Clave: {{ $planEstudio->clave }}, es Aceptado en la Opción {{ $procesoTitulacion["opcionTitulacion"]["nombre"] }}, nombre del tema: {{ $proyecto->nombre }}. así mismo se le comunica que se le asigna como:
+    <br>
+
+    <br>
+    <table class="table table-bordered">
+
+        <tbody>
+            <tr>
+                <td>PRESIDENTE</td>
+                <td>{{ $presidente->nombre }} {{ $presidente->apellidos }} ({{ $presidenteCedula }})</td>
+            </tr>
+            <tr>
+                <td>SECRETARIO</td>
+                <td>{{ $secretario->nombre }} {{ $secretario->apellidos }} ({{ $secretarioCedula }})</td>
+            </tr>
+            <tr>
+                <td>VOCAL</td>
+                <td>{{ $vocal->nombre }} {{ $vocal->apellidos }} ({{ $vocalCedula }})</td>
+            </tr>
+            <tr>
+                <td>SUPLENTE</td>
+                <td>{{ $vocal_suplente->nombre }} {{ $vocal_suplente->apellidos }} ({{ $vocal_suplenteCedula }})</td>
+            </tr>
+        </tbody>
+    </table>
 
 
-    {{--
-    PRESIDENTE	{{ $presidente->nombre }} {{ $presidente->apellidos }} ($presidente->maestro->cedula)
-    SECRETARIO	{{ $secretario->nombre }} {{ $secretario->apellidos }} ($secretario->maestro->cedula)
-    VOCAL	{{ $vocal->nombre }} {{ $vocal->apellidos }} ($vocal->maestro->cedula)
-    SUPLENTE	{{ $vocal_suplente->nombre }} {{ $vocal_suplente->apellidos }} ($vocal_suplente->maestro->cedula)
-    --}}
-
+    <br>
+    <br>
 
     Agradeciendo la atención al presente, quedo de usted.
 
-
+    <br><br>
 
     ATENTAMENTE
 
-
+    <br><br>
     ING. {{ $jefeDepartamento->nombre }} {{ $jefeDepartamento->apellidos }}
+    <br>
     JEFE DE {{ $academia->nombre }}
 
-
+    <br><br><br>
 
 
     IRS.

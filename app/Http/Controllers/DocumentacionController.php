@@ -62,30 +62,8 @@ class DocumentacionController extends Controller
                 $proceso->save();
             }
 
-            if($alumno){
-                // verificar que los datos generales esten llenos
-                $proceso = $alumno->procesoTitulacion;
-                if($proceso){
-                    if($proceso->datos_generales) {
-                        // verificar tipo de plan de estudio de alumno
-                        $tipoPlan = $alumno->carrera->planEstudio->is_actual;
-                        //generando pdf
-                        if($tipoPlan) {
-
-                            // retornar el pdf  actual
-                            return $this->generateSolicitudTitulacionAntiguoPDF(
-                                $alumno,'documentos.memorandum');
-                        } else {
-                            // tipo antiguo
-                            // retornar el pdf  actual
-                            return $this->generateMemorandumAntiguoPDF(
-                                $alumno);
-                        }
-                    }
-                } else {
-                    return redirect()->back();
-                }
-            }
+            return $this->generateSolicitudTitulacionAntiguoPDF(
+                $alumno,'documentos.memorandum');
 
         } catch(\Exception $e) {
             return redirect()->back()->with('Error', $e->getMessage());
@@ -98,10 +76,20 @@ class DocumentacionController extends Controller
             $user = User::alumnoWithAsesoresfindByidAlumno($idAlumno)->first();
             $alumno = $user->alumno;
 
-            $presidente = Maestro::findOrFail($alumno["procesoTitulacion"]["asesores"]["id_presidente"])->user;
-            $secretario = Maestro::findOrFail($alumno["procesoTitulacion"]["asesores"]["id_secretario"])->user;
-            $vocal = Maestro::findOrFail($alumno["procesoTitulacion"]["asesores"]["id_vocal"])->user;
-            $vocal_suplente = Maestro::findOrFail($alumno["procesoTitulacion"]["asesores"]["id_vocal_suplente"])->user;
+            $presidenteUser = Maestro::findOrFail($alumno["procesoTitulacion"]["asesores"]["id_presidente"]);
+            $secretarioUser = Maestro::findOrFail($alumno["procesoTitulacion"]["asesores"]["id_secretario"]);
+            $vocalUser = Maestro::findOrFail($alumno["procesoTitulacion"]["asesores"]["id_vocal"]);
+            $vocal_suplenteUser = Maestro::findOrFail($alumno["procesoTitulacion"]["asesores"]["id_vocal_suplente"]);
+
+            $presidente = $presidenteUser->user;
+            $secretario = $secretarioUser->user;
+            $vocal = $vocalUser->user;
+            $vocal_suplente = $vocal_suplenteUser->user;
+
+            $presidenteCedula = $presidenteUser->cedula_profesional;
+            $secretarioCedula = $secretarioUser->cedula_profesional;
+            $vocalCedula = $vocalUser->cedula_profesional;
+            $vocal_suplenteCedula = $vocal_suplenteUser->cedula_profesional;
 
             $proyecto = $user->alumno->proyecto;
             $carrera = $user->alumno->carrera;
@@ -109,20 +97,63 @@ class DocumentacionController extends Controller
             $jefeAcademia = User::findByJefeAcademia($academia->id)->first();
             $jefeDivision = User::where('id_role', Role::$ROLE_JEFE_DIVISION)->first();
 
-            return $this->viewToPDF('documentos.registroProyectoTitulacionIntegral',
-                compact('fecha',
-                    'user',
-                    'alumno',
-                    'presidente',
-                    'secretario',
-                    'vocal',
-                    'vocal_suplente',
-                    'proyecto',
-                    'carrera',
-                    'academia',
-                    'jefeAcademia',
-                    'jefeDivision'
-                ));
+            if($alumno){
+                // verificar que los datos generales esten llenos
+                $proceso = $alumno->procesoTitulacion;
+                if($proceso){
+                    if($proceso->datos_generales) {
+                        // verificar tipo de plan de estudio de alumno
+                        $tipoPlan = $alumno->carrera->planEstudio->is_actual;
+                        //generando pdf
+                        if($tipoPlan) {
+                            // tipo actual
+                            // respuesta nueva
+                            return $this->viewToPDF('documentos.registroProyectoTitulacionIntegral',
+                                compact('fecha',
+                                    'user',
+                                    'alumno',
+                                    'presidente',
+                                    'secretario',
+                                    'vocal',
+                                    'vocal_suplente',
+                                    'proyecto',
+                                    'carrera',
+                                    'academia',
+                                    'jefeAcademia',
+                                    'jefeDivision'
+                                ));
+                        } else {
+                            $especialidad = $alumno->carrera->especialidad;
+                            $planEstudio = $alumno->carrera->planEstudio;
+                            $procesoTitulacion = ProcesoTitulacion::withOpcionTitulacion($alumno->id)->first();
+                            $jefeDepartamento = User::findByJefeAcademia($academia->id)->first();
+                            // tipo antiguo
+                            return $this->viewToPDF('documentos.registroProyectoViejo',
+                                compact('fecha',
+                                    'user',
+                                    'alumno',
+                                    'especialidad',
+                                    'planEstudio',
+                                    'procesoTitulacion',
+                                    'proyecto',
+                                    'jefeDepartamento',
+                                    'academia',
+                                    'jefeDivision',
+                                    'idAlumno',
+                                    'presidente',
+                                    'secretario',
+                                    'vocal',
+                                    'vocal_suplente',
+                                    'presidenteCedula',
+                                    'secretarioCedula',
+                                    'vocalCedula',
+                                    'vocal_suplenteCedula'));
+                        }
+                    }
+                } else {
+                    return redirect()->back();
+                }
+            }
 
         } catch (\Exception $e) {
             return redirect()->back()->with('Error', 'No se ha podido generar la respuesta de departamento: '.$e);
@@ -216,48 +247,6 @@ class DocumentacionController extends Controller
             compact('fecha', 'userAlumno', 'alumno', 'especialidad',
                     'planEstudio', 'procesoTitulacion', 'proyecto', 'jefeDepartamento',
                 'academia'));
-    }
-
-    private function generateMemorandumAntiguoPDF($alumno) {
-        try {
-            $vista = 'documentos.memorandumViejo';
-
-            //
-            $idAlumno = $alumno->id;
-            $fecha = $this->formatDateHumanSpanish(Carbon::now()->timezone('America/Mexico_City'));
-            $userAlumno = $alumno->user;
-            $proyecto = $alumno->proyecto;
-            $especialidad = $alumno->carrera->especialidad;
-            $planEstudio = $alumno->carrera->planEstudio;
-            $procesoTitulacion = ProcesoTitulacion::withOpcionTitulacion($alumno->id)->first();
-            // encontrando al jefe de academia del alumno
-            $academia = $especialidad->academia;
-            $jefeDepartamento = User::findByJefeAcademia($academia->id)->first();
-            $jefeDivision = User::jefeDivision()->first();
-
-
-            $user = User::alumnoWithAsesoresfindByidAlumno($idAlumno)->first();
-            $alumno = $user->alumno;
-
-            /**
-             *
-            $presidente = Maestro::findOrFail($alumno["procesoTitulacion"]["asesores"]["id_presidente"])->user;
-            $secretario = Maestro::findOrFail($alumno["procesoTitulacion"]["asesores"]["id_secretario"])->user;
-            $vocal = Maestro::findOrFail($alumno["procesoTitulacion"]["asesores"]["id_vocal"])->user;
-            $vocal_suplente = Maestro::findOrFail($alumno["procesoTitulacion"]["asesores"]["id_vocal_suplente"])->user;
-
-             */
-
-
-            return $this->viewToPDF($vista,
-                compact('fecha', 'userAlumno', 'alumno', 'especialidad',
-                    'planEstudio', 'procesoTitulacion', 'proyecto', 'jefeDepartamento',
-                    'academia', 'jefeDivision', 'idAlumno'));
-            //'presidente', 'secretario', 'vocal',
-            //                    'vocal_suplente'
-        } catch(\Exception $e) {
-            return redirect()->back()->with('Error', 'Error: '.$e->getMessage());
-        }
     }
 
     private function viewToPDF($view, $data) {

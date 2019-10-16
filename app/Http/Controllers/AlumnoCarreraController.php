@@ -74,6 +74,7 @@ class AlumnoCarreraController extends Controller
      */
     public function update(CarreraRequest $request, $idAlumno)
     {
+
         $alumnoCarrera = AlumnoCarrera::getByIdAlumno($idAlumno);
         // guardando numero de control en alumno
         $alumno = Alumno::findOrFail($idAlumno);
@@ -110,7 +111,13 @@ class AlumnoCarreraController extends Controller
             }
             // guardando datos de carrera
             $alumnoCarrera->id_especialidad = $request->input('especialidad');
-            $alumnoCarrera->id_plan_estudios = $request->input('plan');
+
+            // el siguiente campo viene con un json de tipo {id:%, is_actual:%}
+            $obj = $request->input('plan');
+            // es necesario poner comillas dobles para cada miembro del json para hacer el decode
+            $obj = str_replace("'", "\"", $obj);
+            $alumnoCarrera->id_plan_estudios = json_decode($obj)->id;
+
 
             $alumnoCarrera->save();
             //return redirect()->back()->with('success-especialidad', 'Actualización exitosa');

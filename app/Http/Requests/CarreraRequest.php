@@ -31,7 +31,7 @@ class CarreraRequest extends FormRequest
             'anexo' => 'nullable|string|max:400',
             'opcion' => 'required|numeric',
             'especialidad' => 'required|numeric',
-            'plan' => 'required|numeric',
+            'plan' => 'required',
         ];
     }
 }

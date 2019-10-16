@@ -68,7 +68,7 @@
     ATENTAMENTE
 
     <br><br>
-    ING. {{ $jefeDepartamento->nombre }} {{ $jefeDepartamento->apellidos }}
+    {{ $jefeDepartamento->nombre }} {{ $jefeDepartamento->apellidos }}
     <br>
     JEFE DE {{ $academia->nombre }}
 

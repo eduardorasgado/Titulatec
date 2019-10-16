@@ -96,20 +96,6 @@
                             </div>
 
                             <div class="form-group row">
-                                <label class="col-md-4 col-form-label text-md-right" for="opcion">Opción de titulación: </label>
-                                <div class="col-md-6">
-                                    <select class="form-control" id="opcion" name="opcion">
-                                        <option value=""  selected>Seleccione opción de titulación</option>
-                                        @if(count($opcionesTitulacion) > 0)
-                                            @foreach($opcionesTitulacion as $opcion)
-                                                <option value="{{ $opcion->id }}" {{ ($procesoTitulacion["id_opcion_titulacion"] == $opcion->id) ? 'selected' : '' }}>{{ $opcion->nombre }}</option>
-                                            @endforeach
-                                        @endif
-                                    </select>
-                                </div>
-                            </div>
-
-                            <div class="form-group row">
                                 <input type="hidden" id="planActual" value="{{ $alumno["alumno"]["carrera"]["id_plan_estudios"] }}">
                                 <label class="col-md-4 col-form-label text-md-right" for="especialidad">Especialidad: </label>
                                 <div class="col-md-6">
@@ -126,16 +112,30 @@
 
                                 </div>
                             </div>
+
                             <div class="form-group row" >
                                 <label class="col-md-4 col-form-label text-md-right" for="plan">Plan de estudios: </label>
                                 <div class="col-md-6">
 
-                                    <select class="form-control" id="plan" name="plan">
+                                    <select class="form-control" id="plan" name="plan" onchange="filterOpcionTitulacionByRelevance(this.value);">
                                         <!-- render a traves de ajax abajo del file-->
                                     </select>
                                 </div>
                             </div>
 
+                            <div class="form-group row">
+                                <label class="col-md-4 col-form-label text-md-right" for="opcion">Opción de titulación: </label>
+                                <div class="col-md-6">
+                                    <select class="form-control" id="opcion" name="opcion">
+                                        <option value=""  selected>Seleccione opción de titulación</option>
+                                        @if(count($opcionesTitulacion) > 0)
+                                            @foreach($opcionesTitulacion as $opcion)
+                                                <option value="{{ $opcion->id }}" {{ ($procesoTitulacion["id_opcion_titulacion"] == $opcion->id) ? 'selected' : '' }}>{{ $opcion->nombre }}</option>
+                                            @endforeach
+                                        @endif
+                                    </select>
+                                </div>
+                            </div>
 
                             <div class="form-group row mb-0">
                                 <div class="col-md-6 offset-md-4">
@@ -213,7 +213,7 @@
                         let newData= '<option value="" >Seleccione plan de estudio</option>';
 
                         data.planes.map((plan) => {
-                            newData+= '<option value="'+plan.id+'" ';
+                            newData+= '<option value="{\'id\':'+plan.id+', \'is_actual\':'+plan.is_actual+'}" ';
                             // en caso de que ya exista el plan actual en la db
                             if(idPlanActual !== 0 && idPlanActual === parseInt(plan.id)) {
                                 newData+= 'selected';
@@ -231,6 +231,13 @@
             } else {
                 $('#plan').html("");
             }
+        }
+
+        function filterOpcionTitulacionByRelevance(value) {
+            let val = value.replace(/'/g, "\"");
+            // el siguiente campo viene con un json de tipo {id:%, is_actual:%}
+            // TODO: Separar la parte is_actual convirtiendo a json y en base a eso filtrar todo lo que hay en opcion de titulacion segun la lista de excel
+            console.log(val);
         }
     </script>
 @endsection

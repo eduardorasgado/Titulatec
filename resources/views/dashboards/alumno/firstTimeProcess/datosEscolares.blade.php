@@ -130,7 +130,7 @@
                                         <option value=""  selected>Seleccione opción de titulación</option>
                                         @if(count($opcionesTitulacion) > 0)
                                             @foreach($opcionesTitulacion as $opcion)
-                                                <option value="{{ $opcion->id }}" {{ ($procesoTitulacion["id_opcion_titulacion"] == $opcion->id) ? 'selected' : '' }}>{{ $opcion->nombre }}</option>
+                                                <option value="{{ $opcion->id }}" {{ ($procesoTitulacion["id_opcion_titulacion"] == $opcion->id) ? 'selected' : '' }}>{{ $opcion->clave }}.{{ $opcion->nombre }}</option>
                                             @endforeach
                                         @endif
                                     </select>
@@ -172,11 +172,15 @@
 
     <script type="text/javascript">
 
+        // para recuperar todos los select
+        var select_global;
+
         window.onload = function() {
             //Cargando plan de estudio si ya fue seleccionado, en este caso traemos solamente el id de la especialidad del alumno si esta existe
             // cargando plan de estudio si el valor de select de especialidad no viene vacio
             var selectedEspecialidad = $("#especialidad").children('option:selected').val();
             var planActualSelected = $("#planActual").val();
+            select_global = document.getElementById("opcion").innerHTML;
 
             if(selectedEspecialidad !== "") {
                 if(planActualSelected === "") {
@@ -192,6 +196,7 @@
             transitionEffect: "slideLeft",
             autoFocus: true
         });
+
 
         function cargarPlanesDeEstudio(idEspecialidad, idPlanActual = 0) {
             //Especialidad.planes -> /Especialidad/planes-de-estudio
@@ -237,7 +242,41 @@
             let val = value.replace(/'/g, "\"");
             // el siguiente campo viene con un json de tipo {id:%, is_actual:%}
             // TODO: Separar la parte is_actual convirtiendo a json y en base a eso filtrar todo lo que hay en opcion de titulacion segun la lista de excel
-            console.log(val);
+            val = JSON.parse(val);
+            let is_actual = val.is_actual;
+            // quitando todos los que no sean tipo de titulacion actual
+            if(is_actual == 1) {
+                // dejar solo el integral
+                let select = document.getElementById("opcion");
+                select.innerHTML = select_global;
+
+                for(let i = 1; i < select.options.length; i++) {
+                    let clave = select.options[i].label.split(".")[0];
+                    if(clave != "XII") {
+
+                        select.options[i] = null;
+                        // esto se agrega porque cada que eliminamos un elemento se recorren los elementos del arreglo en el select
+                        i = 0;
+                    };
+                }
+
+
+            } else {
+                // quitar el integral
+                let select = document.getElementById("opcion");
+                select.innerHTML = select_global;
+
+                for(let i = 1; i < select.options.length; i++) {
+                    let clave = select.options[i].label.split(".")[0];
+
+                    if(clave == "XII") {
+
+                        select.options[i] = null;
+                        // esto se agrega porque cada que eliminamos un elemento se recorren los elementos del arreglo en el select
+                        i = 0;
+                    };
+                }
+            }
         }
     </script>
 @endsection

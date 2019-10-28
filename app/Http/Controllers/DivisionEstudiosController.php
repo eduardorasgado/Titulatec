@@ -142,7 +142,8 @@ class DivisionEstudiosController extends Controller
         $alumno = User::findByNumeroControl($num_control)->first();
         if($alumno != null) {
             if($alumno["alumno"]["procesoTitulacion"]["solicitud_titulacion"]) {
-                dd("Se ha hecho una consulta de memmorandum: num control es ".$alumno["nombre"]." ".$alumno["apellidos"]);
+                return view('dashboards.secretariaDivision.secciones.memorandumSearch',
+                        compact('alumno'));
             }
         } else {
             dd("No se pudo encontrar nada");

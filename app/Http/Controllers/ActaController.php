@@ -22,7 +22,8 @@ class ActaController extends Controller
         $alumnosSinActas = [];
 
         foreach ($alumnos as $alumno) {
-            if(!$alumno["alumno"]["procesoTitulacion"]["is_proceso_finished"]) {
+            if(!$alumno["alumno"]["procesoTitulacion"]["is_proceso_finished"] && 
+                $alumno["alumno"]["procesoTitulacion"]["avisos"]) {
                 array_push($alumnosSinActas, $alumno);
             }
             if($alumno["alumno"]["procesoTitulacion"]["is_proceso_finished"]) {

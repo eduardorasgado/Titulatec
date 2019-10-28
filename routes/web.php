@@ -200,6 +200,11 @@ Route::group(['middleware' => ['IsDivisionEstudios']], function() {
                 'DivisionEstudiosController@memorandumDashboard')
                 ->name('Memorandum.dashboard');
 
+    
+    Route::post('/busqueda/memorandums',
+                'DivisionEstudiosController@memorandumSearch'
+    )->name('Memorandum.busqueda');
+    
     // Rutas para avisos
     Route::get('/DivisionEstudios/home/Avisos',
                 'DivisionEstudiosController@avisosDashboard')

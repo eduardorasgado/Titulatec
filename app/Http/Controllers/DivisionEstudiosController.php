@@ -136,6 +136,12 @@ class DivisionEstudiosController extends Controller
             compact('alumnosConMemorandum', 'alumnosSinMemorandum'));
     }
 
+    public function memorandumSearch(Request $request) {
+        $num_control = $request->input('control');
+
+        dd("Se ha hecho una consulta de memmorandum: num control es ".$num_control);
+    }
+
     public function avisosDashboard() {
         $alumnos = User::withFullDEData()->get();
         $alumnosConAvisos = [];

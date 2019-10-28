@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="38466543-71e6-47b8-907d-daf5ac2d8132" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/EspecialidadesTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/EspecialidadesTableSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/PlanDeEstudiosTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/PlanDeEstudiosTableSeeder.php" afterDir="false" />
-    </list>
+    <list default="true" id="38466543-71e6-47b8-907d-daf5ac2d8132" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -211,7 +207,7 @@
       <workItem from="1571084892404" duration="12292000" />
       <workItem from="1571174251164" duration="14811000" />
       <workItem from="1571683411583" duration="8342000" />
-      <workItem from="1571764068518" duration="6369000" />
+      <workItem from="1571764068518" duration="6540000" />
     </task>
     <servers />
   </component>

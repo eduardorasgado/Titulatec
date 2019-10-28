@@ -157,4 +157,11 @@ class User extends Authenticatable
                 $query->where('id', $idAlumno);
             });
     }
+
+    public function scopeFindByNumeroControl($query, $num_control) {
+        return $query->with('alumno')
+            ->whereHas('alumno', function($query) use ($num_control) {
+                $query->where('numero_control', $num_control);
+            });
+    }
 }

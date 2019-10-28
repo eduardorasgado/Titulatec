@@ -20,7 +20,7 @@
                 {{ csrf_field() }}
                 <div class="input-group">
                     <input type="text" class="form-control" name="control"
-                        placeholder="Buscar por número de control"> <span class="input-group-btn">
+                        placeholder="Buscar por número de control" required> <span class="input-group-btn">
                         <button type="submit" class="btn btn-primary">Buscar</button>
                     </span>
                 </div>

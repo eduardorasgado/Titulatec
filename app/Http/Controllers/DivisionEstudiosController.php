@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Acta;
+use App\Alumno;
 use App\Http\Requests\AvisoRequest;
 use App\Http\Requests\PersonalDepartamentoRequest;
 use App\Maestro;
@@ -138,8 +139,15 @@ class DivisionEstudiosController extends Controller
 
     public function memorandumSearch(Request $request) {
         $num_control = $request->input('control');
-
-        dd("Se ha hecho una consulta de memmorandum: num control es ".$num_control);
+        $alumno = User::findByNumeroControl($num_control)->first();
+        if($alumno != null) {
+            if($alumno["alumno"]["procesoTitulacion"]["solicitud_titulacion"]) {
+                dd("Se ha hecho una consulta de memmorandum: num control es ".$alumno["nombre"]." ".$alumno["apellidos"]);
+            }
+        } else {
+            dd("No se pudo encontrar nada");
+        }
+        
     }
 
     public function avisosDashboard() {

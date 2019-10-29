@@ -183,9 +183,8 @@ class DivisionEstudiosController extends Controller
         $alumno = User::findByNumeroControl($num_control)->first();
         if($alumno != null) {
             if($alumno["alumno"]["procesoTitulacion"]["registro_proyecto"]) {
-                //return view('dashboards.jefeAcademia.sinodales.sinodalSearch',
-                //        compact('idAcademia', 'alumno'));
-                return ($alumno["nombre"]." ".$alumno["apellidos"]);
+                return view('dashboards.secretariaDivision.secciones.avisoSearch',
+                        compact('alumno'));
             }
         } else {
             return dd("No se pudo encontrar nada");

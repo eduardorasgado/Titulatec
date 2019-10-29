@@ -112,6 +112,24 @@ class JefeAcademiaController extends Controller
     }
 
     /**
+     * Funcion que retorna el resultado de una busqueda de cierta sinodalia dado un numero de control de alumno
+     */
+    public function sinodaliaSearch(Request $request) {
+        //
+        $idAcademia = $request->input('idAcademia');
+        $num_control = $request->input('control');
+        $alumno = User::findByNumeroControl($num_control)->first();
+        if($alumno != null) {
+            if($alumno["alumno"]["procesoTitulacion"]["memorandum"]) {
+                return view('dashboards.jefeAcademia.sinodales.sinodalSearch',
+                        compact('idAcademia', 'alumno'));
+            }
+        } else {
+            return dd("No se pudo encontrar nada");
+        }
+    }
+
+    /**
      * funciones para las rutas de la sinodalia de un alumno especifico
      */
 

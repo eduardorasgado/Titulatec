@@ -168,6 +168,10 @@ Route::group(['middleware' => ['IsJefeAcademia']], function() {
         )
         ->name('JefeAcademia.Manage.Sinodalia.index');
 
+    Route::post('/busqueda/sinodalias',
+        'JefeAcademiaController@sinodaliaSearch'
+        )->name('Sinodalia.busqueda');
+
     Route::get('/JefeAcademias/{idAcademia}/Sinodalia/Alumno/{idAlumno}/Asignacion/Asesores',
                 'JefeAcademiaController@showSinodalia')
         ->name('Sinodalia.show');

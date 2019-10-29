@@ -13,6 +13,21 @@
         <a class="btn btn-primary" href="/home">Atrás</a>
     </div>
     <div class="row">
+        
+        <div class="col-md-6 jumbotron">
+        <i class="fas fa-h2    ">Buscador de avisos, buscar por numero de control</i>
+            <form action="{{ route('Avisos.busqueda') }}" method="POST" role="search">
+                {{ csrf_field() }}
+                <div class="input-group">
+                    <input type="text" class="form-control" name="control"
+                        placeholder="Buscar por número de control" required> <span class="input-group-btn">
+                        <button type="submit" class="btn btn-primary">Buscar</button>
+                    </span>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="row">
         <div class="col-md-6">
             <h3>No Procesados</h3>
             @foreach($alumnosSinAvisos as $alumno)

@@ -175,6 +175,24 @@ class DivisionEstudiosController extends Controller
     }
 
     /**
+     * Funcion que se usa para la busqueda de avisos por numero de control por el personal
+     * de division de estudios
+     */
+    public function avisoSearch(Request $request) {
+        $num_control = $request->input('control');
+        $alumno = User::findByNumeroControl($num_control)->first();
+        if($alumno != null) {
+            if($alumno["alumno"]["procesoTitulacion"]["registro_proyecto"]) {
+                //return view('dashboards.jefeAcademia.sinodales.sinodalSearch',
+                //        compact('idAcademia', 'alumno'));
+                return ($alumno["nombre"]." ".$alumno["apellidos"]);
+            }
+        } else {
+            return dd("No se pudo encontrar nada");
+        }
+    }
+
+    /**
      * Muestra el formulario para asignar al jefe
      */
     public function asignarJefeEdit() {

@@ -214,6 +214,10 @@ Route::group(['middleware' => ['IsDivisionEstudios']], function() {
                 'DivisionEstudiosController@avisosDashboard')
         ->name('DivisionEstudios.Alumno.Avisos.generate');
 
+    Route::post('/busqueda/avisos',
+        'DivisionEstudiosController@avisoSearch'
+        )->name('Avisos.busqueda');
+
     // ruta para mostrar el formulario para definir tiempo de aviso, se muestra con el proyecto del alumno
     // y con un boton de generacion de pdf
     Route::get('/DivisionEstudios/Alumno/{idAlumno}/Avisos',

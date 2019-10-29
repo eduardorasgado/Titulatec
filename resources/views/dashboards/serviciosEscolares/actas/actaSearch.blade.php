@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <h2>Administración de Actas</h2>
+    <h2>Resultado de la búsqueda de Actas</h2>
     <div class="row">
         <div class="col-md-10">
             @if(Session::has('Error'))
@@ -10,27 +10,13 @@
                 </div>
             @endif
         </div>
-        <a class="btn btn-primary" href="/home">Atrás</a>
-    </div>
-    <div class="row">
-        <div class="col-md-6 jumbotron">
-        <i class="fas fa-h2    ">Buscador de Actas, buscar por numero de control</i>
-            <form action="{{ route('Actas.busqueda') }}" method="POST" role="search">
-                {{ csrf_field() }}
-                <div class="input-group">
-                    
-                    <input type="text" class="form-control" name="control"
-                        placeholder="Buscar por número de control" required> <span class="input-group-btn">
-                        <button type="submit" class="btn btn-primary">Buscar</button>
-                    </span>
-                </div>
-            </form>
-        </div>
+        <a class="btn btn-primary" href="{{ route('Acta.index') }}">Atrás</a>
     </div>
     <div class="row">
         <div class="col-md-6">
-            <h3>No Generadas</h3>
-            @foreach($alumnosSinActas as $alumno)
+        @if(!$alumno["alumno"]["procesoTitulacion"]["is_proceso_finished"])
+            <h3>No Generada</h3>
+            
                 <div class="jumboColorBlue">
                     <p>Alumno: <span class="blue">{{ $alumno->nombre }} {{ $alumno->apellidos }}</span></p>
                     <p>Num. Control: <span class="blue">{{ $alumno["alumno"]["numero_control"] }}</span></p>
@@ -43,11 +29,10 @@
                         </div>
                     </div>
                 </div>
-            @endforeach
-        </div>
-        <div class="col-md-6">
-            <h3>Generadas</h3>
-            @foreach($alumnosConActas as $alumno)
+            
+        @else
+            <h3>Generada</h3>
+            
                 <div class="jumboColorBlue">
                     <p>Alumno: <span class="blue">{{ $alumno->nombre }} {{ $alumno->apellidos }}</span></p>
                     <p>Num. Control: <span class="blue">{{ $alumno["alumno"]["numero_control"] }}</span></p>
@@ -60,7 +45,8 @@
                         </div>
                     </div>
                 </div>
-            @endforeach
+            
+        @endif
         </div>
     </div>
 @endsection

@@ -243,6 +243,10 @@ Route::group(['middleware' => ['IsServiciosEscolares']], function() {
     // rutas para generacion de actas
     Route::resource('Acta', 'ActaController');
 
+    Route::post('/busqueda/actas',
+        'ServiciosEscolaresController@actaSearch'
+        )->name('Actas.busqueda');
+
     Route::get(
         '/ServiciosEscolares/Alumno/{idAlumno}/Acta/Generate',
         'DocumentacionController@generateActa'

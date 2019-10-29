@@ -104,4 +104,18 @@ class ServiciosEscolaresController extends Controller
         //
     }
 
+    public function actaSearch(Request $request) {
+        //
+        $num_control = $request->input('control');
+        $alumno = User::findByNumeroControl($num_control)->first();
+        if($alumno != null) {
+            if($alumno["alumno"]["procesoTitulacion"]["avisos"]) {
+                return view('dashboards.serviciosEscolares.actas.actaSearch',
+                        compact('alumno'));
+            }
+        } else {
+            return dd("No se pudo encontrar nada");
+        }
+    }
+
 }

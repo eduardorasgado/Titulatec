@@ -10,7 +10,7 @@
                 </div>
             @endif
         </div>
-        <a class="btn btn-primary" href="/home">Atrás</a>
+        <a class="btn btn-primary" href="{{ route('JefeAcademia.Manage.Sinodalia.index', $idAcademia) }}">Atrás</a>
     </div>
    
     <div class="row">

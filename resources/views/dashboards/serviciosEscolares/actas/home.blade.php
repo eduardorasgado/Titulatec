@@ -39,7 +39,7 @@
                     <div class="row">
                         <div class="col-md-8"></div>
                         <div class="col-md-2">
-                            <a href="{{ route('Acta.show',['Acta' => $alumno["alumno"]["procesoTitulacion"]["acta"]["id"]]) }}" target="_blank"><button class="btn btn-primary">Generar Acta</button></a>
+                            <a href="{{ route('Acta.show',['Acta' => $alumno["alumno"]["procesoTitulacion"]["acta"]["id"]]) }}"><button class="btn btn-primary">Generar Acta</button></a>
                         </div>
                     </div>
                 </div>

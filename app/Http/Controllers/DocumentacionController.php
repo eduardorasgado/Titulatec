@@ -198,7 +198,9 @@ class DocumentacionController extends Controller
 
     public function generateActa($idAlumno) {
         try {
-            $alumno = Alumno::findOrFail($idAlumno);
+            $alumno = User::findByIdAlumno($idAlumno);
+            // buscar los datos del alumno en cuestion
+
             if($alumno) {
                 return $this->viewToPDF('documentos.actas',
                         []);

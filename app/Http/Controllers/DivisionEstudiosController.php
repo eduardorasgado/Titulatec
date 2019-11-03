@@ -332,6 +332,7 @@ class DivisionEstudiosController extends Controller
                 'hora_inicio' => $horaInicio,
                 'hora_fin' => null,
                 'lugar_protocolo' => $lugarProtocolo,
+                'foja' => null,
                 'id_libro' => null
             ]);
 

@@ -141,7 +141,7 @@ class User extends Authenticatable
             ->where('id_role', Role::$ROLE_ALUMNO);
     }
 
-    public function scopefindByIdAlumno($query, $idAlumno) {
+    public function scopeFindByIdAlumno($query, $idAlumno) {
         return $query->with('alumno')
             ->whereHas('alumno', function($query) use ($idAlumno) {
                 $query->where('id', $idAlumno);

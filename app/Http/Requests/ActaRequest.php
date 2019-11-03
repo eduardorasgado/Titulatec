@@ -25,7 +25,8 @@ class ActaRequest extends FormRequest
     {
         return [
             'hora_fin' => 'required|string|max:20',
-            'id_libro' => 'required|numeric'
+            'id_libro' => 'required|numeric',
+            'foja' => 'required|numeric'
         ];
     }
 }

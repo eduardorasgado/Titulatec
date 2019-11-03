@@ -24,6 +24,7 @@ class CreateActasTable extends Migration
             $table->string('hora_inicio');
             $table->string('hora_fin')->nullable();
             $table->string('lugar_protocolo');
+            $table->integer('foja')->nullable();
             // llaves foraneas
             $table->integer('id_proceso_titulacion')->unsigned();
             $table->integer('id_libro')->unsigned()->nullable();

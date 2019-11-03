@@ -64,7 +64,7 @@
                             <div class="col-md-6">
                                 <input id="fecha_examen_aviso" type="text" class="form-control @error('fecha_examen_aviso') is-invalid @enderror" name="fecha_examen_aviso"
                                        value="{{ $acta["fecha_examen_aviso"] }}"
-                                       required autocomplete="fecha_examen_aviso" autofocus>
+                                       required placeholder="ejemplo: 12 de diciembre de 2019" autocomplete="fecha_examen_aviso" autofocus>
 
                                 @error('fecha_examen_aviso')
                                 <span class="invalid-feedback" role="alert">
@@ -122,7 +122,7 @@
 
                 <div class="jumbotron jumbo-2 text-center">
                     <a href="{{ route('DivisionEstudios.Alumno.Avisos.generate.pdf',[$alumno->id, $alumno["procesoTitulacion"]["id"]]) }}"
-                    >
+                    target="_blank">
                         <button type="button" class="btn btn-success"
                                 @if($alumno["procesoTitulacion"]["acta"]["fecha_examen_aviso"] == '')
                                     disabled

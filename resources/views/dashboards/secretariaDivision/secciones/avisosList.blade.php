@@ -40,7 +40,7 @@
                     <div class="row">
                         <div class="col-md-8"></div>
                         <div class="col-md-2">
-                            <a href="{{ route('Alumno.avisos.create', $alumno["alumno"]["id"]) }}" target="_blank"><button
+                            <a href="{{ route('Alumno.avisos.create', $alumno["alumno"]["id"]) }}"><button
                                     onclick="messaging()"
                                     class="btn btn-primary">Generar Aviso</button></a>
                         </div>

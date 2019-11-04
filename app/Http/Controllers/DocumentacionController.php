@@ -181,6 +181,14 @@ class DocumentacionController extends Controller
         $especialidad = $carrera->especialidad;
         $acta = $alumno["procesoTitulacion"]["acta"];
 
+        $jefeDivision = User::JefeDivision()->first();
+        $jefeNombre = Role::find(Role::$ROLE_JEFE_DIVISION)
+            ->nombre;
+        
+
+        $image_link_solicitud_antiguo_logo1 = public_path('images/solicitud_antiguo_logo1.png');
+        $image_link_solicitud_antiguo_logo2 = public_path('images/solicitud_antiguo_logo2.png');
+
         return $this->viewToPDF('documentos.avisos',
                 compact(
                     'fecha',
@@ -192,7 +200,12 @@ class DocumentacionController extends Controller
                     'vocal_suplente',
                     'proyecto',
                     'especialidad',
-                    'acta'
+                    'acta',
+                    'carrera',
+                    'jefeDivision',
+                    'jefeNombre',
+                    'image_link_solicitud_antiguo_logo1',
+                    'image_link_solicitud_antiguo_logo2'
                 ));
     }
 

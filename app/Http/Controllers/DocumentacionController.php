@@ -108,6 +108,9 @@ class DocumentacionController extends Controller
                         if($tipoPlan) {
                             // tipo actual
                             // respuesta nueva
+                            $image_link_logo = public_path('images/logo.png');
+                            $fecha_raw = Carbon::now()->timezone('America/Mexico_City');
+
                             return $this->viewToPDF('documentos.registroProyectoTitulacionIntegral',
                                 compact('fecha',
                                     'user',
@@ -120,7 +123,9 @@ class DocumentacionController extends Controller
                                     'carrera',
                                     'academia',
                                     'jefeAcademia',
-                                    'jefeDivision'
+                                    'jefeDivision',
+                                    'image_link_logo',
+                                    'fecha_raw'
                                 ));
                         } else {
                             $especialidad = $alumno->carrera->especialidad;

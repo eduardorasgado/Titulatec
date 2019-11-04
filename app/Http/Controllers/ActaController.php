@@ -90,6 +90,7 @@ class ActaController extends Controller
             $acta->id_libro = $request->input('id_libro');
             $acta->hora_fin = $request->input('hora_fin');
             $acta->foja = $request->input('foja');
+            
             $acta->save();
 
             // cambiando el estado del proceso para verificar que se han terminado todos los pasos y asi proceder a generar el acta

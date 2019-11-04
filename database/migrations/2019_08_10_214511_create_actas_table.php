@@ -19,7 +19,7 @@ class CreateActasTable extends Migration
             // si el pdf se ha generado
             $table->boolean('is_generated');
             $table->string('fecha_examen_aviso');
-            // fecha en que se genera el acta
+            // fecha en que se genera el acta, se setea en DocumentacionController
             $table->string('fecha_generacion');
             $table->string('hora_inicio');
             $table->string('hora_fin')->nullable();

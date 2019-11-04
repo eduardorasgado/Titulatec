@@ -319,8 +319,6 @@ class DivisionEstudiosController extends Controller
         $proceso = ProcesoTitulacion::find($idProcesoTitulacion);
         if($proceso) {
 
-            // armando la fecha de generacion
-            $fechaGeneracion = $this->formatDateHumanSpanish(Carbon::now()->timezone('America/Mexico_City'));
 
             // creamos una instancia de acta sin id_libro
             Acta::updateOrCreate(
@@ -328,7 +326,8 @@ class DivisionEstudiosController extends Controller
                 [
                 'is_generated' => 0,
                 'fecha_examen_aviso' => $fecha,
-                'fecha_generacion' => $fechaGeneracion,
+                // la fecha se reescribe una vez se genera el acta en el controller de documentacion
+                'fecha_generacion' => '',
                 'hora_inicio' => $horaInicio,
                 'hora_fin' => null,
                 'lugar_protocolo' => $lugarProtocolo,

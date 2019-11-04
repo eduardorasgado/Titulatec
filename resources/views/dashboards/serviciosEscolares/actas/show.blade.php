@@ -119,6 +119,7 @@
 
             <div class="jumbotron jumbo-2 text-center">
                 <a href="{{ route('Alumno.acta.generate',[$acta["id"]]) }}"
+                target="_blank"
                 >
                     <button type="button" class="btn btn-success"
                             @if($acta["id_libro"] == '' || $acta["id_libro"] == null)

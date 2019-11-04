@@ -198,15 +198,26 @@ class DocumentacionController extends Controller
 
     public function generateActa($idAlumno) {
         try {
-            $alumno = User::findByIdAlumno($idAlumno);
+            $alumno = User::findByIdAlumno($idAlumno)->first();
             // buscar los datos del alumno en cuestion
+            // libro, fecha final(fecha_examen_aviso),
+
+            // armando la fecha de generacion
+            $fechaGeneracion = $this->formatDateHumanSpanishForActa(Carbon::now()->timezone('America/Mexico_City'));
+            $fechaGeneracionParrafo = $this->formatDateHumanSpanishForActa2(Carbon::now()->timezone('America/Mexico_City'));
+            $acta = $alumno->alumno->procesoTitulacion->acta;
+            if($acta) {
+                $acta->fecha_generacion = $fechaGeneracion;
+                $acta->save();
+            }
+            
 
             if($alumno) {
                 return $this->viewToPDF('documentos.actas',
-                        []);
+                        compact('alumno','acta', 'fechaGeneracionParrafo'));
             }
         } catch (\Exception $e) {
-            return redirect()->back()->with('Error', 'No existe el alumno');
+            return redirect()->back()->with('Error', 'No existe el alumno, error: '.$e->getMessage());
         }
 
     }

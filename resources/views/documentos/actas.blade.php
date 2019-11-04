@@ -12,7 +12,17 @@
 </head>
 <body>
 <div class="jumbotron">
-   Este es un acta
+   <h1>INSTITUTO TECNOLÓGICO DEL ISTMO</h1>
+   <h2>CERTIFICACIÓN DE CONSTANCIA DE EXENCIÓN DE EXAMEN PROFESIONAL</h2>
+   <p>
+    El suscrito Director del Instituto Tecnológico del Istmo, certifica que en el Libro para Constancias de Exención de Examen Profesional No {{ $acta->id_libro }} autorizado el día {{ $acta->fecha_examen_aviso }}, por la Dirección de Asuntos Escolares y Apoyo a Estudiantes de la Dirección General del Tecnológico Nacional de México, se encuentra sentada en la foja número {{ $acta->foja }} la constancia que a la letra dice:
+   </p>
+   <p>
+    De acuerdo con el instructivo vigente de Titulación, que no tienen como requisito la sustentación del Examen Profesional para efecto de obtención de Títuloo, en las opciones VIII, IX y Titulación Integral, el jurado HACE CONSTAR: que el(la) C. {{ strtoupper($alumno->nombre) }} {{ strtoupper($alumno->apellidos) }}, con número de control {{ $alumno->alumno->numero_control }}, egresado(a) del Instituto Tecnológico del Istmo, Clave 20DIT003M, que cursó la carrera de: {{ $alumno->alumno->carrera->especialidad->nombre }}. Cumplió satisfactoriamente con lo estipulado en opción {{ $alumno->alumno->procesoTitulacion->opcionTitulacion->nombre }} "{{ strtoupper($alumno->alumno->proyecto->nombre) }}".
+   </p>
+   <p>
+    El (la) Presidente (a) del jurado le hizo saber a el (la)  sustentante el Código de ética Profesional y le tomó la protesta de ley, una vez escrita y leída la firmaron las personas que en el acto protocolario intervinieron, para los efectos legales a que haya lugar, se asienta la presene en la Heróica Ciudad de Juchitán de Zaragoza, Oaxaca, el dia {{ $fechaGeneracionParrafo }} 
+   </p>
 
 </div>
 </body>

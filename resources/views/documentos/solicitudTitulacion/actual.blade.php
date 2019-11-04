@@ -24,6 +24,11 @@
             font-size:12px;
         }
 
+        .shorter_p {
+            padding:0;
+            margin: 0;
+        }
+
         .tg  {border-collapse:collapse;border-spacing:0;width:100%}
 
         .tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
@@ -46,6 +51,20 @@
         .bottom {
             position: absolute;
             bottom: 50px;
+        }
+
+        .sign-container {
+            position: relative;
+        }
+        .placed-bottom {
+            position: absolute;
+            bottom: 0;
+        }
+
+        hr {
+            background: black;
+            margin: 0;
+            padding: 0;
         }
 
     </style>
@@ -79,18 +98,80 @@
     </table>
 
     <br>
-    <div class="">
-        <p>Lugar: Juchitán de zaragoza, Oaxaca a {{ $fecha }}</p>
-        <p>{{ $jefeNombre }}: {{ $jefeDivision->nombre }} {{ $jefeDivision->apellidos }}</p>
-        <p>{{ $coordinadorNombre }}: {{ $coordinador->nombre }} {{ $coordinador->apellidos }}</p>
-        <p>Nombre alumno: {{ $userAlumno->nombre }} {{ $userAlumno->apellidos }}</p>
-        <p>Carrera: {{ $especialidad->nombre }}</p>
-        <p>Numero de control: {{ $alumno->numero_control }}</p>
-        <p>Proyecto: {{ $proyecto->nombre }}</p>
-        <p>Producto: {{ $proyecto->producto }}</p>
-        <p>Direccion: {{ $alumno->direccion }}</p>
-        <p>Telefono particular o de contacto: {{ $alumno->telefono }}</p>
-        <p>Correo Electrónico del estudiante: {{ $userAlumno->email }}</p>
+    <div class="t">
+        <div align="right">
+            <p style="margin:0;padding:0">Juchitán de zaragoza, Oaxaca a {{ $fecha }}</span></p>
+        </div>
+
+        <div style="width: 300px;">
+            <p class="shorter_p"><span style="font-weight:bold">{{ $jefeDivision->nombre }} {{ $jefeDivision->apellidos }}</span></p>
+            <p class="shorter_p"><span style="font-weight:bold">{{ $jefeNombre }}</span></p>
+            <p class="shorter_p"><span style="font-weight:bold">PRESENTE</span></p>
+        </div>
+        <div style="width: 280px;position:absolute;right:0">
+            <p class="shorter_p"><span style="font-weight:bold">At'n. {{ $coordinador->nombre }} {{ $coordinador->apellidos }}</span></p>
+            <p class="shorter_p"><span style="font-weight:bold">{{ $coordinadorNombre }}</span></p>
+        </div>
+        
+        <br><br><br><br>
+        <p align="justify">
+            Por medio del presente solicito autorización para iniciar trámite de registro del proyecto de titulación integral: 
+        </p>
+        <table class="tg table table-bordered" style="border-collapse: collapse !important;">
+
+            <tbody>
+                <tr>
+                    <td><p class="shorter">Nombre alumno:</p></td>
+                    <td><p class="shorter">{{ $userAlumno->nombre }} {{ $userAlumno->apellidos }}</p></td>
+                </tr>
+                <tr>
+                    <td><p class="shorter">Carrera:</p> </td>
+                    <td><p class="shorter">{{ $especialidad->nombre }}</p></td>
+                </tr>
+                <tr>
+                    <td><p class="shorter">Número de control:</p></td>
+                    <td><p class="shorter">{{ $alumno->numero_control }}</p></td>
+                </tr>
+                <tr>
+                    <td><p class="shorter">Nombre del Proyecto:</p></td>
+                    <td><p class="shorter">{{ $proyecto->nombre }}</p></td>
+                </tr>
+                <tr>
+                    <td><p class="shorter">Producto:</p></td>
+                    <td><p class="shorter">{{ $proyecto->producto }}</p></td>
+                </tr>
+            </tbody>
+        </table>
+       
+        <p>En espera de la aceptación de esta solicitud, quedo a sus órdenes.</p>
+
+        <div class="row align-items-center">
+            <div class="col-4 text-center offset-4">
+                <p><span style="font-weight:bold">ATENTAMENTE</span></p>
+                <br>
+                <hr>
+                <span>Nombre y firma del estudiante</span>
+            </div>
+        </div>
+        <br><br><br>
+        <table class="tg table table-bordered" style="border-collapse: collapse !important;">
+
+            <tbody>
+                <tr>
+                    <td><p class="shorter">Direccion:</p></td>
+                    <td><p class="shorter">{{ $alumno->direccion }}</p></td>
+                </tr>
+                <tr>
+                    <td><p class="shorter">Telefono particular o de contacto:</p> </td>
+                    <td><p class="shorter">{{ $alumno->telefono }}</p></td>
+                </tr>
+                <tr>
+                    <td><p class="shorter">Correo Electrónico del estudiante:</p></td>
+                    <td><p class="shorter">{{ $userAlumno->email }}</p></td>
+                </tr>
+                
+            </tbody>
+        </table>
     </div>
 </body>
 </html>

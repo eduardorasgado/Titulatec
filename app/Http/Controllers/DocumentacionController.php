@@ -265,11 +265,12 @@ class DocumentacionController extends Controller
         // encontrando al jefe de academia del alumno
         $academia = $especialidad->academia;
         $jefeDepartamento = User::findByJefeAcademia($academia->id)->first();
+        $image_link_solicitud_antiguo_logo1 = public_path('images/solicitud_antiguo_logo1.png');
 
         return $this->viewToPDF($vista,
             compact('fecha', 'userAlumno', 'alumno', 'especialidad',
                     'planEstudio', 'procesoTitulacion', 'proyecto', 'jefeDepartamento',
-                'academia'));
+                'academia', 'image_link_solicitud_antiguo_logo1'));
     }
 
     private function viewToPDF($view, $data) {

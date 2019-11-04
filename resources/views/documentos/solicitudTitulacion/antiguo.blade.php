@@ -13,9 +13,9 @@
         body {
             background: white
         }
+        /*Este es el formateo de el texto donde va la firma*/
         .t {
-            /*Este es el formateo de el texto donde va la firma*/
-            font-size: 13px;
+            font-size: 12px;
         }
         .tec-title {
 
@@ -29,45 +29,164 @@
         .underlined {
             text-decoration: underline
         }
+
+        .cont-form {
+            width:600px;
+            margin:auto;
+            margin-bottom: 0;
+        }
+
+        .bottom {
+            position: absolute;
+            bottom: 50px;
+        }
     </style>
 </head>
 <body>
-    <div class="">
+    <div class="t">
 
-        <img class="t" src="{{ $image_link_solicitud_antiguo_logo1 }}" alt="tecnm" width="100%">
-        <div align="center">
-            <p class="header-tec">INSTITUTO TECNOLÓGICO DEL ISTMO</p>
-            <p class="header-tec"> DIVISIÓN DE ESTUDIOS PROFESIONALES</p>
-            <p class="header-tec">COORDINACIÓN DE TITULACIÓN </p>
-        </div>
-        <div class="row">
-            <div class="col-md-2 offset-8" align="center">
-                <span class="header-tec underlined"> &nbsp;{{ $fecha }}&nbsp; </span>
-                <p>FECHA</p>
+        <img class="" src="{{ $image_link_solicitud_antiguo_logo1 }}" alt="tecnm" width="100%">
+        <div class="cont-form" align="justify">
+            <div align="center">
+                <p class="header-tec">INSTITUTO TECNOLÓGICO DEL ISTMO</p>
+                <p class="header-tec"> DIVISIÓN DE ESTUDIOS PROFESIONALES</p>
+                <p class="header-tec">COORDINACIÓN DE TITULACIÓN </p>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-md-2 offset-8" align="center">
+                    <span class="header-tec underlined"> &nbsp;{{ $fecha }}&nbsp; </span>
+                    <p>FECHA</p>
+                </div>
+            </div>
+
+            <p>DATOS DEL SOLICITANTE.</p>
+            <p> NOMBRE: 
+                <span class="underlined">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                {{ $userAlumno->nombre }} {{ $userAlumno->apellidos }}
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>
+            </p>
+            <p>DIRECCIÓN PARTICULAR: 
+                <span class="underlined">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                {{ $alumno->direccion }}
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                </span></p>
+           
+            <p>CIUDAD: 
+                <span class="underlined">
+                &nbsp;
+                {{ $alumno->ciudad }}
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                </span> 
+                ESTADO: <span class="underlined">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                {{ $alumno->estado }}
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                </span> TELEFONO: 
+                <span class="underlined">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                {{ $alumno->telefono }}
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                </span></p>
+          
+            <p>LUGAR DE TRABAJO: 
+                <span class="underlined">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                {{ $alumno->lugar_trabajo }}
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                @if($alumno->lugar_trabajo == '')
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                @endif
+                </span></p>
+            <p>PUESTO O ACTIVIDAD QUE REALIZA: 
+                <span class="underlined">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                {{ $alumno->puesto_trabajo }}
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                @if($alumno->puesto_trabajo == '')
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                @endif</span></p>
+
+            <br>
+            <p>DATOS ESCOLARES.</p>
+            <p>ESCUELA DE PROCEDENCIA: 
+                <span class="underlined">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                {{ $alumno->otherTECNM }}
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                @if($alumno->otherTECNM == '')
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                @endif
+                </span></p>
+            <p>CARRERA CURSADA: 
+                <span class="underlined">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                {{ $especialidad->nombre }}
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                </span></p>
+            <p>NÚMERO DE CONTROL: 
+                <span class="underlined">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                {{ $alumno->numero_control }}
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                </span>
+                PLAN DE ESTUDIOS: 
+                <span class="underlined">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                {{ $planEstudio->clave }}
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                </span>
+                </p>
+            
+            <p>GENERACIÓN: <span class="underlined">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                {{ $alumno->generacion }}
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                </span></p>
+
+            <br>
+            <p>DATOS DE SERVICIOS ESTUDIANTILES.</p>
+            <p>OPCIÓN DE TITULACIÓN ELEGIDA: 
+            <span class="underlined">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                {{ $procesoTitulacion["opcionTitulacion"]["nombre"] }}
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                </span></p>
+            <p>TEMA: 
+            <span class="underlined">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                {{ $proyecto->nombre }}
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                </span></p>
+            <p>ANEXO: 
+                <span class="underlined">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                {{ $alumno->anexo }}
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                @if($alumno->anexo == '')
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    
+                @endif
+                </span></p>
+
+            <div class="row">
+                <div class="col-md-2" align="center">
+                <p>FIRMA</p>
+                    <span class="header-tec underlined"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                     </span>
+                </div>
             </div>
         </div>
 
-        <h4>Datos Solicitante</h4>
-        <p> Nombre: {{ $userAlumno->nombre }} {{ $userAlumno->apellidos }}</p>
-        <p>Dirección particular: {{ $alumno->direccion }}</p>
-        <p>Ciudad: {{ $alumno->ciudad }}</p>
-        <p>Estado: {{ $alumno->estado }}</p>
-        <p>Telefono: {{ $alumno->telefono }}</p>
-        <p>Lugar de trabajo: {{ $alumno->lugar_trabajo }}</p>
-        <p>Puesto o actividad que realiza: {{ $alumno->puesto_trabajo }}</p>
-
-        <h4>Datos escolares</h4>
-        <p>Escuela de procedencia: {{ $alumno->otherTECNM }}</p>
-        <p>Carrera Cursada: {{ $especialidad->nombre }}</p>
-        <p>Numero de Control: {{ $alumno->numero_control }}</p>
-        <p>Plan de Estudios: {{ $planEstudio->clave }}</p>
-        <p>Generación: {{ $alumno->generacion }}</p>
-
-        <h4>Datos de Servicios Estudiantiles</h4>
-        <p>Opcion de titulacion elegida: {{ $procesoTitulacion["opcionTitulacion"]["nombre"] }}</p>
-        <p>Tema: {{ $proyecto->nombre }}</p>
-        <p>Anexo: {{ $alumno->anexo }}</p>
-
+    <img class="bottom" src="{{ $image_link_solicitud_antiguo_logo2 }}" alt="tecnm" width="100%">
     </div>
 </body>
 </html>

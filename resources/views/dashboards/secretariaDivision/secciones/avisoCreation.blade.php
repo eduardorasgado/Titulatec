@@ -121,16 +121,34 @@
         <div class="col-md-6">
 
                 <div class="jumbotron jumbo-2 text-center">
-                    <a href="{{ route('DivisionEstudios.Alumno.Avisos.generate.pdf',[$alumno->id, $alumno["procesoTitulacion"]["id"]]) }}"
+                    <a href="
+                    @if($alumno["procesoTitulacion"]["acta"]["fecha_examen_aviso"] == '' ||
+                                    $alumno["procesoTitulacion"]["is_proceso_finished"] == 1
+                                )
+                                
+                    @else
+                                {{ route('DivisionEstudios.Alumno.Avisos.generate.pdf',[$alumno->id, $alumno["procesoTitulacion"]["id"]]) }}
+                    @endif"
                     target="_blank">
                         <button type="button" class="btn btn-success"
-                                @if($alumno["procesoTitulacion"]["acta"]["fecha_examen_aviso"] == '')
+                                @if($alumno["procesoTitulacion"]["acta"]["fecha_examen_aviso"] == '' ||
+                                    $alumno["procesoTitulacion"]["is_proceso_finished"] == 1
+                                )
                                     disabled
                                 @endif
                         >
                             Generar Aviso
-                        </button>
+                        </button>  
                     </a>
+                    <p></p>
+                     <p>
+                            @if($alumno["procesoTitulacion"]["acta"]["fecha_examen_aviso"] == '')
+                                <span class="alert alert-info">Porfavor, primero asigna fecha, hora y lugar</span>
+                            @endif
+                            @if($alumno["procesoTitulacion"]["is_proceso_finished"] == 1)
+                                <span class="alert alert-warning">El acta ha sido generada, el proceso ha terminado. Ya no es posible generar aviso</span>
+                            @endif
+                        </p>
                 </div>
 
         </div>

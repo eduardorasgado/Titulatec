@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Acta;
 use App\Alumno;
 use App\Maestro;
 use App\ProcesoTitulacion;
@@ -214,23 +215,23 @@ class DocumentacionController extends Controller
                 ));
     }
 
-    public function generateActa($idAlumno) {
+    public function generateActa($idActa) {
         try {
-            $alumno = User::findByIdAlumno($idAlumno)->first();
+            $acta = Acta::findOrFail($idActa);
+            $alumno = $acta->procesoTitulacion->alumno;
             // buscar los datos del alumno en cuestion
             // libro, fecha final(fecha_examen_aviso),
 
             // armando la fecha de generacion
             $fechaGeneracion = $this->formatDateHumanSpanishForActa(Carbon::now()->timezone('America/Mexico_City'));
             $fechaGeneracionParrafo = $this->formatDateHumanSpanishForActa2(Carbon::now()->timezone('America/Mexico_City'));
-            $acta = $alumno->alumno->procesoTitulacion->acta;
             if($acta) {
                 $acta->fecha_generacion = $fechaGeneracion;
                 $acta->save();
             }
             
             // mandamos a los asesores del alumno
-            $asesores = $alumno->alumno->procesoTitulacion->asesores;
+            $asesores = $alumno->procesoTitulacion->asesores;
 
             $presidente = Maestro::find($asesores->id_presidente);
             $secretario = Maestro::find($asesores->id_secretario);

@@ -211,10 +211,19 @@ class DocumentacionController extends Controller
                 $acta->save();
             }
             
+            // mandamos a los asesores del alumno
+            $asesores = $alumno->alumno->procesoTitulacion->asesores;
 
+            $presidente = Maestro::find($asesores->id_presidente);
+            $secretario = Maestro::find($asesores->id_secretario);
+            $vocal = Maestro::find($asesores->id_vocal);
+            $vocalSuplente = Maestro::find($asesores->id_vocal_suplente);
+
+            $image_link_ovalo = public_path('images/ovalo.png');
             if($alumno) {
                 return $this->viewToPDF('documentos.actas',
-                        compact('alumno','acta', 'fechaGeneracionParrafo'));
+                        compact('alumno','acta', 'fechaGeneracionParrafo', 'presidente', 'secretario', 'vocal', 
+                        'vocalSuplente', 'image_link_ovalo'));
             }
         } catch (\Exception $e) {
             return redirect()->back()->with('Error', 'No existe el alumno, error: '.$e->getMessage());
@@ -264,12 +273,14 @@ class DocumentacionController extends Controller
 
     private function viewToPDF($view, $data) {
         try {
-            $time_stamp = explode(" ", Carbon::now()->toDateTimeString());
+            $time_stamp = explode(" ", Carbon::now()->timezone('America/Mexico_City')->toDateTimeString());
             $pdf_name = 'documento.'.$time_stamp[0]."-"
                 .str_replace(":", ".", $time_stamp[1]).".pdf";
 
             $pdf = PDF::loadview($view, $data);
-            return $pdf->stream();
+            // tipo de hoja y orientacion segun domPDF
+            $pdf->setPaper('letter', 'portrait');
+            return $pdf->stream($pdf_name);
             //return $pdf->download($pdf_name);
         } catch(\Exception $e) {
             return redirect()->back()->with('Error', $e->getMessage());

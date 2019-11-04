@@ -267,10 +267,13 @@ class DocumentacionController extends Controller
         $jefeDepartamento = User::findByJefeAcademia($academia->id)->first();
         $image_link_solicitud_antiguo_logo1 = public_path('images/solicitud_antiguo_logo1.png');
         $image_link_solicitud_antiguo_logo2 = public_path('images/solicitud_antiguo_logo2.png');
+        $jefeDivision = User::JefeDivision()->first();
+        $jefeNombre = Role::find(Role::$ROLE_JEFE_DIVISION)
+            ->nombre;
 
         return $this->viewToPDF($vista,
             compact('fecha', 'userAlumno', 'alumno', 'especialidad',
-                    'planEstudio', 'procesoTitulacion', 'proyecto', 'jefeDepartamento',
+                    'planEstudio', 'procesoTitulacion', 'proyecto', 'jefeDepartamento', 'jefeDivision', 'jefeNombre',
                 'academia', 'image_link_solicitud_antiguo_logo1', 'image_link_solicitud_antiguo_logo2'));
     }
 

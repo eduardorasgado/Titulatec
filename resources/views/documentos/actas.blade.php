@@ -54,6 +54,7 @@
 </head>
 <body>
 <div class="">
+    <img class="offset-2" src="{{ $image_link_acta_logo }}" alt="tecnm">
     <img class="ovalo" src="{{ $image_link_ovalo }}" alt="foto_ovalo">
    <div class="offset-2 t">
     <div style="text-align: center">
@@ -70,10 +71,10 @@
     El (la) Presidente (a) del jurado le hizo saber a el (la)  sustentante el Código de ética Profesional y le tomó la protesta de ley, una vez escrita y leída la firmaron las personas que en el acto protocolario intervinieron, para los efectos legales a que haya lugar, se asienta la presene en la Heróica Ciudad de Juchitán de Zaragoza, Oaxaca, el dia <span style="font-weight:bold">{{ $fechaGeneracionParrafo }}</span>.
    </p>
 
-   <p align="justify"><span style="font-weight:bold">Presidente (a)</span>: {{ $presidente->user->nombre }} {{ $presidente->user->apellidos }}, {{ $presidente->especialidad_estudiada }}, Ced. prof. {{ $presidente->cedula_profesional }} </p>
-   <p align="justify"><span style="font-weight:bold">Secretario (a)</span>: {{ $secretario->user->nombre }} {{ $secretario->user->apellidos }}, {{ $secretario->especialidad_estudiada }}, Ced. prof. {{ $secretario->cedula_profesional }}</p>
-   <p align="justify"><span style="font-weight:bold">Vocal (a)</span>: {{ $vocal->user->nombre }} {{ $vocal->user->apellidos }}, {{ $vocal->especialidad_estudiada }}, Ced. prof. {{ $vocal->cedula_profesional }}</p>
-   <p align="justify">Se extiende este certificado a los {{ $acta->fecha_generacion }} </p>
+   <p align="justify"><span style="font-weight:bold">Presidente (a)</span>: {{ $presidente->user->nombre }} {{ $presidente->user->apellidos }}, {{ $presidente->especialidad_estudiada }}, Ced. prof. {{ $presidente->cedula_profesional }}. </p>
+   <p align="justify"><span style="font-weight:bold">Secretario (a)</span>: {{ $secretario->user->nombre }} {{ $secretario->user->apellidos }}, {{ $secretario->especialidad_estudiada }}, Ced. prof. {{ $secretario->cedula_profesional }}.</p>
+   <p align="justify"><span style="font-weight:bold">Vocal (a)</span>: {{ $vocal->user->nombre }} {{ $vocal->user->apellidos }}, {{ $vocal->especialidad_estudiada }}, Ced. prof. {{ $vocal->cedula_profesional }}.</p>
+   <p align="justify">Se extiende este certificado a los <span style="font-weight:bold">{{ $acta->fecha_generacion }}.</span> </p>
    </div>
 
    <div class="t row sign-container">

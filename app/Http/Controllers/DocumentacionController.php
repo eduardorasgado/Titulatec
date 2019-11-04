@@ -220,10 +220,11 @@ class DocumentacionController extends Controller
             $vocalSuplente = Maestro::find($asesores->id_vocal_suplente);
 
             $image_link_ovalo = public_path('images/ovalo.png');
+            $image_link_acta_logo = public_path('images/acta_logo1.png');
             if($alumno) {
                 return $this->viewToPDF('documentos.actas',
                         compact('alumno','acta', 'fechaGeneracionParrafo', 'presidente', 'secretario', 'vocal', 
-                        'vocalSuplente', 'image_link_ovalo'));
+                        'vocalSuplente', 'image_link_ovalo','image_link_acta_logo'));
             }
         } catch (\Exception $e) {
             return redirect()->back()->with('Error', 'No existe el alumno, error: '.$e->getMessage());

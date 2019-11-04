@@ -34,6 +34,7 @@
 
         .tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
         .tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+        .tg thead th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
         .tg .tg-0lax{text-align:left;vertical-align:top}
     
         .t {
@@ -97,32 +98,94 @@
     </table>
 
     <br>
-    <div class="">
-        <p>{{ $academia->nombre }}</p>
-        <p>Heróica Cd. de Juchitán de Zaragoza, Oaxaca a  {{ $fecha }}</p>
-        <p>Jefe de División de Estudios Profesionales {{ $jefeDivision->nombre }} {{ $jefeDivision->apellidos }}</p>
-        <p>Nombre del proyecto: {{ $proyecto->nombre }}</p>
-        <p>Nombre(s) del (de los) asesor(es): </p>
-        <ul>
-            <li>{{ $presidente->nombre }} {{ $presidente->apellidos }}</li>
-            <li>{{ $secretario->nombre }} {{ $secretario->apellidos }}</li>
-            <li>{{ $vocal->nombre }} {{ $vocal->apellidos }}</li>
-            <li>{{ $vocal_suplente->nombre }} {{ $vocal_suplente->apellidos }}</li>
-        </ul>
-        <p>Número de estudiantes: {{ $proyecto->num_total_integrantes }}</p>
+    <div class="t" align="right">
+        <p class="shorter_p">{{ $academia->nombre }}</p>
+        <p class="shorter_p">Heróica Cd. de Juchitán de Zaragoza, Oaxaca a  {{ $fecha }}</p>
+        <p class="shorter_p"><span style="font-weight:bold">Asunto</span>: Registro de proyecto para la titulación integral</p>
+    </div>
 
-        <h4>Datos del (de los) estudiante(s):</h4>
-        <p>Nombre: {{ $user->nombre }} {{ $user->apellidos }}</p>
-        <p>No. de Control: {{ $alumno->numero_control }}</p>
-        <p>Carrera:</p>
-        <ul>
-            <li>{{ $carrera->especialidad->nombre }}</li>
-            <li>{{ $carrera->planEstudio->clave }}</li>
-        </ul>
-        <p>Observaciones: </p>
-        <p>Atentamente</p>
-        <p>{{ $jefeAcademia->nombre }} {{ $jefeAcademia->apellidos }}</p>
-        <p>Jefe del {{ $academia->nombre }}</p>
+    <div class="t">
+        <p class="shorter_p" style="font-weight:bold">{{ $jefeDivision->nombre }} {{ $jefeDivision->apellidos }}</p>
+        <p class="shorter_p" style="font-weight:bold">Jefe de División de Estudios Profesionales </p>
+        <p style="font-weight:bold">PRESENTE</p>
+    </div>
+
+    <div class="t">
+
+        <table class="tg table table-bordered" style="border-collapse: collapse !important;">
+
+            <tbody>
+                <tr>
+                    <td><p class="shorter">Nombre del proyecto:</p></td>
+                    <td><p class="shorter">{{ $proyecto->nombre }}</p></td>
+                </tr>
+                <tr>
+                    <td><p class="shorter">Nombre(s) del (de los) asesor(es):</p> </td>
+                    <td><p class="shorter">
+                        <ul>
+                            <li class="shorter">{{ $presidente->nombre }} {{ $presidente->apellidos }}</li>
+                            <li class="shorter">{{ $secretario->nombre }} {{ $secretario->apellidos }}</li>
+                            <li class="shorter">{{ $vocal->nombre }} {{ $vocal->apellidos }}</li>
+                            <li class="shorter">{{ $vocal_suplente->nombre }} {{ $vocal_suplente->apellidos }}</li>
+                        </ul>
+                    </p></td>
+                </tr>
+                <tr>
+                    <td><p class="shorter">Número de estudiantes:</p></td>
+                    <td><p class="shorter">{{ $proyecto->num_total_integrantes }}</p></td>
+                </tr>
+               
+            </tbody>
+        </table>
+
+        <p>Datos del (de los) estudiante(s):</p>
+
+        <table class="tg table table-bordered" style="border-collapse: collapse !important;">
+
+            <thead>
+               <tr>
+                    <th scope="col"><p class="shorter" align="center">Nombre:</p></th>
+                    <th scope="col"><p class="shorter" align="center">No. de control</p></th>
+                    <th scope="col"><p class="shorter" align="center">Carrera</p></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><p class="shorter">{{ $user->nombre }} {{ $user->apellidos }}</p> </td>
+                    <td><p class="shorter">
+                        {{ $alumno->numero_control }}
+                    </p></td>
+                    <td><p class="shorter">
+                        <ul>
+                            <li class="shorter">{{ $carrera->especialidad->nombre }}</li>
+                            <li class="shorter">{{ $carrera->planEstudio->clave }}</li>
+                        </ul>
+                    </p></td>
+                </tr>
+            
+            </tbody>
+        </table>
+        <table class="tg table table-bordered" style="border-collapse: collapse !important;">
+
+            <thead>
+               <tr>
+                    <th class="tg-0lax" height="60px">Observaciones:</th>
+                </tr>
+            </thead>
+        </table>
+
+        <div class="row">
+            <div class="col-6 t offset-3" align="center">
+                <p class="shorter_p" style="font-weight:bold">ATENTAMENTE</p>
+                <p class="shorter_p" style="font-weight:bold">{{ $jefeAcademia->nombre }} {{ $jefeAcademia->apellidos }}</p>
+                <br>
+                <hr/>
+                <p style="font-weight:bold">Jefe del {{ $academia->nombre }}</p>
+            </div>
+        </div>
+        <br>
+        <p>c.c.p- Expediente</p>
+
     </div>
 </body>
 </html>

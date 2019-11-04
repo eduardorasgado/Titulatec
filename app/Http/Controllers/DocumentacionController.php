@@ -248,6 +248,7 @@ class DocumentacionController extends Controller
     private function generateSolicitudTitulacionActualPDF($alumno) {
         //
         $fecha = $this->formatDateHumanSpanish(Carbon::now()->timezone('America/Mexico_City'));
+        $fecha_raw = Carbon::now()->timezone('America/Mexico_City');
         $jefeDivision = User::JefeDivision()->first();
         $coordinador = User::coordinadorApoyoTitulacionDivision()->first();
 
@@ -261,10 +262,12 @@ class DocumentacionController extends Controller
 
         $proyecto = $alumno->proyecto;
 
+        $image_link_logo = public_path('images/logo.png');
+
         return $this->viewToPDF('documentos.solicitudTitulacion.actual',
                     compact('jefeDivision', 'coordinador', 'especialidad',
                     'jefeNombre', 'coordinadorNombre', 'userAlumno', 'alumno',
-                    'proyecto', 'fecha'));
+                    'proyecto', 'fecha','fecha_raw', 'image_link_logo'));
     }
 
     private function generateSolicitudTitulacionAntiguoPDF($alumno, $vista) {

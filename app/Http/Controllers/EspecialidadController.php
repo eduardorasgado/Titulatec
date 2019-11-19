@@ -103,6 +103,8 @@ class EspecialidadController extends Controller
     {
         //
         $especialidad = Especialidad::findOrFail($id);
-        return dd('Se desactivó la especialidad: '.$especialidad->nombre);
+        $especialidad->estado = 0;
+        $especialidad->save();
+        return redirect()->back()->with('success', 'Se ha desactivado una especialidad con éxito');
     }
 }

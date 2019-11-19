@@ -32,7 +32,7 @@
         @endif
         <div class="row">
             @foreach($academias as $academia)
-                @if($academia)
+                @if($academia->estado)
                     <div class="col-md-4">
                         <div class="jumbotron jumboColorBlue">
                             <p>Nombre: <span class="blue">{{ $academia->nombre }}</span></p>

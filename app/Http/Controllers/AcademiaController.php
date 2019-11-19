@@ -94,6 +94,8 @@ class AcademiaController extends Controller
     public function destroy($id)
     {
         $academia = Academia::findOrFail($id);
-        return dd('La academia ha sido desactivada permanentemente: '.$academia->id);
+        $academia->estado = 0;
+        $academia->save();
+        return redirect()->back()->with('success', 'Se ha desactivado una academia con éxito');
     }
 }

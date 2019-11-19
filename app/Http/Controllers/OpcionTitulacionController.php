@@ -97,6 +97,8 @@ class OpcionTitulacionController extends Controller
     {
         //
         $opcion = OpcionTitulacion::findOrFail($id);
-        return dd('eliminando la opcion de titulacion con id: '.$opcion->id);
+        $opcion->estado = 0;
+        $opcion->save();
+        return redirect()->back()->with('success', 'Se ha desactivado un tipo de opcion de titulación con éxito');
     }
 }

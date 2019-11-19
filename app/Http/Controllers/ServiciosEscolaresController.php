@@ -101,7 +101,16 @@ class ServiciosEscolaresController extends Controller
      */
     public function destroy($id)
     {
-        //
+        // inhabilitacion de los maestros
+        $user = User::findOrFail($id);
+        $role = $user->id_role;
+        if($role == Role::$ROLE_SERVICIOS_ESCOLARES) {
+            $user->is_enable = 0;
+            $user->save();
+            return redirect()->back()->with('success', 'Se ha desactivado al personal de servicios escolares con éxito');
+        } else {
+            return redirect()->back()->with('Error', 'No se ha podido desactivar al personal');
+        }
     }
 
     public function actaSearch(Request $request) {

@@ -32,7 +32,7 @@
         @endif
         <div class="row">
             @foreach($serviciosEscolares as $personal)
-                @if($personal)
+                @if($personal->is_enable)
                     <div class="col-md-4">
                         <div class="jumbotron jumboColorBlue">
                             <p>Nombre: <span class="blue">{{ $personal->nombre }} {{ $personal->apellidos }}</span></p>

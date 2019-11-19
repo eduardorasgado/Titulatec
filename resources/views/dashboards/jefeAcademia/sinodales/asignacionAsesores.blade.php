@@ -170,7 +170,7 @@
                                 <p style="margin: 2px"><span class="blue">
                                         {{ $maestro->nombre }} {{ $maestro->apellidos }} <span class="badge badge-success" style="font-size: 1vw">
                                      asesorías: {{ $maestro->maestro->asesor_count }}
-                                </span></p>
+                                </span></span></p>
                             @endif
                         @endforeach
                     @endif

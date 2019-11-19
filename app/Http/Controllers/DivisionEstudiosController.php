@@ -113,7 +113,17 @@ class DivisionEstudiosController extends Controller
      */
     public function destroy($id)
     {
-        //
+        // inhabilitacion de los maestros
+        $user = User::findOrFail($id);
+        $role = $user->id_role;
+        if($role == Role::$ROLE_JEFE_DIVISION ||$role == Role::$ROLE_COORDINADORA_APOYO_TITULACION) {
+            return redirect()->back()->with('Error', 'No se ha podido desactivar al personal porque es '.
+            'jefe de división/coordinadora de apoyo a titulación, remueva este cargo previo a esta acción');
+        } else {
+            $user->is_enable = 0;
+            $user->save();
+            return redirect()->back()->with('success', 'Se ha desactivado al personal de división de estudios con éxito');
+        }
     }
 
     // custom funtions
@@ -148,7 +158,7 @@ class DivisionEstudiosController extends Controller
         } else {
             dd("No se pudo encontrar nada");
         }
-        
+
     }
 
     public function avisosDashboard() {

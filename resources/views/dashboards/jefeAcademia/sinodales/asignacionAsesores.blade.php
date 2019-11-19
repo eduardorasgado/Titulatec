@@ -56,9 +56,11 @@
                                     <option value=""  selected>Seleccione profesor</option>
                                     @if(count($maestros) > 0)
                                         @foreach($maestros as $maestro)
-                                            <option value="{{ $maestro->maestro->id }}" {{ ($alumno["alumno"]["procesoTitulacion"]["asesores"]["id_presidente"] == $maestro->maestro->id) ? 'selected' : '' }}>
-                                                {{ $maestro->nombre }} {{ $maestro->apellidos }} | asesorías: {{ $maestro->maestro->asesor_count }} | {{ $maestro->maestro->academia->nombre }}
-                                            </option>
+                                            @if($maestro->is_enable)
+                                                <option value="{{ $maestro->maestro->id }}" {{ ($alumno["alumno"]["procesoTitulacion"]["asesores"]["id_presidente"] == $maestro->maestro->id) ? 'selected' : '' }}>
+                                                    {{ $maestro->nombre }} {{ $maestro->apellidos }} | asesorías: {{ $maestro->maestro->asesor_count }} | {{ $maestro->maestro->academia->nombre }}
+                                                </option>
+                                            @endif
                                         @endforeach
                                     @endif
                                 </select>
@@ -79,9 +81,11 @@
                                     <option value=""  selected>Seleccione profesor</option>
                                     @if(count($maestros) > 0)
                                         @foreach($maestros as $maestro)
-                                            <option value="{{ $maestro->maestro->id }}" {{ ($alumno["alumno"]["procesoTitulacion"]["asesores"]["id_secretario"] == $maestro->maestro->id) ? 'selected' : '' }}>
-                                                {{ $maestro->nombre }} {{ $maestro->apellidos }} | asesorías: {{ $maestro->maestro->asesor_count }} | {{ $maestro->maestro->academia->nombre }}
-                                            </option>
+                                            @if($maestro->is_enable)
+                                                <option value="{{ $maestro->maestro->id }}" {{ ($alumno["alumno"]["procesoTitulacion"]["asesores"]["id_secretario"] == $maestro->maestro->id) ? 'selected' : '' }}>
+                                                    {{ $maestro->nombre }} {{ $maestro->apellidos }} | asesorías: {{ $maestro->maestro->asesor_count }} | {{ $maestro->maestro->academia->nombre }}
+                                                </option>
+                                            @endif
                                         @endforeach
                                     @endif
                                 </select>
@@ -102,9 +106,11 @@
                                     <option value=""  selected>Seleccione profesor</option>
                                     @if(count($maestros) > 0)
                                         @foreach($maestros as $maestro)
-                                            <option value="{{ $maestro->maestro->id }}" {{ ($alumno["alumno"]["procesoTitulacion"]["asesores"]["id_vocal"] == $maestro->maestro->id) ? 'selected' : '' }}>
-                                                {{ $maestro->nombre }} {{ $maestro->apellidos }} | asesorías: {{ $maestro->maestro->asesor_count }} | {{ $maestro->maestro->academia->nombre }}
-                                            </option>
+                                            @if($maestro->is_enable)
+                                                <option value="{{ $maestro->maestro->id }}" {{ ($alumno["alumno"]["procesoTitulacion"]["asesores"]["id_vocal"] == $maestro->maestro->id) ? 'selected' : '' }}>
+                                                    {{ $maestro->nombre }} {{ $maestro->apellidos }} | asesorías: {{ $maestro->maestro->asesor_count }} | {{ $maestro->maestro->academia->nombre }}
+                                                </option>
+                                            @endif
                                         @endforeach
                                     @endif
                                 </select>
@@ -125,9 +131,11 @@
                                     <option value=""  selected>Seleccione profesor</option>
                                     @if(count($maestros) > 0)
                                         @foreach($maestros as $maestro)
-                                            <option value="{{ $maestro->maestro->id }}" {{ ($alumno["alumno"]["procesoTitulacion"]["asesores"]["id_vocal_suplente"] == $maestro->maestro->id) ? 'selected' : '' }}>
-                                                {{ $maestro->nombre }} {{ $maestro->apellidos }} | asesorías: {{ $maestro->maestro->asesor_count }} | {{ $maestro->maestro->academia->nombre }}
-                                            </option>
+                                            @if($maestro->is_enable)
+                                                <option value="{{ $maestro->maestro->id }}" {{ ($alumno["alumno"]["procesoTitulacion"]["asesores"]["id_vocal_suplente"] == $maestro->maestro->id) ? 'selected' : '' }}>
+                                                    {{ $maestro->nombre }} {{ $maestro->apellidos }} | asesorías: {{ $maestro->maestro->asesor_count }} | {{ $maestro->maestro->academia->nombre }}
+                                                </option>
+                                            @endif
                                         @endforeach
                                     @endif
                                 </select>
@@ -158,10 +166,12 @@
                 <div class="card-body">
                     @if(count($maestros) > 0)
                         @foreach($maestros as $maestro)
-                            <p style="margin: 2px"><span class="blue">
-                                    {{ $maestro->nombre }} {{ $maestro->apellidos }} <span class="badge badge-success" style="font-size: 1vw">
-                                 asesorías: {{ $maestro->maestro->asesor_count }}
-                            </span></p>
+                            @if($maestro->is_enable)
+                                <p style="margin: 2px"><span class="blue">
+                                        {{ $maestro->nombre }} {{ $maestro->apellidos }} <span class="badge badge-success" style="font-size: 1vw">
+                                     asesorías: {{ $maestro->maestro->asesor_count }}
+                                </span></p>
+                            @endif
                         @endforeach
                     @endif
                 </div>

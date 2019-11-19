@@ -6,6 +6,7 @@ use App\Http\Middleware\IsAdmin;
 use App\Http\Middleware\IsAlumno;
 use App\Http\Middleware\IsDivisionEstudios;
 use App\Http\Middleware\IsJefeAcademia;
+use App\Http\Middleware\IsJefeOAdmin;
 use App\Http\Middleware\IsMaestro;
 use App\Http\Middleware\IsServiciosEscolares;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
@@ -64,6 +65,7 @@ class Kernel extends HttpKernel
         'IsDivisionEstudios' => IsDivisionEstudios::class,
         'IsServiciosEscolares' => IsServiciosEscolares::class,
         'IsJefeAcademia' => IsJefeAcademia::class,
+        'IsJefeOAdmin' => IsJefeOAdmin::class,
         'preventBackHistory' => \App\Http\Middleware\RevalidateBackHistory::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'bindings' => \Illuminate\Routing\Middleware\SubstituteBindings::class,

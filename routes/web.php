@@ -42,7 +42,7 @@ Route::group(['middleware' => ['IsAdmin']], function() {
         ['except' => ['index', 'show']]);
 
     Route::resource('Maestro', 'MaestroController',
-        ['only' => ['create', 'store', 'destroy']]);
+        ['only' => ['create', 'store']]);
 
     Route::resource('DivisionEstudios', 'DivisionEstudiosController',
         ['only' => ['create', 'store', 'destroy']]);
@@ -84,6 +84,11 @@ Route::group(['middleware' => ['IsAdmin']], function() {
     Route::get('/JefesAcademia/{academia}', function(){
         return redirect("/");
     });
+});
+
+Route::group(['middleware' => ['IsJefeOAdmin']], function() {
+    Route::resource('Maestro', 'MaestroController',
+        ['only' => ['destroy']]);
 });
 
 Route::group(['middleware' => ['auth']], function() {
@@ -204,11 +209,11 @@ Route::group(['middleware' => ['IsDivisionEstudios']], function() {
                 'DivisionEstudiosController@memorandumDashboard')
                 ->name('Memorandum.dashboard');
 
-    
+
     Route::post('/busqueda/memorandums',
                 'DivisionEstudiosController@memorandumSearch'
     )->name('Memorandum.busqueda');
-    
+
     // Rutas para avisos
     Route::get('/DivisionEstudios/home/Avisos',
                 'DivisionEstudiosController@avisosDashboard')

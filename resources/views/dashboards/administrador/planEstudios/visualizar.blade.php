@@ -32,7 +32,7 @@
         @endif
         <div class="row">
             @foreach($planes as $plan)
-                @if($plan)
+                @if($plan->estado)
                     <div class="col-md-4">
                         <div class="jumbotron jumboColorBlue">
                             <p>Clave: <span class="blue">{{ $plan->clave }}</span></p>

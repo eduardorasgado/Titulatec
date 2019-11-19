@@ -102,7 +102,9 @@ class PlanEstudiosController extends Controller
     public function destroy($id)
     {
         $plan = PlanEstudios::findOrFail($id);
-        return dd('Se desactivó un plan de estudios permanentemente: '.$plan->clave);
+        $plan->estado = 0;
+        $plan->save();
+        return redirect()->back()->with('success', 'Se ha desactivado un plan de estudios con éxito');
     }
 
     public function getAllByEspecialidad($idEspecialidad) {

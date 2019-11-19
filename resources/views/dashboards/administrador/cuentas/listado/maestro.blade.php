@@ -80,7 +80,7 @@
                             <div class="card card-body">
                                 <div class="row">
                                     @foreach($maestros as $maestro)
-                                        @if($maestro->maestro["academia"]["id"] == $academia->id)
+                                        @if($maestro->maestro["academia"]["id"] == $academia->id && $maestro->is_enable)
                                             <div class="col-md-4">
                                                 <div class="jumbotron jumboColorBlue">
                                                     <p>Nombre: <span class="blue">{{ $maestro->nombre }} {{ $maestro->apellidos }}</span></p>

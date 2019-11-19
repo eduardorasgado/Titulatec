@@ -40,6 +40,7 @@
                 <div class="row">
                     @foreach($maestros as $maestro)
 
+                            @if($maestro->is_enable)
                             <div class="col-md-4">
                                 <div class="jumbotron jumboColorBlue">
                                     <p>Nombre: <span class="blue">{{ $maestro->nombre }} {{ $maestro->apellidos }}</span></p>
@@ -70,6 +71,7 @@
                                     </div>
                                 </div>
                             </div>
+                        @endif
                     @endforeach
                 </div>
             </div>

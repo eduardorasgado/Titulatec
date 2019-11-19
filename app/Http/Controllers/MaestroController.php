@@ -105,9 +105,18 @@ class MaestroController extends Controller
      * @param  \App\Maestro  $maestro
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Maestro $maestro)
+    public function destroy($id)
     {
         // inhabilitacion de los maestros
+        $user = User::findOrFail($id);
+        $role = $user->id_role;
+        if($role == Role::$ROLE_JEFE_ACADEMIA) {
+            return redirect()->back()->with('Error', 'No se ha podido desactivar al maestro porque es jefe de academia, cambie de jefe de academia previo a esta acción');
+        } else {
+            $user->is_enable = 0;
+            $user->save();
+            return redirect()->back()->with('success', 'Se ha desactivado un maestro con éxito');
+        }
     }
 
     public function storeNewMaestro(MaestroRequest $request) {

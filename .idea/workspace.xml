@@ -3,8 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="38466543-71e6-47b8-907d-daf5ac2d8132" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PlanEstudiosController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PlanEstudiosController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/dashboards/administrador/planEstudios/visualizar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboards/administrador/planEstudios/visualizar.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/MaestroController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/MaestroController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/dashboards/administrador/cuentas/listado/maestro.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboards/administrador/cuentas/listado/maestro.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/dashboards/jefeAcademia/visualizacion/maestro.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboards/jefeAcademia/visualizacion/maestro.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -215,7 +216,7 @@
       <workItem from="1573408688048" duration="43000" />
       <workItem from="1573425900716" duration="804000" />
       <workItem from="1573533392151" duration="1382000" />
-      <workItem from="1574139714750" duration="2641000" />
+      <workItem from="1574139714750" duration="4463000" />
     </task>
     <servers />
   </component>

@@ -92,7 +92,7 @@ class AcademiaController extends Controller
             $academia->save();
 
         } catch(\Exception $e) {
-            return redirect()->back()->with('error', 'la opcion de titulación que deseas editar no existe.');
+            return redirect()->back()->with('error', 'la academia que deseas editar no existe.');
         }
         return redirect()->back()->with('success', 'Se ha actualizado con éxito');
     }

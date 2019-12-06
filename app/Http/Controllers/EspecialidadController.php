@@ -75,7 +75,6 @@ class EspecialidadController extends Controller
     public function edit($id)
     {
         // se muestran todas las academmias
-        // junto con la especialidad en cuestion
         $especialidad = Especialidad::findOrFail($id);
         $academias = Academia::all();
         return view('dashboards/administrador/especialidades/editar',
@@ -100,7 +99,7 @@ class EspecialidadController extends Controller
             $especialidad->save();
 
         } catch(\Exception $e) {
-            return redirect()->back()->with('error', 'la opcion de titulación que deseas editar no existe.');
+            return redirect()->back()->with('error', 'la especialidad que deseas editar no existe.');
         }
         return redirect()->back()->with('success', 'Se ha actualizado con éxito');
     }

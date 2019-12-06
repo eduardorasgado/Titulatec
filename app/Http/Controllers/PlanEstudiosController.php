@@ -78,7 +78,10 @@ class PlanEstudiosController extends Controller
     {
         //
         $plan = PlanEstudios::findOrFail($id);
-        return dd('El plan de estudios a modificar es: '.$plan->clave);
+        $especialidades = Especialidad::all();
+        return view('dashboards/administrador/planEstudios/editar',
+            compact('plan', 'especialidades')
+        );
     }
 
     /**
@@ -88,9 +91,19 @@ class PlanEstudiosController extends Controller
      * @param  \App\PlanEstudios  $planEstudios
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, PlanEstudios $planEstudios)
+    public function update(PlanEstudioRequest $request, $id)
     {
-        //
+        try {
+            $plan = PlanEstudios::findOrFail($id);
+            $plan->nombre = $request->input('nombre');
+            $plan->id_academia = $request->input('academia');
+
+            $plan->save();
+
+        } catch(\Exception $e) {
+            return redirect()->back()->with('error', 'El plan de estudios que deseas editar no existe.');
+        }
+        return redirect()->back()->with('success', 'Se ha actualizado con éxito');
     }
 
     /**

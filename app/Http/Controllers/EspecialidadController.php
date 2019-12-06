@@ -77,8 +77,10 @@ class EspecialidadController extends Controller
         // se muestran todas las academmias
         // junto con la especialidad en cuestion
         $especialidad = Especialidad::findOrFail($id);
-        return dd('Se muestra el form para editar la especialidad: '
-            .$especialidad);
+        $academias = Academia::all();
+        return view('dashboards/administrador/especialidades/editar',
+            compact('especialidad', 'academias')
+        );
     }
 
     /**
@@ -88,9 +90,19 @@ class EspecialidadController extends Controller
      * @param  \App\Especialidad  $especialidad
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Especialidad $especialidad)
+    public function update(EspecialidadRequest $request, $id)
     {
-        //
+        try {
+            $especialidad = Especialidad::findOrFail($id);
+            $especialidad->nombre = $request->input('nombre');
+            $especialidad->id_academia = $request->input('academia');
+
+            $especialidad->save();
+
+        } catch(\Exception $e) {
+            return redirect()->back()->with('error', 'la opcion de titulación que deseas editar no existe.');
+        }
+        return redirect()->back()->with('success', 'Se ha actualizado con éxito');
     }
 
     /**

@@ -71,7 +71,6 @@ class AcademiaController extends Controller
     {
         //
         $academia = Academia::findOrFail($id);
-        $academia = Academia::findOrFail($id);
         return view('dashboards/administrador/academias/editar',
             compact('academia')
         );

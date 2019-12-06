@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="38466543-71e6-47b8-907d-daf5ac2d8132" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/resources/views/dashboards/administrador/opcionTitulacion/editar.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ServiciosEscolaresController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ServiciosEscolaresController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/dashboards/administrador/cuentas/listado/serviciosEscolares.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboards/administrador/cuentas/listado/serviciosEscolares.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/OpcionTitulacionController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/OpcionTitulacionController.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -215,7 +215,9 @@
       <workItem from="1573408688048" duration="43000" />
       <workItem from="1573425900716" duration="804000" />
       <workItem from="1573533392151" duration="1382000" />
-      <workItem from="1574139714750" duration="9802000" />
+      <workItem from="1574139714750" duration="10025000" />
+      <workItem from="1575055747428" duration="2012000" />
+      <workItem from="1575646934377" duration="1611000" />
     </task>
     <servers />
   </component>

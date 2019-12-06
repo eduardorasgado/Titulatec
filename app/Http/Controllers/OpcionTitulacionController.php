@@ -72,7 +72,9 @@ class OpcionTitulacionController extends Controller
     {
         //
         $opcion = OpcionTitulacion::findOrFail($id);
-        return dd('modificando una opcion de titulacion: '.$opcion->id);
+        return view('dashboards/administrador/opcionTitulacion/editar',
+            compact('opcion')
+        );
     }
 
     /**
@@ -82,9 +84,18 @@ class OpcionTitulacionController extends Controller
      * @param  \App\OpcionTitulacion  $opcionTitulacion
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, OpcionTitulacion $opcionTitulacion)
+    public function update(OpcionTitulacionRequest $request, $id)
     {
-        //
+        try {
+            $opcion = OpcionTitulacion::findOrFail($id);
+            $opcion->nombre = $request->input('nombre');
+            $opcion->clave = $request->input('clave');
+            $opcion->save();
+
+        } catch(\Exception $e) {
+            return redirect()->back()->with('error', 'la opcion de titulación que deseas editar no existe.');
+        }
+        return redirect()->back()->with('success', 'Se ha actualizado con éxito');
     }
 
     /**

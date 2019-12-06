@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Academia;
 use App\Http\Requests\NameRequest;
+use App\OpcionTitulacion;
 use Illuminate\Http\Request;
 
 class AcademiaController extends Controller
@@ -70,7 +71,10 @@ class AcademiaController extends Controller
     {
         //
         $academia = Academia::findOrFail($id);
-        return dd('mostrando form para editar la academia: '.$academia->id);
+        $academia = Academia::findOrFail($id);
+        return view('dashboards/administrador/academias/editar',
+            compact('academia')
+        );
     }
 
     /**
@@ -80,9 +84,18 @@ class AcademiaController extends Controller
      * @param  \App\Academia  $academia
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Academia $academia)
+    public function update(NameRequest $request, $id)
     {
-        //
+        try {
+            $academia = Academia::findOrFail($id);
+            $academia->nombre = $request->input('nombre');
+
+            $academia->save();
+
+        } catch(\Exception $e) {
+            return redirect()->back()->with('error', 'la opcion de titulación que deseas editar no existe.');
+        }
+        return redirect()->back()->with('success', 'Se ha actualizado con éxito');
     }
 
     /**

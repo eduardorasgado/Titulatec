@@ -68,7 +68,7 @@
                             </div>
 
                             <div class="form-group row">
-                                <label class="col-md-4 col-form-label text-md-right" for="academia">Especialidad: </label>
+                                <label class="col-md-4 col-form-label text-md-right" for="especialidad">Especialidad: </label>
                                 <div class="col-md-6">
                                     <select class="form-control" id="especialidad" name="especialidad">
                                         @if(count($especialidades) > 0)

@@ -95,8 +95,9 @@ class PlanEstudiosController extends Controller
     {
         try {
             $plan = PlanEstudios::findOrFail($id);
-            $plan->nombre = $request->input('nombre');
-            $plan->id_academia = $request->input('academia');
+            $plan->clave = $request->input('clave');
+            $plan->is_actual = $request->input('is_actual');
+            $plan->id_especialidad = $request->input('especialidad');
 
             $plan->save();
 

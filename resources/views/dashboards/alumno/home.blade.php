@@ -126,6 +126,11 @@
                 <a href="{{ route('Alumno.Datos.Modificar', $alumno["alumno"]["id"]) }}" class="btn btn-outline-primary">Modificar datos</a>
             </div>
         </div>
+        <div class="col-md-6">
+            <div class="jumbotron jumbo-1 text-center">
+                <a href="{{ route('User.edit') }}" class="btn btn-outline-primary">Cambiar datos de acceso a cuenta</a>
+            </div>
+        </div>
     </div>
 
     <div class="row">

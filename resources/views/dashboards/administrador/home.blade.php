@@ -67,6 +67,17 @@
                 </div>
             </div>
 
+        </div>
+
+        <h5>Información de administrador</h5>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="jumbotron jumbo-1 text-center">
+                    <a href="{{ route('Auth.password.change') }}" class="btn btn-outline-primary">Cambiar datos de acceso a cuenta</a>
+                </div>
+            </div>
+        </div>
+
 
 
 @endsection

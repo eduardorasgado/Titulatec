@@ -92,6 +92,16 @@ Route::group(['middleware' => ['IsJefeOAdmin']], function() {
 });
 
 Route::group(['middleware' => ['auth']], function() {
+    // ruta para cambiar datos del user
+
+    Route::post('/user/update/{id}',
+        'UserController@update')
+        ->name('User.update');
+
+    Route::get('/user/update',
+        'UserController@edit')
+        ->name('User.edit');
+
     // rutas que todos pueden acceder
     // usualmente los get
 

@@ -24,10 +24,13 @@
                         <p>Academia: <span class="blue">{{ $maestro->academia->nombre }}</span></p>
                         <div class="row">
                             <div class="col-md-6">
+                                <a href="{{ route('Maestro.edit', ['Maestro' => $maestro->id]) }}">
+                                    <button class="btn btn-outline-secondary">Editar Datos</button></a>
+                            </div>
+                            <div class="col-md-6">
                                 <a href="{{ route('User.edit') }}">
                                     <button class="btn btn-outline-secondary">Cambiar datos de acceso a cuenta</button></a>
                             </div>
-
                         </div>
                     </div>
                 </div>
@@ -76,10 +79,8 @@
                                     <button class="btn btn-outline-secondary">Editar Datos</button></a>
                             </div>
                             <div class="col-md-6">
-
-                                <a href="{{ route('Auth.password.change') }}">
-                                    <button class="btn btn-outline-secondary">Cambiar Contraseña</button></a>
-
+                                <a href="{{ route('User.edit') }}">
+                                    <button class="btn btn-outline-secondary">Cambiar datos de acceso a cuenta</button></a>
                             </div>
                         </div>
                     </div>

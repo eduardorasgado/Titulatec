@@ -14,16 +14,13 @@
                     <div class="card-header">{{ __('Cambio de contraseña') }}</div>
 
                     <div class="alert alert-info">
+                        Cambie su contraseña a una segura para poder continuar, procura no olvidarla.
                         @if(session('success'))
                             <div class="alert alert-success" role="alert" style="margin-top: 5px">
                                 <span class="text-success">{{ session('success') }}</span>
                             </div>
 
                         @endif
-                    </div>
-
-                    <div class="alert alert-info">
-                        Cambie su contraseña a una segura para poder continuar, procura no olvidarla.
                         @if(session('Error'))
                             <div class="alert alert-danger" role="alert" style="margin-top: 5px">
                                 <span class="text-success">{{ session('Error') }}</span>

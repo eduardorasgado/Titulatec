@@ -29,6 +29,7 @@
                         @endif
                     </div>
                     <div class="card-body">
+                        <!-- User update y User edit no son rutas precreadas por los resources de laravel, se encuentran cradas en web pi eich pi -->
                         <form method="POST" action="{{ route('User.update', ['id' => $user->id]) }}">
                             @csrf
 

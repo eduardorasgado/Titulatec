@@ -9,6 +9,18 @@
             <p>Dashboard del {{$role->nombre}}. <span class="badge badge-success">{{ $maestro->academia->nombre }}</span></p>
         </div>
         <div class="row">
+            @if(session('success'))
+                <div class="alert alert-success" role="alert" style="margin-top: 5px">
+                    <span class="text-success">{{ session('success') }}</span>
+                </div>
+
+            @endif
+            @if(session('Error'))
+                <div class="alert alert-danger" role="alert" style="margin-top: 5px">
+                    <span class="text-success">{{ session('Error') }}</span>
+                </div>
+
+            @endif
             <div class="col-md-6">
                 <div class="card">
                     <div class="card-header">

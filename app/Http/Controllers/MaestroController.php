@@ -83,8 +83,14 @@ class MaestroController extends Controller
      */
     public function edit($id)
     {
-        //
-        return dd('editando al maestro: '.$id);
+        try {
+            $maestro = Maestro::findOrFail($id);
+            $academias = Academia::all();
+            return view('dashboards.jefeAcademia.actualizacion.editar',
+            compact('maestro', 'academias'));
+        } catch (\Exception $e) {
+            return redirect()->back()->with('Error', 'No existe el id del maestro que deseas editar');
+        }
     }
 
     /**
@@ -94,9 +100,11 @@ class MaestroController extends Controller
      * @param  \App\Maestro  $maestro
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Maestro $maestro)
+    public function update(Request $request, $maestroId)
     {
-        //
+        // comprobamos la pasword del usuario en cuestion
+        // una vez comprobado procedemos a actualizar los datos
+        return dd($maestroId);
     }
 
     /**

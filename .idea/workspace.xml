@@ -4,7 +4,7 @@
     <list default="true" id="38466543-71e6-47b8-907d-daf5ac2d8132" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/MaestroController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/MaestroController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Requests/ChangePassRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/ChangePassRequest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Requests/UserRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/UserRequest.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/dashboards/jefeAcademia/actualizacion/editar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboards/jefeAcademia/actualizacion/editar.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -220,7 +220,7 @@
       <workItem from="1575055747428" duration="2012000" />
       <workItem from="1575646934377" duration="7506000" />
       <workItem from="1576085964463" duration="12963000" />
-      <workItem from="1576177713875" duration="6715000" />
+      <workItem from="1576177713875" duration="7936000" />
     </task>
     <servers />
   </component>

@@ -103,9 +103,19 @@ class MaestroController extends Controller
      */
     public function update(JefeAcademiaRequest $request, $maestroId)
     {
-        // comprobamos la pasword del usuario en cuestion
+
         // una vez comprobado procedemos a actualizar los datos
-        return dd($maestroId);
+        try {
+            $maestro = Maestro::findOrFail($maestroId);
+            $maestro->cedula_profesional = $request->input('cedula_profesional');
+            $maestro->especialidad_estudiada = $request->input('especialidad_estudiada');
+            $maestro->id_academia = $request->input('academia');
+            $maestro->save();
+
+            return redirect()->back()->with('success', 'Se han actualizado tus datos con éxito');
+        } catch (\Exception $e) {
+            return redirect()->back()->with('Error', 'El maestro que desea editar en cuestión no existe. INFORME: '.$e->getMessage());
+        }
     }
 
     /**

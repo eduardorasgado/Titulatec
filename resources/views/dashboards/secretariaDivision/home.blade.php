@@ -36,6 +36,16 @@
                     </div>
                 </div>
             </div>
+
+                <h5>Información del usuario</h5>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="jumbotron jumbo-1 text-center">
+                            <a href="{{ route('User.edit') }}">
+                                <button class="btn btn-outline-secondary">Cambiar datos de acceso a cuenta</button></a>
+                        </div>
+                    </div>
+                </div>
         </div>
 
 

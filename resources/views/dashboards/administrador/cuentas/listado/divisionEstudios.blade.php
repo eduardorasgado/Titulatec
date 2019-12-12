@@ -39,9 +39,11 @@
                             <p>Correo Electrónico: <span class="blue">{{ $personal->email }}</span></p>
                             @if($personal->id_role == $roleJefe)
                                 <p><span class="badge badge-danger">{{ $personal->role->nombre }}</span></p>
-                            @endif
-                            @if($personal->id_role == $roleCoordinador)
+
+                            @elseif($personal->id_role == $roleCoordinador)
                                 <p><span class="badge badge-dark">{{ $personal->role->nombre }}</span></p>
+                            @else
+                                <p><span class="badge badge-secondary">Secretaria de División de Estudios</span></p>
                             @endif
                             <p>Estado: <span class="blue">@if($personal->is_enable) Activo @else Desactivado @endif</span></p>
                             <br><br>

@@ -5,13 +5,7 @@ namespace App\Http\Requests;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;
 
-/**
- * Class ChangePassRequest
- * Clase que es usada para el cambio de contraseña de todos los miembros que no son alumnos en su primer
- * acceso al sistema
- * @package App\Http\Requests
- */
-class ChangePassRequest extends FormRequest
+class JefeAcademiaRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -31,13 +25,14 @@ class ChangePassRequest extends FormRequest
     public function rules()
     {
         return [
-            //
-            'old_password' => ['required', function ($attribute, $value, $fail) {
+            'password' => ['required', function ($attribute, $value, $fail) {
                 if (!\Hash::check($value, Auth::user()->password)) {
-                    $fail('Old Password did not match to our records.');
+                    $fail('La contraseña del usuario no es correcta.');
                 }
             }],
-            'password' => 'required|min:6|max:40|confirmed'
+            'cedula_profesional' => ['required', 'string', 'max:255'],
+            'especialidad_estudiada' => ['required', 'string', 'max:300'],
+            'academia' => ['required', 'numeric']
         ];
     }
 }

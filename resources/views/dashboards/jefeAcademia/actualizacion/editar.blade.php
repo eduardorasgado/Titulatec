@@ -14,6 +14,7 @@
                     <div class="card-header">{{ __('Actualización de datos de maestro') }}</div>
 
                     <div class="alert alert-info">
+                        Ingresar contraseña por seguridad
                         @if(session('success'))
                             <div class="alert alert-success" role="alert" style="margin-top: 5px">
                                 <span class="text-success">{{ session('success') }}</span>
@@ -38,7 +39,7 @@
                                 <label for="cedula_profesional" class="col-md-4 col-form-label text-md-right">{{ __('Cédula Profesional') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="cedula_profesional" type="" class="form-control @error('cedula_profesional') is-invalid @enderror" name="cedula_profesional" value="{{ $maestro->cedula_profesional }}"
+                                    <input id="cedula_profesional" class="form-control @error('cedula_profesional') is-invalid @enderror" name="cedula_profesional" value="{{ $maestro->cedula_profesional }}"
                                            required autocomplete="nombre">
 
                                     @error('cedula_profesional')
@@ -53,7 +54,7 @@
                                 <label for="especialidad_estudiada" class="col-md-4 col-form-label text-md-right">{{ __('Especialidad Estudiada') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="especialidad_estudiada" type="" class="form-control @error('especialidad_estudiada') is-invalid @enderror" name="apellidos" value="{{ $maestro->especialidad_estudiada}}"
+                                    <input id="especialidad_estudiada" class="form-control @error('especialidad_estudiada') is-invalid @enderror" name="especialidad_estudiada" value="{{ $maestro->especialidad_estudiada}}"
                                            required autocomplete="especialidad_estudiada">
 
                                     @error('especialidad_estudiada')
@@ -78,13 +79,13 @@
                             </div>
 
                             <div class="form-group row">
-                                <label for="actual_password" class="col-md-4 col-form-label text-md-right">{{ __('Contraseña Actual') }}</label>
+                                <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Contraseña Actual') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="password" type="password" class="form-control @error('actual_password') is-invalid @enderror" name="actual_password"
-                                           required autocomplete="actual_password">
+                                    <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password"
+                                           required autocomplete="password">
 
-                                    @error('actual_password')
+                                    @error('password')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>

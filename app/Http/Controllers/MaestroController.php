@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Academia;
+use App\Http\Requests\JefeAcademiaRequest;
 use App\Http\Requests\MaestroRequest;
 use App\Maestro;
 use App\Role;
@@ -100,7 +101,7 @@ class MaestroController extends Controller
      * @param  \App\Maestro  $maestro
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $maestroId)
+    public function update(JefeAcademiaRequest $request, $maestroId)
     {
         // comprobamos la pasword del usuario en cuestion
         // una vez comprobado procedemos a actualizar los datos

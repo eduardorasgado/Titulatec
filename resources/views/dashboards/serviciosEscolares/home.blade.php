@@ -65,24 +65,182 @@
                 <tbody>
                 @foreach($academias as $academia)
                     <tr>
-                        <td  scope="col">{{ $academia->nombre }}</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <th scope="col">{{ $academia->nombre }}</th>
+                        <td  scope="col">
+                            <?php $p = 0;
+                             $np = 0; ?>
+                            @foreach($actas_enero as $acta)
+                                @if($acta->procesoTitulacion->alumno->carrera->especialidad->academia->id == $academia->id)
+                                    @if($acta->foja != null)
+                                        <?php $p++; ?>
+                                    @else
+                                        <?php $np++; ?>
+                                    @endif
+                                @endif
+                            @endforeach
+                            P: <span style="font-weight: bold;" >{{ $p }}</span> / NP: {{ $np }}
+                        </td>
+                        <td  scope="col">
+                            <?php $p = 0;
+                            $np = 0; ?>
+                            @foreach($actas_febrero as $acta)
+                                @if($acta->procesoTitulacion->alumno->carrera->especialidad->academia->id == $academia->id)
+                                    @if($acta->foja != null)
+                                        <?php $p++; ?>
+                                    @else
+                                        <?php $np++; ?>
+                                    @endif
+                                @endif
+                            @endforeach
+                                P: <span style="font-weight: bold;" >{{ $p }}</span> / NP: {{ $np }}
+                        </td>
+                        <td  scope="col">
+                            <?php $p = 0;
+                            $np = 0; ?>
+                            @foreach($actas_marzo as $acta)
+                                @if($acta->procesoTitulacion->alumno->carrera->especialidad->academia->id == $academia->id)
+                                    @if($acta->foja != null)
+                                        <?php $p++; ?>
+                                    @else
+                                        <?php $np++; ?>
+                                    @endif
+                                @endif
+                            @endforeach
+                                P: <span style="font-weight: bold;" >{{ $p }}</span> / NP: {{ $np }}
+                        </td>
+                        <td  scope="col">
+                            <?php $p = 0;
+                            $np = 0; ?>
+                            @foreach($actas_abril as $acta)
+                                @if($acta->procesoTitulacion->alumno->carrera->especialidad->academia->id == $academia->id)
+                                    @if($acta->foja != null)
+                                        <?php $p++; ?>
+                                    @else
+                                        <?php $np++; ?>
+                                    @endif
+                                @endif
+                            @endforeach
+                                P: <span style="font-weight: bold;" >{{ $p }}</span> / NP: {{ $np }}
+                        </td>
+                        <td  scope="col">
+                            <?php $p = 0;
+                            $np = 0; ?>
+                            @foreach($actas_mayo as $acta)
+                                @if($acta->procesoTitulacion->alumno->carrera->especialidad->academia->id == $academia->id)
+                                    @if($acta->foja != null)
+                                        <?php $p++; ?>
+                                    @else
+                                        <?php $np++; ?>
+                                    @endif
+                                @endif
+                            @endforeach
+                                P: <span style="font-weight: bold;" >{{ $p }}</span> / NP: {{ $np }}
+                        </td>
+                        <td  scope="col">
+                            <?php $p = 0;
+                                  $np = 0; ?>
+                            @foreach($actas_junio as $acta)
+                                @if($acta->procesoTitulacion->alumno->carrera->especialidad->academia->id == $academia->id)
+                                    @if($acta->foja != null)
+                                        <?php $p++; ?>
+                                    @else
+                                        <?php $np++; ?>
+                                    @endif
+                                @endif
+                            @endforeach
+                                P: <span style="font-weight: bold;" >{{ $p }}</span> / NP: {{ $np }}
+                        </td>
+                        <td  scope="col">
+                            <?php $p = 0;
+                            $np = 0; ?>
+                            @foreach($actas_julio as $acta)
+                                @if($acta->procesoTitulacion->alumno->carrera->especialidad->academia->id == $academia->id)
+                                    @if($acta->foja != null)
+                                        <?php $p++; ?>
+                                    @else
+                                        <?php $np++; ?>
+                                    @endif
+                                @endif
+                            @endforeach
+                                P: <span style="font-weight: bold;" >{{ $p }}</span> / NP: {{ $np }}
+                        </td>
+                        <td  scope="col">
+                            <?php $p = 0;
+                            $np = 0; ?>
+                            @foreach($actas_agosto as $acta)
+                                @if($acta->procesoTitulacion->alumno->carrera->especialidad->academia->id == $academia->id)
+                                    @if($acta->foja != null)
+                                        <?php $p++; ?>
+                                    @else
+                                        <?php $np++; ?>
+                                    @endif
+                                @endif
+                            @endforeach
+                                P: <span style="font-weight: bold;" >{{ $p }}</span> / NP: {{ $np }}
+                        </td>
+                        <td  scope="col">
+                            <?php $p = 0;
+                            $np = 0; ?>
+                            @foreach($actas_septiembre as $acta)
+                                @if($acta->procesoTitulacion->alumno->carrera->especialidad->academia->id == $academia->id)
+                                    @if($acta->foja != null)
+                                        <?php $p++; ?>
+                                    @else
+                                        <?php $np++; ?>
+                                    @endif
+                                @endif
+                            @endforeach
+                                P: <span style="font-weight: bold;" >{{ $p }}</span> / NP: {{ $np }}
+                        </td>
+                        <td  scope="col">
+                            <?php $p = 0;
+                            $np = 0; ?>
+                            @foreach($actas_octubre as $acta)
+                                @if($acta->procesoTitulacion->alumno->carrera->especialidad->academia->id == $academia->id)
+                                    @if($acta->foja != null)
+                                        <?php $p++; ?>
+                                    @else
+                                        <?php $np++; ?>
+                                    @endif
+                                @endif
+                            @endforeach
+                                P: <span style="font-weight: bold;" >{{ $p }}</span> / NP: {{ $np }}
+                        </td>
+                        <td  scope="col">
+                            <?php $p = 0;
+                                $np = 0; ?>
+                            @foreach($actas_noviembre as $acta)
+                                @if($acta->procesoTitulacion->alumno->carrera->especialidad->academia->id == $academia->id)
+                                    @if($acta->foja != null)
+                                        <?php $p++; ?>
+                                    @else
+                                        <?php $np++; ?>
+                                    @endif
+                                @endif
+                            @endforeach
+                                P: <span style="font-weight: bold;" >{{ $p }}</span> / NP: {{ $np }}
+                        </td>
+                        <td  scope="col">
+                            <?php $p = 0;
+                            $np = 0; ?>
+                            @foreach($actas_diciembre as $acta)
+                                @if($acta->procesoTitulacion->alumno->carrera->especialidad->academia->id == $academia->id)
+                                    @if($acta->foja != null)
+                                        <?php $p++; ?>
+                                    @else
+                                        <?php $np++; ?>
+                                    @endif
+                                @endif
+                            @endforeach
+                                P: <span style="font-weight: bold;" >{{ $p }}</span> / NP: {{ $np }}
+                        </td>
                     </tr>
                 @endforeach
 
                 </tbody>
             </table>
+            <p>P: Procesados. NP: No procesados</p>
+
         </div>
         <h5>Información del usuario</h5>
         <div class="row">

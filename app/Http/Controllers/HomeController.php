@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Academia;
+use App\Acta;
 use App\Alumno;
 use App\Especialidad;
 use App\Http\Requests\DefaultPassRequest;
@@ -69,8 +70,47 @@ class HomeController extends Controller
         else if(Auth::user()->id_role == Role::$ROLE_SERVICIOS_ESCOLARES) {
             // dashboard de servicios escolares
             $academias = Academia::all();
+
+            // consiguiendo todas las actas por mes
+            $enero = '04';
+            $actas_enero = Acta::whereRaw('MONTH(created_at) = '.$enero)->get();
+            $febrero = '04';
+            $actas_febrero = Acta::whereRaw('MONTH(created_at) = '.$febrero)->get();
+            $marzo = '04';
+            $actas_marzo = Acta::whereRaw('MONTH(created_at) = '.$marzo)->get();
+            $abril = '04';
+            $actas_abril = Acta::whereRaw('MONTH(created_at) = '.$abril)->get();
+            $mayo = '05';
+            $actas_mayo = Acta::whereRaw('MONTH(created_at) = '.$mayo)->get();
+            $junio = '06';
+            $actas_junio = Acta::whereRaw('MONTH(created_at) = '.$junio)->get();
+            $julio = '07';
+            $actas_julio = Acta::whereRaw('MONTH(created_at) = '.$julio)->get();
+            $agosto = '08';
+            $actas_agosto = Acta::whereRaw('MONTH(created_at) = '.$agosto)->get();
+            $septiembre = '09';
+            $actas_septiembre = Acta::whereRaw('MONTH(created_at) = '.$septiembre)->get();
+            $octubre = '10';
+            $actas_octubre = Acta::whereRaw('MONTH(created_at) = '.$octubre)->get();
+            $noviembre = '11';
+            $actas_noviembre = Acta::whereRaw('MONTH(created_at) = '.$noviembre)->get();
+            $diciembre = '12';
+            $actas_diciembre = Acta::whereRaw('MONTH(created_at) = '.$diciembre)->get();
+
             return view('dashboards.serviciosEscolares.home',
-                compact('role', 'academias'));
+                compact('role', 'academias',
+                'actas_enero',
+                'actas_febrero',
+                'actas_marzo',
+                'actas_abril',
+                'actas_mayo',
+                'actas_junio',
+                'actas_julio',
+                'actas_agosto',
+                'actas_septiembre',
+                'actas_octubre',
+                'actas_noviembre',
+                'actas_diciembre'));
         }
         else if(Auth::user()->id_role == Role::$ROLE_ALUMNO) {
             // dashboard de alumno, si existe alumno traelo, si existe carrera, traerlo

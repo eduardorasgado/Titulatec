@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Academia;
 use App\Alumno;
 use App\Especialidad;
 use App\Http\Requests\DefaultPassRequest;
@@ -67,8 +68,9 @@ class HomeController extends Controller
         }
         else if(Auth::user()->id_role == Role::$ROLE_SERVICIOS_ESCOLARES) {
             // dashboard de servicios escolares
+            $academias = Academia::all();
             return view('dashboards.serviciosEscolares.home',
-                compact('role'));
+                compact('role', 'academias'));
         }
         else if(Auth::user()->id_role == Role::$ROLE_ALUMNO) {
             // dashboard de alumno, si existe alumno traelo, si existe carrera, traerlo

@@ -13,7 +13,7 @@
         <a class="btn btn-primary" href="/home">Atrás</a>
     </div>
     <div class="row">
-        
+
         <div class="col-md-6 jumbotron">
         <i class="fas fa-h2    ">Buscador de memorandums, buscar por numero de control</i>
             <form action="{{ route('Memorandum.busqueda') }}" method="POST" role="search">
@@ -60,7 +60,7 @@
                     <p> Carrera: {{ $alumno["alumno"]["carrera"]["especialidad"]["nombre"] }}</p>
                     <p> Producto: {{ $alumno["alumno"]["proyecto"]["producto"] }}</p>
                     <div class="row">
-                        <div class="col-md-6"></div>
+                        <div class="col-md-2"></div>
                         <div class="col-md-4">
                             <a href="{{ route('Alumno.memorandum.generate', [$alumno["alumno"]["id"], 1]) }}" target="_blank"><button class="btn btn-primary">Generar memorandum</button></a>
                         </div>

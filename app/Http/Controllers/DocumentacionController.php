@@ -190,7 +190,7 @@ class DocumentacionController extends Controller
         $jefeDivision = User::JefeDivision()->first();
         $jefeNombre = Role::find(Role::$ROLE_JEFE_DIVISION)
             ->nombre;
-        
+
 
         $image_link_solicitud_antiguo_logo1 = public_path('images/solicitud_antiguo_logo1.png');
         $image_link_solicitud_antiguo_logo2 = public_path('images/solicitud_antiguo_logo2.png');
@@ -229,7 +229,7 @@ class DocumentacionController extends Controller
                 $acta->fecha_generacion = $fechaGeneracion;
                 $acta->save();
             }
-            
+
             // mandamos a los asesores del alumno
             $asesores = $alumno->procesoTitulacion->asesores;
 
@@ -242,7 +242,7 @@ class DocumentacionController extends Controller
             $image_link_acta_logo = public_path('images/acta_logo1.png');
             if($alumno) {
                 return $this->viewToPDF('documentos.actas',
-                        compact('alumno','acta', 'fechaGeneracionParrafo', 'presidente', 'secretario', 'vocal', 
+                        compact('alumno','acta', 'fechaGeneracionParrafo', 'presidente', 'secretario', 'vocal',
                         'vocalSuplente', 'image_link_ovalo','image_link_acta_logo'));
             }
         } catch (\Exception $e) {

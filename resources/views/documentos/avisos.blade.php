@@ -15,9 +15,9 @@
             background: white;
             width: 600px;
             margin: auto;
-            
+
         }
-        
+
         .t {
             font-size: 12px;
         }
@@ -84,7 +84,7 @@
             <p style="margin:0;padding:0">C.c.p. Coordinación de Titulación</p>
         </div>
         <br>
-        <p>RAC/MCLP/cgb</p>
+        <br>
     </div>
 
     <img class="bottom" src="{{ $image_link_solicitud_antiguo_logo2 }}" alt="tecnm" width="100%">

@@ -81,7 +81,7 @@ class OpcionTitulacionTableSeeder extends Seeder
         ]);
         DB::table('opcion_titulaciones')->insert([
             'clave' => 'XII',
-            'nombre' => 'TITULACION INTEGRAL(INFORME TECNICO DE RESIDENCIA PROFESIONAL)',
+            'nombre' => 'TITULACION INTEGRAL',
             'estado' => true,
             'created_at' => date("Y-m-d H:i:s")
         ]);

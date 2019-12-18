@@ -129,8 +129,6 @@ class DivisionEstudiosController extends Controller
     // custom funtions
 
     public function memorandumDashboard() {
-
-
         $alumnosSinMemorandum = User::withMemorandumNonComplete()
             ->orderBy('id','asc')
                 ->paginate(6, ['*'], 'set2');
@@ -157,24 +155,14 @@ class DivisionEstudiosController extends Controller
     }
 
     public function avisosDashboard() {
-        $alumnos = User::withFullDEData()->get();
-        $alumnosConAvisos = [];
-        $alumnosSinAvisos = [];
+        $alumnosConAvisos = User::withAvisosComplete()
+            ->orderBy('id', 'desc')
+            ->paginate(6, ['*'], 'set1');
+        $alumnosSinAvisos = User::withAvisosNonComplete()
+            ->orderBy('id', 'desc')
+            ->paginate(6, ['*'], 'set2');
 
-        foreach ($alumnos as $alumno) {
-            if($alumno["alumno"]["procesoTitulacion"]["solicitud_titulacion"] &&
-                $alumno["alumno"]["procesoTitulacion"]["memorandum"] &&
-                $alumno["alumno"]["procesoTitulacion"]["registro_proyecto"] &&
-                !$alumno["alumno"]["procesoTitulacion"]["avisos"]) {
-                array_push($alumnosSinAvisos, $alumno);
-            }
-            if($alumno["alumno"]["procesoTitulacion"]["solicitud_titulacion"] &&
-                $alumno["alumno"]["procesoTitulacion"]["memorandum"] &&
-                $alumno["alumno"]["procesoTitulacion"]["registro_proyecto"] &&
-                $alumno["alumno"]["procesoTitulacion"]["avisos"]) {
-                array_push($alumnosConAvisos, $alumno);
-            }
-        }
+
         return view('dashboards.secretariaDivision.secciones.avisosList',
                 compact('alumnosConAvisos', 'alumnosSinAvisos'));
     }

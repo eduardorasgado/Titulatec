@@ -13,7 +13,7 @@
         <a class="btn btn-primary" href="/home">Atrás</a>
     </div>
     <div class="row">
-        
+
         <div class="col-md-6 jumbotron">
         <i class="fas fa-h2    ">Buscador de avisos, buscar por numero de control</i>
             <form action="{{ route('Avisos.busqueda') }}" method="POST" role="search">
@@ -47,6 +47,15 @@
                     </div>
                 </div>
             @endforeach
+            @if(count($alumnosSinAvisos))
+
+                <div class="mt-2 mx-auto">
+                    {{-- Esto permite la paginacion de dos tablas en una misma view--}}
+                    {{$alumnosSinAvisos->appends(['set1' => $alumnosConAvisos->currentPage(),
+                    'set2' => $alumnosSinAvisos->currentPage()])
+                    ->links()}}
+                </div>
+            @endif
         </div>
         <div class="col-md-6">
             <h3>Procesados</h3>
@@ -65,6 +74,15 @@
                     </div>
                 </div>
             @endforeach
+            @if(count($alumnosConAvisos))
+
+                <div class="mt-2 mx-auto">
+                    {{-- Esto permite la paginacion de dos tablas en una misma view--}}
+                    {{$alumnosConAvisos->appends(['set1' => $alumnosConAvisos->currentPage(),
+                    'set2' => $alumnosSinAvisos->currentPage()])
+                    ->links()}}
+                </div>
+            @endif
         </div>
     </div>
     <script>

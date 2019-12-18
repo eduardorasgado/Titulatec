@@ -150,13 +150,34 @@ class User extends Authenticatable
                 $query->where('memorandum', true);
             });
     }
-    public function scopeWithMemorandumNonComplete($query)
-{
+    public function scopeWithMemorandumNonComplete($query) {
     return $query
 
             ->where('id_role', Role::$ROLE_ALUMNO)
             ->whereHas('alumno.procesoTitulacion', function($query) {
+                $query->where('solicitud_titulacion', true);
                 $query->where('memorandum', false);
+            });
+    }
+
+    public function scopeWithAvisosComplete($query)
+    {
+        return $query
+
+            ->where('id_role', Role::$ROLE_ALUMNO)
+            ->whereHas('alumno.procesoTitulacion', function($query) {
+                $query->where('avisos', true);
+            });
+    }
+
+    public function scopeWithAvisosNonComplete($query)
+    {
+        return $query
+
+            ->where('id_role', Role::$ROLE_ALUMNO)
+            ->whereHas('alumno.procesoTitulacion', function($query) {
+                $query->where('registro_proyecto', true);
+                $query->where('avisos', false);
             });
     }
 

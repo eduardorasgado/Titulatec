@@ -49,6 +49,16 @@
                     </div>
                 </div>
             @endforeach
+
+            @if(count($alumnosSinMemorandum))
+
+                <div class="mt-2 mx-auto">
+                    {{-- Esto permite la paginacion de dos tablas en una misma view--}}
+                    {{$alumnosSinMemorandum->appends(['set1' => $alumnosConMemorandum->currentPage(),
+                    'set2' => $alumnosSinMemorandum->currentPage()])
+                    ->links()}}
+                </div>
+            @endif
         </div>
         <div class="col-md-6">
             <h3>Procesados</h3>
@@ -67,6 +77,15 @@
                     </div>
                 </div>
             @endforeach
+            @if(count($alumnosConMemorandum))
+
+                <div class="mt-2 mx-auto">
+                    {{-- Esto permite la paginacion de dos tablas en una misma view--}}
+                    {{$alumnosConMemorandum->appends(['set1' => $alumnosConMemorandum->currentPage(),
+                    'set2' => $alumnosSinMemorandum->currentPage()])
+                    ->links()}}
+                </div>
+            @endif
         </div>
     </div>
     <script>

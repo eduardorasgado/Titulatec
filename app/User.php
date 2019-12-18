@@ -141,6 +141,25 @@ class User extends Authenticatable
             ->where('id_role', Role::$ROLE_ALUMNO);
     }
 
+    public function scopeWithMemorandumComplete($query)
+    {
+        return $query
+
+            ->where('id_role', Role::$ROLE_ALUMNO)
+            ->whereHas('alumno.procesoTitulacion', function($query) {
+                $query->where('memorandum', true);
+            });
+    }
+    public function scopeWithMemorandumNonComplete($query)
+{
+    return $query
+
+            ->where('id_role', Role::$ROLE_ALUMNO)
+            ->whereHas('alumno.procesoTitulacion', function($query) {
+                $query->where('memorandum', false);
+            });
+    }
+
     public function scopeFindByIdAlumno($query, $idAlumno) {
         return $query->with('alumno')
             ->whereHas('alumno', function($query) use ($idAlumno) {

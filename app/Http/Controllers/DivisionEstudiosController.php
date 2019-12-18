@@ -129,20 +129,15 @@ class DivisionEstudiosController extends Controller
     // custom funtions
 
     public function memorandumDashboard() {
-        $alumnos = User::withFullDEData()->get();
-        $alumnosConMemorandum = [];
-        $alumnosSinMemorandum = [];
 
-        foreach ($alumnos as $alumno) {
-            if($alumno["alumno"]["procesoTitulacion"]["solicitud_titulacion"] &&
-                !$alumno["alumno"]["procesoTitulacion"]["memorandum"]) {
-                array_push($alumnosSinMemorandum, $alumno);
-            }
-            if($alumno["alumno"]["procesoTitulacion"]["solicitud_titulacion"] &&
-                $alumno["alumno"]["procesoTitulacion"]["memorandum"]) {
-                array_push($alumnosConMemorandum, $alumno);
-            }
-        }
+
+        $alumnosSinMemorandum = User::withMemorandumNonComplete()
+            ->orderBy('id','asc')
+                ->paginate(6, ['*'], 'set2');
+        $alumnosConMemorandum = User::withMemorandumComplete()
+            ->orderBy('id','desc')
+            ->paginate(6, ['*'], 'set1');
+
         return view('dashboards.secretariaDivision.secciones.memorandumList',
             compact('alumnosConMemorandum', 'alumnosSinMemorandum'));
     }

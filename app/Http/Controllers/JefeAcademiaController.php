@@ -104,9 +104,14 @@ class JefeAcademiaController extends Controller
      */
     public function indexSinodalia($idAcademia){
         $alumnosConAsesores =  ProcesoTitulacion::fullDataFindByRegistroProyectoAndidAcademia(
-            true, $idAcademia)->get();
+            true, $idAcademia)
+            ->orderBy('id', 'desc')
+            ->paginate(6, ['*'], 'set1');
         $alumnosSinAsesores = ProcesoTitulacion::fullDataFindByRegistroProyectoAndidAcademia(
-            false, $idAcademia)->get();
+            false, $idAcademia)
+            ->orderBy('id', 'asc')
+            ->paginate(6, ['*'], 'set2');
+
         return view('dashboards.jefeAcademia.sinodales.home',
                 compact('alumnosConAsesores', 'alumnosSinAsesores', 'idAcademia'));
     }

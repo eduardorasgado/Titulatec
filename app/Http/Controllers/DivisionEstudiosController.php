@@ -159,7 +159,7 @@ class DivisionEstudiosController extends Controller
             ->orderBy('id', 'desc')
             ->paginate(6, ['*'], 'set1');
         $alumnosSinAvisos = User::withAvisosNonComplete()
-            ->orderBy('id', 'desc')
+            ->orderBy('id', 'asc')
             ->paginate(6, ['*'], 'set2');
 
 

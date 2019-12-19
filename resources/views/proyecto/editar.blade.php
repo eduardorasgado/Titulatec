@@ -34,7 +34,11 @@
                                 <label for="nombre" class="col-md-4 col-form-label text-md-right">{{ __('Nombre') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="nombre" type="text" class="form-control @error('nombre') is-invalid @enderror" name="nombre" value="{{ $proyecto["nombre"] }}" required autocomplete="nombre" autofocus>
+                                    <input id="nombre" type="text"
+                                           class="form-control @error('nombre') is-invalid @enderror" name="nombre" value="{{ $proyecto["nombre"] }}"
+                                           onchange="mayusChanger()"
+                                           onkeyup="mayusChanger()"
+                                           required autocomplete="nombre" autofocus>
 
                                     @error('nombre')
                                     <span class="invalid-feedback" role="alert">
@@ -85,4 +89,15 @@
             </div>
         </div>
     </div>
+
+    <script type="text/javascript">
+        // funcion que usamos para cambiar a mayuscula la entrada del nombre de un proyecto
+        function mayusChanger() {
+            let nombre_input = document.getElementById('nombre');
+            var nombre_value = nombre_input.value;
+            var value_mayus = nombre_value.toUpperCase();
+            nombre_input.value = value_mayus;
+        }
+
+    </script>
 @endsection

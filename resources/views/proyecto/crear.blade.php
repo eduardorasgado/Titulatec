@@ -33,7 +33,10 @@
                                 <label for="nombre" class="col-md-4 col-form-label text-md-right">{{ __('Nombre') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="nombre" onchange="mayusChanger()" type="text" class="form-control @error('nombre') is-invalid @enderror" name="nombre" value="{{ old('nombre') }}" required autocomplete="nombre" autofocus>
+                                    <input id="nombre"
+                                           onchange="mayusChanger()"
+                                           onkeyup="mayusChanger()"
+                                           type="text" class="form-control @error('nombre') is-invalid @enderror" name="nombre" value="{{ old('nombre') }}" required autocomplete="nombre" autofocus>
 
                                     @error('nombre')
                                     <span class="invalid-feedback" role="alert">

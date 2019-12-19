@@ -144,7 +144,6 @@ class User extends Authenticatable
     public function scopeWithMemorandumComplete($query)
     {
         return $query
-
             ->where('id_role', Role::$ROLE_ALUMNO)
             ->whereHas('alumno.procesoTitulacion', function($query) {
                 $query->where('memorandum', true);
@@ -173,11 +172,30 @@ class User extends Authenticatable
     public function scopeWithAvisosNonComplete($query)
     {
         return $query
-
             ->where('id_role', Role::$ROLE_ALUMNO)
             ->whereHas('alumno.procesoTitulacion', function($query) {
                 $query->where('registro_proyecto', true);
                 $query->where('avisos', false);
+            });
+    }
+
+    public function scopeWithActasComplete($query)
+    {
+        return $query
+            ->where('id_role', Role::$ROLE_ALUMNO)
+            ->whereHas('alumno.procesoTitulacion', function($query) {
+                $query->where('is_proceso_finished', true);
+            });
+    }
+
+    public function scopeWithActasNonComplete($query)
+    {
+        return $query
+
+            ->where('id_role', Role::$ROLE_ALUMNO)
+            ->whereHas('alumno.procesoTitulacion', function($query) {
+                $query->where('avisos', true);
+                $query->where('is_proceso_finished', false);
             });
     }
 

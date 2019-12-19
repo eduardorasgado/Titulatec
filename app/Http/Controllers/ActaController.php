@@ -18,19 +18,12 @@ class ActaController extends Controller
      */
     public function index()
     {
-        $alumnos = User::withFullDEData()->get();
-        $alumnosConActas = [];
-        $alumnosSinActas = [];
-
-        foreach ($alumnos as $alumno) {
-            if(!$alumno["alumno"]["procesoTitulacion"]["is_proceso_finished"] && 
-                $alumno["alumno"]["procesoTitulacion"]["avisos"]) {
-                array_push($alumnosSinActas, $alumno);
-            }
-            if($alumno["alumno"]["procesoTitulacion"]["is_proceso_finished"]) {
-                array_push($alumnosConActas, $alumno);
-            }
-        }
+        $alumnosConActas = User::withActasComplete()
+            ->orderBy('id', 'desc')
+            ->paginate(2, ['*'], 'set1');
+        $alumnosSinActas = User::withActasNonComplete()
+            ->orderBy('id', 'asc')
+            ->paginate(2, ['*'], 'set2');
 
         return view('dashboards.serviciosEscolares.actas.home',
                 compact('alumnosConActas', 'alumnosSinActas'));
@@ -90,7 +83,7 @@ class ActaController extends Controller
             $acta->id_libro = $request->input('id_libro');
             $acta->hora_fin = $request->input('hora_fin');
             $acta->foja = $request->input('foja');
-            
+
             $acta->save();
 
             // cambiando el estado del proceso para verificar que se han terminado todos los pasos y asi proceder a generar el acta

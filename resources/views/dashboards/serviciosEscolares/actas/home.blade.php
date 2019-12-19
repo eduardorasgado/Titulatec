@@ -18,7 +18,7 @@
             <form action="{{ route('Actas.busqueda') }}" method="POST" role="search">
                 {{ csrf_field() }}
                 <div class="input-group">
-                    
+
                     <input type="text" class="form-control" name="control"
                         placeholder="Buscar por número de control" required> <span class="input-group-btn">
                         <button type="submit" class="btn btn-primary">Buscar</button>
@@ -44,6 +44,15 @@
                     </div>
                 </div>
             @endforeach
+            @if(count($alumnosSinActas))
+
+                <div class="mt-2 mx-auto">
+                    {{-- Esto permite la paginacion de dos tablas en una misma view--}}
+                    {{$alumnosSinActas->appends(['set1' => $alumnosConActas->currentPage(),
+                    'set2' => $alumnosSinActas->currentPage()])
+                    ->links()}}
+                </div>
+            @endif
         </div>
         <div class="col-md-6">
             <h3>Generadas</h3>
@@ -61,6 +70,15 @@
                     </div>
                 </div>
             @endforeach
+            @if(count($alumnosConActas))
+
+                <div class="mt-2 mx-auto">
+                    {{-- Esto permite la paginacion de dos tablas en una misma view--}}
+                    {{$alumnosConActas->appends(['set1' => $alumnosConActas->currentPage(),
+                    'set2' => $alumnosSinActas->currentPage()])
+                    ->links()}}
+                </div>
+            @endif
         </div>
     </div>
 @endsection

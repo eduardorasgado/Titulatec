@@ -20,10 +20,10 @@ class ActaController extends Controller
     {
         $alumnosConActas = User::withActasComplete()
             ->orderBy('id', 'desc')
-            ->paginate(2, ['*'], 'set1');
+            ->paginate(6, ['*'], 'set1');
         $alumnosSinActas = User::withActasNonComplete()
             ->orderBy('id', 'asc')
-            ->paginate(2, ['*'], 'set2');
+            ->paginate(6, ['*'], 'set2');
 
         return view('dashboards.serviciosEscolares.actas.home',
                 compact('alumnosConActas', 'alumnosSinActas'));

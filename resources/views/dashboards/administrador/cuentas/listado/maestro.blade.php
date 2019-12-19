@@ -58,6 +58,7 @@
 
                 </div>
             </div>
+        </div>
 
             <br/>
             @foreach($academias as $academia)
@@ -65,10 +66,10 @@
                 <div class="row">
                     <div class="col">
                         <div class="collapse multi-collapse" id="multiCollapse{{ $academia->id }}">
-                            <div class="card card-header">
-                                <h3>{{ $academia->nombre }}</h3>
-                            </div>
-                            <div class="card card-body">
+                                    <div class="card card-header">
+                                        <h3>{{ $academia->nombre }}</h3>
+                                    </div>
+                                    <div class="card card-body">
                                 <div class="row">
                                     @foreach($maestros as $maestro)
                                         @if($maestro->maestro["academia"]["id"] == $academia->id && $maestro->is_enable)

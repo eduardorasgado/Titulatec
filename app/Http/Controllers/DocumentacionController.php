@@ -240,6 +240,7 @@ class DocumentacionController extends Controller
 
             $image_link_ovalo = public_path('images/ovalo.png');
             $image_link_acta_logo = public_path('images/acta_logo1.png');
+
             if($alumno) {
                 return $this->viewToPDF('documentos.actas',
                         compact('alumno','acta', 'fechaGeneracionParrafo', 'presidente', 'secretario', 'vocal',

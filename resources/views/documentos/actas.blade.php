@@ -13,7 +13,7 @@
     /*Este es el formateo de el texto donde va la firma*/
         body {
             background: white;
-            width: 700px;
+            width: 670px;
         }
         .t {
 
@@ -27,6 +27,17 @@
         .title {
             font-family: 'sans-serif';
             font-weight: 800;
+            color: darkblue;
+        }
+
+        .title2 {
+            font-family: 'sans-serif';
+            font-weight: 800;
+        }
+
+        .doc {
+            position: absolute;
+            left: 0;
         }
 
         .ovalo {
@@ -34,7 +45,7 @@
             top: 300px;
             left: 0;
             width: 100px;
-            height:180px;
+            height:150px;
         }
         .sign-container {
             position: relative;
@@ -55,46 +66,48 @@
     </style>
 </head>
 <body>
-<div class="">
+<div class="doc">
     <img class="offset-2" src="{{ $image_link_acta_logo }}" alt="tecnm">
     <img class="ovalo" src="{{ $image_link_ovalo }}" alt="foto_ovalo">
-   <div class="offset-2 t">
-    <div style="text-align: center">
-        <h4 class="title">INSTITUTO TECNOLÓGICO DEL ISTMO</h4>
-        <h5 class="title">CERTIFICACIÓN DE CONSTANCIA DE EXENCIÓN DE EXAMEN PROFESIONAL</h5>
-    </div>
-   <p align="justify">
-    El suscrito Director del Instituto Tecnológico del Istmo, certifica que en el Libro para Constancias de Exención de Examen Profesional No <span style="font-weight:bold">{{ $acta["id_libro"] }}</span> autorizado el día <span style="font-weight:bold">{{ $acta["fecha_examen_aviso"] }}</span>, por la Dirección de Asuntos Escolares y Apoyo a Estudiantes de la Dirección General del Tecnológico Nacional de México, se encuentra sentada en la foja número <span style="font-weight:bold">{{ $acta["foja"] }}</span> la constancia que a la letra dice:
-   </p>
-   <p align="justify">
-    De acuerdo con el instructivo vigente de Titulación, que no tienen como requisito la sustentación del Examen Profesional para efecto de obtención de Títuloo, en las opciones VIII, IX y Titulación Integral, el jurado <span style="font-weight:bold">HACE CONSTAR</span>: que el(la) C. <span style="font-weight:bold">{{ strtoupper($alumno->user->nombre) }} {{ strtoupper($alumno->user->apellidos) }}</span>, con número de control <span style="font-weight:bold">{{ $alumno->numero_control }}</span>, egresado(a) del Instituto Tecnológico del Istmo, Clave <span style="font-weight:bold">20DIT003M</span>, que cursó la carrera de: <span style="font-weight:bold">{{ $alumno->carrera->especialidad->nombre }}</span>. Cumplió satisfactoriamente con lo estipulado en opción <span style="font-weight:bold">{{ $alumno->procesoTitulacion->opcionTitulacion->nombre }}({{ $alumno->proyecto->producto }}) "{{ strtoupper($alumno->proyecto->nombre) }}"</span>.
-   </p>
-   <p align="justify">
-    El (la) Presidente (a) del jurado le hizo saber a el (la)  sustentante el Código de ética Profesional y le tomó la protesta de ley, una vez escrita y leída la firmaron las personas que en el acto protocolario intervinieron, para los efectos legales a que haya lugar, se asienta la presene en la Heróica Ciudad de Juchitán de Zaragoza, Oaxaca, el dia <span style="font-weight:bold">{{ $fechaGeneracionParrafo }}</span>.
-   </p>
+   <div class="offset-sm-2 t">
+        <div style="text-align: center">
+            <h4 class="title">INSTITUTO TECNOLÓGICO DEL ISTMO</h4>
+            <h5 class="title2">CERTIFICACIÓN DE CONSTANCIA DE EXENCIÓN DE EXAMEN PROFESIONAL</h5>
+        </div>
 
-   <p align="justify"><span style="font-weight:bold">Presidente (a)</span>: {{ $presidente->user->nombre }} {{ $presidente->user->apellidos }}, {{ $presidente->especialidad_estudiada }}, Ced. prof. {{ $presidente->cedula_profesional }}. </p>
-   <p align="justify"><span style="font-weight:bold">Secretario (a)</span>: {{ $secretario->user->nombre }} {{ $secretario->user->apellidos }}, {{ $secretario->especialidad_estudiada }}, Ced. prof. {{ $secretario->cedula_profesional }}.</p>
-   <p align="justify"><span style="font-weight:bold">Vocal (a)</span>: {{ $vocal->user->nombre }} {{ $vocal->user->apellidos }}, {{ $vocal->especialidad_estudiada }}, Ced. prof. {{ $vocal->cedula_profesional }}.</p>
-   <p align="justify">Se extiende este certificado a los <span style="font-weight:bold">{{ $acta["fecha_generacion"] }}.</span> </p>
-   </div>
+       <p align="justify">
+        El suscrito Director del Instituto Tecnológico del Istmo, certifica que en el Libro para Constancias de Exención de Examen Profesional No <span style="font-weight:bold">{{ $acta["id_libro"] }}</span> autorizado el día <span style="font-weight:bold">{{ $acta["fecha_examen_aviso"] }}</span>, por la Dirección de Asuntos Escolares y Apoyo a Estudiantes de la Dirección General del Tecnológico Nacional de México, se encuentra sentada en la foja número <span style="font-weight:bold">{{ $acta["foja"] }}</span> la constancia que a la letra dice:
+       </p>
+       <p align="justify">
+        De acuerdo con el instructivo vigente de Titulación, que no tienen como requisito la sustentación del Examen Profesional para efecto de obtención de Títuloo, en las opciones VIII, IX y Titulación Integral, el jurado <span style="font-weight:bold">HACE CONSTAR</span>: que el(la) C. <span style="font-weight:bold">{{ mb_strtoupper($alumno->user->nombre) }} {{ mb_strtoupper($alumno->user->apellidos) }}</span>, con número de control <span style="font-weight:bold">{{ $alumno->numero_control }}</span>, egresado(a) del Instituto Tecnológico del Istmo, Clave <span style="font-weight:bold">20DIT003M</span>, que cursó la carrera de: <span style="font-weight:bold">{{ $alumno->carrera->especialidad->nombre }}</span>. Cumplió satisfactoriamente con lo estipulado en opción <span style="font-weight:bold">{{ mb_strtoupper($alumno->procesoTitulacion->opcionTitulacion->nombre) }}({{ $alumno->proyecto->producto }}) "{{ strtoupper($alumno->proyecto->nombre) }}"</span>.
+       </p>
+       <p align="justify">
+        El (la) Presidente (a) del jurado le hizo saber a el (la)  sustentante el Código de ética Profesional y le tomó la protesta de ley, una vez escrita y leída la firmaron las personas que en el acto protocolario intervinieron, para los efectos legales a que haya lugar, se asienta la presene en la Heróica Ciudad de Juchitán de Zaragoza, Oaxaca, el dia <span style="font-weight:bold">{{ $fechaGeneracionParrafo }}</span>.
+       </p>
 
-   <div class="t row sign-container">
-    <div class="col-sm-6 offset-sm-1 placed-bottom" align="center">
-        <p>COTEJO</p>
-        <br>
-        <p class="sign-text">Jefa del Departamento de Servicios Escolares</p>
-        <p class="sign-text">Licenciada en Derecho</p>
-        <p class="sign-text">Nadxielly Kenya Marín Gallegos</p>
+       <p align="justify"><span style="font-weight:bold">Presidente (a)</span>: {{ $presidente->user->nombre }} {{ $presidente->user->apellidos }}, {{ $presidente->especialidad_estudiada }}, Ced. prof. {{ $presidente->cedula_profesional }}. </p>
+       <p align="justify"><span style="font-weight:bold">Secretario (a)</span>: {{ $secretario->user->nombre }} {{ $secretario->user->apellidos }}, {{ $secretario->especialidad_estudiada }}, Ced. prof. {{ $secretario->cedula_profesional }}.</p>
+       <p align="justify"><span style="font-weight:bold">Vocal (a)</span>: {{ $vocal->user->nombre }} {{ $vocal->user->apellidos }}, {{ $vocal->especialidad_estudiada }}, Ced. prof. {{ $vocal->cedula_profesional }}.</p>
+       <p align="justify">Se extiende este certificado a los <span style="font-weight:bold">{{ $acta["fecha_generacion"] }}.</span> </p>
+       </div>
+
+       <div class="t row sign-container">
+        <div class="col-sm-6 offset-sm-1 placed-bottom" align="center">
+            <p>COTEJO</p>
+            <br>
+            <p class="sign-text">Jefa del Departamento de Servicios Escolares</p>
+            <p class="sign-text">Licenciada en Derecho</p>
+            <p class="sign-text">Nadxielly Kenya Marín Gallegos</p>
+        </div>
+        <div class="col-sm-6 offset-7 placed-bottom2" align="center">
+            <p>DIRECTOR</p>
+            <br>
+            <p class="sign-text">Ingeniero Industrial Químico</p>
+            <p class="sign-text">Víctor Manuel Jiménez Cruz</p>
+            <div></div>
+        </div>
+       </div>
     </div>
-    <div class="col-sm-6 offset-7 placed-bottom2" align="center">
-        <p>DIRECTOR</p>
-        <br>
-        <p class="sign-text">Ingeniero Industrial Químico</p>
-        <p class="sign-text">Víctor Manuel Jiménez Cruz</p>
-        <div></div>
-    </div>
-   </div>
 
 </div>
 </body>

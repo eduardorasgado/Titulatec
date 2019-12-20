@@ -34,6 +34,7 @@
                 <div class="jumboColorBlue">
                     <p>Alumno: <span class="blue">{{ $alumno->nombre }} {{ $alumno->apellidos }}</span></p>
                     <p>Num. Control: <span class="blue">{{ $alumno["alumno"]["numero_control"] }}</span></p>
+                    <p>Opción de Titulación: <span class="blue">{{ mb_strtoupper($alumno["alumno"]["procesoTitulacion"]["opcionTitulacion"]["nombre"]) }}</span></p>
                     <p>fecha de protocolo: <span class="blue">{{ $alumno["alumno"]["procesoTitulacion"]["acta"]["fecha_examen_aviso"] }}</span></p>
                     <p>hora de inicio de protocolo: <span class="blue">{{ $alumno["alumno"]["procesoTitulacion"]["acta"]["hora_inicio"] }} horas</span></p>
                     <div class="row">
@@ -60,6 +61,7 @@
                 <div class="jumboColorBlue">
                     <p>Alumno: <span class="blue">{{ $alumno->nombre }} {{ $alumno->apellidos }}</span></p>
                     <p>Num. Control: <span class="blue">{{ $alumno["alumno"]["numero_control"] }}</span></p>
+                    <p>Opción de Titulación: <span class="blue">{{ mb_strtoupper($alumno["alumno"]["procesoTitulacion"]["opcionTitulacion"]["nombre"]) }}</span></p>
                     <p>fecha de protocolo: <span class="blue">{{ $alumno["alumno"]["procesoTitulacion"]["acta"]["fecha_examen_aviso"] }}</span></p>
                     <p>hora de inicio de protocolo: <span class="blue">{{ $alumno["alumno"]["procesoTitulacion"]["acta"]["hora_inicio"] }} horas</span></p>
                     <div class="row">

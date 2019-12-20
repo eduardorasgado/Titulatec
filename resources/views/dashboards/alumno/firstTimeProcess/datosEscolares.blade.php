@@ -258,7 +258,7 @@
 
                 for(let i = 1; i < select.options.length; i++) {
                     let clave = select.options[i].label.split(".")[0];
-                    if(clave != "XII") {
+                    if(clave != "XII" && clave != "XIII" && clave != "XIV" && clave != "XV" && clave != "XVI" && clave != "XVII") {
 
                         select.options[i] = null;
                         // esto se agrega porque cada que eliminamos un elemento se recorren los elementos del arreglo en el select
@@ -275,7 +275,7 @@
                 for(let i = 1; i < select.options.length; i++) {
                     let clave = select.options[i].label.split(".")[0];
 
-                    if(clave == "XII") {
+                    if(clave == "XII" || clave == "XIII" || clave == "XIV" || clave == "XV" || clave == "XVI" || clave == "XVII") {
 
                         select.options[i] = null;
                         // esto se agrega porque cada que eliminamos un elemento se recorren los elementos del arreglo en el select

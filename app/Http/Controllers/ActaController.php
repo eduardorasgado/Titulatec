@@ -20,6 +20,10 @@ class ActaController extends Controller
     {
         $alumnosConActas = User::withActasComplete()
             ->orderBy('id', 'desc')
+            //->join('user', 'user.id', '=', 'alumno.id_user')
+            //->join('user.alumno', 'user.alumno.id', '=', 'procesoTitulacion.id_alumno')
+            //->orderBy('user.alumno.procesoTitulacion.updated_at')
+            //->select('user.*') //see PS:
             ->paginate(6, ['*'], 'set1');
         $alumnosSinActas = User::withActasNonComplete()
             ->orderBy('id', 'asc')

@@ -13,6 +13,7 @@ use App\OpcionTitulacion;
 use App\Proyecto;
 use App\Role;
 use App\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -71,31 +72,54 @@ class HomeController extends Controller
             // dashboard de servicios escolares
             $academias = Academia::all();
 
+            $actual_year = Carbon::now()->year;
             // consiguiendo todas las actas por mes
-            $enero = '04';
-            $actas_enero = Acta::whereRaw('MONTH(created_at) = '.$enero)->get();
-            $febrero = '04';
-            $actas_febrero = Acta::whereRaw('MONTH(created_at) = '.$febrero)->get();
-            $marzo = '04';
-            $actas_marzo = Acta::whereRaw('MONTH(created_at) = '.$marzo)->get();
+            $enero = '01';
+            $actas_enero = Acta::whereRaw('MONTH(updated_at) = '.$enero)
+                ->whereRaw('YEAR(updated_at) ='.$actual_year)
+                ->get();
+            $febrero = '02';
+            $actas_febrero = Acta::whereRaw('MONTH(updated_at) = '.$febrero)
+                ->whereRaw('YEAR(updated_at) ='.$actual_year)
+                ->get();
+            $marzo = '03';
+            $actas_marzo = Acta::whereRaw('MONTH(updated_at) = '.$marzo)
+                ->whereRaw('YEAR(updated_at) ='.$actual_year)
+                ->get();
             $abril = '04';
-            $actas_abril = Acta::whereRaw('MONTH(created_at) = '.$abril)->get();
+            $actas_abril = Acta::whereRaw('MONTH(updated_at) = '.$abril)
+                ->whereRaw('YEAR(updated_at) ='.$actual_year)
+                ->get();
             $mayo = '05';
-            $actas_mayo = Acta::whereRaw('MONTH(created_at) = '.$mayo)->get();
+            $actas_mayo = Acta::whereRaw('MONTH(updated_at) = '.$mayo)
+                ->whereRaw('YEAR(updated_at) ='.$actual_year)
+                ->get();
             $junio = '06';
-            $actas_junio = Acta::whereRaw('MONTH(created_at) = '.$junio)->get();
+            $actas_junio = Acta::whereRaw('MONTH(updated_at) = '.$junio)
+                ->whereRaw('YEAR(updated_at) ='.$actual_year)
+                ->get();
             $julio = '07';
-            $actas_julio = Acta::whereRaw('MONTH(created_at) = '.$julio)->get();
+            $actas_julio = Acta::whereRaw('MONTH(updated_at) = '.$julio)
+                ->whereRaw('YEAR(updated_at) ='.$actual_year)
+                ->get();
             $agosto = '08';
-            $actas_agosto = Acta::whereRaw('MONTH(created_at) = '.$agosto)->get();
+            $actas_agosto = Acta::whereRaw('MONTH(updated_at) = '.$agosto)
+                ->whereRaw('YEAR(updated_at) ='.$actual_year)
+                ->get();
             $septiembre = '09';
-            $actas_septiembre = Acta::whereRaw('MONTH(created_at) = '.$septiembre)->get();
+            $actas_septiembre = Acta::whereRaw('MONTH(updated_at) = '.$septiembre)
+                ->whereRaw('YEAR(updated_at) ='.$actual_year)
+                ->get();
             $octubre = '10';
-            $actas_octubre = Acta::whereRaw('MONTH(created_at) = '.$octubre)->get();
+            $actas_octubre = Acta::whereRaw('MONTH(updated_at) = '.$octubre)->get();
             $noviembre = '11';
-            $actas_noviembre = Acta::whereRaw('MONTH(created_at) = '.$noviembre)->get();
+            $actas_noviembre = Acta::whereRaw('MONTH(updated_at) = '.$noviembre)
+                ->whereRaw('YEAR(updated_at) ='.$actual_year)
+                ->get();
             $diciembre = '12';
-            $actas_diciembre = Acta::whereRaw('MONTH(created_at) = '.$diciembre)->get();
+            $actas_diciembre = Acta::whereRaw('MONTH(updated_at) = '.$diciembre)
+                ->whereRaw('YEAR(updated_at) ='.$actual_year)
+                ->get();
 
             return view('dashboards.serviciosEscolares.home',
                 compact('role', 'academias',
